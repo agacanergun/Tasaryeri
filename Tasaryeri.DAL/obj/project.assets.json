@@ -3467,11 +3467,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MONSTER\\Desktop\\Yeni klasör (4)\\Tasaryeri.DAL\\Tasaryeri.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.DAL\\Tasaryeri.DAL.csproj",
       "projectName": "Tasaryeri.DAL",
-      "projectPath": "C:\\Users\\MONSTER\\Desktop\\Yeni klasör (4)\\Tasaryeri.DAL\\Tasaryeri.DAL.csproj",
+      "projectPath": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.DAL\\Tasaryeri.DAL.csproj",
       "packagesPath": "C:\\Users\\MONSTER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MONSTER\\Desktop\\Yeni klasör (4)\\Tasaryeri.DAL\\obj\\",
+      "outputPath": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

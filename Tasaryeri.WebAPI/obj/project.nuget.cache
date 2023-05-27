@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MZKDVU2k/Y6GH0KpYZ2kMob70lPhEnVbXp5bK/fSbKIeXaTIt4J4iYBmxP19DbTRJWEaGdORPuMD7lXEp4Qtbw==",
+  "dgSpecHash": "BxqEYZGeq71AjtdHwGrX1cBNiIiC2Wei7LJQMDmQSoccQicwDRLyWHW8dC1tKIAt5EBZXuWpdSmh6woifXz3Yg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MONSTER\\Desktop\\Yeni klasör (4)\\Tasaryeri.WebAPI\\Tasaryeri.WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebAPI\\Tasaryeri.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

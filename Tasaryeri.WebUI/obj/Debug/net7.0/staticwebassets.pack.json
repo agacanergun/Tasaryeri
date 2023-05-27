@@ -1,0 +1,313 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\custom.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\custom.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\fontawesome.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\fontawesome.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\fontawesome.min.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\fontawesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\slick-theme.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\slick-theme.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\slick-theme.min.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\slick-theme.min.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\slick.min.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\slick.min.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\templatemo.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\templatemo.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\templatemo.min.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\templatemo.min.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\about-hero.svg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\about-hero.svg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\ajax-loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\apple-icon.png",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\apple-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\banner_img_01.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\banner_img_01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\banner_img_02.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\banner_img_02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\banner_img_03.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\banner_img_03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\brand_01.png",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\brand_01.png"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\brand_02.png",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\brand_02.png"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\brand_03.png",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\brand_03.png"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\brand_04.png",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\brand_04.png"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\category_img_01.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\category_img_01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\category_img_02.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\category_img_02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\category_img_03.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\category_img_03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\favicon.ico",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\feature_prod_01.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\feature_prod_01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\feature_prod_02.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\feature_prod_02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\feature_prod_03.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\feature_prod_03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_01.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_02.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_03.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_04.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_05.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_06.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_07.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_08.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_09.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\product_single_10.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\product_single_10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_01.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_02.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_03.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_04.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_05.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_06.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_07.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_08.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_09.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_10.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\shop_11.jpg",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\shop_11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\assetsUI\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\js\\custom.js",
+      "PackagePath": "staticwebassets\\assetsUI\\js\\custom.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\js\\jquery-1.11.0.min.js",
+      "PackagePath": "staticwebassets\\assetsUI\\js\\jquery-1.11.0.min.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\js\\jquery-migrate-1.2.1.min.js",
+      "PackagePath": "staticwebassets\\assetsUI\\js\\jquery-migrate-1.2.1.min.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\js\\slick.min.js",
+      "PackagePath": "staticwebassets\\assetsUI\\js\\slick.min.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\js\\templatemo.js",
+      "PackagePath": "staticwebassets\\assetsUI\\js\\templatemo.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\js\\templatemo.min.js",
+      "PackagePath": "staticwebassets\\assetsUI\\js\\templatemo.min.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\slick.eot",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\slick.eot"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\slick.svg",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\slick.svg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\slick.ttf",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\slick.ttf"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\slick.woff",
+      "PackagePath": "staticwebassets\\assetsUI\\webfonts\\slick.woff"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Tasaryeri.WebUI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Tasaryeri.WebUI.props",
+      "PackagePath": "build\\Tasaryeri.WebUI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Tasaryeri.WebUI.props",
+      "PackagePath": "buildMultiTargeting\\Tasaryeri.WebUI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Tasaryeri.WebUI.props",
+      "PackagePath": "buildTransitive\\Tasaryeri.WebUI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
