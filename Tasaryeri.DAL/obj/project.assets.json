@@ -1132,6 +1132,16 @@
             "rid": "win"
           }
         }
+      },
+      "Tasaryeri.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Tasaryeri.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Tasaryeri.Core.dll": {}
+        }
       }
     }
   },
@@ -3452,12 +3462,18 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Tasaryeri.Core/1.0.0": {
+      "type": "project",
+      "path": "../Tasaryeri.Core/Tasaryeri.Core.csproj",
+      "msbuildProject": "../Tasaryeri.Core/Tasaryeri.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
-      "Microsoft.EntityFrameworkCore.Tools >= 7.0.5"
+      "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
+      "Tasaryeri.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3492,7 +3508,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.Core\\Tasaryeri.Core.csproj": {
+              "projectPath": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.Core\\Tasaryeri.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

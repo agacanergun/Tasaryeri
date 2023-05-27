@@ -13,4 +13,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Tasaryeri.Core\Tasaryeri.Core.csproj" />
+  </ItemGroup>
+
 </Project>
