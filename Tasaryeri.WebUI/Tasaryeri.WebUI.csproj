@@ -18,4 +18,8 @@
     <ProjectReference Include="..\Tasaryeri.DAL\Tasaryeri.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\admin\Controllers\" />
+  </ItemGroup>
+
 </Project>

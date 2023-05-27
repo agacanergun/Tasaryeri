@@ -1,6 +1,38 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdminLogin\\css\\styles.css",
+      "PackagePath": "staticwebassets\\assetsAdminLogin\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdminLogin\\img\\login-bg.png",
+      "PackagePath": "staticwebassets\\assetsAdminLogin\\img\\login-bg.png"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdminLogin\\js\\main.js",
+      "PackagePath": "staticwebassets\\assetsAdminLogin\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdminLogin\\scss\\base\\_base.scss",
+      "PackagePath": "staticwebassets\\assetsAdminLogin\\scss\\base\\_base.scss"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdminLogin\\scss\\components\\_breakpoints.scss",
+      "PackagePath": "staticwebassets\\assetsAdminLogin\\scss\\components\\_breakpoints.scss"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdminLogin\\scss\\components\\_login.scss",
+      "PackagePath": "staticwebassets\\assetsAdminLogin\\scss\\components\\_login.scss"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdminLogin\\scss\\config\\_variables.scss",
+      "PackagePath": "staticwebassets\\assetsAdminLogin\\scss\\config\\_variables.scss"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdminLogin\\scss\\styles.scss",
+      "PackagePath": "staticwebassets\\assetsAdminLogin\\scss\\styles.scss"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\assetsUI\\css\\bootstrap.min.css"
     },
