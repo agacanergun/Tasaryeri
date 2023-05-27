@@ -1,0 +1,28 @@
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.DAL.deps.json
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.DAL.runtimeconfig.json
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.DAL.pdb
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.csproj.AssemblyReference.cache
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.AssemblyInfoInputs.cache
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.AssemblyInfo.cs
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.csproj.CoreCompileInputs.cache
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\refint\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.pdb
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.genruntimeconfig.cache
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\ref\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.DAL.deps.json
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.DAL.runtimeconfig.json
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.DAL.pdb
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.csproj.AssemblyReference.cache
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.AssemblyInfoInputs.cache
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.AssemblyInfo.cs
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.csproj.CoreCompileInputs.cache
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\refint\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.pdb
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.genruntimeconfig.cache
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.DAL\obj\Debug\net7.0\ref\Tasaryeri.DAL.dll

@@ -1,0 +1,144 @@
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\appsettings.json
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.exe
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.deps.json
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.runtimeconfig.json
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.pdb
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.csproj.AssemblyReference.cache
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.AssemblyInfoInputs.cache
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.AssemblyInfo.cs
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.csproj.CoreCompileInputs.cache
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets\msbuild.Tasaryeri.WebUI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets\msbuild.build.Tasaryeri.WebUI.props
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Tasaryeri.WebUI.props
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Tasaryeri.WebUI.props
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\scopedcss\bundle\Tasaryeri.WebUI.styles.css
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\refint\Tasaryeri.WebUI.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.pdb
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.genruntimeconfig.cache
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\ref\Tasaryeri.WebUI.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Azure.Core.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Azure.Identity.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Humanizer.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Identity.Client.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\System.Memory.Data.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\System.Runtime.Caching.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.DAL.pdb
+C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.csproj.CopyComplete
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\appsettings.json
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.exe
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.deps.json
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.runtimeconfig.json
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebUI.pdb
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Azure.Core.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Azure.Identity.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Humanizer.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Identity.Client.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\System.Memory.Data.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\System.Runtime.Caching.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.DAL.pdb
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.csproj.AssemblyReference.cache
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.AssemblyInfoInputs.cache
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.AssemblyInfo.cs
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.csproj.CoreCompileInputs.cache
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets\msbuild.Tasaryeri.WebUI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets\msbuild.build.Tasaryeri.WebUI.props
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Tasaryeri.WebUI.props
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Tasaryeri.WebUI.props
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\scopedcss\bundle\Tasaryeri.WebUI.styles.css
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.csproj.CopyComplete
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\refint\Tasaryeri.WebUI.dll
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.pdb
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\Tasaryeri.WebUI.genruntimeconfig.cache
+C:\Users\MONSTER\Desktop\Yeni klasör (4)\Tasaryeri.WebUI\obj\Debug\net7.0\ref\Tasaryeri.WebUI.dll
