@@ -40,3 +40,6 @@ C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\refin
 C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.pdb
 C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.genruntimeconfig.cache
 C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\ref\Tasaryeri.DAL.dll
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.Core.dll
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.DAL\bin\Debug\net7.0\Tasaryeri.Core.pdb
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.DAL\obj\Debug\net7.0\Tasaryeri.DAL.csproj.CopyComplete

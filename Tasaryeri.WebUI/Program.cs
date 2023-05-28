@@ -1,9 +1,18 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Tasaryeri.BL.Abstract;
+using Tasaryeri.BL.Concreate;
+using Tasaryeri.Core.Interfaces;
 using Tasaryeri.DAL.Contexts;
+using Tasaryeri.DAL.EntityFramework;
+using Tasaryeri.DAL.EntityFramework.Abstract;
+using Tasaryeri.DAL.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(SqlRepository<>));
+builder.Services.AddScoped(typeof(IEfUsersDAL), typeof(EfUsersDAL));
+builder.Services.AddScoped(typeof(IAdminTransactions), typeof(AdminTransactions));
 builder.Services.AddDbContext<SqlContext>(options =>
           options.UseSqlServer(builder.Configuration.GetConnectionString("CS1")));
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>

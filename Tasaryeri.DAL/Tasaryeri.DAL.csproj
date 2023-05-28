@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Tasaryeri.Core\Tasaryeri.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EntityFramework\Contexts\" />
+  </ItemGroup>
+
 </Project>

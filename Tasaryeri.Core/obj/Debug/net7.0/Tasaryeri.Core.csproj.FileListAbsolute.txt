@@ -10,3 +10,15 @@ C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\Tasaryeri.Cor
 C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\refint\Tasaryeri.Core.dll
 C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\Tasaryeri.Core.pdb
 C:\Users\MONSTER\Desktop\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\ref\Tasaryeri.Core.dll
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\bin\Debug\net7.0\Tasaryeri.Core.deps.json
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\bin\Debug\net7.0\Tasaryeri.Core.dll
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\bin\Debug\net7.0\Tasaryeri.Core.pdb
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\Tasaryeri.Core.csproj.AssemblyReference.cache
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\Tasaryeri.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\Tasaryeri.Core.AssemblyInfoInputs.cache
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\Tasaryeri.Core.AssemblyInfo.cs
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\Tasaryeri.Core.csproj.CoreCompileInputs.cache
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\Tasaryeri.Core.dll
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\refint\Tasaryeri.Core.dll
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\Tasaryeri.Core.pdb
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.Core\obj\Debug\net7.0\ref\Tasaryeri.Core.dll

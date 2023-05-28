@@ -6,8 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concreate\" />
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\Tasaryeri.Core\Tasaryeri.Core.csproj" />
+    <ProjectReference Include="..\Tasaryeri.DAL\Tasaryeri.DAL.csproj" />
+    <ProjectReference Include="..\Tasaryeri.WebAPI\Tasaryeri.WebAPI.csproj" />
   </ItemGroup>
 
 </Project>

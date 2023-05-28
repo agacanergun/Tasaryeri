@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tasaryeri.DAL\Tasaryeri.DAL.csproj" />
+    <ProjectReference Include="..\Tasaryeri.BL\Tasaryeri.BL.csproj" />
   </ItemGroup>
 
   <ItemGroup>

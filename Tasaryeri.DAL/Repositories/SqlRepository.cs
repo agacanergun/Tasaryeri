@@ -19,10 +19,12 @@ namespace Tasaryeri.DAL.Repositories
             this.db = db;
         }
 
-        public void Add(T entity)
+        public int Add(T entity)
         {
+
             db.Add(entity);
-            db.SaveChanges();
+            var x = db.SaveChanges();
+            return x;
         }
 
         public void Delete(T entity)
