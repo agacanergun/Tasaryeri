@@ -1,4 +1,8 @@
-﻿using Tasaryeri.BL.Abstract;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
 using Tasaryeri.Core.Helpers;
 using Tasaryeri.DAL.Entities;
@@ -15,7 +19,7 @@ namespace Tasaryeri.BL.Concreate
         }
 
         //admin paneline giriş yaparken md5 formatlama ve giriş için veritabanı kontrolü
-        public bool Login(AdminLoginDTO adminLoginDTO)
+        public AdminLoginDTO Login(AdminLoginDTO adminLoginDTO)
         {
             CryptoBase b = new CryptoBase();
             adminLoginDTO.Password = b.getMD5(adminLoginDTO.Password);
@@ -24,7 +28,11 @@ namespace Tasaryeri.BL.Concreate
                 UserName = adminLoginDTO.UserName,
                 Password = adminLoginDTO.Password,
             };
-            return efAdminDal.AdminLogin(admin);
+            var response = efAdminDal.AdminLogin(admin);
+            adminLoginDTO.Id = response.ID;
+            adminLoginDTO.UserName = response.UserName;
+            adminLoginDTO.Password = response.Password;
+            return adminLoginDTO;
         }
 
         //admin panelinden admin kayıt etme işlemi

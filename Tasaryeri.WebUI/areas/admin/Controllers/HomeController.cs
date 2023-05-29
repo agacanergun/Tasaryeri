@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
 
@@ -25,9 +27,21 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
         [Route("/admin"), HttpPost, AllowAnonymous]
         public async Task<IActionResult> Index(AdminLoginDTO adminLoginDTO)
         {
-            if (adminBusiness.Login(adminLoginDTO))
-            {
+            //admin paneline giriş için cookie oluşturma
 
+            AdminLoginDTO adminLoginDTOResponse = adminBusiness.Login(adminLoginDTO);
+            if (adminLoginDTOResponse != null)
+            {
+                List<Claim> claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.PrimarySid,adminLoginDTOResponse.Id.ToString()),
+                    new Claim(ClaimTypes.Name,adminLoginDTO.UserName)
+                };
+                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriAuth");
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
+                if (string.IsNullOrEmpty(adminLoginDTO.ReturnUrl))
+                    return Redirect("/admin/adminler");
+                else return Redirect(adminLoginDTO.ReturnUrl);
             }
             else
             {

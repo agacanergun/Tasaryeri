@@ -9,7 +9,7 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
 {
     public interface IEfAdminDAL
     {
-        public bool AdminLogin(Admin admin);
+        public Admin AdminLogin(Admin admin);
         public bool AdminRegister(Admin admin);
     }
 }

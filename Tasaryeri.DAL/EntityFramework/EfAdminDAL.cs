@@ -18,13 +18,11 @@ namespace Tasaryeri.DAL.EntityFramework
             this.repoAdmin = repoAdmin;
         }
 
-        //kayıtlı admin varsa true yoksa false
-        public bool AdminLogin(Admin admin)
+        //kayıtlı admin varsa gelir yoksa null
+        public Admin AdminLogin(Admin admin)
         {
-            var response = repoAdmin.GetAll(x => x.UserName == admin.UserName && x.Password == admin.Password);
-            if (response.Any())
-                return true;
-            return false;
+            var response = repoAdmin.GetBy(x => x.UserName == admin.UserName && x.Password == admin.Password);
+            return response;
         }
 
         //admin kaydetme başarılıysa true değilse false

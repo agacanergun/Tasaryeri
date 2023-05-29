@@ -11,6 +11,7 @@ namespace Tasaryeri.BL.Dtos
 {
     public class AdminLoginDTO
     {
+        public int? Id { get; set; }
         public string? ReturnUrl { get; set; }
         [StringLength(30), Column(TypeName = "varchar(30)"), Required(ErrorMessage = "Kullanıcı adı boş geçilemez..."), Display(Name = "Kullanıcı Adı")]
         public string UserName { get; set; }
