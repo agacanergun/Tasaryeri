@@ -28,10 +28,11 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
         public async Task<IActionResult> Index(AdminLoginDTO adminLoginDTO)
         {
             //admin paneline giriş için cookie oluşturma
+            var response = adminBusiness.Login(adminLoginDTO);
 
-            AdminLoginDTO adminLoginDTOResponse = adminBusiness.Login(adminLoginDTO);
-            if (adminLoginDTOResponse != null)
+            if (response.Id != 0)
             {
+                AdminLoginDTO adminLoginDTOResponse = adminBusiness.Login(adminLoginDTO);
                 List<Claim> claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.PrimarySid,adminLoginDTOResponse.Id.ToString()),

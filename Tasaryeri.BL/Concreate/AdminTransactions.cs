@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
+﻿using AutoMapper;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
 using Tasaryeri.Core.Helpers;
@@ -29,10 +26,39 @@ namespace Tasaryeri.BL.Concreate
                 Password = adminLoginDTO.Password,
             };
             var response = efAdminDal.AdminLogin(admin);
-            adminLoginDTO.Id = response.ID;
-            adminLoginDTO.UserName = response.UserName;
-            adminLoginDTO.Password = response.Password;
-            return adminLoginDTO;
+            if (response.ID != 0)
+            {
+                adminLoginDTO.Id = response.ID;
+                adminLoginDTO.UserName = response.UserName;
+                adminLoginDTO.Password = response.Password;
+                return adminLoginDTO;
+            }
+            else
+            {
+                adminLoginDTO.Id = response.ID;
+                return adminLoginDTO;
+            }
+
+        }
+
+        public IEnumerable<AdminDTO> GetAll()
+        {
+            IEnumerable<Admin> admins = efAdminDal.GetAll();
+            List<AdminDTO> adminDTOs = new List<AdminDTO>();
+
+            foreach (Admin admin in admins)
+            {
+                AdminDTO adminDTO = new AdminDTO
+                {
+                    ID = admin.ID,
+                    UserName = admin.UserName,
+                    Password = admin.Password,
+                    Name = admin.Name,
+                    Surname = admin.Surname,
+                };
+                adminDTOs.Add(adminDTO);
+            }
+            return adminDTOs;
         }
 
         //admin panelinden admin kayıt etme işlemi

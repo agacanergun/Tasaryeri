@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "essNmuX1Gqmr35JRffyAG+s9NnzHQGw5lwrpsSWw/52rvb6tJcNJUi8GuaY8cuUwDhB3vuZru1nUPlYLpSSZbg==",
+  "dgSpecHash": "HNOAeOQHN2LB8UQaHMPa/rrZah+uIX9Ip41jfwlEpSjqwOQNdwxZzKFxXwZ4KVR6Ss5wKw+ABh23hcwVexrY4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\Tasaryeri.WebUI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\MONSTER\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\MONSTER\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

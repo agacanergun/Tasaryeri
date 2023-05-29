@@ -22,6 +22,12 @@ namespace Tasaryeri.DAL.EntityFramework
         public Admin AdminLogin(Admin admin)
         {
             var response = repoAdmin.GetBy(x => x.UserName == admin.UserName && x.Password == admin.Password);
+            if (response == null)
+            {
+                Admin badResponse = new Admin();
+                badResponse.ID = 0;
+                return badResponse;
+            }
             return response;
         }
 
@@ -34,5 +40,9 @@ namespace Tasaryeri.DAL.EntityFramework
             return false;
         }
 
+        public IEnumerable<Admin> GetAll()
+        {
+            return repoAdmin.GetAll();
+        }
     }
 }

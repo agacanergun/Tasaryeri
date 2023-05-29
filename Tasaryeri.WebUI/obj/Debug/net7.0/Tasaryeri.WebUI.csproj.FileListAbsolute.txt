@@ -432,3 +432,4 @@ C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tas
 C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebAPI.dll
 C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.BL.pdb
 C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\Tasaryeri.WebAPI.pdb
+C:\Users\MONSTER\Documents\GitHub\Tasaryeri\Tasaryeri.WebUI\bin\Debug\net7.0\AutoMapper.dll

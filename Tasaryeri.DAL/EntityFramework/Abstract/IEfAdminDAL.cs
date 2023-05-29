@@ -10,6 +10,7 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
     public interface IEfAdminDAL
     {
         public Admin AdminLogin(Admin admin);
+        public IEnumerable<Admin> GetAll();
         public bool AdminRegister(Admin admin);
     }
 }

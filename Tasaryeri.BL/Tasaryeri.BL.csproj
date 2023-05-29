@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Tasaryeri.Core\Tasaryeri.Core.csproj" />
     <ProjectReference Include="..\Tasaryeri.DAL\Tasaryeri.DAL.csproj" />
     <ProjectReference Include="..\Tasaryeri.WebAPI\Tasaryeri.WebAPI.csproj" />

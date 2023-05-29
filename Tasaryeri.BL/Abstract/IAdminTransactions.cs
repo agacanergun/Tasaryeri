@@ -10,6 +10,7 @@ namespace Tasaryeri.BL.Abstract
     public interface IAdminTransactions
     {
         public AdminLoginDTO Login(AdminLoginDTO adminLoginDTO);
+        public IEnumerable<AdminDTO> GetAll();
         public bool Register(AdminDTO dto);
     }
 }
