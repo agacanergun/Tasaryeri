@@ -11,8 +11,7 @@
           "Microsoft.EntityFrameworkCore.Design": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.6",
-          "Tasaryeri.BL": "1.0.0",
-          "Tasaryeri.DAL": "1.0.0"
+          "Tasaryeri.BL": "1.0.0"
         },
         "runtime": {
           "Tasaryeri.WebUI.dll": {}

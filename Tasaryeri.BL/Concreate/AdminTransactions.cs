@@ -8,18 +8,31 @@ namespace Tasaryeri.BL.Concreate
 {
     public class AdminTransactions : IAdminTransactions
     {
-        IEfUsersDAL efuserdal;
-        public AdminTransactions(IEfUsersDAL efuserdal)
+        IEfAdminDAL efAdminDal;
+        public AdminTransactions(IEfAdminDAL efAdminDal)
         {
-            this.efuserdal = efuserdal;
+            this.efAdminDal = efAdminDal;
         }
 
+        //admin paneline giriş yaparken md5 formatlama ve giriş için veritabanı kontrolü
+        public bool Login(AdminLoginDTO adminLoginDTO)
+        {
+            CryptoBase b = new CryptoBase();
+            adminLoginDTO.Password = b.getMD5(adminLoginDTO.Password);
+            Admin admin = new Admin
+            {
+                UserName = adminLoginDTO.UserName,
+                Password = adminLoginDTO.Password,
+            };
+            return efAdminDal.AdminLogin(admin);
+        }
+
+        //admin panelinden admin kayıt etme işlemi
         public bool Register(AdminDTO dto)
         {
             CryptoBase b = new CryptoBase();
             dto.Password = b.getMD5(dto.Password);
 
-            //entitye çevirdik
             Admin admin = new Admin
             {
                 ID = dto.ID,
@@ -28,8 +41,8 @@ namespace Tasaryeri.BL.Concreate
                 Surname = dto.Surname,
                 UserName = dto.UserName
             };
-            //entityi gönderdik
-            return efuserdal.AdminRegister(admin);
+
+            return efAdminDal.AdminRegister(admin);
         }
     }
 }
