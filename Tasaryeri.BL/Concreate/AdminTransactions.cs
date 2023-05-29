@@ -78,5 +78,15 @@ namespace Tasaryeri.BL.Concreate
 
             return efAdminDal.AdminRegister(admin);
         }
+
+        public bool Delete(int id)
+        {
+            Admin adminDelete = new Admin
+            {
+                ID = id,
+            };
+            return efAdminDal.Delete(adminDelete);
+
+        }
     }
 }

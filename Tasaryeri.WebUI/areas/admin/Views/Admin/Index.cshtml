@@ -12,10 +12,10 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>#</th>
                 <th>Kullanıcı Adı</th>
                 <th>Şifre</th>
-                <th>Email</th>
+                <th>Adı</th>
+                <th>Soyadı</th>
                 <th>Güncelle</th>
                 <th>Sil</th>
             </tr>
@@ -24,16 +24,22 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.ID</td>
+                    <td style="display:none">@item.ID</td>
                     <td>@item.UserName</td>
                     <td>@item.Password</td>
                     <td>@item.Name</td>
                     <td>@item.Surname</td>
                     <td><a asp-action="Update" asp-route-id="@item.ID"><i class="fa fa-edit fa-2x"></i></a></td>
-                    <td><a asp-area="admin" asp-controller="Admin" asp-action="Delete" asp-route-id="@item.ID" onclick="return confirm('Silmek istediğinize emin misiniz?')"><i class="fa fa-trash fa-2x"></i></a></td>
+                    <td>
+                        <button style="border:none" onclick="confirmDelete(@item.ID)"><i class="fa fa-trash fa-2x"></i></button>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
 
+<script>
+
+  
+</script>

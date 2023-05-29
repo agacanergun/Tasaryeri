@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tasaryeri.BL.Abstract;
+using Tasaryeri.BL.Dtos;
+using Tasaryeri.DAL.Entities;
 
 namespace Tasaryeri.WebUI.Areas.admin.Controllers
 {
@@ -18,5 +20,11 @@ namespace Tasaryeri.WebUI.Areas.admin.Controllers
             return View(adminBusiness.GetAll());
         }
 
+        [Route("admin/delete")]
+        public string Delete(int id)
+        {
+            adminBusiness.Delete(id);
+                return "Ok";
+        }
     }
 }

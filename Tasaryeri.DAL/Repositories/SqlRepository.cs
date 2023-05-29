@@ -23,14 +23,15 @@ namespace Tasaryeri.DAL.Repositories
         {
 
             db.Add(entity);
-            var x = db.SaveChanges();
-            return x;
+            var response = db.SaveChanges();
+            return response;
         }
 
-        public void Delete(T entity)
+        public int Delete(T entity)
         {
             db.Remove(entity);
-            db.SaveChanges();
+            var response = db.SaveChanges();
+            return response;
         }
 
         public IQueryable<T> GetAll()

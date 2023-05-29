@@ -13585,6 +13585,10 @@
       "PackagePath": "staticwebassets\\assetsAdmin\\vendors\\jszip\\vendor\\FileSaver.js"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdmin\\vendors\\main.js",
+      "PackagePath": "staticwebassets\\assetsAdmin\\vendors\\main.js"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdmin\\vendors\\malihu-custom-scrollbar-plugin\\.bower.json",
       "PackagePath": "staticwebassets\\assetsAdmin\\vendors\\malihu-custom-scrollbar-plugin\\.bower.json"
     },

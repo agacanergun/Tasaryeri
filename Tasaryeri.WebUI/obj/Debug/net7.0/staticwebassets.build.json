@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "H8QQ5IBbzeV+q+0pU148K9HCHREpbevfd+4jd5VNVdo=",
+  "Hash": "6MMnC5bMF27aGxPIq3Ds2gqcno/TbYUYYSDDSu2+sNA=",
   "Source": "Tasaryeri.WebUI",
   "BasePath": "_content/Tasaryeri.WebUI",
   "Mode": "Default",
@@ -57623,6 +57623,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assetsAdmin\\vendors\\jszip\\vendor\\FileSaver.js"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdmin\\vendors\\main.js",
+      "SourceId": "Tasaryeri.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\",
+      "BasePath": "_content/Tasaryeri.WebUI",
+      "RelativePath": "assetsAdmin/vendors/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assetsAdmin\\vendors\\main.js"
     },
     {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdmin\\vendors\\malihu-custom-scrollbar-plugin\\.bower.json",

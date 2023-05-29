@@ -40,6 +40,14 @@ namespace Tasaryeri.DAL.EntityFramework
             return false;
         }
 
+        public bool Delete(Admin entity)
+        {
+            var response = repoAdmin.Delete(entity);
+            if (response == 1)
+                return true;
+            return false;
+        }
+
         public IEnumerable<Admin> GetAll()
         {
             return repoAdmin.GetAll();

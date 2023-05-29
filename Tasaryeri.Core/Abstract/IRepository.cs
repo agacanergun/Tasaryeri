@@ -14,6 +14,6 @@ namespace Tasaryeri.Core.Interfaces
         public T GetBy(Expression<Func<T, bool>> exp);
         public int Add(T entity);
         public void Update(T entity);
-        public void Delete(T entity);
+        public int Delete(T entity);
     }
 }
