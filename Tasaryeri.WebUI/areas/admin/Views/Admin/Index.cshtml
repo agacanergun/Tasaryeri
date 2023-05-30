@@ -1,12 +1,21 @@
-﻿@model IEnumerable<AdminDTO>
-
-
+﻿@model AdminVM
 
 <div class="table-responsive">
     <br />
     <div class="row">
-        <div class="col"><h2>Adminler</h2></div>
-        <div class="col"><a asp-action="Add" class="btn btn-success btn-lg" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
+        <div class="col">
+            <h2>Adminler</h2>
+        </div>
+        <div class="col">
+            <h2>
+                @if (TempData["AddInfo"] != null)
+                {
+                    @Html.Raw(TempData["AddInfo"])
+                }
+            </h2>
+        </div>
+
+        <div class="col"><a class="btn btn-success btn-lg" onclick="showModalAdd(this.name)" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
     </div>
 
     <table class="table table-striped">
@@ -21,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.AdminDTOList)
             {
                 <tr>
                     <td style="display:none">@item.ID</td>
@@ -29,7 +38,7 @@
                     <td>@item.Password</td>
                     <td>@item.Name</td>
                     <td>@item.Surname</td>
-                    <td><a asp-action="Update" asp-route-id="@item.ID"><i class="fa fa-edit fa-2x"></i></a></td>
+                    <td><button style="border:none" id="@item.ID,@item.Name,@item.Surname,@item.UserName,@item.Password" onclick="showModalUpdate(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
                     <td>
                         <button style="border:none" onclick="confirmDelete(@item.ID)"><i class="fa fa-trash fa-2x"></i></button>
                     </td>
@@ -39,7 +48,113 @@
     </table>
 </div>
 
-<script>
 
-  
-</script>
+<div id="myModalAdd" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Admin Ekle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="Add" class="form-label-left input_mask">
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Name"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" class="form-control" asp-for="@Model.AdminDTO.Name">
+                            <span asp-validation-for="@Model.AdminDTO.Name"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Surname"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" class="form-control" asp-for="@Model.AdminDTO.Surname">
+                            <span asp-validation-for="@Model.AdminDTO.Surname"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.UserName"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" class="form-control" asp-for="@Model.AdminDTO.UserName">
+                            <span asp-validation-for="@Model.AdminDTO.UserName"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Password"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" class="form-control" asp-for="@Model.AdminDTO.Password">
+                            <span asp-validation-for="@Model.AdminDTO.Password"></span>
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModalUpdate" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Admin Düzenle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="Update" class="form-label-left input_mask">
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Name"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" id="name" class="form-control" asp-for="@Model.AdminDTO.Name">
+                            <span asp-validation-for="@Model.AdminDTO.Name"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Surname"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" id="surname" class="form-control" asp-for="@Model.AdminDTO.Surname">
+                            <span asp-validation-for="@Model.AdminDTO.Surname"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.UserName"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" id="username" class="form-control" asp-for="@Model.AdminDTO.UserName">
+                            <span asp-validation-for="@Model.AdminDTO.UserName"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Password"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" id="password" class="form-control">
+                            <span asp-validation-for="@Model.AdminDTO.Password"></span>
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Güncelle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="id " />
+

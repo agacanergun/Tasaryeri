@@ -13,5 +13,6 @@ namespace Tasaryeri.BL.Abstract
         public IEnumerable<AdminDTO> GetAll();
         public bool Register(AdminDTO dto);
         public bool Delete(int id);
+        public bool Add(AdminDTO adminDTO);
     }
 }

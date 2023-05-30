@@ -52,5 +52,13 @@ namespace Tasaryeri.DAL.EntityFramework
         {
             return repoAdmin.GetAll();
         }
+
+        public bool Add(Admin entity)
+        {
+            var response = repoAdmin.Add(entity);
+            if (response == 1)
+                return true;
+            return false;
+        }
     }
 }

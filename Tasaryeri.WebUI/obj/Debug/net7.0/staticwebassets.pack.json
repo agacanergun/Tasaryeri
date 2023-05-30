@@ -13585,10 +13585,6 @@
       "PackagePath": "staticwebassets\\assetsAdmin\\vendors\\jszip\\vendor\\FileSaver.js"
     },
     {
-      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdmin\\vendors\\main.js",
-      "PackagePath": "staticwebassets\\assetsAdmin\\vendors\\main.js"
-    },
-    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsAdmin\\vendors\\malihu-custom-scrollbar-plugin\\.bower.json",
       "PackagePath": "staticwebassets\\assetsAdmin\\vendors\\malihu-custom-scrollbar-plugin\\.bower.json"
     },
@@ -18289,6 +18285,10 @@
       "PackagePath": "staticwebassets\\assetsUI\\css\\fontawesome.min.css"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\main.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\main.css"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\slick-theme.css",
       "PackagePath": "staticwebassets\\assetsUI\\css\\slick-theme.css"
     },
@@ -18563,6 +18563,14 @@
     {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\webfonts\\slick.woff",
       "PackagePath": "staticwebassets\\assetsUI\\webfonts\\slick.woff"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\mainJS\\Modal.js",
+      "PackagePath": "staticwebassets\\mainJS\\Modal.js"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\mainJS\\main.js",
+      "PackagePath": "staticwebassets\\mainJS\\main.js"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Tasaryeri.WebUI.Microsoft.AspNetCore.StaticWebAssets.props",

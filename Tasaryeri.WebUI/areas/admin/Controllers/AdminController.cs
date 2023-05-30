@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Scripting;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
 using Tasaryeri.DAL.Entities;
+using Tasaryeri.WebUI.ViewModels;
 
 namespace Tasaryeri.WebUI.Areas.admin.Controllers
 {
@@ -17,14 +19,48 @@ namespace Tasaryeri.WebUI.Areas.admin.Controllers
         [Route("admin/adminler")]
         public IActionResult Index()
         {
-            return View(adminBusiness.GetAll());
+            var respone = adminBusiness.GetAll();
+            AdminVM adminVM = new AdminVM
+            {
+                AdminDTOList = respone,
+            };
+            return View(adminVM);
         }
 
         [Route("admin/delete")]
         public string Delete(int id)
         {
             adminBusiness.Delete(id);
-                return "Ok";
+            return "Ok";
+        }
+
+        [Route("admin/admin-ekle")]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [Route("admin/admin-ekle"), HttpPost]
+        public IActionResult Add(AdminDTO adminDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (adminBusiness.Add(adminDTO))
+                {
+                    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                    return Redirect("adminler");
+                }
+            }
+            TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+            return Redirect("adminler");
+        }
+
+        [Route("admin/update"), HttpPost]
+        public IActionResult Update(AdminDTO adminDTO)
+        {
+            return Redirect("adminler");
         }
     }
 }
+
+

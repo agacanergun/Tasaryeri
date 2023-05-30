@@ -13,5 +13,6 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
         public IEnumerable<Admin> GetAll();
         public bool AdminRegister(Admin admin);
         public bool Delete(Admin entity);
+        public bool Add(Admin entity);
     }
 }

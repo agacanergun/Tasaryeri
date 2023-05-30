@@ -61,6 +61,8 @@ namespace Tasaryeri.BL.Concreate
             return adminDTOs;
         }
 
+  
+
         //admin panelinden admin kayıt etme işlemi
         public bool Register(AdminDTO dto)
         {
@@ -86,6 +88,19 @@ namespace Tasaryeri.BL.Concreate
                 ID = id,
             };
             return efAdminDal.Delete(adminDelete);
+
+        }
+
+        public bool Add(AdminDTO adminDTO)
+        {
+            Admin admin = new Admin
+            {
+                Name = adminDTO.Name,
+                Password = adminDTO.Password,
+                Surname = adminDTO.Surname,
+                UserName = adminDTO.UserName,
+            };
+            return efAdminDal.Add(admin);
 
         }
     }
