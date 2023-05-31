@@ -16,3 +16,4 @@ namespace Tasaryeri.BL.Abstract
         public bool Update(AdminDTO adminDTO);
     }
 }
+ 

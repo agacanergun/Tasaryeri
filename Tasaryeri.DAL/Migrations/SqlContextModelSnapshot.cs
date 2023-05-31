@@ -119,6 +119,47 @@ namespace Tasaryeri.DAL.Migrations
                     b.ToTable("ProcessIcon");
                 });
 
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.Slide", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("DisplayIndex")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Link")
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<string>("LongDescription")
+                        .HasMaxLength(250)
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Picture")
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<string>("ShortDescription")
+                        .HasMaxLength(250)
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<string>("Title")
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Slide");
+                });
+
             modelBuilder.Entity("Tasaryeri.DAL.Entities.SubCategory", b =>
                 {
                     b.Property<int>("Id")

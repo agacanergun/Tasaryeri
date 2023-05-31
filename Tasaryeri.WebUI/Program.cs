@@ -16,6 +16,8 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(SqlRepository<>));
 builder.Services.AddScoped(typeof(ICryptoBase), typeof(CryptoBase));
 builder.Services.AddScoped(typeof(IEfAdminDAL), typeof(EfAdminDAL));
 builder.Services.AddScoped(typeof(IAdminTransactions), typeof(AdminTransactions));
+builder.Services.AddScoped(typeof(IEfSlideDAL), typeof(EfSlideDAL));
+builder.Services.AddScoped(typeof(ISlideTransactions), typeof(SlideTransactions));
 builder.Services.AddDbContext<SqlContext>(options =>
           options.UseSqlServer(builder.Configuration.GetConnectionString("CS1")));
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>

@@ -1,9 +1,9 @@
-﻿using Tasaryeri.DAL.Entities;
+﻿using Tasaryeri.BL.Dtos;
 
 namespace Tasaryeri.WebUI.ViewModels
 {
     public class HomeIndexVM
     {
-        public IEnumerable<Slide> Slides { get; set; }
+        public IEnumerable<SlideDTO> Slides { get; set; }
     }
 }
