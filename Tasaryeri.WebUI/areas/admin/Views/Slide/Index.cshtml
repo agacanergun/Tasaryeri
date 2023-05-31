@@ -1,0 +1,206 @@
+﻿@model SlideVM
+
+<div class="table-responsive">
+    <br />
+    <div class="row">
+        <div class="col">
+            <h2>Adminler</h2>
+        </div>
+        <div class="col">
+            <h2>
+                @if (TempData["AddInfo"] != null)
+                {
+                    @Html.Raw(TempData["AddInfo"])
+                }
+                @if (TempData["UpdateInfo"] != null)
+                {
+                    @Html.Raw(TempData["UpdateInfo"])
+                }
+            </h2>
+        </div>
+
+        <div class="col"><a class="btn btn-success btn-lg" onclick="showModalAddSlide(this.name)" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Slayt Adı</th>
+                <th>Başlık</th>
+                <th>Kısa Açıklama</th>
+                <th>Uzun açıklama</th>
+                <th>Resim</th>
+                <th>Link</th>
+                <th>Görüntülenme Sırası</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.SlideDTOList)
+            {
+                <tr>
+                    <td style="display:none">@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Title</td>
+                    <td>@item.ShortDescription</td>
+                    <td>@item.LongDescription</td>
+                    <td><img src="@item.Picture"></td>
+                    <td>@item.Link</td>
+                    <td>@item.DisplayIndex</td>
+                    <td><button style="border:none" id="@item.Id,@item.Name,@item.Title,@item.ShortDescription,@item.LongDescription,@item.Picture,@item.Link,@item.DisplayIndex" onclick="showModalUpdateSlide(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td>
+                        <button style="border:none" onclick="confirmDeleteSlide(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div id="myModalAddSlide" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Slayt Ekle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="Add" class="form-label-left input_mask">
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Name"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" asp-for="@Model.SlideDTO.Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Title"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" asp-for="@Model.SlideDTO.Title">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.ShortDescription"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" asp-for="@Model.SlideDTO.ShortDescription">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.LongDescription"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" asp-for="@Model.SlideDTO.LongDescription">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Picture"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input required type="file" accept="image/*" class="form-control" asp-for="@Model.SlideDTO.Picture">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Link"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" asp-for="@Model.SlideDTO.Link">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.DisplayIndex"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" asp-for="@Model.SlideDTO.DisplayIndex">
+                        </div>
+                    </div>
+
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModalUpdateSlide" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Slayt Düzenle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="Update" class="form-label-left input_mask">
+                    <input type="hidden" asp-for="@Model.SlideDTO.Id" id="id" />
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Name"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="name" class="form-control" asp-for="@Model.SlideDTO.Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Title"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="surname" class="form-control" asp-for="@Model.SlideDTO.Title">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.ShortDescription"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="shortdesc" class="form-control" asp-for="@Model.SlideDTO.ShortDescription">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.LongDescription"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="longdesc" class="form-control" asp-for="@Model.SlideDTO.LongDescription">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Picture"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="picture" class="form-control" asp-for="@Model.SlideDTO.Picture">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Picture"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="file" required id="picture" accept="image/*" class="form-control" asp-for="@Model.SlideDTO.Picture">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.DisplayIndex"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="displayindex" class="form-control" asp-for="@Model.SlideDTO.DisplayIndex">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Link"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="link" class="form-control" asp-for="@Model.SlideDTO.Link">
+                        </div>
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
