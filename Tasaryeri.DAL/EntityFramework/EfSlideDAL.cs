@@ -33,7 +33,7 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public IEnumerable<Slide> GetAll()
         {
-            return repoSlide.GetAll();
+            return repoSlide.GetAll().OrderBy(x => x.DisplayIndex);
         }
 
         public bool Update(Slide admin)
