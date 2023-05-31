@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Azure.Core;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +22,39 @@ namespace Tasaryeri.BL.Concreate
 
         public bool Add(SlideDTO slideDTO)
         {
-            throw new NotImplementedException();
+            if (slideDTO.PictureFile != null && slideDTO.PictureFile.Length > 0)
+            {
+                string fileName = DateTime.Now.Minute + DateTime.Now.Millisecond + slideDTO.PictureFile.FileName;
+                slideDTO.Picture = "/uploads/imgs/" + fileName;
+
+                Slide slide = new Slide
+                {
+                    Name = slideDTO.Name,
+                    Title = slideDTO.Title,
+                    ShortDescription = slideDTO.ShortDescription,
+                    LongDescription = slideDTO.LongDescription,
+                    Picture = slideDTO.Picture,
+                    Link = slideDTO.Link,
+                    DisplayIndex = slideDTO.DisplayIndex,
+                };
+
+                if (efSlideDAL.Add(slide))
+                {
+                    using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "imgs", fileName), FileMode.Create))
+                    {
+                        slideDTO.PictureFile.CopyTo(stream);
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool Delete(int id)

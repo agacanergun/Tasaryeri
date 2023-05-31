@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Tasaryeri.BL.Dtos
 {
@@ -25,8 +26,11 @@ namespace Tasaryeri.BL.Dtos
         [StringLength(250), Column(TypeName = "varchar(250)"), Display(Name = "Uzun Slayt Açıklaması")]
         public string LongDescription { get; set; }
 
-        [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Slayt Resmi")]
+        [Column(TypeName = "varchar(150)"), Display(Name = "Slayt Resmi")]
         public string Picture { get; set; }
+
+        [Display(Name = "Slayt Resmi")]
+        public IFormFile PictureFile { get; set; }
 
         [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Bağlantı Linki")]
         public string Link { get; set; }

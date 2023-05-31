@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Azure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,10 @@ namespace Tasaryeri.DAL.EntityFramework
         }
         public bool Add(Slide entity)
         {
-            throw new NotImplementedException();
+            var response = repoSlide.Add(entity);
+            if (response == 1)
+                return true;
+            return false;
         }
 
         public Admin AdminLogin(Slide admin)
