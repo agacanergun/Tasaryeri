@@ -31,15 +31,6 @@ namespace Tasaryeri.DAL.EntityFramework
             return response;
         }
 
-        //admin kaydetme başarılıysa true değilse false
-        public bool AdminRegister(Admin admin)
-        {
-            var response = repoAdmin.Add(admin);
-            if (response == 1)
-                return true;
-            return false;
-        }
-
         public bool Update(Admin admin)
         {
             var response = repoAdmin.Update(admin);

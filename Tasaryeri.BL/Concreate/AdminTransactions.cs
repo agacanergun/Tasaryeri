@@ -80,23 +80,6 @@ namespace Tasaryeri.BL.Concreate
 
 
 
-        //admin panelinden admin kayıt etme işlemi
-        public bool Register(AdminDTO dto)
-        {
-            dto.Password = cryptoBase.getMD5(dto.Password);
-
-            Admin admin = new Admin
-            {
-                ID = dto.ID,
-                Name = dto.Name,
-                Password = dto.Password,
-                Surname = dto.Surname,
-                UserName = dto.UserName
-            };
-
-            return efAdminDal.AdminRegister(admin);
-        }
-
         //delete işlemi
         public bool Delete(int id)
         {

@@ -1,6 +1,6 @@
 ﻿using Tasaryeri.BL.Dtos;
 
-namespace Tasaryeri.WebUI.ViewModels
+namespace Tasaryeri.WebUI.Areas.admin.ViewModels
 {
     public class AdminVM
     {

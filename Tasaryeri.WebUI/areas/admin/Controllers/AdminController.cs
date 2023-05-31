@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
-using Tasaryeri.WebUI.ViewModels;
+using Tasaryeri.WebUI.Areas.admin.ViewModels;
 
 namespace Tasaryeri.WebUI.Areas.admin.Controllers
 {
@@ -32,11 +32,6 @@ namespace Tasaryeri.WebUI.Areas.admin.Controllers
             return "Ok";
         }
 
-        [Route("admin/admin-ekle")]
-        public IActionResult Add()
-        {
-            return View();
-        }
 
         [Route("admin/admin-ekle"), HttpPost]
         public IActionResult Add(AdminDTO adminDTO)

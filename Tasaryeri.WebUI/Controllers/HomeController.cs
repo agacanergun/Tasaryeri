@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Tasaryeri.WebUI.ViewModels;
 
 namespace Tasaryeri.WebUI.Controllers
 {
@@ -6,7 +7,8 @@ namespace Tasaryeri.WebUI.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            HomeIndexVM vm = new HomeIndexVM();
+            return View(vm);
         }
     }
 }
