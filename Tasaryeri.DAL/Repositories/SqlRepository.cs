@@ -51,11 +51,12 @@ namespace Tasaryeri.DAL.Repositories
 
         }
 
-        public void Update(T entity)
+        public int Update(T entity)
         {
             var updatedEntity = db.Entry(entity);
             updatedEntity.State = EntityState.Modified;
-            db.SaveChanges();
+            var response = db.SaveChanges();
+            return response;
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using AutoMapper;
-using Tasaryeri.BL.Abstract;
+﻿using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.Core.Abstract;
 using Tasaryeri.Core.Helpers;
 using Tasaryeri.DAL.Entities;
 using Tasaryeri.DAL.EntityFramework.Abstract;
@@ -10,16 +10,17 @@ namespace Tasaryeri.BL.Concreate
     public class AdminTransactions : IAdminTransactions
     {
         IEfAdminDAL efAdminDal;
-        public AdminTransactions(IEfAdminDAL efAdminDal)
+        ICryptoBase cryptoBase;
+        public AdminTransactions(IEfAdminDAL efAdminDal, ICryptoBase cryptoBase)
         {
             this.efAdminDal = efAdminDal;
+            this.cryptoBase = cryptoBase;
         }
 
         //admin paneline giriş yaparken md5 formatlama ve giriş için veritabanı kontrolü
         public AdminLoginDTO Login(AdminLoginDTO adminLoginDTO)
         {
-            CryptoBase b = new CryptoBase();
-            adminLoginDTO.Password = b.getMD5(adminLoginDTO.Password);
+            adminLoginDTO.Password = cryptoBase.getMD5(adminLoginDTO.Password);
             Admin admin = new Admin
             {
                 UserName = adminLoginDTO.UserName,
@@ -40,7 +41,7 @@ namespace Tasaryeri.BL.Concreate
             }
 
         }
-
+        //tüm verileri getirir
         public IEnumerable<AdminDTO> GetAll()
         {
             IEnumerable<Admin> admins = efAdminDal.GetAll();
@@ -61,13 +62,28 @@ namespace Tasaryeri.BL.Concreate
             return adminDTOs;
         }
 
-  
+        //update işlemi
+        public bool Update(AdminDTO adminDTO)
+        {
+            adminDTO.Password = cryptoBase.getMD5(adminDTO.Password);
+
+            Admin admin = new Admin
+            {
+                ID = adminDTO.ID,
+                UserName = adminDTO.UserName,
+                Password = adminDTO.Password,
+                Name = adminDTO.Name,
+                Surname = adminDTO.Surname,
+            };
+            return efAdminDal.Update(admin);
+        }
+
+
 
         //admin panelinden admin kayıt etme işlemi
         public bool Register(AdminDTO dto)
         {
-            CryptoBase b = new CryptoBase();
-            dto.Password = b.getMD5(dto.Password);
+            dto.Password = cryptoBase.getMD5(dto.Password);
 
             Admin admin = new Admin
             {
@@ -81,6 +97,7 @@ namespace Tasaryeri.BL.Concreate
             return efAdminDal.AdminRegister(admin);
         }
 
+        //delete işlemi
         public bool Delete(int id)
         {
             Admin adminDelete = new Admin
@@ -91,8 +108,11 @@ namespace Tasaryeri.BL.Concreate
 
         }
 
+        //ekleme işlemi
         public bool Add(AdminDTO adminDTO)
         {
+            adminDTO.Password = cryptoBase.getMD5(adminDTO.Password);
+
             Admin admin = new Admin
             {
                 Name = adminDTO.Name,

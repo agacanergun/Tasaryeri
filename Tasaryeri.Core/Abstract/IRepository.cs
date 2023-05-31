@@ -13,7 +13,7 @@ namespace Tasaryeri.Core.Interfaces
         public IQueryable<T> GetAll(Expression<Func<T, bool>> exp);
         public T GetBy(Expression<Func<T, bool>> exp);
         public int Add(T entity);
-        public void Update(T entity);
+        public int Update(T entity);
         public int Delete(T entity);
     }
 }

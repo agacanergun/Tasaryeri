@@ -14,5 +14,6 @@ namespace Tasaryeri.BL.Abstract
         public bool Register(AdminDTO dto);
         public bool Delete(int id);
         public bool Add(AdminDTO adminDTO);
+        public bool Update(AdminDTO adminDTO);
     }
 }

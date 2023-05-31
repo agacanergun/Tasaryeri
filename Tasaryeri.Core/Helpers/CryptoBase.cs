@@ -4,10 +4,11 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Tasaryeri.Core.Abstract;
 
 namespace Tasaryeri.Core.Helpers
 {
-    public class CryptoBase
+    public class CryptoBase : ICryptoBase
     {
         public string getMD5(string _text)
         {

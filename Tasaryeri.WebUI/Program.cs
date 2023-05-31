@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Concreate;
+using Tasaryeri.Core.Abstract;
+using Tasaryeri.Core.Helpers;
 using Tasaryeri.Core.Interfaces;
 using Tasaryeri.DAL.Contexts;
 using Tasaryeri.DAL.EntityFramework;
@@ -11,6 +13,7 @@ using Tasaryeri.DAL.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(SqlRepository<>));
+builder.Services.AddScoped(typeof(ICryptoBase), typeof(CryptoBase));
 builder.Services.AddScoped(typeof(IEfAdminDAL), typeof(EfAdminDAL));
 builder.Services.AddScoped(typeof(IAdminTransactions), typeof(AdminTransactions));
 builder.Services.AddDbContext<SqlContext>(options =>

@@ -4,7 +4,7 @@
 
 function showModalUpdate(event) {
     var result = event.split(",");
-
+    document.getElementById("id").value = result[0];
     document.getElementById("name").value = result[1];
     document.getElementById("surname").value = result[2];
     document.getElementById("username").value = result[3];

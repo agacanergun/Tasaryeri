@@ -58,6 +58,15 @@ namespace Tasaryeri.WebUI.Areas.admin.Controllers
         [Route("admin/update"), HttpPost]
         public IActionResult Update(AdminDTO adminDTO)
         {
+            if (ModelState.IsValid)
+            {
+                if (adminBusiness.Update(adminDTO))
+                {
+                    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                    return Redirect("adminler");
+                }
+            }
+            TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
             return Redirect("adminler");
         }
     }
