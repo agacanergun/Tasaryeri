@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Scripting;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
-using Tasaryeri.DAL.Entities;
 using Tasaryeri.WebUI.ViewModels;
 
 namespace Tasaryeri.WebUI.Areas.admin.Controllers
