@@ -1,10 +1,5 @@
-﻿using Azure.Core;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting.Internal;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
 using Tasaryeri.DAL.Entities;
@@ -15,17 +10,20 @@ namespace Tasaryeri.BL.Concreate
     public class SlideTransactions : ISlideTransactions
     {
         IEfSlideDAL efSlideDAL;
-        public SlideTransactions(IEfSlideDAL efSlideDAL)
+        IWebHostEnvironment hostingEnvironment;
+        public SlideTransactions(IEfSlideDAL efSlideDAL, IWebHostEnvironment hostingEnvironment)
         {
             this.efSlideDAL = efSlideDAL;
+            this.hostingEnvironment = hostingEnvironment;
         }
 
+        //veritabanına veriyi ekler ve sonra fotoğrafı projeye ekler
         public bool Add(SlideDTO slideDTO)
         {
             if (slideDTO.PictureFile != null && slideDTO.PictureFile.Length > 0)
             {
                 string fileName = DateTime.Now.Minute + DateTime.Now.Millisecond + slideDTO.PictureFile.FileName;
-                slideDTO.Picture = "/uploads/imgs/" + fileName;
+                slideDTO.Picture = "uploads/imgs/" + fileName;
 
                 Slide slide = new Slide
                 {
@@ -57,11 +55,29 @@ namespace Tasaryeri.BL.Concreate
             }
         }
 
-        public bool Delete(int id)
+        //veritabanından veriyi siler daha sonra fotoğrafı siler
+        public bool Delete(SlideDTO slideDTO)
         {
-            throw new NotImplementedException();
+            Slide slide = new Slide
+            {
+                Id = slideDTO.Id,
+            };
+            if (efSlideDAL.Delete(slide))
+            {
+                string deleteFilePath = Path.Combine(hostingEnvironment.WebRootPath, slideDTO.Picture);
+
+                if (File.Exists(deleteFilePath))
+                {
+                    File.Delete(deleteFilePath);
+                    return true;
+                }
+                else
+                    return false;
+            }
+            return false;
         }
 
+        //tüm verileri çeker
         public IEnumerable<SlideDTO> GetAll()
         {
             IEnumerable<Slide> Slides = efSlideDAL.GetAll();
@@ -85,9 +101,25 @@ namespace Tasaryeri.BL.Concreate
             return slideDTOs;
         }
 
+        //veritabanından verileri günceller ve daha sonra fotoğrafı projeden siler yeni fotoğrafı ekler.
         public bool Update(SlideDTO slideDTO)
         {
-            throw new NotImplementedException();
+            Slide slide = new Slide
+            {
+                Id = slideDTO.Id,
+                DisplayIndex = slideDTO.DisplayIndex,
+                Link = slideDTO.Link,
+                LongDescription = slideDTO.LongDescription,
+                Name = slideDTO.Name,
+                Picture = slideDTO.Picture,
+                ShortDescription = slideDTO.ShortDescription,
+                Title = slideDTO.Title,
+            };
+            if (efSlideDAL.Update(slide))
+            {
+
+            }
+
         }
     }
 }

@@ -60,7 +60,7 @@ function deleteItem(id) {
 
 //SLİDE DELETE JS
 
-function confirmDeleteSlide(id) {
+function confirmDeleteSlide(id, picture) {
     swal({
         title: "Silmek İstediğine Emin misin?",
         icon: "warning",
@@ -68,17 +68,19 @@ function confirmDeleteSlide(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            deleteItemSlide(id);
+            deleteItemSlide(id, picture);
         }
     });
 }
 
-function deleteItemSlide(id) {
+function deleteItemSlide(id, picture) {
     event.preventDefault();
 
     var data = {
-        id: id
+        id: id,
+        picture: picture
     };
+ 
 
     $.ajax({
         url: '/slide/delete',

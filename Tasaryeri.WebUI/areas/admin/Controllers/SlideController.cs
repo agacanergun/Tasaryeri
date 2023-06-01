@@ -28,9 +28,9 @@ namespace Tasaryeri.WebUI.Areas.admin.Controllers
         }
 
         [Route("slide/delete")]
-        public string Delete(int id)
+        public string Delete(SlideDTO slideDTO)
         {
-            slideTransactions.Delete(id);
+            slideTransactions.Delete(slideDTO);
             return "Ok";
         }
 

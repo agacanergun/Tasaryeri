@@ -32,7 +32,10 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public bool Delete(Slide entity)
         {
-            throw new NotImplementedException();
+            var response = repoSlide.Delete(entity);
+            if (response == 1)
+                return true;
+            return false;
         }
 
         public IEnumerable<Slide> GetAll()
@@ -42,7 +45,10 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public bool Update(Slide admin)
         {
-            throw new NotImplementedException();
+            var response = repoSlide.Update(admin);
+            if (response == 1)
+                return true;
+            return false;
         }
     }
 }
