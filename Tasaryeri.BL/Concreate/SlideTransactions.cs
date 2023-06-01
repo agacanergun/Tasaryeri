@@ -104,6 +104,8 @@ namespace Tasaryeri.BL.Concreate
         //veritabanından verileri günceller ve daha sonra fotoğrafı projeden siler yeni fotoğrafı ekler.
         public bool Update(SlideDTO slideDTO)
         {
+            string deleteFilePath1 = slideDTO.Picture;
+            string fileName = DateTime.Now.Minute + DateTime.Now.Millisecond + slideDTO.PictureFile.FileName;
             Slide slide = new Slide
             {
                 Id = slideDTO.Id,
@@ -111,15 +113,29 @@ namespace Tasaryeri.BL.Concreate
                 Link = slideDTO.Link,
                 LongDescription = slideDTO.LongDescription,
                 Name = slideDTO.Name,
-                Picture = slideDTO.Picture,
+                Picture = "uploads/imgs/" + fileName,
                 ShortDescription = slideDTO.ShortDescription,
                 Title = slideDTO.Title,
             };
             if (efSlideDAL.Update(slide))
             {
+                string deleteFilePath = Path.Combine(hostingEnvironment.WebRootPath, deleteFilePath1);
 
+                //eski görseli sil
+                if (File.Exists(deleteFilePath))
+                {
+                    File.Delete(deleteFilePath);
+                }
+
+                //yeni görseli ekle
+
+                using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "imgs", fileName), FileMode.Create))
+                {
+                    slideDTO.PictureFile.CopyTo(stream);
+                }
+                return true;
             }
-
+            return false;
         }
     }
 }

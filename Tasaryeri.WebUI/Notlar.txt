@@ -6,3 +6,5 @@
    (x=>x.Type=="photo").Value
    o claimi yakalama
                        
+
+                       

@@ -139,7 +139,7 @@
             </div>
             <div class="x_content">
                 <br />
-                <form method="post" asp-action="Update" class="form-label-left input_mask">
+                <form method="post" asp-action="Update" enctype="multipart/form-data" class="form-label-left input_mask">
                     <input type="hidden" asp-for="@Model.SlideDTO.Id" id="id" />
 
                     <div class="form-group row">
@@ -171,9 +171,9 @@
 
 
                     <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.Picture"></label>
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SlideDTO.PictureFile"></label>
                         <div class="col-md-9 col-sm-9 ">
-                            <input type="file" required id="picture" accept="image/*" class="form-control" asp-for="@Model.SlideDTO.Picture">
+                            <input type="file" required id="picture" accept="image/*" class="form-control" asp-for="@Model.SlideDTO.PictureFile">
                         </div>
                     </div>
 
