@@ -18573,20 +18573,8 @@
       "PackagePath": "staticwebassets\\mainJS\\main.js"
     },
     {
-      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\603yoklama1.JPG",
-      "PackagePath": "staticwebassets\\uploads\\imgs\\603yoklama1.JPG"
-    },
-    {
-      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\631yoklama1.JPG",
-      "PackagePath": "staticwebassets\\uploads\\imgs\\631yoklama1.JPG"
-    },
-    {
-      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\794innerjoin.JPG",
-      "PackagePath": "staticwebassets\\uploads\\imgs\\794innerjoin.JPG"
-    },
-    {
-      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\918fotom.jpg",
-      "PackagePath": "staticwebassets\\uploads\\imgs\\918fotom.jpg"
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\717fotom.jpg",
+      "PackagePath": "staticwebassets\\uploads\\imgs\\717fotom.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Tasaryeri.WebUI.Microsoft.AspNetCore.StaticWebAssets.props",
