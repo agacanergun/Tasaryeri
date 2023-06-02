@@ -20,7 +20,7 @@
             </h2>
         </div>
 
-        <div class="col"><a class="btn btn-success btn-lg" onclick="showModalAdd(this.name)" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
+        <div class="col"><a class="btn btn-success btn-lg" onclick="showModalAddMainCat(this.name)" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
     </div>
 
     <table class="table table-striped">
@@ -39,7 +39,7 @@
                     <td style="display:none">@item.Id</td>
                     <td>@item.Name</td>
                     <td>@item.DisplayIndex</td>
-                    <td><button style="border:none" id="@item.Id,@item.Name,@item.DisplayIndex" onclick="showModalUpdate(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td><button style="border:none" id="@item.Id,@item.Name,@item.DisplayIndex" onclick="showModalUpdateMainCat(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
                     <td>
                         <button style="border:none" onclick="confirmDeleteMainCat(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
                     </td>
@@ -92,7 +92,7 @@
                     <td>@item.Name</td>
                     <td>@item.MainCategoryDTO.Name</td>
                     <td>@item.DisplayIndex</td>
-                    <td><button style="border:none" id="@item.Id,@item.Name,@item.DisplayIndex" onclick="showModalUpdate(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td><button style="border:none" id="@item.Id,@item.Name,@item.DisplayIndex" onclick="showModalUpdateMainCat(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
                     <td>
                         <button style="border:none" onclick="confirmDeleteSubCat(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
                     </td>
@@ -103,40 +103,28 @@
 </div>
 
 
-@*
-<div id="myModalAdd" class="modal">
+
+<div id="myModalAddMainCat" class="modal">
     <div class="modal-content">
         <div class="x_panel">
             <div class="x_title">
-                <h1>Admin Ekle</h1>
+                <h1>Ana Kategori Ekle</h1>
 
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
                 <br />
-                <form method="post" asp-action="Add" class="form-label-left input_mask">
+                <form method="post" asp-action="AddMainCategory" class="form-label-left input_mask">
                     <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Name"></label>
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.MainCategoryDTO1.Name"></label>
                         <div class="col-md-9 col-sm-9 ">
-                            <input type="text" required class="form-control" asp-for="@Model.AdminDTO.Name">
+                            <input type="text" required class="form-control" asp-for="@Model.MainCategoryDTO1.Name">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Surname"></label>
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.MainCategoryDTO1.DisplayIndex"></label>
                         <div class="col-md-9 col-sm-9 ">
-                            <input type="text" required class="form-control" asp-for="@Model.AdminDTO.Surname">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.UserName"></label>
-                        <div class="col-md-9 col-sm-9 ">
-                            <input type="text" required class="form-control" asp-for="@Model.AdminDTO.UserName">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Password"></label>
-                        <div class="col-md-9 col-sm-9 ">
-                            <input type="text" required class="form-control" asp-for="@Model.AdminDTO.Password">
+                            <input type="text" required class="form-control" asp-for="@Model.MainCategoryDTO1.DisplayIndex">
                         </div>
                     </div>
 
@@ -152,9 +140,11 @@
             </div>
         </div>
     </div>
-</div>*@
-@*
-<div id="myModalUpdate" class="modal">
+</div>
+
+
+
+<div id="myModalUpdateMainCat" class="modal">
     <div class="modal-content">
         <div class="x_panel">
             <div class="x_title">
@@ -164,33 +154,22 @@
             </div>
             <div class="x_content">
                 <br />
-                <form method="post" asp-action="Update" class="form-label-left input_mask">
-                    <input type="hidden" asp-for="@Model.AdminDTO.ID" id="id" />
+                <form method="post" asp-action="UpdateMainCategory" class="form-label-left input_mask">
+                    <input type="hidden" asp-for="@Model.MainCategoryDTO1.Id" id="id" />
 
                     <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Name"></label>
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.MainCategoryDTO1.Name"></label>
                         <div class="col-md-9 col-sm-9 ">
-                            <input type="text" required id="name" class="form-control" asp-for="@Model.AdminDTO.Name">
+                            <input type="text" required id="name" class="form-control" asp-for="@Model.MainCategoryDTO1.Name">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Surname"></label>
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.MainCategoryDTO1.DisplayIndex"></label>
                         <div class="col-md-9 col-sm-9 ">
-                            <input type="text" required id="surname" class="form-control" asp-for="@Model.AdminDTO.Surname">
+                            <input type="text" required id="displayindex" class="form-control" asp-for="@Model.MainCategoryDTO1.DisplayIndex">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.UserName"></label>
-                        <div class="col-md-9 col-sm-9 ">
-                            <input type="text" required id="username" class="form-control" asp-for="@Model.AdminDTO.UserName">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.AdminDTO.Password"></label>
-                        <div class="col-md-9 col-sm-9 ">
-                            <input type="text" required id="password" asp-for="@Model.AdminDTO.Password" class="form-control">
-                        </div>
-                    </div>
+                
 
                     <div class="ln_solid"></div>
                     <div class="form-group row">
@@ -204,4 +183,4 @@
             </div>
         </div>
     </div>
-</div>*@
+</div>

@@ -53,3 +53,29 @@ window.onclick = function (event) {
     }
 }
 //SLİDE MODALS
+
+
+
+//CATEGORY ADD MODALS
+function showModalAddMainCat() {
+    document.getElementById("myModalAddMainCat").style.display = "block";
+}
+
+function showModalUpdateMainCat(event) {
+    var result = event.split(",");
+    document.getElementById("id").value = result[0];
+    document.getElementById("name").value = result[1];
+    document.getElementById("displayindex").value = result[2];
+    document.getElementById("myModalUpdateMainCat").style.display = "block";
+}
+
+var myModalAddMainCat = document.getElementById('myModalAddMainCat');
+var myModalUpdateMainCat = document.getElementById('myModalUpdateMainCat');
+
+window.onclick = function (event) {
+    if (event.target == myModalAddMainCat || event.target == myModalUpdateMainCat) {
+        myModalAddMainCat.style.display = "none";
+        myModalUpdateMainCat.style.display = "none";
+    }
+}
+//SLİDE MODALS
