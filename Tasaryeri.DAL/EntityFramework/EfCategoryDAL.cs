@@ -46,7 +46,7 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public IEnumerable<SubCategory> GetAllSubCategories()
         {
-            return repoSubCategory.GetAll().OrderBy(x => x.DisplayIndex).Include(x=>x.MainCategory).OrderBy(x => x.DisplayIndex);
+            return repoSubCategory.GetAll().OrderBy(x => x.DisplayIndex).Include(x=>x.MainCategory).OrderBy(x => x.MainCategory.Name);
         }
 
         public bool Update(MainCategory entity)
