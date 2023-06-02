@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Tasaryeri.BL.Abstract;
@@ -42,6 +43,9 @@ namespace Tasaryeri.BL.Concreate
         {
             IEnumerable<MainCategory> mainCategories = efCategoryDAL.GetAllMainCategories();
             List<MainCategoryDTO> mainCategoryDTOs = new List<MainCategoryDTO>();
+
+
+
             foreach (var item in mainCategories)
             {
                 MainCategoryDTO mainCategoryDTO = new MainCategoryDTO
@@ -49,7 +53,6 @@ namespace Tasaryeri.BL.Concreate
                     Id = item.Id,
                     Name = item.Name,
                     DisplayIndex = item.DisplayIndex,
-                    subCategories = item.subCategories,
                 };
                 mainCategoryDTOs.Add(mainCategoryDTO);
             }
@@ -67,8 +70,13 @@ namespace Tasaryeri.BL.Concreate
                     Id = item.Id,
                     Name = item.Name,
                     DisplayIndex = item.DisplayIndex,
-                    MainCategory = item.MainCategory,
                     MainCategoryId = item.MainCategoryId,
+                    MainCategoryDTO = new MainCategoryDTO()
+                    {
+                        Id = item.MainCategory.Id,
+                        DisplayIndex = item.MainCategory.DisplayIndex,
+                        Name = item.MainCategory.Name,
+                    },
                 };
                 subCategoryDTOs.Add(subCategoryDTO);
             }
