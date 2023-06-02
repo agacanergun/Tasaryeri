@@ -9,11 +9,13 @@ namespace Tasaryeri.BL.Abstract
 {
     public interface ICategoryTransactions
     {
-        public bool Update(MainCategoryDTO dto);
-        public bool Update(SubCategoryDTO dto);
-        public bool Add(MainCategoryDTO dto);
-        public bool Add(SubCategoryDTO dto);
-        public bool Delete(MainCategoryDTO dto);
-        public bool Delete(SubCategoryDTO dto);
+       IEnumerable<MainCategoryDTO> GetAllMainCategories();
+       IEnumerable<SubCategoryDTO> GetAllSubCategories();
+       bool Update(MainCategoryDTO dto);
+       bool Update(SubCategoryDTO dto);
+       bool Add(MainCategoryDTO dto);
+       bool Add(SubCategoryDTO dto);
+       bool Delete(MainCategoryDTO dto);
+       bool Delete(SubCategoryDTO dto);
     }
 }

@@ -19,6 +19,8 @@ namespace Tasaryeri.DAL.Contexts
         public DbSet<MainCategory> MainCategory { get; set; }
         public DbSet<SubCategory> SubCategory { get; set; }
         public DbSet<Slide> Slide { get; set; } //bitti
+        public DbSet<MainCategory> mainCategories { get; set; }
+        public DbSet<SubCategory> subCategories { get; set; }
 
 
 

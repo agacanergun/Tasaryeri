@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.WebUI.areas.admin.ViewModels;
 
 namespace Tasaryeri.WebUI.areas.Category.Controllers
 {
@@ -14,22 +15,27 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
         {
             this.categoryTransactions = categoryTransactions;
         }
-        [Route("category/categoryler")]
+        [Route("kategori/kategoriler")]
         public IActionResult Index()
         {
-            //tüm main ve alt kategoriler gönderilecek
-
-            return View();
+            var responseMainCategories = categoryTransactions.GetAllMainCategories();
+            var responseSubCategories = categoryTransactions.GetAllSubCategories();
+            CategoryVM categoryVM = new CategoryVM
+            {
+                MainCategoryDTO = responseMainCategories,
+                SubCategoryDTO = responseSubCategories,
+            };
+            return View(categoryVM);
         }
 
-        [Route("category/delete-maincategory")]
+        [Route("kategori/delete-maincategory")]
         public string DeleteMainCategory(int id)
         {
-         
+
             return "Ok";
         }
 
-        [Route("category/delete-subcategory")]
+        [Route("kategori/delete-subcategory")]
         public string DeleteSubCategory(int id)
         {
 
@@ -37,7 +43,7 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
         }
 
 
-        [Route("category/Ana-category-ekle"), HttpPost]
+        [Route("kategori/ana-kategori-ekle"), HttpPost]
         public IActionResult AddMainCategory(MainCategoryDTO MainCategoryDTO)
         {
             if (ModelState.IsValid)
@@ -45,14 +51,14 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
                 if (categoryTransactions.Add(MainCategoryDTO))
                 {
                     TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                    return Redirect("category");
+                    return Redirect("kategoriler");
                 }
             }
             TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
-            return Redirect("categoryler");
+            return Redirect("kategoriler");
         }
 
-        [Route("category/Sub-Category-ekle"), HttpPost]
+        [Route("kategori/sub-kategori-ekle"), HttpPost]
         public IActionResult AddSubCategory(SubCategoryDTO SubCategoryDTO)
         {
             if (ModelState.IsValid)
@@ -60,11 +66,11 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
                 if (categoryTransactions.Add(SubCategoryDTO))
                 {
                     TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                    return Redirect("categoryler");
+                    return Redirect("kategoriler");
                 }
             }
             TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
-            return Redirect("categoryler");
+            return Redirect("kategoriler");
         }
 
         [Route("category/update-ana-kategori"), HttpPost]
@@ -75,14 +81,14 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
                 if (categoryTransactions.Update(MainCategoryDTO))
                 {
                     TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return Redirect("categoryler");
+                    return Redirect("kategoriler");
                 }
             }
             TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
-            return Redirect("categoryler");
+            return Redirect("kategoriler");
         }
 
-        [Route("category/update-sub-kategori"), HttpPost]
+        [Route("kategori/update-sub-kategori"), HttpPost]
         public IActionResult UpdateSubCategory(SubCategoryDTO SubCategoryDTO)
         {
             if (ModelState.IsValid)
@@ -90,11 +96,11 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
                 if (categoryTransactions.Update(SubCategoryDTO))
                 {
                     TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return Redirect("categoryler");
+                    return Redirect("kategoriler");
                 }
             }
             TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
-            return Redirect("categoryler");
+            return Redirect("kategoriler");
         }
     }
 }
