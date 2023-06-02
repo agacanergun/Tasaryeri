@@ -18577,6 +18577,10 @@
       "PackagePath": "staticwebassets\\uploads\\imgs\\717fotom.jpg"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\935x.jpg",
+      "PackagePath": "staticwebassets\\uploads\\imgs\\935x.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Tasaryeri.WebUI.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
