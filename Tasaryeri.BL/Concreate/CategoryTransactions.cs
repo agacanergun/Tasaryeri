@@ -31,12 +31,20 @@ namespace Tasaryeri.BL.Concreate
 
         public bool Delete(MainCategoryDTO dto)
         {
-            throw new NotImplementedException();
+            MainCategory mainCategory = new MainCategory
+            {
+                Id = dto.Id,
+            };
+            return efCategoryDAL.Delete(mainCategory);
         }
 
         public bool Delete(SubCategoryDTO dto)
         {
-            throw new NotImplementedException();
+            SubCategory subCategory = new SubCategory
+            {
+                Id = dto.Id,
+            };
+            return efCategoryDAL.Delete(subCategory);
         }
 
         public IEnumerable<MainCategoryDTO> GetAllMainCategories()

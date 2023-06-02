@@ -41,7 +41,7 @@
                     <td>@item.DisplayIndex</td>
                     <td><button style="border:none" id="@item.Id,@item.Name,@item.DisplayIndex" onclick="showModalUpdate(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
                     <td>
-                        <button style="border:none" onclick="confirmDelete(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
+                        <button style="border:none" onclick="confirmDeleteMainCat(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
                     </td>
                 </tr>
             }
@@ -94,7 +94,7 @@
                     <td>@item.DisplayIndex</td>
                     <td><button style="border:none" id="@item.Id,@item.Name,@item.DisplayIndex" onclick="showModalUpdate(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
                     <td>
-                        <button style="border:none" onclick="confirmDelete(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
+                        <button style="border:none" onclick="confirmDeleteSubCat(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
                     </td>
                 </tr>
             }

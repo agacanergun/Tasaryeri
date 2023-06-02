@@ -31,22 +31,28 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public bool Delete(MainCategory entity)
         {
-            throw new NotImplementedException();
+            var response = repoMainCategory.Delete(entity);
+            if (response == 1)
+                return true;
+            return false;
         }
 
         public bool Delete(SubCategory entity)
         {
-            throw new NotImplementedException();
+            var response = repoSubCategory.Delete(entity);
+            if (response == 1)
+                return true;
+            return false;
         }
 
         public IEnumerable<MainCategory> GetAllMainCategories()
         {
-            return repoMainCategory.GetAll().OrderBy(x=>x.DisplayIndex).Include(x => x.subCategories).OrderBy(x=>x.DisplayIndex);
+            return repoMainCategory.GetAll().OrderBy(x => x.DisplayIndex).Include(x => x.subCategories).OrderBy(x => x.DisplayIndex);
         }
 
         public IEnumerable<SubCategory> GetAllSubCategories()
         {
-            return repoSubCategory.GetAll().OrderBy(x => x.DisplayIndex).Include(x=>x.MainCategory).OrderBy(x => x.MainCategory.Name);
+            return repoSubCategory.GetAll().OrderBy(x => x.DisplayIndex).Include(x => x.MainCategory).OrderBy(x => x.MainCategory.Name);
         }
 
         public bool Update(MainCategory entity)

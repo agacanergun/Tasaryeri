@@ -31,14 +31,22 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
         [Route("kategori/delete-maincategory")]
         public string DeleteMainCategory(int id)
         {
-
+            MainCategoryDTO mainCategoryDTO = new MainCategoryDTO
+            {
+                Id = id,
+            };
+            categoryTransactions.Delete(mainCategoryDTO);
             return "Ok";
         }
 
         [Route("kategori/delete-subcategory")]
         public string DeleteSubCategory(int id)
         {
-
+            SubCategoryDTO subCategoryDTO = new SubCategoryDTO
+            {
+                Id=id,
+            };
+            categoryTransactions.Delete(subCategoryDTO);
             return "Ok";
         }
 
