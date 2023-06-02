@@ -21,7 +21,13 @@ namespace Tasaryeri.BL.Concreate
 
         public bool Add(MainCategoryDTO dto)
         {
-            throw new NotImplementedException();
+            MainCategory mainCategory = new MainCategory
+            {
+                Name = dto.Name,
+                DisplayIndex = dto.DisplayIndex,
+            };
+
+            return efCategoryDAL.Add(mainCategory);
         }
 
         public bool Add(SubCategoryDTO dto)
@@ -93,7 +99,13 @@ namespace Tasaryeri.BL.Concreate
 
         public bool Update(MainCategoryDTO dto)
         {
-            throw new NotImplementedException();
+            MainCategory mainCategory = new MainCategory
+            {
+                Id = dto.Id,
+                Name = dto.Name,
+                DisplayIndex = dto.DisplayIndex,
+            };
+            return efCategoryDAL.Update(mainCategory);
         }
 
         public bool Update(SubCategoryDTO dto)

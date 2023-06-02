@@ -9,13 +9,13 @@
         </div>
         <div class="col">
             <h2>
-                @if (TempData["AddInfo"] != null)
+                @if (TempData["AddMainCategoryInfo"] != null)
                 {
-                    @Html.Raw(TempData["AddInfo"])
+                    @Html.Raw(TempData["AddMainCategoryInfo"])
                 }
-                @if (TempData["UpdateInfo"] != null)
+                @if (TempData["UpdateMainCatInfo"] != null)
                 {
-                    @Html.Raw(TempData["UpdateInfo"])
+                    @Html.Raw(TempData["UpdateMainCatInfo"])
                 }
             </h2>
         </div>
@@ -60,9 +60,9 @@
         </div>
         <div class="col">
             <h2>
-                @if (TempData["AddInfo"] != null)
+                @if (TempData["AddSubCategoryInfo"] != null)
                 {
-                    @Html.Raw(TempData["AddInfo"])
+                    @Html.Raw(TempData["AddSubCategoryInfo"])
                 }
                 @if (TempData["UpdateInfo"] != null)
                 {

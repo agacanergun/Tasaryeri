@@ -21,12 +21,18 @@ namespace Tasaryeri.DAL.EntityFramework
         }
         public bool Add(MainCategory entity)
         {
-            throw new NotImplementedException();
+            var response = repoMainCategory.Add(entity);
+            if (response == 1)
+                return true;
+            return false;
         }
 
         public bool Add(SubCategory entity)
         {
-            throw new NotImplementedException();
+            var response = repoSubCategory.Add(entity);
+            if (response == 1)
+                return true;
+            return false;
         }
 
         public bool Delete(MainCategory entity)
@@ -57,7 +63,10 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public bool Update(MainCategory entity)
         {
-            throw new NotImplementedException();
+            var respone = repoMainCategory.Update(entity);
+            if (respone == 1)
+                return true;
+            return false;
         }
 
         public bool Update(SubCategory entity)

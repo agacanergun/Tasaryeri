@@ -121,7 +121,7 @@ function deleteItemSlide(id, picture) {
 
 
 
-//SubCategory Delet JS
+//SubCategory Delete JS
 
 function confirmDeleteSubCat(id) {
     swal({
@@ -131,12 +131,12 @@ function confirmDeleteSubCat(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            deleteItem(id);
+            deleteItemSubCat(id);
         }
     });
 }
 
-function deleteItem(id) {
+function deleteItemSubCat(id) {
     event.preventDefault();
 
     var data = {

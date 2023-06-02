@@ -44,7 +44,7 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
         {
             SubCategoryDTO subCategoryDTO = new SubCategoryDTO
             {
-                Id=id,
+                Id = id,
             };
             categoryTransactions.Delete(subCategoryDTO);
             return "Ok";
@@ -52,17 +52,17 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
 
 
         [Route("kategori/ana-kategori-ekle"), HttpPost]
-        public IActionResult AddMainCategory(MainCategoryDTO MainCategoryDTO)
+        public IActionResult AddMainCategory(MainCategoryDTO MainCategoryDTO1)
         {
             if (ModelState.IsValid)
             {
-                if (categoryTransactions.Add(MainCategoryDTO))
+                if (categoryTransactions.Add(MainCategoryDTO1))
                 {
-                    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                    TempData["AddMainCategoryInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
                     return Redirect("kategoriler");
                 }
             }
-            TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+            TempData["AddMainCategoryInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
             return Redirect("kategoriler");
         }
 
@@ -73,26 +73,26 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
             {
                 if (categoryTransactions.Add(SubCategoryDTO))
                 {
-                    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                    TempData["AddSubCategoryInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
                     return Redirect("kategoriler");
                 }
             }
-            TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+            TempData["AddSubCategoryInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
             return Redirect("kategoriler");
         }
 
-        [Route("category/update-ana-kategori"), HttpPost]
-        public IActionResult UpdateMainCategory(MainCategoryDTO MainCategoryDTO)
+        [Route("kategori/update-ana-kategori"), HttpPost]
+        public IActionResult UpdateMainCategory(MainCategoryDTO MainCategoryDTO1)
         {
             if (ModelState.IsValid)
             {
-                if (categoryTransactions.Update(MainCategoryDTO))
+                if (categoryTransactions.Update(MainCategoryDTO1))
                 {
-                    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                    TempData["UpdateMainCatInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
                     return Redirect("kategoriler");
                 }
             }
-            TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+            TempData["UpdateMainCatInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
             return Redirect("kategoriler");
         }
 
