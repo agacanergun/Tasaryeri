@@ -72,36 +72,35 @@ function showModalUpdateMainCat(event) {
 var myModalAddMainCat = document.getElementById('myModalAddMainCat');
 var myModalUpdateMainCat = document.getElementById('myModalUpdateMainCat');
 
+var myModalAddSubCat = document.getElementById('myModalAddSubCat');
+var myModalUpdateSubCat = document.getElementById('myModalUpdateSubCat');
+
 window.onclick = function (event) {
-    if (event.target == myModalAddMainCat || event.target == myModalUpdateMainCat) {
+    if (event.target == myModalAddMainCat || event.target == myModalUpdateMainCat || event.target == myModalAddSubCat || event.target == myModalUpdateSubCat) {
         myModalAddMainCat.style.display = "none";
         myModalUpdateMainCat.style.display = "none";
+        myModalAddSubCat.style.display = "none";
+        myModalUpdateSubCat.style.display = "none";
     }
 }
 //MAİN CATEGORY ADD-UPDATE MODALS
 
 
 
-//MAİN CATEGORY ADD-UPDATE MODALS
+//SUB CATEGORY ADD-UPDATE MODALS
 function showModalAddSubCat() {
     document.getElementById("myModalAddSubCat").style.display = "block";
 }
 
 function showModalUpdateSubCat(event) {
     var result = event.split(",");
-    document.getElementById("id").value = result[0];
-    document.getElementById("name").value = result[1];
-    document.getElementById("displayindex").value = result[2];
+    document.getElementById("idsub").value = result[0];
+    document.getElementById("namesub").value = result[1];
+    document.getElementById("displayindexsub").value = result[2];
     document.getElementById("myModalUpdateSubCat").style.display = "block";
 }
 
-var myModalAddSubCat = document.getElementById('myModalAddSubCat');
-var myModalSubMainCat = document.getElementById('myModalSubMainCat');
 
-window.onclick = function (event) {
-    if (event.target == myModalAddSubCat || event.target == myModalSubMainCat) {
-        myModalAddSubCat.style.display = "none";
-        myModalSubMainCat.style.display = "none";
-    }
-}
-//MAİN CATEGORY ADD-UPDATE MODALS
+
+//SUB CATEGORY ADD-UPDATE MODALS
+

@@ -71,7 +71,10 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public bool Update(SubCategory entity)
         {
-            throw new NotImplementedException();
+            var respone = repoCategory.Update(entity);
+            if (respone == 1)
+                return true;
+            return false;
         }
     }
 }

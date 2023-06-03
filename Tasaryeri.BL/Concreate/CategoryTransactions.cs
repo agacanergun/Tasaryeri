@@ -32,7 +32,13 @@ namespace Tasaryeri.BL.Concreate
 
         public bool Add(SubCategoryDTO dto)
         {
-            throw new NotImplementedException();
+            SubCategory subCategory = new SubCategory
+            {
+                Name = dto.Name,
+                DisplayIndex = dto.DisplayIndex,
+                MainCategoryId = dto.MainCategoryId,
+            };
+            return efCategoryDAL.Add(subCategory);
         }
 
         public bool Delete(MainCategoryDTO dto)
@@ -110,7 +116,14 @@ namespace Tasaryeri.BL.Concreate
 
         public bool Update(SubCategoryDTO dto)
         {
-            throw new NotImplementedException();
+            SubCategory subCategory = new SubCategory
+            {
+                Id = dto.Id,
+                Name = dto.Name,
+                DisplayIndex = dto.DisplayIndex,
+                MainCategoryId = dto.MainCategoryId,
+            };
+            return efCategoryDAL.Update(subCategory);
         }
     }
 }

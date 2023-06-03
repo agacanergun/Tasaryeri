@@ -73,11 +73,11 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
             {
                 if (categoryTransactions.Add(SubCategoryDTO1))
                 {
-                    TempData["AddSubCategoryInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                    TempData["AddSubCatInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
                     return Redirect("kategoriler");
                 }
             }
-            TempData["AddSubCategoryInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+            TempData["AddSubCatInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
             return Redirect("kategoriler");
         }
 
@@ -97,17 +97,17 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
         }
 
         [Route("kategori/update-sub-kategori"), HttpPost]
-        public IActionResult UpdateSubCategory(SubCategoryDTO SubCategoryDTO)
+        public IActionResult UpdateSubCategory(SubCategoryDTO SubCategoryDTO1)
         {
             if (ModelState.IsValid)
             {
-                if (categoryTransactions.Update(SubCategoryDTO))
+                if (categoryTransactions.Update(SubCategoryDTO1))
                 {
-                    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                    TempData["UpdateSubCatInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
                     return Redirect("kategoriler");
                 }
             }
-            TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+            TempData["UpdateSubCatInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
             return Redirect("kategoriler");
         }
     }
