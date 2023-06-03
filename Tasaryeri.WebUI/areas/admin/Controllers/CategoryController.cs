@@ -67,11 +67,11 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
         }
 
         [Route("kategori/sub-kategori-ekle"), HttpPost]
-        public IActionResult AddSubCategory(SubCategoryDTO SubCategoryDTO)
+        public IActionResult AddSubCategory(SubCategoryDTO SubCategoryDTO1)
         {
             if (ModelState.IsValid)
             {
-                if (categoryTransactions.Add(SubCategoryDTO))
+                if (categoryTransactions.Add(SubCategoryDTO1))
                 {
                     TempData["AddSubCategoryInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
                     return Redirect("kategoriler");

@@ -64,14 +64,14 @@
                 {
                     @Html.Raw(TempData["AddSubCategoryInfo"])
                 }
-                @if (TempData["UpdateInfo"] != null)
+                @if (TempData["UpdateSubCategoryInfo"] != null)
                 {
-                    @Html.Raw(TempData["UpdateInfo"])
+                    @Html.Raw(TempData["UpdateSubCategoryInfo"])
                 }
             </h2>
         </div>
 
-        <div class="col"><a class="btn btn-success btn-lg" onclick="showModalAdd(this.name)" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
+        <div class="col"><a class="btn btn-success btn-lg" onclick="showModalAddSubCat(this.name)" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
     </div>
 
     <table class="table table-striped">
@@ -92,7 +92,7 @@
                     <td>@item.Name</td>
                     <td>@item.MainCategoryDTO.Name</td>
                     <td>@item.DisplayIndex</td>
-                    <td><button style="border:none" id="@item.Id,@item.Name,@item.DisplayIndex" onclick="showModalUpdateMainCat(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td><button style="border:none" id="@item.Id,@item.Name,@item.DisplayIndex" onclick="showModalUpdateSubCat(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
                     <td>
                         <button style="border:none" onclick="confirmDeleteSubCat(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
                     </td>
@@ -148,7 +148,7 @@
     <div class="modal-content">
         <div class="x_panel">
             <div class="x_title">
-                <h1>Admin Düzenle</h1>
+                <h1>Ana Kategori Düzenle</h1>
 
                 <div class="clearfix"></div>
             </div>
@@ -169,7 +169,7 @@
                             <input type="text" required id="displayindex" class="form-control" asp-for="@Model.MainCategoryDTO1.DisplayIndex">
                         </div>
                     </div>
-                
+
 
                     <div class="ln_solid"></div>
                     <div class="form-group row">
@@ -184,3 +184,67 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+@*--------------------------*@
+
+
+
+
+<div id="myModalAddSubCat" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Alt Kategori Ekle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="AddSubCategory" class="form-label-left input_mask">
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SubCategoryDTO1.Name"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" asp-for="@Model.SubCategoryDTO1.Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SubCategoryDTO1.DisplayIndex"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" asp-for="@Model.SubCategoryDTO1.DisplayIndex">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.SubCategoryDTO1.MainCategoryDTO.Name"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <select asp-for="@Model.SubCategoryDTO1.MainCategoryId">
+                                @foreach (var item in Model.MainCategoryDTO)
+                                {
+
+                                    <option value="@item.Id">@item.Name</option>
+
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

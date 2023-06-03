@@ -56,7 +56,7 @@ window.onclick = function (event) {
 
 
 
-//CATEGORY ADD MODALS
+//MAİN CATEGORY ADD-UPDATE MODALS
 function showModalAddMainCat() {
     document.getElementById("myModalAddMainCat").style.display = "block";
 }
@@ -78,4 +78,30 @@ window.onclick = function (event) {
         myModalUpdateMainCat.style.display = "none";
     }
 }
-//SLİDE MODALS
+//MAİN CATEGORY ADD-UPDATE MODALS
+
+
+
+//MAİN CATEGORY ADD-UPDATE MODALS
+function showModalAddSubCat() {
+    document.getElementById("myModalAddSubCat").style.display = "block";
+}
+
+function showModalUpdateSubCat(event) {
+    var result = event.split(",");
+    document.getElementById("id").value = result[0];
+    document.getElementById("name").value = result[1];
+    document.getElementById("displayindex").value = result[2];
+    document.getElementById("myModalUpdateSubCat").style.display = "block";
+}
+
+var myModalAddSubCat = document.getElementById('myModalAddSubCat');
+var myModalSubMainCat = document.getElementById('myModalSubMainCat');
+
+window.onclick = function (event) {
+    if (event.target == myModalAddSubCat || event.target == myModalSubMainCat) {
+        myModalAddSubCat.style.display = "none";
+        myModalSubMainCat.style.display = "none";
+    }
+}
+//MAİN CATEGORY ADD-UPDATE MODALS
