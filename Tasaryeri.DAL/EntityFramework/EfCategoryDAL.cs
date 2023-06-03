@@ -71,7 +71,7 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public bool Update(SubCategory entity)
         {
-            var respone = repoCategory.Update(entity);
+            var respone = repoSubCategory.Update(entity);
             if (respone == 1)
                 return true;
             return false;

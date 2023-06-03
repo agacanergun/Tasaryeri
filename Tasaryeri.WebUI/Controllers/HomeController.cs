@@ -7,16 +7,21 @@ namespace Tasaryeri.WebUI.Controllers
     public class HomeController : Controller
     {
         ISlideTransactions slideTransactions;
-        public HomeController(ISlideTransactions slideTransactions)
+        ICategoryTransactions categoryTransactions;
+        public HomeController(ISlideTransactions slideTransactions, ICategoryTransactions categoryTransactions)
         {
             this.slideTransactions = slideTransactions;
+            this.categoryTransactions = categoryTransactions;
         }
         public IActionResult Index()
         {
-            var response = slideTransactions.GetAll();
+            var responseSlides = slideTransactions.GetAll();
+            var responseCategories = categoryTransactions.GetAllSubCategories();
+
             HomeIndexVM vm = new HomeIndexVM
             {
-                Slides = response
+                Slides = responseSlides,
+                Categories = responseCategories
             };
 
             return View(vm);
