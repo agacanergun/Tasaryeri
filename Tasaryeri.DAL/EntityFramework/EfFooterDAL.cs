@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Azure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,22 @@ namespace Tasaryeri.DAL.EntityFramework
         {
             var respone = repoSocialMedia.Add(socialMedia);
             if (respone == 1)
+                return true;
+            return false;
+        }
+
+        public bool DeleteSocialMedia(SocialMedia socialMedia)
+        {
+            var response = repoSocialMedia.Delete(socialMedia);
+            if (response == 1)
+                return true;
+            return false;
+        }
+
+        public bool UpdateSocialMedia(SocialMedia socialMedia)
+        {
+            var response = repoSocialMedia.Update(socialMedia);
+            if (response == 1)
                 return true;
             return false;
         }

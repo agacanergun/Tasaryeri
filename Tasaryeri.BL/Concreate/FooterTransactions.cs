@@ -47,5 +47,27 @@ namespace Tasaryeri.BL.Concreate
             };
             return efFooterDAL.AddSocialMedia(socialMedia);
         }
+
+        public bool DeleteSocialMedia(SocialMediaDTO socialMediaDTO)
+        {
+            SocialMedia socialMedia = new SocialMedia
+            {
+                Id = socialMediaDTO.Id,
+            };
+            return efFooterDAL.DeleteSocialMedia(socialMedia);
+        }
+
+        public bool UpdateSocialMedia(SocialMediaDTO socialMediaDTO)
+        {
+            SocialMedia socialMedia = new SocialMedia
+            {
+                Id = socialMediaDTO.Id,
+                FacebookLink = socialMediaDTO.FacebookLink,
+                InstagramLink = socialMediaDTO.InstagramLink,
+                TwitterLink = socialMediaDTO.TwitterLink,
+                YoutubeLink = socialMediaDTO.YoutubeLink,
+            };
+            return efFooterDAL.UpdateSocialMedia(socialMedia);
+        }
     }
 }

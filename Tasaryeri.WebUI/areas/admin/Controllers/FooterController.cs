@@ -43,11 +43,30 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
             return Redirect("sosyalmedya");
         }
 
-        [Route("footer/sosyalmedya-sil"), ]
+        [Route("footer/sosyalmedya-sil"),]
         public string DeleteSocialMedia(int id)
         {
-
+            SocialMediaDTO socialMediaDTO = new SocialMediaDTO
+            {
+                Id = id,
+            };
+            footerTransactions.DeleteSocialMedia(socialMediaDTO);
             return "Ok";
+        }
+
+        [Route("footer/sosyalmedya-güncelle"), HttpPost]
+        public IActionResult UpdateSocialMedia(SocialMediaDTO socialMediaDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (footerTransactions.UpdateSocialMedia(socialMediaDTO))
+                {
+                    TempData["UpdateSocialMediaInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                    return Redirect("sosyalmedya");
+                }
+            }
+            TempData["UpdateSocialMediaInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+            return Redirect("sosyalmedya");
         }
 
 

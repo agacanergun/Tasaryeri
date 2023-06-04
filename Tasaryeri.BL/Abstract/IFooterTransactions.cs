@@ -11,5 +11,7 @@ namespace Tasaryeri.BL.Abstract
     {
         SocialMediaDTO GetSocialMedia();
         bool AddSocialMedia(SocialMediaDTO socialMediaDTO);
+        bool DeleteSocialMedia(SocialMediaDTO socialMediaDTO);
+        bool UpdateSocialMedia(SocialMediaDTO socialMediaDTO);
     }
 }

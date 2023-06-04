@@ -7,4 +7,5 @@
    o claimi yakalama
                        
 
-           
+          proje bitince interfacelerdeki public yazılarını düzenle
+          proje bitince dtolardaki attributelardaki gereksiz bilgileri kaldır.

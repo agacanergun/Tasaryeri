@@ -11,5 +11,8 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
     {
         SocialMedia GetSocialMedia();
         bool AddSocialMedia(SocialMedia socialMedia);
+        bool DeleteSocialMedia(SocialMedia socialMedia);
+
+        bool UpdateSocialMedia(SocialMedia socialMedia);
     }
 }
