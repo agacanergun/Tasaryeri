@@ -24,6 +24,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = YXJlYXNcYWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/admin/Views/Footer/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = YXJlYXNcYWRtaW5cVmlld3NcRm9vdGVyXEFib3V0VXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/admin/Views/Footer/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = YXJlYXNcYWRtaW5cVmlld3NcRm9vdGVyXENvbnRhY3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/admin/Views/Footer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = YXJlYXNcYWRtaW5cVmlld3NcRm9vdGVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/admin/Views/Footer/Institutional.cshtml]
+build_metadata.AdditionalFiles.TargetPath = YXJlYXNcYWRtaW5cVmlld3NcRm9vdGVyXEluc3RpdHV0aW9uYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = YXJlYXNcYWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +62,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/Views/Shared/Components/Footer/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/Views/Shared/_Layout.cshtml]

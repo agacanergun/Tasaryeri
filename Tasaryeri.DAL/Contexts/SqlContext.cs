@@ -16,11 +16,13 @@ namespace Tasaryeri.DAL.Contexts
         }
         public DbSet<ProcessIcons> ProcessIcon { get; set; }
         public DbSet<Admin> Admin { get; set; }  //bitti
-        public DbSet<MainCategory> MainCategory { get; set; }
-        public DbSet<SubCategory> SubCategory { get; set; }
+        public DbSet<MainCategory> MainCategory { get; set; } //bitti
+        public DbSet<SubCategory> SubCategory { get; set; } //bitti
         public DbSet<Slide> Slide { get; set; } //bitti
-        public DbSet<MainCategory> mainCategories { get; set; }
-        public DbSet<SubCategory> subCategories { get; set; }
+        public DbSet<SocialMedia> SocialMedia { get; set; }
+        public DbSet<Contact> Contact { get; set; }
+        public DbSet<AboutUs> AboutUs { get; set; }
+        public DbSet<Institutional> Institutional { get; set; }
 
 
 

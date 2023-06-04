@@ -20,6 +20,8 @@ builder.Services.AddScoped(typeof(IEfSlideDAL), typeof(EfSlideDAL));
 builder.Services.AddScoped(typeof(ISlideTransactions), typeof(SlideTransactions));
 builder.Services.AddScoped(typeof(IEfCategoryDAL), typeof(EfCategoryDAL));
 builder.Services.AddScoped(typeof(ICategoryTransactions), typeof(CategoryTransactions));
+builder.Services.AddScoped(typeof(IEfFooterDAL), typeof(EfFooterDAL));
+builder.Services.AddScoped(typeof(IFooterTransactions), typeof(FooterTransactions));
 
 builder.Services.AddDbContext<SqlContext>(options =>
           options.UseSqlServer(builder.Configuration.GetConnectionString("CS1")));
