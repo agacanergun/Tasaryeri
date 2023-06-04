@@ -100,7 +100,36 @@ function showModalUpdateSubCat(event) {
     document.getElementById("myModalUpdateSubCat").style.display = "block";
 }
 
-
-
 //SUB CATEGORY ADD-UPDATE MODALS
+
+
+
+
+//FOOTER SOCİALMEDİA ADD-UPDATE MODAL
+function showModalAddSocialMedia() {
+    document.getElementById("myModalAddSocialMedia").style.display = "block";
+}
+
+function showModalUpdateSocialMedia(event) {
+    var result = event.split(",");
+    document.getElementById("id").value = result[0];
+    document.getElementById("facebook").value = result[1];
+    document.getElementById("instagram").value = result[2];
+    document.getElementById("twitter").value = result[3];
+    document.getElementById("youtube").value = result[4];
+    document.getElementById("myModalUpdateSocialMedia").style.display = "block";
+}
+
+var modalAddSocialMedia = document.getElementById('myModalAddSocialMedia');
+var modalUpdateSocialMedia = document.getElementById('myModalUpdateSocialMedia');
+
+window.onclick = function (event) {
+    if (event.target == modalUpdateSocialMedia || event.target == modalAddSocialMedia) {
+        modalUpdateSocialMedia.style.display = "none";
+        modalAddSocialMedia.style.display = "none";
+    }
+}
+//FOOTER SOCİALMEDİA ADD-UPDATE MODAL
+
+
 

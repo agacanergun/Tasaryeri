@@ -80,7 +80,7 @@ function deleteItemSlide(id, picture) {
         id: id,
         picture: picture
     };
- 
+
 
     $.ajax({
         url: '/slide/delete',
@@ -179,11 +179,11 @@ function deleteItemSubCat(id) {
     });
 }
 
-//SubCategory Delet JS
+//SubCategory Delete JS
 
 
 
-//MainCategory Delet JS
+//MainCategory Delete JS
 
 function confirmDeleteMainCat(id) {
     swal({
@@ -241,4 +241,69 @@ function deleteItem(id) {
     });
 }
 
-//MainCategory Delet JS
+//MainCategory Delete JS
+
+
+
+
+
+
+//Socialmedia Delete JS
+
+function confirmDeleteSocialMedia(id) {
+    swal({
+        title: "Silmek İstediğine Emin misin?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            deleteItem(id);
+        }
+    });
+}
+
+function deleteItem(id) {
+    event.preventDefault();
+
+    var data = {
+        id: id
+    };
+
+    $.ajax({
+        url: '/footer/sosyalmedya-sil',
+        type: 'POST',
+        data: data,
+        success: function (response) {
+            if (response == "Ok") {
+                swal({
+                    title: "Silme İşlemi Başarılı",
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            text: "Tamam",
+                            value: true,
+                            visible: true,
+                            className: "",
+                            closeModal: true
+                        }
+                    }
+                }).then((value) => {
+                    if (value) {
+                        location.href = "/footer/sosyalmedya";
+                    }
+                    else {
+                        location.href = "/footer/sosyalmedya";
+                    }
+                });
+            } else {
+                alert(response);
+            }
+        },
+        error: function (xhr, status, error) {
+            swal("Error", "An error occurred: " + error, "error");
+        }
+    });
+}
+
+//Socialmedia Delet JS

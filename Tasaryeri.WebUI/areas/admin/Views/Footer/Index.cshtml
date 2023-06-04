@@ -1,7 +1,157 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model SocialMediaDTO
 
-<h1>Index</h1>
+<div class="table-responsive">
+    <br />
+    <div class="row">
+        <div class="col">
+            <h2>Sosyal Medya</h2>
+        </div>
+        <div class="col">
+            <h2>
+                @if (TempData["AddSocialMediaInfo"] != null)
+                {
+                    @Html.Raw(TempData["AddSocialMediaInfo"])
+                }
+                @if (TempData["UpdateSocialMediaInfo"] != null)
+                {
+                    @Html.Raw(TempData["UpdateSocialMediaInfo"])
+                }
+            </h2>
+        </div>
 
+        <div class="col"><a class="btn btn-success btn-lg" onclick="showModalAddSocialMedia(this.name)" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Facebook Linki</th>
+                <th>Instagram Linki</th>
+                <th>Twitter Linki</th>
+                <th>Youtube Linki</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                <tr>
+                    <td style="display:none">@Model.Id</td>
+                    <td>@Model.FacebookLink</td>
+                    <td>@Model.InstagramLink</td>
+                    <td>@Model.TwitterLink</td>
+                    <td>@Model.YoutubeLink</td>
+                    <td><button style="border:none" id="@Model.Id,@Model.FacebookLink,@Model.InstagramLink,@Model.TwitterLink,@Model.YoutubeLink" onclick="showModalUpdateSocialMedia(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td>
+                        <button style="border:none" onclick="confirmDeleteSocialMedia(@Model.Id)"><i class="fa fa-trash fa-2x"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div id="myModalAddSocialMedia" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Sosyal Medya Ekle</h1>
+                <h6 style="color:red">Bu Kategoride Yanlızca 1 Adet Veri Ekleyebilirsiniz.</h6>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="AddSocialMedia" class="form-label-left input_mask">
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.FacebookLink"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.FacebookLink">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.InstagramLink"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.InstagramLink">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.TwitterLink"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.TwitterLink">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.YoutubeLink"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.YoutubeLink">
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModalUpdateSocialMedia" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Sosyal Medya Düzenle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="UpdateSocialMedia" class="form-label-left input_mask">
+                    <input type="hidden" asp-for="@Model.Id" id="id" />
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.FacebookLink"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="facebook" class="form-control" asp-for="@Model.FacebookLink">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.InstagramLink"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="instagram" class="form-control" asp-for="@Model.InstagramLink">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.TwitterLink"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="twitter" class="form-control" asp-for="@Model.TwitterLink">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.YoutubeLink"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="youtube" asp-for="@Model.YoutubeLink" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Güncelle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
