@@ -159,3 +159,31 @@ window.onclick = function (event) {
 //FOOTER CONTACT ADD-UPDATE MODAL
 
 
+
+//FOOTER AboutUs ADD-UPDATE MODAL
+function showModalAddAboutUs() {
+    document.getElementById("myModalAddAboutUs").style.display = "block";
+}
+
+function showModalUpdateAboutUs(event) {
+    var result = event.split(",");
+    document.getElementById("id").value = result[0];
+    document.getElementById("AboutUsName").value = result[1];
+    document.getElementById("AboutUsDescription").value = result[2];
+    document.getElementById("DisplayIndex").value = result[3];
+    document.getElementById("myModalUpdateAboutUs").style.display = "block";
+}
+
+var modalAddAboutUs = document.getElementById('myModalAddAboutUs');
+var modalUpdateAboutUs = document.getElementById('myModalUpdateAboutUs');
+
+window.onclick = function (event) {
+    if (event.target == modalUpdateAboutUs || event.target == modalAddAboutUs) {
+        modalUpdateAboutUs.style.display = "none";
+        modalAddAboutUs.style.display = "none";
+    }
+}
+//FOOTER AboutUs ADD-UPDATE MODAL
+
+
+

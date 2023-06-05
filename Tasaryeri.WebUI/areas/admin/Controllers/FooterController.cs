@@ -126,7 +126,7 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
 
 
 
-        [Route("footer/hakkımızda")]
+        [Route("footer/hakkimizda")]
         public IActionResult AboutUs()
         {
             var response = footerTransactions.GetAboutUs();
@@ -137,7 +137,7 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
             return View(vm);
         }
 
-        [Route("footer/hakkımızda-ekle"), HttpPost]
+        [Route("footer/hakkimizda-ekle"), HttpPost]
         public IActionResult AddAboutUs(AboutUsDTO aboutUsDTO)
         {
             if (ModelState.IsValid)
@@ -145,14 +145,14 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
                 if (footerTransactions.AddAboutUs(aboutUsDTO))
                 {
                     TempData["AddAboutUsInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                    return Redirect("hakkımızda");
+                    return Redirect("hakkimizda");
                 }
             }
             TempData["AddAboutUsInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
-            return Redirect("hakkımızda");
+            return Redirect("hakkimizda");
         }
 
-        [Route("footer/hakkımızda-sil"),]
+        [Route("footer/hakkimizda-sil"),]
         public string DeleteAboutUs(int id)
         {
             AboutUsDTO aboutUsDTO = new AboutUsDTO
@@ -163,7 +163,7 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
             return "Ok";
         }
 
-        [Route("footer/hakkımızda-güncelle"), HttpPost]
+        [Route("footer/hakkimizda-güncelle"), HttpPost]
         public IActionResult UpdateAboutUs(AboutUsDTO aboutUsDTO)
         {
             if (ModelState.IsValid)
@@ -171,11 +171,11 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
                 if (footerTransactions.UpdateAboutUs(aboutUsDTO))
                 {
                     TempData["UpdateAboutUsInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return Redirect("hakkımızda");
+                    return Redirect("hakkimizda");
                 }
             }
             TempData["UpdateAboutUsInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
-            return Redirect("hakkımızda");
+            return Redirect("hakkimizda");
         }
 
 

@@ -395,7 +395,7 @@ function deleteItem(id) {
     };
 
     $.ajax({
-        url: '/footer/hakkımızda-sil',
+        url: '/footer/hakkimizda-sil',
         type: 'POST',
         data: data,
         success: function (response) {
@@ -414,10 +414,10 @@ function deleteItem(id) {
                     }
                 }).then((value) => {
                     if (value) {
-                        location.href = "/footer/hakkımızda";
+                        location.href = "/footer/hakkimizda";
                     }
                     else {
-                        location.href = "/footer/hakkımızda";
+                        location.href = "/footer/hakkimizda";
                     }
                 });
             } else {
