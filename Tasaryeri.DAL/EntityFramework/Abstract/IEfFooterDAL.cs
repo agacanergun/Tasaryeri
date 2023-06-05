@@ -17,7 +17,11 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
         IEnumerable<Contact> GetContacts();
         bool AddContact(Contact contact);
         bool DeleteContact(Contact contact);
-
         bool UpdateContact(Contact contact);
+
+        IEnumerable<AboutUs> GetAboutUs();
+        bool AddAboutUs(AboutUs aboutUs);
+        bool DeleteAboutUs(AboutUs aboutUs);
+        bool UpdateAboutUs(AboutUs aboutUs);
     }
 }

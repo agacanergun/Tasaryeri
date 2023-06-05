@@ -120,5 +120,56 @@ namespace Tasaryeri.BL.Concreate
             };
             return efFooterDAL.UpdateContact(contact);
         }
+
+        public IEnumerable<AboutUsDTO> GetAboutUs()
+        {
+            var response = efFooterDAL.GetAboutUs();
+            List<AboutUsDTO> aboutUsDTOs = new List<AboutUsDTO>();
+
+            foreach (var item in response)
+            {
+                AboutUsDTO aboutUsDTO = new AboutUsDTO
+                {
+                    Id = item.Id,
+                    Description = item.Description,
+                    DisplayIndex = item.DisplayIndex,
+                    Name = item.Name,
+                };
+                aboutUsDTOs.Add(aboutUsDTO);
+            }
+            return aboutUsDTOs;
+        }
+
+        public bool AddAboutUs(AboutUsDTO aboutUsDTO)
+        {
+            AboutUs aboutUs = new AboutUs
+            {
+                Name = aboutUsDTO.Name,
+                DisplayIndex = aboutUsDTO.DisplayIndex,
+                Description = aboutUsDTO.Description,
+            };
+            return efFooterDAL.AddAboutUs(aboutUs);
+        }
+
+        public bool DeleteAboutUs(AboutUsDTO aboutUsDTO)
+        {
+            AboutUs aboutUs = new AboutUs
+            {
+                Id = aboutUsDTO.Id,
+            };
+            return efFooterDAL.DeleteAboutUs(aboutUs);
+        }
+
+        public bool UpdateAboutUs(AboutUsDTO aboutUsDTO)
+        {
+            AboutUs aboutUs = new AboutUs
+            {
+                Id = aboutUsDTO.Id,
+                Name = aboutUsDTO.Name,
+                Description = aboutUsDTO.Description,
+                DisplayIndex = aboutUsDTO.DisplayIndex,
+            };
+            return efFooterDAL.UpdateAboutUs(aboutUs);
+        }
     }
 }

@@ -83,5 +83,34 @@ namespace Tasaryeri.DAL.EntityFramework
                 return true;
             return false;
         }
+
+        public IEnumerable<AboutUs> GetAboutUs()
+        {
+            return repoAboutUs.GetAll().OrderBy(x => x.DisplayIndex);
+        }
+
+        public bool AddAboutUs(AboutUs aboutUs)
+        {
+            var response = repoAboutUs.Add(aboutUs);
+            if (response == 1)
+                return true;
+            return false;
+        }
+
+        public bool DeleteAboutUs(AboutUs aboutUs)
+        {
+            var response = repoAboutUs.Delete(aboutUs);
+            if (response == 1)
+                return true;
+            return false;
+        }
+
+        public bool UpdateAboutUs(AboutUs aboutUs)
+        {
+            var response = repoAboutUs.Update(aboutUs);
+            if (response == 1)
+                return true;
+            return false;
+        }
     }
 }

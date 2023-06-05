@@ -18,5 +18,12 @@ namespace Tasaryeri.BL.Abstract
         bool AddContact(ContactDTO ContactDTO);
         bool DeleteContact(ContactDTO ContactDTO);
         bool UpdateContact(ContactDTO ContactDTO);
+        
+        IEnumerable<AboutUsDTO> GetAboutUs();
+        bool AddAboutUs(AboutUsDTO aboutUsDTO);
+        bool DeleteAboutUs(AboutUsDTO aboutUsDTO);
+        bool UpdateAboutUs(AboutUsDTO aboutUsDTO);
+
+
     }
 }

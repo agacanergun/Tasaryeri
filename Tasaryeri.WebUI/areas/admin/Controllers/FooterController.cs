@@ -129,8 +129,55 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
         [Route("footer/hakkımızda")]
         public IActionResult AboutUs()
         {
-            return View();
+            var response = footerTransactions.GetAboutUs();
+            AboutUsVM vm = new AboutUsVM
+            {
+                AboutUsDTOs = response,
+            };
+            return View(vm);
         }
+
+        [Route("footer/hakkımızda-ekle"), HttpPost]
+        public IActionResult AddAboutUs(AboutUsDTO aboutUsDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (footerTransactions.AddAboutUs(aboutUsDTO))
+                {
+                    TempData["AddAboutUsInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                    return Redirect("hakkımızda");
+                }
+            }
+            TempData["AddAboutUsInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+            return Redirect("hakkımızda");
+        }
+
+        [Route("footer/hakkımızda-sil"),]
+        public string DeleteAboutUs(int id)
+        {
+            AboutUsDTO aboutUsDTO = new AboutUsDTO
+            {
+                Id = id,
+            };
+            footerTransactions.DeleteAboutUs(aboutUsDTO);
+            return "Ok";
+        }
+
+        [Route("footer/hakkımızda-güncelle"), HttpPost]
+        public IActionResult UpdateAboutUs(AboutUsDTO aboutUsDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (footerTransactions.UpdateAboutUs(aboutUsDTO))
+                {
+                    TempData["UpdateAboutUsInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                    return Redirect("hakkımızda");
+                }
+            }
+            TempData["UpdateAboutUsInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+            return Redirect("hakkımızda");
+        }
+
 
 
         [Route("footer/kurumsal")]
