@@ -21,8 +21,8 @@ namespace Tasaryeri.DAL.Contexts
         public DbSet<Slide> Slide { get; set; } //bitti
         public DbSet<SocialMedia> SocialMedia { get; set; } //bitti
         public DbSet<Contact> Contact { get; set; } //bitti
-        public DbSet<AboutUs> AboutUs { get; set; }
-        public DbSet<Institutional> Institutional { get; set; }
+        public DbSet<AboutUs> AboutUs { get; set; } //bitti
+        public DbSet<Institutional> Institutional { get; set; } //bitti
 
 
 
