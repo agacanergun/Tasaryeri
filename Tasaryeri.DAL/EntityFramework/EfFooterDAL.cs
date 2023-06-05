@@ -53,5 +53,26 @@ namespace Tasaryeri.DAL.EntityFramework
                 return true;
             return false;
         }
+
+        public IEnumerable<Contact> GetContacts()
+        {
+            return repoContact.GetAll();
+
+        }
+
+        public bool AddSocialMedia(Contact contact)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteSocialMedia(Contact contact)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateSocialMedia(Contact contact)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

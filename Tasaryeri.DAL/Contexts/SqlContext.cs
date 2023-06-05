@@ -19,7 +19,7 @@ namespace Tasaryeri.DAL.Contexts
         public DbSet<MainCategory> MainCategory { get; set; } //bitti
         public DbSet<SubCategory> SubCategory { get; set; } //bitti
         public DbSet<Slide> Slide { get; set; } //bitti
-        public DbSet<SocialMedia> SocialMedia { get; set; }
+        public DbSet<SocialMedia> SocialMedia { get; set; } //bitti
         public DbSet<Contact> Contact { get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<Institutional> Institutional { get; set; }

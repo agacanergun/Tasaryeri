@@ -13,5 +13,10 @@ namespace Tasaryeri.BL.Abstract
         bool AddSocialMedia(SocialMediaDTO socialMediaDTO);
         bool DeleteSocialMedia(SocialMediaDTO socialMediaDTO);
         bool UpdateSocialMedia(SocialMediaDTO socialMediaDTO);
+
+        IEnumerable<ContactDTO> GetContacts();
+        bool AddContact(ContactDTO ContactDTO);
+        bool DeleteContact(ContactDTO ContactDTO);
+        bool UpdateContact(ContactDTO ContactDTO);
     }
 }

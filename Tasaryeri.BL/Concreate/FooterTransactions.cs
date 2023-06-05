@@ -69,5 +69,39 @@ namespace Tasaryeri.BL.Concreate
             };
             return efFooterDAL.UpdateSocialMedia(socialMedia);
         }
+
+        public IEnumerable<ContactDTO> GetContacts()
+        {
+            var response = efFooterDAL.GetContacts();
+            List<ContactDTO> ContactDTOs = new List<ContactDTO>();
+
+            foreach (var item in response)
+            {
+                ContactDTO contactDTO = new ContactDTO
+                {
+                    Id = item.Id,
+                    ContactInfo = item.ContactInfo,
+                    ContactType = item.ContactType,
+                    DisplayIndex = item.DisplayIndex
+                };
+                ContactDTOs.Add(contactDTO);
+            }
+            return ContactDTOs;
+        }
+
+        public bool AddContact(ContactDTO ContactDTO)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteContact(ContactDTO ContactDTO)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateContact(ContactDTO ContactDTO)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

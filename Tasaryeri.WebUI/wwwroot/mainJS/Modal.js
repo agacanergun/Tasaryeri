@@ -133,3 +133,29 @@ window.onclick = function (event) {
 
 
 
+//FOOTER CONTACT ADD-UPDATE MODAL
+function showModalAddContact() {
+    document.getElementById("myModalAddContact").style.display = "block";
+}
+
+function showModalUpdateContact(event) {
+    var result = event.split(",");
+    document.getElementById("id").value = result[0];
+    document.getElementById("contactType").value = result[1];
+    document.getElementById("ContactInfo").value = result[2];
+    document.getElementById("DisplayIndex").value = result[3];
+    document.getElementById("myModalUpdateContact").style.display = "block";
+}
+
+var modalAddContact = document.getElementById('myModalAddContact');
+var modalUpdateContact = document.getElementById('myModalUpdateContact');
+
+window.onclick = function (event) {
+    if (event.target == modalUpdateContact || event.target == modalAddContact) {
+        modalUpdateContact.style.display = "none";
+        modalAddContact.style.display = "none";
+    }
+}
+//FOOTER CONTACT ADD-UPDATE MODAL
+
+

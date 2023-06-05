@@ -1,7 +1,142 @@
-﻿
-@{
-    ViewData["Title"] = "Contact";
-}
+﻿@model ContactVM
 
-<h1>Contact</h1>
+<div class="table-responsive">
+    <br />
+    <div class="row">
+        <div class="col">
+            <h2>Kontak</h2>
+        </div>
+        <div class="col">
+            <h2>
+                @if (TempData["AddContactInfo"] != null)
+                {
+                    @Html.Raw(TempData["AddContactInfo"])
+                }
+                @if (TempData["UpdateContactInfo"] != null)
+                {
+                    @Html.Raw(TempData["UpdateContactInfo"])
+                }
+            </h2>
+        </div>
 
+        <div class="col"><a class="btn btn-success btn-lg" onclick="showModalAddContact(this.name)" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Kontak Türü</th>
+                <th>Kontak Bilgisi</th>
+                <th>Görüntülenme Sırası</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ContactDTOs)
+            {
+                <tr>
+                    <td style="display:none">@item.Id</td>
+                    <td>@item.ContactType</td>
+                    <td>@item.ContactInfo</td>
+                    <td>@item.DisplayIndex</td>
+                    <td><button style="border:none" id="@item.Id,@item.ContactType,@item.ContactInfo,@item.DisplayIndex" onclick="showModalUpdateContact(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td>
+                        <button style="border:none" onclick="confirmDeleteContact(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div id="myModalAddContact" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Kontak Ekle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="AddContact" class="form-label-left input_mask">
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.ContactDTO.ContactType"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.ContactDTO.ContactType">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.ContactDTO.ContactInfo"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.ContactDTO.ContactInfo">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.ContactDTO.DisplayIndex"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.ContactDTO.DisplayIndex">
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModalUpdateContact" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Kontak Düzenle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="UpdateContact" class="form-label-left input_mask">
+                    <input type="hidden" asp-for="@Model.ContactDTO.Id" id="id" />
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.ContactDTO.ContactType"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="contactType" class="form-control" asp-for="@Model.ContactDTO.ContactType">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.ContactDTO.ContactInfo"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="ContactInfo" class="form-control" asp-for="@Model.ContactDTO.ContactInfo">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.ContactDTO.DisplayIndex"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="DisplayIndex" class="form-control" asp-for="@Model.ContactDTO.DisplayIndex">
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Güncelle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

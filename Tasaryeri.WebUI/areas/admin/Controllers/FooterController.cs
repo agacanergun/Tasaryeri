@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Concreate;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.WebUI.areas.admin.ViewModels;
 
 namespace Tasaryeri.WebUI.areas.admin.Controllers
 {
@@ -73,7 +74,12 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
         [Route("footer/kontak")]
         public IActionResult Contact()
         {
-            return View();
+            var response = footerTransactions.GetContacts();
+            ContactVM contactVM = new ContactVM
+            {
+                ContactDTOs = response,
+            };
+            return View(contactVM);
         }
 
 

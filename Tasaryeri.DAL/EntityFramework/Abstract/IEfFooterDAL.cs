@@ -12,7 +12,12 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
         SocialMedia GetSocialMedia();
         bool AddSocialMedia(SocialMedia socialMedia);
         bool DeleteSocialMedia(SocialMedia socialMedia);
-
         bool UpdateSocialMedia(SocialMedia socialMedia);
+
+        IEnumerable<Contact> GetContacts();
+        bool AddSocialMedia(Contact contact);
+        bool DeleteSocialMedia(Contact contact);
+
+        bool UpdateSocialMedia(Contact contact);
     }
 }
