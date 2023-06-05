@@ -14,7 +14,6 @@ namespace Tasaryeri.DAL.Contexts
         public SqlContext(DbContextOptions<SqlContext> options) : base(options)
         {
         }
-        public DbSet<ProcessIcons> ProcessIcon { get; set; }
         public DbSet<Admin> Admin { get; set; }  //bitti
         public DbSet<MainCategory> MainCategory { get; set; } //bitti
         public DbSet<SubCategory> SubCategory { get; set; } //bitti
