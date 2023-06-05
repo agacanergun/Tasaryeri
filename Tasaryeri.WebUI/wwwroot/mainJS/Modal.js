@@ -187,3 +187,31 @@ window.onclick = function (event) {
 
 
 
+//FOOTER Institutional ADD-UPDATE MODAL
+function showModalAddInstitutional() {
+    document.getElementById("myModalAddInstitutional").style.display = "block";
+}
+
+function showModalUpdateInstitutional(event) {
+    var result = event.split(",");
+    document.getElementById("id").value = result[0];
+    document.getElementById("InstitutionalName").value = result[1];
+    document.getElementById("InstitutionalDescription").value = result[2];
+    document.getElementById("DisplayIndex").value = result[3];
+    document.getElementById("myModalUpdateInstitutional").style.display = "block";
+}
+
+var modalAddInstitutional = document.getElementById('myModalAddInstitutional');
+var modalUpdateInstitutional = document.getElementById('myModalUpdateInstitutional');
+
+window.onclick = function (event) {
+    if (event.target == modalUpdateInstitutional || event.target == modalAddInstitutional) {
+        modalUpdateInstitutional.style.display = "none";
+        modalAddInstitutional.style.display = "none";
+    }
+}
+//FOOTER Institutional ADD-UPDATE MODAL
+
+
+
+

@@ -432,3 +432,64 @@ function deleteItem(id) {
 
 //AboutUs Delet JS
 
+
+//Institutional Delete JS
+
+function confirmDeleteInstitutional(id) {
+    swal({
+        title: "Silmek İstediğine Emin misin?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            deleteItem(id);
+        }
+    });
+}
+
+function deleteItem(id) {
+    event.preventDefault();
+
+    var data = {
+        id: id
+    };
+
+    $.ajax({
+        url: '/footer/kurumsal-sil',
+        type: 'POST',
+        data: data,
+        success: function (response) {
+            if (response == "Ok") {
+                swal({
+                    title: "Silme İşlemi Başarılı",
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            text: "Tamam",
+                            value: true,
+                            visible: true,
+                            className: "",
+                            closeModal: true
+                        }
+                    }
+                }).then((value) => {
+                    if (value) {
+                        location.href = "/footer/kurumsal";
+                    }
+                    else {
+                        location.href = "/footer/kurumsal";
+                    }
+                });
+            } else {
+                alert(response);
+            }
+        },
+        error: function (xhr, status, error) {
+            swal("Error", "An error occurred: " + error, "error");
+        }
+    });
+}
+
+//Institutional Delet JS
+

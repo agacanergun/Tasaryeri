@@ -190,5 +190,46 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
             };
             return View(ınstitutionalVM);
         }
+
+        [Route("footer/kurumsal-ekle"), HttpPost]
+        public IActionResult AddInstitutional(InstitutionalDTO InstitutionalDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (footerTransactions.AddInstitutional(InstitutionalDTO))
+                {
+                    TempData["AddInstitutionalInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                    return Redirect("kurumsal");
+                }
+            }
+            TempData["AddInstitutionalInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+            return Redirect("kurumsal");
+        }
+
+        [Route("footer/kurumsal-sil"),]
+        public string DeleteInstitutional(int id)
+        {
+            InstitutionalDTO InstitutionalDTO = new InstitutionalDTO
+            {
+                Id = id,
+            };
+            footerTransactions.DeleteInstitutional(InstitutionalDTO);
+            return "Ok";
+        }
+
+        [Route("footer/kurumsal-güncelle"), HttpPost]
+        public IActionResult UpdateInstitutional(InstitutionalDTO InstitutionalDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (footerTransactions.UpdateInstitutional(InstitutionalDTO))
+                {
+                    TempData["UpdateInstitutionalInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                    return Redirect("kurumsal");
+                }
+            }
+            TempData["UpdateInstitutionalInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+            return Redirect("kurumsal");
+        }
     }
 }
