@@ -15,9 +15,9 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
         bool UpdateSocialMedia(SocialMedia socialMedia);
 
         IEnumerable<Contact> GetContacts();
-        bool AddSocialMedia(Contact contact);
-        bool DeleteSocialMedia(Contact contact);
+        bool AddContact(Contact contact);
+        bool DeleteContact(Contact contact);
 
-        bool UpdateSocialMedia(Contact contact);
+        bool UpdateContact(Contact contact);
     }
 }

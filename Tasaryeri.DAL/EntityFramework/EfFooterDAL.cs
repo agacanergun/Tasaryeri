@@ -56,23 +56,32 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public IEnumerable<Contact> GetContacts()
         {
-            return repoContact.GetAll();
+            return repoContact.GetAll().OrderBy(x => x.DisplayIndex);
 
         }
 
-        public bool AddSocialMedia(Contact contact)
+        public bool AddContact(Contact contact)
         {
-            throw new NotImplementedException();
+            var response = repoContact.Add(contact);
+            if (response == 1)
+                return true;
+            return false;
         }
 
-        public bool DeleteSocialMedia(Contact contact)
+        public bool DeleteContact(Contact contact)
         {
-            throw new NotImplementedException();
+            var response = repoContact.Delete(contact);
+            if (response == 1)
+                return true;
+            return false;
         }
 
-        public bool UpdateSocialMedia(Contact contact)
+        public bool UpdateContact(Contact contact)
         {
-            throw new NotImplementedException();
+            var response = repoContact.Update(contact);
+            if (response == 1)
+                return true;
+            return false;
         }
     }
 }

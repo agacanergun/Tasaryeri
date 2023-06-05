@@ -307,3 +307,65 @@ function deleteItem(id) {
 }
 
 //Socialmedia Delet JS
+
+
+
+//Contact Delete JS
+
+function confirmDeleteContact(id) {
+    swal({
+        title: "Silmek İstediğine Emin misin?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            deleteItem(id);
+        }
+    });
+}
+
+function deleteItem(id) {
+    event.preventDefault();
+
+    var data = {
+        id: id
+    };
+
+    $.ajax({
+        url: '/footer/kontak-sil',
+        type: 'POST',
+        data: data,
+        success: function (response) {
+            if (response == "Ok") {
+                swal({
+                    title: "Silme İşlemi Başarılı",
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            text: "Tamam",
+                            value: true,
+                            visible: true,
+                            className: "",
+                            closeModal: true
+                        }
+                    }
+                }).then((value) => {
+                    if (value) {
+                        location.href = "/footer/kontak";
+                    }
+                    else {
+                        location.href = "/footer/kontak";
+                    }
+                });
+            } else {
+                alert(response);
+            }
+        },
+        error: function (xhr, status, error) {
+            swal("Error", "An error occurred: " + error, "error");
+        }
+    });
+}
+
+//Contact Delet JS

@@ -91,17 +91,34 @@ namespace Tasaryeri.BL.Concreate
 
         public bool AddContact(ContactDTO ContactDTO)
         {
-            throw new NotImplementedException();
+            Contact contact = new Contact
+            {
+                ContactInfo = ContactDTO.ContactInfo,
+                ContactType = ContactDTO.ContactType,
+                DisplayIndex = ContactDTO.DisplayIndex,
+            };
+            return efFooterDAL.AddContact(contact);
         }
 
         public bool DeleteContact(ContactDTO ContactDTO)
         {
-            throw new NotImplementedException();
+            Contact contact = new Contact
+            {
+                Id = ContactDTO.Id,
+            };
+            return efFooterDAL.DeleteContact(contact);
         }
 
         public bool UpdateContact(ContactDTO ContactDTO)
         {
-            throw new NotImplementedException();
+            Contact contact = new Contact
+            {
+                Id = ContactDTO.Id,
+                ContactInfo = ContactDTO.ContactInfo,
+                ContactType = ContactDTO.ContactType,
+                DisplayIndex = ContactDTO.DisplayIndex,
+            };
+            return efFooterDAL.UpdateContact(contact);
         }
     }
 }

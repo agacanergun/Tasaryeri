@@ -82,6 +82,49 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
             return View(contactVM);
         }
 
+        [Route("footer/kontak-ekle"), HttpPost]
+        public IActionResult AddContact(ContactDTO contactDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (footerTransactions.AddContact(contactDTO))
+                {
+                    TempData["AddContactInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                    return Redirect("kontak");
+                }
+            }
+            TempData["AddContactInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+            return Redirect("kontak");
+        }
+
+        [Route("footer/kontak-sil"),]
+        public string DeleteContact(int id)
+        {
+            ContactDTO contactDTO = new ContactDTO
+            {
+                Id = id,
+            };
+            footerTransactions.DeleteContact(contactDTO);
+            return "Ok";
+        }
+
+        [Route("footer/kontak-güncelle"), HttpPost]
+        public IActionResult UpdateContact(ContactDTO contactDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (footerTransactions.UpdateContact(contactDTO))
+                {
+                    TempData["UpdateContactInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                    return Redirect("kontak");
+                }
+            }
+            TempData["UpdateContactInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+            return Redirect("kontak");
+        }
+
+
+
 
         [Route("footer/hakkımızda")]
         public IActionResult AboutUs()
