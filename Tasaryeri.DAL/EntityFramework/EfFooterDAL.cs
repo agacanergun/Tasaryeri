@@ -112,5 +112,34 @@ namespace Tasaryeri.DAL.EntityFramework
                 return true;
             return false;
         }
+
+        public IEnumerable<Institutional> GetInstitutionals()
+        {
+            return repoInstitutional.GetAll().OrderBy(x => x.DisplayIndex);
+        }
+
+        public bool AddInstitutional(Institutional institutional)
+        {
+            var response = repoInstitutional.Add(institutional);
+            if (response == 1)
+                return true;
+            return false;
+        }
+
+        public bool DeleteInstitutional(Institutional institutional)
+        {
+            var response = repoInstitutional.Delete(institutional);
+            if (response == 1)
+                return true;
+            return false;
+        }
+
+        public bool UpdateInstitutional(Institutional institutional)
+        {
+            var response = repoInstitutional.Update(institutional);
+            if (response == 1)
+                return true;
+            return false;
+        }
     }
 }

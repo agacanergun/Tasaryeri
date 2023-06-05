@@ -1,7 +1,149 @@
-﻿
-@{
-    ViewData["Title"] = "Institutional";
-}
+﻿@model InstitutionalVM
 
-<h1>Institutional</h1>
+<div class="table-responsive">
+    <br />
+    <div class="row">
+        <div class="col">
+            <h2>Kontak</h2>
+        </div>
+        <div class="col">
+            <h2>
+                @if (TempData["AddInstitutionalInfo"] != null)
+                {
+                    @Html.Raw(TempData["AddInstitutionalInfo"])
+                }
+                @if (TempData["UpdateInstitutionalInfo"] != null)
+                {
+                    @Html.Raw(TempData["UpdateInstitutionalInfo"])
+                }
+            </h2>
+        </div>
+
+        <div class="col"><a class="btn btn-success btn-lg" onclick="showModalAddInstitutional(this.name)" style="float:right;color:#fff">Yeni Kayıt Ekle</a></div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Başlık</th>
+                <th>Açıklama</th>
+                <th>Görüntülenme Sırası</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.InstitutionalDTOs)
+            {
+                <tr>
+                    <td style="display:none">@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.DisplayIndex</td>
+                    <td><button style="border:none" id="@item.Id,@item.Name,@item.Description,@item.DisplayIndex" onclick="showModalUpdateInstitutional(this.id)"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td>
+                        <button style="border:none" onclick="confirmDeleteInstitutional(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div id="myModalAddInstitutional" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Kontak Ekle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="AddInstitutional" class="form-label-left input_mask">
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.InstitutionalDTO.Name"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.InstitutionalDTO.Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.InstitutionalDTO.Description"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.InstitutionalDTO.Description">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.InstitutionalDTO.DisplayIndex"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required class="form-control" value="" asp-for="@Model.InstitutionalDTO.DisplayIndex">
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModalUpdateInstitutional" class="modal">
+    <div class="modal-content">
+        <div class="x_panel">
+            <div class="x_title">
+                <h1>Kontak Düzenle</h1>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form method="post" asp-action="UpdateInstitutional" class="form-label-left input_mask">
+                    <input type="hidden" asp-for="@Model.InstitutionalDTO.Id" id="id" />
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.InstitutionalDTO.Name"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="InstitutionalName" class="form-control" asp-for="@Model.InstitutionalDTO.Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.InstitutionalDTO.Description"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="InstitutionalDescription" class="form-control" asp-for="@Model.InstitutionalDTO.Description">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.InstitutionalDTO.DisplayIndex"></label>
+                        <div class="col-md-9 col-sm-9 ">
+                            <input type="text" required id="DisplayIndex" class="form-control" asp-for="@Model.InstitutionalDTO.DisplayIndex">
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group row">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button class="btn btn-primary" type="reset">Yenile</button>
+                            <button type="submit" class="btn btn-success">Güncelle</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 

@@ -171,5 +171,56 @@ namespace Tasaryeri.BL.Concreate
             };
             return efFooterDAL.UpdateAboutUs(aboutUs);
         }
+
+        public IEnumerable<InstitutionalDTO> GetInstitutionals()
+        {
+            var response = efFooterDAL.GetInstitutionals();
+            List<InstitutionalDTO> InstitutionalDTOs = new List<InstitutionalDTO>();
+
+            foreach (var item in response)
+            {
+                InstitutionalDTO InstitutionalDTO = new InstitutionalDTO
+                {
+                    Id = item.Id,
+                    Description = item.Description,
+                    DisplayIndex = item.DisplayIndex,
+                    Name = item.Name,
+                };
+                InstitutionalDTOs.Add(InstitutionalDTO);
+            }
+            return InstitutionalDTOs;
+        }
+
+        public bool AddInstitutional(InstitutionalDTO institutionalDTO)
+        {
+            Institutional institutional = new Institutional
+            {
+                Name = institutionalDTO.Name,
+                DisplayIndex = institutionalDTO.DisplayIndex,
+                Description = institutionalDTO.Description,
+            };
+            return efFooterDAL.AddInstitutional(institutional);
+        }
+
+        public bool DeleteInstitutional(InstitutionalDTO institutionalDTO)
+        {
+            Institutional institutional = new Institutional
+            {
+                Id = institutionalDTO.Id,
+            };
+            return efFooterDAL.DeleteInstitutional(institutional);
+        }
+
+        public bool UpdateInstitutional(InstitutionalDTO institutionalDTO)
+        {
+            Institutional institutional = new Institutional
+            {
+                Id = institutionalDTO.Id,
+                Name = institutionalDTO.Name,
+                Description = institutionalDTO.Description,
+                DisplayIndex = institutionalDTO.DisplayIndex,
+            };
+            return efFooterDAL.UpdateInstitutional(institutional);
+        }
     }
 }

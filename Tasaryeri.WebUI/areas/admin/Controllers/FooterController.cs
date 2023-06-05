@@ -183,7 +183,12 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
         [Route("footer/kurumsal")]
         public IActionResult Institutional()
         {
-            return View();
+            var response = footerTransactions.GetInstitutionals();
+            InstitutionalVM ınstitutionalVM = new InstitutionalVM
+            {
+                InstitutionalDTOs = response,
+            };
+            return View(ınstitutionalVM);
         }
     }
 }

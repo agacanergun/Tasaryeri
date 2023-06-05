@@ -23,5 +23,10 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
         bool AddAboutUs(AboutUs aboutUs);
         bool DeleteAboutUs(AboutUs aboutUs);
         bool UpdateAboutUs(AboutUs aboutUs);
+
+        IEnumerable<Institutional> GetInstitutionals();
+        bool AddInstitutional(Institutional institutional);
+        bool DeleteInstitutional(Institutional institutional);
+        bool UpdateInstitutional(Institutional institutional);
     }
 }

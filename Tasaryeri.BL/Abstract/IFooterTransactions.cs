@@ -24,6 +24,9 @@ namespace Tasaryeri.BL.Abstract
         bool DeleteAboutUs(AboutUsDTO aboutUsDTO);
         bool UpdateAboutUs(AboutUsDTO aboutUsDTO);
 
-
+        IEnumerable<InstitutionalDTO> GetInstitutionals();
+        bool AddInstitutional(InstitutionalDTO institutionalDTO);
+        bool DeleteInstitutional(InstitutionalDTO institutionalDTO);
+        bool UpdateInstitutional(InstitutionalDTO institutionalDTO);
     }
 }
