@@ -22,6 +22,7 @@ namespace Tasaryeri.DAL.Contexts
         public DbSet<Contact> Contact { get; set; } //bitti
         public DbSet<AboutUs> AboutUs { get; set; } //bitti
         public DbSet<Institutional> Institutional { get; set; } //bitti
+        public DbSet<Saler> Saler { get; set; } 
 
 
 

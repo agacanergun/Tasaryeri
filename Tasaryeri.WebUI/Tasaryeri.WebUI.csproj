@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\saler\Controllers\" />
+    <Folder Include="Areas\saler\Models\" />
+    <Folder Include="areas\saler\Views\Shared\" />
     <Folder Include="wwwroot\uploads\imgs\" />
   </ItemGroup>
 

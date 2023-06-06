@@ -5,6 +5,7 @@ using Tasaryeri.BL.Concreate;
 using Tasaryeri.Core.Abstract;
 using Tasaryeri.Core.Helpers;
 using Tasaryeri.Core.Interfaces;
+using Tasaryeri.DAL;
 using Tasaryeri.DAL.Contexts;
 using Tasaryeri.DAL.EntityFramework;
 using Tasaryeri.DAL.EntityFramework.Abstract;
@@ -22,6 +23,8 @@ builder.Services.AddScoped(typeof(IEfCategoryDAL), typeof(EfCategoryDAL));
 builder.Services.AddScoped(typeof(ICategoryTransactions), typeof(CategoryTransactions));
 builder.Services.AddScoped(typeof(IEfFooterDAL), typeof(EfFooterDAL));
 builder.Services.AddScoped(typeof(IFooterTransactions), typeof(FooterTransactions));
+builder.Services.AddScoped(typeof(IEfSalerLoginDAL), typeof(EfSalerLoginDAL));
+builder.Services.AddScoped(typeof(ISalerLoginTransactions), typeof(SalerLoginTransactions));
 
 builder.Services.AddDbContext<SqlContext>(options =>
           options.UseSqlServer(builder.Configuration.GetConnectionString("CS1")));
