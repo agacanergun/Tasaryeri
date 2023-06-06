@@ -5,7 +5,6 @@ using Tasaryeri.BL.Concreate;
 using Tasaryeri.Core.Abstract;
 using Tasaryeri.Core.Helpers;
 using Tasaryeri.Core.Interfaces;
-using Tasaryeri.DAL;
 using Tasaryeri.DAL.Contexts;
 using Tasaryeri.DAL.EntityFramework;
 using Tasaryeri.DAL.EntityFramework.Abstract;
@@ -39,8 +38,8 @@ builder.Services.AddAuthentication()
     .AddCookie("TasaryeriSalerAuth", opt =>
     {
         opt.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-        opt.LoginPath = "/seller";
-        opt.LogoutPath = "/seller/logout";
+        opt.LoginPath = "/satici";
+        opt.LogoutPath = "/satici/logout";
     });
 
 

@@ -20,7 +20,7 @@ namespace Tasaryeri.BL.Dtos
         public string Gender { get; set; }
         [Required(ErrorMessage = "Yaş Boş Geçilemez"), Display(Name = "Yaş")]
         public int Age { get; set; }
-        [StringLength(10), Column(TypeName = "varchar(10)"), Required(ErrorMessage = "Kullanıcı Adı Boş Geçilemez"), Display(Name = "Kullanıcı Adı ")]
+        [StringLength(20), Column(TypeName = "varchar(10)"), Required(ErrorMessage = "Kullanıcı Adı Boş Geçilemez"), Display(Name = "Kullanıcı Adı ")]
         public string Username { get; set; }
         [StringLength(32), Column(TypeName = "varchar(32)"), Required(ErrorMessage = "Şifre Boş Geçilemez"), Display(Name = "Şifre")]
         public string Password { get; set; }

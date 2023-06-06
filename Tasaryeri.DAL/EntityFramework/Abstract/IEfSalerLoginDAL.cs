@@ -9,6 +9,8 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
 {
     public interface IEfSalerLoginDAL
     {
-        public Saler AdminLogin(Saler saler);
+        Saler SalerLogin(Saler saler);
+        bool SalerRegister(Saler saler);
+
     }
 }

@@ -10,5 +10,6 @@ namespace Tasaryeri.BL.Abstract
     public interface ISalerLoginTransactions
     {
         SalerLoginDTO Login(SalerLoginDTO salerLoginDTO);
+        bool Register(SalerLoginDTO salerLoginDTO);
     }
 }

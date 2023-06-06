@@ -17,14 +17,14 @@ namespace Tasaryeri.WebUI.areas.saler.Controllers
             this.salerLoginTransactions = salerLoginTransactions;
         }
 
-        [Route("/saler"), AllowAnonymous]
+        [Route("/satici"), AllowAnonymous]
         public IActionResult Index(string ReturnUrl)
         {
             ViewBag.ReturnUrl = ReturnUrl;
             return View();
         }
 
-        [Route("/saler"), HttpPost, AllowAnonymous]
+        [Route("/satici"), HttpPost, AllowAnonymous]
         public async Task<IActionResult> Index(SalerLoginDTO salerLoginDTO)
         {
             //saler paneline giriş için cookie oluşturma
@@ -64,7 +64,29 @@ namespace Tasaryeri.WebUI.areas.saler.Controllers
             }
         }
 
-        [Route("/saler/logout")]
+        [Route("/satici/kayıt-ol"), HttpPost, AllowAnonymous]
+        public IActionResult Register(SalerLoginDTO salerLoginDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                var response = salerLoginTransactions.Register(salerLoginDTO);
+                if (response)
+                {
+                    TempData["RegisterInfo"] = "<span style='color:green'>Kayıt İşleminiz Başarılı</span>";
+                    return Redirect("/satici");
+                }
+                else
+                {
+                    TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız Kullanıcı Adı Veya E-mail Kayıtlı</span>";
+                    return Redirect("/satici");
+                }
+            }
+            TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız</span>";
+            return Redirect("/satici");
+        }
+
+
+        [Route("/satici/logout")]
         public async Task<IActionResult> LogOut()
         {
 

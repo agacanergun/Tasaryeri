@@ -32,7 +32,7 @@ namespace Tasaryeri.BL.Concreate
                 Username = salerLoginDTO.Username,
                 Password = salerLoginDTO.Password,
             };
-            var response = efSalerLoginDal.AdminLogin(saler);
+            var response = efSalerLoginDal.SalerLogin(saler);
             if (response.Id != 0)
             {
                 salerLoginDTO.Id = response.Id;
@@ -53,6 +53,25 @@ namespace Tasaryeri.BL.Concreate
             }
 
 
+        }
+
+        public bool Register(SalerLoginDTO salerLoginDTO)
+        {
+            salerLoginDTO.Password = cryptoBase.getMD5(salerLoginDTO.Password);
+            Saler saler = new Saler
+            {
+                Name = salerLoginDTO.Name,
+                Age = salerLoginDTO.Age,
+                Email = salerLoginDTO.Email,
+                Gender = salerLoginDTO.Gender,
+                Password = salerLoginDTO.Password,
+                PhoneNumber = salerLoginDTO.PhoneNumber,
+                Surname = salerLoginDTO.Surname,
+                Username = salerLoginDTO.Username,
+            };
+            
+
+            return efSalerLoginDal.SalerRegister(saler);
         }
     }
 }

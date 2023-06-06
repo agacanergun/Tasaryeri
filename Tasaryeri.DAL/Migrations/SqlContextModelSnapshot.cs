@@ -207,7 +207,7 @@ namespace Tasaryeri.DAL.Migrations
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasMaxLength(10)
+                        .HasMaxLength(20)
                         .HasColumnType("varchar(10)");
 
                     b.HasKey("Id");
