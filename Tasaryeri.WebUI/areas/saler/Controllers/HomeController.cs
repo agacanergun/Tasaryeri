@@ -52,7 +52,7 @@ namespace Tasaryeri.WebUI.areas.saler.Controllers
                     new Claim(ClaimTypes.Email,salerLoginDTOResponse.Email),
                 };
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriSalerAuth");
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
+                await HttpContext.SignInAsync("TasaryeriSalerAuth", new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
                 if (string.IsNullOrEmpty(salerLoginDTO.ReturnUrl))
                     return Redirect("/saler/ürünler");
                 else return Redirect(salerLoginDTO.ReturnUrl);
