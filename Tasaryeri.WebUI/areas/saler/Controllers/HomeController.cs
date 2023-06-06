@@ -8,7 +8,7 @@ using Tasaryeri.BL.Dtos;
 
 namespace Tasaryeri.WebUI.areas.saler.Controllers
 {
-    [Area("saler"), Authorize]
+    [Area("saler"), Authorize(AuthenticationSchemes = "TasaryeriSalerAuth")]
     public class HomeController : Controller
     {
         ISalerLoginTransactions salerLoginTransactions;

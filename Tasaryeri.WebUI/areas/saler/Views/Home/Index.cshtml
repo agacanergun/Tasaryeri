@@ -43,6 +43,7 @@
             <br />
             <input asp-for="@Model.Username" type="text" placeholder="Kullanıcı Adı" />
             <input asp-for="@Model.Password" type="password" placeholder="Şifre" />
+            <input type="hidden" asp-for="@Model.ReturnUrl" value="@ViewBag.ReturnUrl" />
             <a href="#">Şifremi Unuttum</a>
             <button>Giriş Yap</button>
             <br />
