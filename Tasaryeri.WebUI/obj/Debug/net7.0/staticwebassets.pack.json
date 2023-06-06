@@ -18269,6 +18269,14 @@
       "PackagePath": "staticwebassets\\assetsAdmin\\vendors\\validator\\validator.js"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUILogin\\css\\style.css",
+      "PackagePath": "staticwebassets\\assetsUILogin\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUILogin\\js\\javascript.js",
+      "PackagePath": "staticwebassets\\assetsUILogin\\js\\javascript.js"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\assetsUI\\css\\bootstrap.min.css"
     },

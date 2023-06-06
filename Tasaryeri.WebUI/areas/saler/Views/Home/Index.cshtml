@@ -1,7 +1,65 @@
-﻿
+﻿@model SalerLoginDTO
+
 @{
-    ViewData["Title"] = "Index";
+    Layout = null;
 }
 
-<h1>Index</h1>
+
+<link rel="stylesheet" href="/assetsUILogin/css/style.css" />
+
+
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form action="#">
+            <h1>Hesap Oluştur</h1>
+
+            <br />
+
+            <span>Ürünlerini Satmak İçin Bir Hesap Oluştur</span>
+            <input required type="text" placeholder="Kullanıcı Adı" />
+            <input required type="password" placeholder="Şifre" />
+            <input required type="text" placeholder="İsim" />
+            <input required type="text" placeholder="Soyisim" />
+            <input required type="text" placeholder="Cinsiyet" />
+            <input required type="number" placeholder="Yaş" />
+            <input required type="email" placeholder="E-Mail" />
+            <input required type="text" placeholder="Telefon Numarası" />
+            <br />
+            <button>Kayıt Ol</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form method="post" asp-area="saler" asp-controller="Home" asp-action="Index">
+            <h1>Giriş Yap</h1>
+            <br />
+            <input asp-for="@Model.Username" type="text" placeholder="Kullanıcı Adı" />
+            <input asp-for="@Model.Password" type="password" placeholder="Şifre" />
+            <a href="#">Şifremi Unuttum</a>
+            <button>Giriş Yap</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Hesabınla <br /> Giriş Yap</h1>
+                <br />
+                <button class="ghost" id="signIn">Giriş Yap</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Ürünlerini Satmak İçin <br /> Kayıt Ol</h1>
+                <br />
+                <button class="ghost" id="signUp">Kayıt Ol</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/assetsUILogin/js/javascript.js"></script>
+
+
+
+
+
+
 

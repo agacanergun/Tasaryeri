@@ -35,6 +35,16 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opt.LogoutPath = "/admin/logout";
 });
 
+builder.Services.AddAuthentication()
+    .AddCookie("TasaryeriSalerAuth", opt =>
+    {
+        opt.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+        opt.LoginPath = "/seller";
+        opt.LogoutPath = "/seller/logout";
+    });
+
+
+
 
 
 

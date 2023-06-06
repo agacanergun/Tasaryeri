@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Tasaryeri.BL.Abstract;
@@ -35,8 +36,14 @@ namespace Tasaryeri.BL.Concreate
             if (response.Id != 0)
             {
                 salerLoginDTO.Id = response.Id;
-                salerLoginDTO.Username = response.Username;
+                salerLoginDTO.Age = response.Age;
+                salerLoginDTO.Email = response.Email;
+                salerLoginDTO.Gender = response.Gender;
+                salerLoginDTO.Name = response.Name;
                 salerLoginDTO.Password = response.Password;
+                salerLoginDTO.PhoneNumber = response.PhoneNumber;
+                salerLoginDTO.Surname = response.Surname;
+                salerLoginDTO.Username = response.Username;
                 return salerLoginDTO;
             }
             else

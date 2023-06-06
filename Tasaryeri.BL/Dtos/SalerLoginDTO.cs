@@ -28,7 +28,7 @@ namespace Tasaryeri.BL.Dtos
         public string Email { get; set; }
         [StringLength(12), Column(TypeName = "varchar(12)"), Required(ErrorMessage = "Telefon Boş Geçilemez"), Display(Name = "Telefon Numarası")]
         public string PhoneNumber { get; set; }
-
+   
         public string? ReturnUrl { get; set; }
     }
 }
