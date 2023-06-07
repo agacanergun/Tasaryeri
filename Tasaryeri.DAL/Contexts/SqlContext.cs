@@ -22,7 +22,8 @@ namespace Tasaryeri.DAL.Contexts
         public DbSet<Contact> Contact { get; set; } //bitti
         public DbSet<AboutUs> AboutUs { get; set; } //bitti
         public DbSet<Institutional> Institutional { get; set; } //bitti
-        public DbSet<Saler> Saler { get; set; } 
+        public DbSet<Saler> Saler { get; set; }
+        public DbSet<Product> Product { get; set; }
 
 
 
@@ -34,7 +35,10 @@ namespace Tasaryeri.DAL.Contexts
             //eğer bir maincategory silinirse tüm alt kategorileri silinecektir.
             modelBuilder.Entity<MainCategory>().HasMany(x => x.subCategories).WithOne(x => x.MainCategory).HasForeignKey(x => x.MainCategoryId);
 
+            modelBuilder.Entity<Saler>().HasMany(x => x.Products).WithOne(x => x.saler).HasForeignKey(x => x.SalerId);
+
             modelBuilder.Entity<Admin>().HasData(new Admin { ID = 1, Name = "Ağacan", Surname = "Ergün", Password = "4c49a6720254293c040d06f1207d6796", UserName = "ağacan" });
+
 
 
         }

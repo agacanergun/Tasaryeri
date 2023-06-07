@@ -164,6 +164,72 @@ namespace Tasaryeri.DAL.Migrations
                     b.ToTable("MainCategory");
                 });
 
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(250)
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<string>("Detail")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SalerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SalerId");
+
+                    b.ToTable("Product");
+                });
+
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.ProductPicture", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DisplayIndex")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Picture")
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("ProductPicture");
+                });
+
             modelBuilder.Entity("Tasaryeri.DAL.Entities.Saler", b =>
                 {
                     b.Property<int>("Id")
@@ -315,6 +381,28 @@ namespace Tasaryeri.DAL.Migrations
                     b.ToTable("SubCategory");
                 });
 
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.Product", b =>
+                {
+                    b.HasOne("Tasaryeri.DAL.Entities.Saler", "saler")
+                        .WithMany("Products")
+                        .HasForeignKey("SalerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("saler");
+                });
+
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.ProductPicture", b =>
+                {
+                    b.HasOne("Tasaryeri.DAL.Entities.Product", "Product")
+                        .WithMany("ProductPictures")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Tasaryeri.DAL.Entities.SubCategory", b =>
                 {
                     b.HasOne("Tasaryeri.DAL.Entities.MainCategory", "MainCategory")
@@ -329,6 +417,16 @@ namespace Tasaryeri.DAL.Migrations
             modelBuilder.Entity("Tasaryeri.DAL.Entities.MainCategory", b =>
                 {
                     b.Navigation("subCategories");
+                });
+
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.Product", b =>
+                {
+                    b.Navigation("ProductPictures");
+                });
+
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.Saler", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

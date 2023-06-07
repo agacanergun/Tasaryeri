@@ -29,5 +29,7 @@ namespace Tasaryeri.DAL.Entities
         [StringLength(12), Column(TypeName = "varchar(12)"), Required(ErrorMessage = "Telefon Boş Geçilemez"), Display(Name = "Telefon Numarası")]
         public string PhoneNumber { get; set; }
 
+        public ICollection<Product> Products { get; set; }
+
     }
 }
