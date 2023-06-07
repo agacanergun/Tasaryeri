@@ -19,6 +19,23 @@ namespace Tasaryeri.DAL.EntityFramework
             this.repoProduct = repoProduct;
             this.repoSaler = repoSaler;
         }
+
+        public bool Add(Product entity)
+        {
+            var response = repoProduct.Add(entity);
+            if (response == 1)
+                return true;
+            return false;
+        }
+
+        public bool Delete(Product entity)
+        {
+            var response = repoProduct.Delete(entity);
+            if (response == 1)
+                return true;
+            return false;
+        }
+
         public IEnumerable<Product> GetAll(int id)
         {
             var saler = repoSaler.GetBy(x => x.Id == id);
@@ -28,6 +45,14 @@ namespace Tasaryeri.DAL.EntityFramework
                 item.saler = saler;
             }
             return response;
+        }
+
+        public bool Update(Product entity)
+        {
+            var response = repoProduct.Update(entity);
+            if (response == 1)
+                return true;
+            return false;
         }
     }
 }

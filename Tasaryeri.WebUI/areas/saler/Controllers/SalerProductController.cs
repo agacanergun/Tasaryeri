@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Tasaryeri.BL.Abstract;
+using Tasaryeri.BL.Dtos;
 
 namespace Tasaryeri.WebUI.Areas.saler.Controllers
 {
@@ -19,6 +20,43 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
             int id = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
             var response = productTransactions.GetAll(id);
             return View(response);
+        }
+
+        [Route("satici/delete")]
+        public string Delete(int id)
+        {
+            productTransactions.Delete(id);
+            return "Ok";
+        }
+
+        [Route("satici/ürün-ekle"), HttpPost]
+        public IActionResult Add(ProductDTO productDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (productTransactions.Add(productDTO))
+                {
+                    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                    return Redirect("satici-ürünleri");
+                }
+            }
+            TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+            return Redirect("satici-ürünleri");
+        }
+
+        [Route("satici/update"), HttpPost]
+        public IActionResult Update(ProductDTO productDTO)
+        {
+            if (ModelState.IsValid)
+            {
+                if (productTransactions.Update(productDTO))
+                {
+                    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                    return Redirect("satici-ürünleri");
+                }
+            }
+            TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+            return Redirect("satici-ürünleri");
         }
     }
 }

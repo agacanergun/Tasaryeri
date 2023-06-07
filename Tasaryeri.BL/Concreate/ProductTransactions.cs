@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.DAL.Entities;
 using Tasaryeri.DAL.EntityFramework.Abstract;
 
 namespace Tasaryeri.BL.Concreate
@@ -16,6 +17,47 @@ namespace Tasaryeri.BL.Concreate
         {
             this.efProductDAL = efProductDAL;
         }
+
+        public bool Add(ProductDTO productDTO)
+        {
+            Product product = new Product
+            {
+                Name = productDTO.Name,
+                Description = productDTO.Description,
+                Detail = productDTO.Detail,
+                Price = productDTO.Price,
+                Stock = productDTO.Stock,
+                SalerId = productDTO.SalerId,
+            };
+            return efProductDAL.Add(product);
+        }
+
+        public bool Delete(int id)
+        {
+            Product product = new Product
+            {
+                Id = id
+            };
+            return efProductDAL.Delete(product);
+        }
+
+
+        public bool Update(ProductDTO productDTO)
+        {
+            Product product = new Product
+            {
+                Id = productDTO.Id,
+                Name = productDTO.Name,
+                Description = productDTO.Description,
+                Detail = productDTO.Detail,
+                Price = productDTO.Price,
+                Stock = productDTO.Stock,
+                SalerId = productDTO.SalerId,
+            };
+            return efProductDAL.Update(product);
+        }
+
+
         public IEnumerable<ProductDTO> GetAll(int id)
         {
             var response = efProductDAL.GetAll(id);
@@ -38,5 +80,7 @@ namespace Tasaryeri.BL.Concreate
             }
             return result;
         }
+
+
     }
 }

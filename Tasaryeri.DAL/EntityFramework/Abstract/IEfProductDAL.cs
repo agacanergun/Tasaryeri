@@ -10,5 +10,8 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
     public interface IEfProductDAL
     {
         IEnumerable<Product> GetAll(int id);
+      bool Delete(Product entity);
+      bool Add(Product entity);
+      bool Update(Product entity);
     }
 }
