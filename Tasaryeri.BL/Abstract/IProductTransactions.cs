@@ -8,5 +8,7 @@ namespace Tasaryeri.BL.Abstract
         bool Delete(int id);
         bool Add(ProductDTO productDTO);
         bool Update(ProductDTO productDTO);
+
+        ProductDTO GetById(int id);
     }
 }

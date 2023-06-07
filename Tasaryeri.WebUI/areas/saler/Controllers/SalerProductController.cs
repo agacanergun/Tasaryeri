@@ -29,6 +29,12 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
             return "Ok";
         }
 
+        [Route("satici/ürün-ekle")]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
         [Route("satici/ürün-ekle"), HttpPost]
         public IActionResult Add(ProductDTO productDTO)
         {
@@ -42,6 +48,12 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
             }
             TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
             return Redirect("satici-ürünleri");
+        }
+
+        [Route("satici/update")]
+        public IActionResult Update(int id)
+        {
+            return View(productTransactions.GetById(id));
         }
 
         [Route("satici/update"), HttpPost]

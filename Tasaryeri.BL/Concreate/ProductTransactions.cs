@@ -81,6 +81,22 @@ namespace Tasaryeri.BL.Concreate
             return result;
         }
 
-
+        public ProductDTO GetById(int id)
+        {
+            var response = efProductDAL.GetById(id);
+            ProductDTO productDTO = new ProductDTO
+            {
+                Id = id,
+                Description = response.Description,
+                Detail = response.Detail,
+                Name = response.Name,
+                Price = response.Price,
+                SalerId = response.SalerId,
+                Stock = response.Stock,
+                ProductPictures = response.ProductPictures,
+                saler = response.saler,
+            };
+            return productDTO;
+        }
     }
 }

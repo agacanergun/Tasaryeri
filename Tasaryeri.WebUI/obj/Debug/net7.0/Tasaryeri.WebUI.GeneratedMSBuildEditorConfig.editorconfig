@@ -64,8 +64,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = YXJlYXNcc2FsZXJcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/saler/Views/SalerProduct/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = YXJlYXNcc2FsZXJcVmlld3NcU2FsZXJQcm9kdWN0XEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/saler/Views/SalerProduct/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = YXJlYXNcc2FsZXJcVmlld3NcU2FsZXJQcm9kdWN0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/saler/Views/SalerProduct/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = YXJlYXNcc2FsZXJcVmlld3NcU2FsZXJQcm9kdWN0XFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/saler/Views/Shared/_Layout.cshtml]

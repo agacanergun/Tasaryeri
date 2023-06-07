@@ -47,6 +47,11 @@ namespace Tasaryeri.DAL.EntityFramework
             return response;
         }
 
+        public Product GetById(int id)
+        {
+            return repoProduct.GetBy(x => x.Id == id);
+        }
+
         public bool Update(Product entity)
         {
             var response = repoProduct.Update(entity);
