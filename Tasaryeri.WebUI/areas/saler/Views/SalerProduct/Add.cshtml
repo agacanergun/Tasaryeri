@@ -1,7 +1,77 @@
-﻿
-@{
-    ViewData["Title"] = "Add";
-}
+﻿@using Tasaryeri.WebUI.Areas.saler.ViewModels;
+@model ProductVM
 
-<h1>Add</h1>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Ürün Ekle</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" asp-area="saler" asp-controller="SalerProduct" asp-action="Add" method="post" enctype="multipart/form-data">
 
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-2 col-sm-2 label-align" for="first-name" asp-for="@Model.productDTO.Name"></label>
+                                <div class="col-md-10 col-sm-10 ">
+                                    <input required maxlength="100" class="form-control" asp-for="@Model.productDTO.Name">
+                                </div>
+                            </div>
+                         
+                            @if (Model.subCategories.Any())
+                            {
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-2 col-sm-2 label-align" for="first-name" >Kategoriler</label>
+                                    <div class="col-md-10 col-sm-10 ">
+                                        @for (int i = 0; i < Model.subCategories.Count(); i++)
+                                        {
+                                            <div>
+                                                <input type="checkbox" id="category_@Model.subCategories[i].Id" value="@Model.subCategories[i].Id" name="CategoriyIDs" /><label for="category_@Model.subCategories[i].Id">@Model.subCategories[i].Name</label>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-2 col-sm-2 label-align" for="first-name" asp-for="@Model.productDTO.Description"></label>
+                                <div class="col-md-10 col-sm-10 ">
+                                    <textarea required maxlength="250" class="form-control" asp-for="@Model.productDTO.Description"></textarea>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-2 col-sm-2 label-align" for="first-name" asp-for="@Model.productDTO.Detail"></label>
+                                <div class="col-md-10 col-sm-10 ">
+                                    <textarea required class="form-control editor" asp-for="@Model.productDTO.Detail"></textarea>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-2 col-sm-2 label-align" for="first-name" asp-for="@Model.productDTO.Price"></label>
+                                <div class="col-md-10 col-sm-10 ">
+                                    <input required class="form-control" asp-for="@Model.productDTO.Price">
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-2 col-sm-2 label-align" for="first-name" asp-for="@Model.productDTO.Stock"></label>
+                                <div class="col-md-10 col-sm-10 ">
+                                    <input required class="form-control" asp-for="@Model.productDTO.Stock">
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="item form-group">
+                                <div class="col-md-10 col-sm-10 offset-md-3">
+                                    <a class="btn btn-primary" asp-area="saler" asp-controller="SalerProduct" asp-action="Index">İptal</a>
+                                    <button class="btn btn-primary" type="reset">Temizle</button>
+                                    <button type="submit" class="btn btn-success">Ekle</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

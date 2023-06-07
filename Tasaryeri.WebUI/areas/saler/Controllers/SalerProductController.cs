@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.WebUI.Areas.saler.ViewModels;
 
 namespace Tasaryeri.WebUI.Areas.saler.Controllers
 {
@@ -32,19 +33,24 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         [Route("satici/ürün-ekle")]
         public IActionResult Add()
         {
-            return View();
+            var response = productTransactions.GetSubCategories();
+            ProductVM productVM = new ProductVM
+            {
+                subCategories = response,
+            };
+            return View(productVM);
         }
 
         [Route("satici/ürün-ekle"), HttpPost]
-        public IActionResult Add(ProductDTO productDTO)
+        public IActionResult Add(ProductVM productVM)
         {
             if (ModelState.IsValid)
             {
-                if (productTransactions.Add(productDTO))
-                {
-                    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                    return Redirect("satici-ürünleri");
-                }
+                //if (productTransactions.Add(productDTO))
+                //{
+                //    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                   return Redirect("satici-ürünleri");
+                //}
             }
             TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
             return Redirect("satici-ürünleri");

@@ -14,10 +14,12 @@ namespace Tasaryeri.DAL.EntityFramework
     {
         IRepository<Product> repoProduct;
         IRepository<Saler> repoSaler;
-        public EfProductDAL(IRepository<Product> repoProduct, IRepository<Saler> repoSaler)
+        IRepository<SubCategory> repoSubCategories;
+        public EfProductDAL(IRepository<Product> repoProduct, IRepository<Saler> repoSaler, IRepository<SubCategory> repoSubCategories)
         {
             this.repoProduct = repoProduct;
             this.repoSaler = repoSaler;
+            this.repoSubCategories = repoSubCategories;
         }
 
         public bool Add(Product entity)
@@ -50,6 +52,11 @@ namespace Tasaryeri.DAL.EntityFramework
         public Product GetById(int id)
         {
             return repoProduct.GetBy(x => x.Id == id);
+        }
+
+        public IEnumerable<SubCategory> GetSubCategories()
+        {
+            return repoSubCategories.GetAll().OrderBy(x => x.Name);
         }
 
         public bool Update(Product entity)

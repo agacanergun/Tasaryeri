@@ -10,5 +10,7 @@ namespace Tasaryeri.BL.Abstract
         bool Update(ProductDTO productDTO);
 
         ProductDTO GetById(int id);
+
+        List<SubCategoryDTO> GetSubCategories();
     }
 }

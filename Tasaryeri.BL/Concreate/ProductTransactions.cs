@@ -98,5 +98,23 @@ namespace Tasaryeri.BL.Concreate
             };
             return productDTO;
         }
+
+        public List<SubCategoryDTO> GetSubCategories()
+        {
+            var response = efProductDAL.GetSubCategories();
+            List<SubCategoryDTO> subCategoryDTOs = new List<SubCategoryDTO>();
+            foreach (var item in response)
+            {
+                SubCategoryDTO subCategoryDTO = new SubCategoryDTO
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    DisplayIndex = item.DisplayIndex,
+                    MainCategoryId = item.MainCategoryId,
+                };
+                subCategoryDTOs.Add(subCategoryDTO);
+            }
+            return subCategoryDTOs;
+        }
     }
 }

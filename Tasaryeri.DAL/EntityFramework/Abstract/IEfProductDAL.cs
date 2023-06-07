@@ -14,5 +14,6 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
         bool Add(Product entity);
         bool Update(Product entity);
         Product GetById(int id);
+        IEnumerable<SubCategory> GetSubCategories();
     }
 }
