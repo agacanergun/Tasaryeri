@@ -1,7 +1,57 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model IEnumerable<ProductDTO>
 
-<h1>Index</h1>
+<div class="table-responsive">
+    <br />
+    <div class="row">
+        <div class="col">
+            <h2>Ürünlerim</h2>
+        </div>
+        <div class="col">
+            <h2>
+                @if (TempData["AddInfo"] != null)
+                {
+                    @Html.Raw(TempData["AddInfo"])
+                }
+                @if (TempData["UpdateInfo"] != null)
+                {
+                    @Html.Raw(TempData["UpdateInfo"])
+                }
+            </h2>
+        </div>
 
+        <div class="col"><a class="btn btn-success btn-lg" style="float:right;color:#fff">Yeni Ürün Ekle</a></div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Açıklaması</th>
+                <th>Detayları</th>
+                <th>Fiyat</th>
+                <th>Stok Miktarı</th>
+                <th>Resimler</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="display:none">@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Detail</td>
+                    <td>@item.Price</td>
+                    <td>@item.Stock</td>
+                    <td><button style="border:none" asp-route-id="@item.Id"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td><button style="border:none" asp-route-id="@item.Id"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td>
+                        <button style="border:none" onclick="confirmDelete(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

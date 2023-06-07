@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Tasaryeri.BL.Abstract;
 
 namespace Tasaryeri.WebUI.Areas.saler.Controllers
@@ -15,7 +16,8 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         [Route("satici/satici-ürünleri")]
         public IActionResult Index()
         {
-            var response = productTransactions.GetAll(5);
+            int id = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+            var response = productTransactions.GetAll(id);
             return View(response);
         }
     }
