@@ -54,7 +54,8 @@ namespace Tasaryeri.WebUI.areas.saler.Controllers
                 ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriSalerAuth");
                 await HttpContext.SignInAsync("TasaryeriSalerAuth", new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
                 if (string.IsNullOrEmpty(salerLoginDTO.ReturnUrl))
-                    return Redirect("/saler/ürünler");
+
+                    return Redirect("satici/satici-urunleri");
                 else return Redirect(salerLoginDTO.ReturnUrl);
             }
             else

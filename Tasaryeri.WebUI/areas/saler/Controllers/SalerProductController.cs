@@ -15,12 +15,12 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         {
             this.productTransactions = productTransactions;
         }
-        [Route("satici/satici-ürünleri")]
+        [Route("satici/satici-urunleri")]
         public IActionResult Index()
         {
             int id = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
             var response = productTransactions.GetAll(id);
-            return View(response);
+            return View(response); 
         }
 
         [Route("satici/delete")]
@@ -30,7 +30,7 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
             return "Ok";
         }
 
-        [Route("satici/ürün-ekle")]
+        [Route("satici/urun-ekle")]
         public IActionResult Add()
         {
             var response = productTransactions.GetSubCategories();
@@ -41,7 +41,7 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
             return View(productVM);
         }
 
-        [Route("satici/ürün-ekle"), HttpPost]
+        [Route("satici/urun-ekle"), HttpPost]
         public IActionResult Add(ProductVM productVM)
         {
             if (ModelState.IsValid)
@@ -54,11 +54,11 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
                 if (productTransactions.Add(productDTO))
                 {
                     TempData["AddInfo"] = "<span style='color:green'>Ürün Ekleme İşlemi Başarılı</span>";
-                    return Redirect("satici-ürünleri");
+                    return Redirect("satici-urunleri");
                 }
             }
             TempData["AddInfo"] = "<span style='color:red'>Ürün Ekleme İşlemi Başarısız</span>";
-            return Redirect("satici-ürünleri");
+            return Redirect("satici-urunleri");
         }
 
         [Route("satici/update")]
@@ -75,11 +75,11 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
                 if (productTransactions.Update(productDTO))
                 {
                     TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return Redirect("satici-ürünleri");
+                    return Redirect("satici-urunleri");
                 }
             }
             TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
-            return Redirect("satici-ürünleri");
+            return Redirect("satici-urunleri");
         }
     }
 }
