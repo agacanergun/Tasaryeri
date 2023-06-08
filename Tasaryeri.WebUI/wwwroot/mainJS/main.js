@@ -1,5 +1,9 @@
 ﻿//CKEDITOR//
-CKEDITOR.replace('productDTO_Detail');
+$(document).ready(function () {
+    $(".editor").each(function () {
+        CKEDITOR.replace($(this).attr("id"));
+    })
+});
 //CKEDITOR//
 
 //ADMİN DELETE JS
