@@ -15,18 +15,37 @@ namespace Tasaryeri.DAL.EntityFramework
         IRepository<Product> repoProduct;
         IRepository<Saler> repoSaler;
         IRepository<SubCategory> repoSubCategories;
-        public EfProductDAL(IRepository<Product> repoProduct, IRepository<Saler> repoSaler, IRepository<SubCategory> repoSubCategories)
+        IRepository<ProductCategory> repoProductCategory;
+        public EfProductDAL(IRepository<Product> repoProduct, IRepository<Saler> repoSaler, IRepository<SubCategory> repoSubCategories, IRepository<ProductCategory> repoProductCategory)
         {
             this.repoProduct = repoProduct;
             this.repoSaler = repoSaler;
             this.repoSubCategories = repoSubCategories;
+            this.repoProductCategory = repoProductCategory;
         }
 
-        public bool Add(Product entity)
+        public bool Add(Product entity, int[] CategoriyIDs)
         {
             var response = repoProduct.Add(entity);
             if (response == 1)
-                return true;
+            {
+                var addedProductId = entity.Id;
+                List<ProductCategory> productCategories = new List<ProductCategory>();
+                foreach (var id in CategoriyIDs)
+                {
+                    ProductCategory productCategory = new ProductCategory
+                    {
+                        ProductID = addedProductId,
+                        CategoryID = id,
+                    };
+                    productCategories.Add(productCategory);
+                }
+                var responseProductCategory = repoProductCategory.AddRange(productCategories);
+                if (responseProductCategory != 0)
+                    return true;
+                return false;
+
+            }
             return false;
         }
 

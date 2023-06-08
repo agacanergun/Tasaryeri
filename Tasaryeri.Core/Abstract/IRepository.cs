@@ -15,5 +15,6 @@ namespace Tasaryeri.Core.Interfaces
         public int Add(T entity);
         public int Update(T entity);
         public int Delete(T entity);
+        public int AddRange(IEnumerable<T> entities);
     }
 }

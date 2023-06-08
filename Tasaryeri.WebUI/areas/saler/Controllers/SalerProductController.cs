@@ -46,13 +46,18 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         {
             if (ModelState.IsValid)
             {
-                //if (productTransactions.Add(productDTO))
-                //{
-                //    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                   return Redirect("satici-ürünleri");
-                //}
+                ProductDTO productDTO = new ProductDTO();
+
+                productDTO = productVM.productDTO;
+                productDTO.CategoriyIDs = productVM.CategoriyIDs;
+                productDTO.SalerId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+                if (productTransactions.Add(productDTO))
+                {
+                    TempData["AddInfo"] = "<span style='color:green'>Ürün Ekleme İşlemi Başarılı</span>";
+                    return Redirect("satici-ürünleri");
+                }
             }
-            TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+            TempData["AddInfo"] = "<span style='color:red'>Ürün Ekleme İşlemi Başarısız</span>";
             return Redirect("satici-ürünleri");
         }
 

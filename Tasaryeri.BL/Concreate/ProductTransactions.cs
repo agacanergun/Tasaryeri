@@ -29,7 +29,7 @@ namespace Tasaryeri.BL.Concreate
                 Stock = productDTO.Stock,
                 SalerId = productDTO.SalerId,
             };
-            return efProductDAL.Add(product);
+            return efProductDAL.Add(product, productDTO.CategoriyIDs);
         }
 
         public bool Delete(int id)

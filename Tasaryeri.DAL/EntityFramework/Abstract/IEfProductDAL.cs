@@ -11,7 +11,7 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
     {
         IEnumerable<Product> GetAll(int id);
         bool Delete(Product entity);
-        bool Add(Product entity);
+        bool Add(Product entity, int[] CategoriyIDs);
         bool Update(Product entity);
         Product GetById(int id);
         IEnumerable<SubCategory> GetSubCategories();

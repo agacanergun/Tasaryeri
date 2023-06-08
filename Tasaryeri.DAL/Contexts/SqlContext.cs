@@ -26,6 +26,8 @@ namespace Tasaryeri.DAL.Contexts
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductPicture> ProductPicture { get; set; }
 
+        public DbSet<ProductCategory> ProductCategory { get; set; }
+
 
 
 
@@ -38,7 +40,9 @@ namespace Tasaryeri.DAL.Contexts
 
             modelBuilder.Entity<Saler>().HasMany(x => x.Products).WithOne(x => x.saler).HasForeignKey(x => x.SalerId);
 
-            modelBuilder.Entity<ProductPicture>().HasOne(x => x.Product).WithMany(x => x.ProductPictures).HasForeignKey(x=>x.ProductID);
+            modelBuilder.Entity<ProductPicture>().HasOne(x => x.Product).WithMany(x => x.ProductPictures).HasForeignKey(x => x.ProductID);
+
+            modelBuilder.Entity<ProductCategory>().HasKey(x => new { x.ProductID, x.CategoryID });
 
             modelBuilder.Entity<Admin>().HasData(new Admin { ID = 1, Name = "Ağacan", Surname = "Ergün", Password = "4c49a6720254293c040d06f1207d6796", UserName = "ağacan" });
 

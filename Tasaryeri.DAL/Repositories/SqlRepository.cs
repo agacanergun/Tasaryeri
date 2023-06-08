@@ -58,5 +58,12 @@ namespace Tasaryeri.DAL.Repositories
             var response = db.SaveChanges();
             return response;
         }
+
+        public int AddRange(IEnumerable<T> entities)
+        {
+            db.AddRange(entities);
+            var response = db.SaveChanges();
+            return response;
+        }
     }
 }

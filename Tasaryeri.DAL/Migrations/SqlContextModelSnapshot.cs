@@ -200,6 +200,21 @@ namespace Tasaryeri.DAL.Migrations
                     b.ToTable("Product");
                 });
 
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.ProductCategory", b =>
+                {
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductID", "CategoryID");
+
+                    b.HasIndex("CategoryID");
+
+                    b.ToTable("ProductCategory");
+                });
+
             modelBuilder.Entity("Tasaryeri.DAL.Entities.ProductPicture", b =>
                 {
                     b.Property<int>("Id")
@@ -390,6 +405,25 @@ namespace Tasaryeri.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("saler");
+                });
+
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.ProductCategory", b =>
+                {
+                    b.HasOne("Tasaryeri.DAL.Entities.SubCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Tasaryeri.DAL.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Tasaryeri.DAL.Entities.ProductPicture", b =>

@@ -24,7 +24,6 @@ builder.Services.AddScoped(typeof(IEfFooterDAL), typeof(EfFooterDAL));
 builder.Services.AddScoped(typeof(IFooterTransactions), typeof(FooterTransactions));
 builder.Services.AddScoped(typeof(IEfSalerLoginDAL), typeof(EfSalerLoginDAL));
 builder.Services.AddScoped(typeof(ISalerLoginTransactions), typeof(SalerLoginTransactions));
-
 builder.Services.AddScoped(typeof(IEfProductDAL), typeof(EfProductDAL));
 builder.Services.AddScoped(typeof(IProductTransactions), typeof(ProductTransactions));
 

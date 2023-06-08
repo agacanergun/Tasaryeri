@@ -31,5 +31,7 @@ namespace Tasaryeri.BL.Dtos
 
         public Saler saler { get; set; }
 
+        public int[] CategoriyIDs { get; set; }
+
     }
 }
