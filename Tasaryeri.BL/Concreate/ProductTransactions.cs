@@ -75,6 +75,7 @@ namespace Tasaryeri.BL.Concreate
                     SalerId = item.SalerId,
                     Stock = item.Stock,
                     ProductPictures = item.ProductPictures,
+                    ProductCategories = item.ProductCategories,
                 };
                 result.Add(productDTO);
             }

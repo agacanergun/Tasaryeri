@@ -30,6 +30,7 @@
                 <th>Detayları</th>
                 <th>Fiyat</th>
                 <th>Stok Miktarı</th>
+                <th>Bulunduğu Kategoriler</th>
                 <th>Resimler</th>
                 <th>Güncelle</th>
                 <th>Sil</th>
@@ -45,6 +46,17 @@
                     <td>@Html.Raw(item.Detail)</td>
                     <td>@item.Price</td>
                     <td>@item.Stock</td>
+                    <td>
+                        @{
+                            string x = "";
+                        }
+                        @foreach (var item1 in item.ProductCategories)
+                        {
+                            x = $"{item1.CategoryName},";
+                            @x
+
+                        }
+                    </td>
                     <td><button style="border:none" asp-route-id="@item.Id"><i class="fa fa-edit fa-2x"></i></button></td>
                     <td><button style="border:none" asp-route-id="@item.Id"><i class="fa fa-edit fa-2x"></i></button></td>
                     <td>
