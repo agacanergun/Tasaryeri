@@ -1,4 +1,8 @@
-﻿//ADMİN DELETE JS
+﻿//CKEDITOR//
+CKEDITOR.replace('productDTO_Detail');
+//CKEDITOR//
+
+//ADMİN DELETE JS
 function confirmDelete(id) {
     swal({
         title: "Silmek İstediğine Emin misin?",

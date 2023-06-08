@@ -42,7 +42,7 @@
                     <td style="display:none">@item.Id</td>
                     <td>@item.Name</td>
                     <td>@item.Description</td>
-                    <td>@item.Detail</td>
+                    <td>@Html.Raw(item.Detail)</td>
                     <td>@item.Price</td>
                     <td>@item.Stock</td>
                     <td><button style="border:none" asp-route-id="@item.Id"><i class="fa fa-edit fa-2x"></i></button></td>
