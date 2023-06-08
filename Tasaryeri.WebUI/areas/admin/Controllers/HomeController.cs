@@ -32,6 +32,7 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
 
             if (response.Id != 0)
             {
+                
                 AdminLoginDTO adminLoginDTOResponse = adminBusiness.Login(adminLoginDTO);
                 List<Claim> claims = new List<Claim>
                 {
