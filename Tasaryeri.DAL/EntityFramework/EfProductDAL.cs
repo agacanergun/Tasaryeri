@@ -60,11 +60,26 @@ namespace Tasaryeri.DAL.EntityFramework
         public IEnumerable<Product> GetAll(int id)
         {
             var saler = repoSaler.GetBy(x => x.Id == id);
-            var response = repoProduct.GetAll(x => x.SalerId == id).Include(x => x.ProductPictures);
+            var response = repoProduct.GetAll(x => x.SalerId == id);
+
+
             foreach (var item in response)
             {
+                item.ProductCategories = repoProductCategory.GetAll(x => x.ProductID == item.Id).ToList();
                 item.saler = saler;
             }
+
+            foreach (var item in response)
+            {
+                foreach (var item1 in item.ProductCategories)
+                {
+                    var responseSubCategories = repoSubCategories.GetBy(x => x.Id == item1.CategoryID);
+                    item1.CategoryName = responseSubCategories.Name;
+                    //item.CategoryName = responseSubCategories.Name;
+                }
+
+            }
+
             return response;
         }
 

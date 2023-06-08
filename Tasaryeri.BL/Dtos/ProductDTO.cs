@@ -33,5 +33,7 @@ namespace Tasaryeri.BL.Dtos
 
         public int[] CategoriyIDs { get; set; }
 
+        public ICollection<ProductCategory> ProductCategories { get; set; }
+
     }
 }

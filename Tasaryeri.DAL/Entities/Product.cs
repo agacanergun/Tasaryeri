@@ -35,6 +35,8 @@ namespace Tasaryeri.DAL.Entities
 
         public Saler saler { get; set; }
 
+        public ICollection<ProductCategory> ProductCategories { get; set; }
+
 
     }
 }
