@@ -92,11 +92,13 @@ namespace Tasaryeri.DAL.EntityFramework
             return repoSubCategories.GetAll().OrderBy(x => x.Name);
         }
 
-        public bool Update(Product entity)
+        public bool Update(Product entity, List<ProductCategory> productCategories)
         {
             var response = repoProduct.Update(entity);
             if (response == 1)
-                return true;
+            {
+
+            }
             return false;
         }
     }

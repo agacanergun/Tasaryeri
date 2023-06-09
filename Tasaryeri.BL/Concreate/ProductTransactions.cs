@@ -53,8 +53,21 @@ namespace Tasaryeri.BL.Concreate
                 Price = productDTO.Price,
                 Stock = productDTO.Stock,
                 SalerId = productDTO.SalerId,
+
             };
-            return efProductDAL.Update(product);
+            List<ProductCategory> productCategories = new List<ProductCategory>();
+
+            foreach (var item in productDTO.CategoriyIDs)
+            {
+                ProductCategory productCategory = new ProductCategory
+                {
+                    ProductID = productDTO.Id,
+                    CategoryID = item,
+                };
+                productCategories.Add(productCategory);
+            }
+
+            return efProductDAL.Update(product, productCategories);
         }
 
 
