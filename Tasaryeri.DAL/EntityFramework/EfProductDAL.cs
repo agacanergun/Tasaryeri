@@ -97,7 +97,10 @@ namespace Tasaryeri.DAL.EntityFramework
             var response = repoProduct.Update(entity);
             if (response == 1)
             {
-
+                var responseProductCategories = repoProductCategory.GetAll(x => x.ProductID == entity.Id);
+                repoProductCategory.DeleteRange(responseProductCategories);
+                repoProductCategory.AddRange(productCategories);
+                return true;
             }
             return false;
         }
