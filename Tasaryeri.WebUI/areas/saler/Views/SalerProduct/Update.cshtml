@@ -1,5 +1,5 @@
 ﻿@using Tasaryeri.WebUI.Areas.saler.ViewModels;
-@model ProductVM
+@model ProductVMUpdate
 
 <div class="right_col" role="main">
     <div class="">
@@ -13,6 +13,9 @@
                     <div class="x_content">
                         <br />
                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" asp-area="saler" asp-controller="SalerProduct" asp-action="Update" method="post" enctype="multipart/form-data">
+
+                            <input type="hidden" asp-for="@Model.productDTO.Id" />
+
 
                             <div class="item form-group">
                                 <label class="col-form-label col-md-2 col-sm-2 label-align" for="first-name" asp-for="@Model.productDTO.Name"></label>
@@ -29,9 +32,22 @@
                                         @for (int i = 0; i < Model.subCategories.Count(); i++)
                                         {
                                             <div>
-                                                <input type="checkbox" id="category_@Model.subCategories[i].Id" value="@Model.subCategories[i].Id" name="CategoriyIDs" /><label for="category_@Model.subCategories[i].Id">@Model.subCategories[i].Name</label>
+                                                @{
+                                                    bool isChecked = false;
+                                                    foreach (var item in Model.CategoryNames)
+                                                    {
+                                                        if (item == Model.subCategories[i].Name)
+                                                        {
+                                                            isChecked = true;
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                                <input type="checkbox" id="category_@Model.subCategories[i].Id" value="@Model.subCategories[i].Id" name="CategoriyIDs" @(isChecked ? "checked" : "") />
+                                                <label for="category_@Model.subCategories[i].Id">@Model.subCategories[i].Name</label>
                                             </div>
                                         }
+
                                     </div>
                                 </div>
                             }

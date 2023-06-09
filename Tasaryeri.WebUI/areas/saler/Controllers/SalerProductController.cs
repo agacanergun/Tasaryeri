@@ -65,27 +65,33 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         public IActionResult Update(int id, string categories)
         {
             var response = productTransactions.GetById(id);
-
             var subCategories = productTransactions.GetSubCategories();
-            ProductVM productVM = new ProductVM
+
+            ProductVMUpdate productVM = new ProductVMUpdate
             {
                 subCategories = subCategories,
                 productDTO = response,
+                CategoryNames = categories.Split(',')
             };
 
             return View(productVM);
         }
 
         [Route("satici/update"), HttpPost]
-        public IActionResult Update(ProductVM productVM)
+        public IActionResult Update(ProductVMUpdate productVMupd)
         {
             if (ModelState.IsValid)
             {
-                //if (productTransactions.Update(productDTO))
-                //{
-                //    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                //    return Redirect("satici-urunleri");
-                //}
+                ProductDTO productDTO = new ProductDTO();
+                productDTO = productVMupd.productDTO;
+                productDTO.CategoriyIDs = productVMupd.CategoriyIDs;
+                productDTO.SalerId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+
+                if (productTransactions.Update(productDTO))
+              {
+                  TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                  return Redirect("satici-urunleri");
+              }
             }
             TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
             return Redirect("satici-urunleri");
