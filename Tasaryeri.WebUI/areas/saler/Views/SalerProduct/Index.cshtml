@@ -49,16 +49,20 @@
                     <td>
                         @{
                             string x = "";
+                            string allCategories = "";
                         }
                         @foreach (var item1 in item.ProductCategories)
                         {
                             x = $"{item1.CategoryName},";
                             @x
 
+                            allCategories += x;
+                            x = "";
+
                         }
                     </td>
                     <td><button style="border:none" asp-route-id="@item.Id"><i class="fa fa-edit fa-2x"></i></button></td>
-                    <td><button style="border:none" asp-route-id="@item.Id"><i class="fa fa-edit fa-2x"></i></button></td>
+                    <td><a style="color:black" asp-area="saler" asp-controller="SalerProduct" asp-action="Update" asp-route-id="@item.Id" asp-route-categories="@allCategories"><i class="fa fa-edit fa-2x"></i></a></td>
                     <td>
                         <button style="border:none" onclick="confirmDeleteProduct(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
                     </td>

@@ -20,7 +20,7 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         {
             int id = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
             var response = productTransactions.GetAll(id);
-            return View(response); 
+            return View(response);
         }
 
         [Route("satici/delete")]
@@ -62,21 +62,30 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         }
 
         [Route("satici/update")]
-        public IActionResult Update(int id)
+        public IActionResult Update(int id, string categories)
         {
-            return View(productTransactions.GetById(id));
+            var response = productTransactions.GetById(id);
+
+            var subCategories = productTransactions.GetSubCategories();
+            ProductVM productVM = new ProductVM
+            {
+                subCategories = subCategories,
+                productDTO = response,
+            };
+
+            return View(productVM);
         }
 
         [Route("satici/update"), HttpPost]
-        public IActionResult Update(ProductDTO productDTO)
+        public IActionResult Update(ProductVM productVM)
         {
             if (ModelState.IsValid)
             {
-                if (productTransactions.Update(productDTO))
-                {
-                    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return Redirect("satici-urunleri");
-                }
+                //if (productTransactions.Update(productDTO))
+                //{
+                //    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                //    return Redirect("satici-urunleri");
+                //}
             }
             TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
             return Redirect("satici-urunleri");

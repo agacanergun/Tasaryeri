@@ -75,7 +75,6 @@ namespace Tasaryeri.DAL.EntityFramework
                 {
                     var responseSubCategories = repoSubCategories.GetBy(x => x.Id == item1.CategoryID);
                     item1.CategoryName = responseSubCategories.Name;
-                    //item.CategoryName = responseSubCategories.Name;
                 }
 
             }
