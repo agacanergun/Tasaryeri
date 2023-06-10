@@ -26,6 +26,8 @@ builder.Services.AddScoped(typeof(IEfSalerLoginDAL), typeof(EfSalerLoginDAL));
 builder.Services.AddScoped(typeof(ISalerLoginTransactions), typeof(SalerLoginTransactions));
 builder.Services.AddScoped(typeof(IEfProductDAL), typeof(EfProductDAL));
 builder.Services.AddScoped(typeof(IProductTransactions), typeof(ProductTransactions));
+builder.Services.AddScoped(typeof(IEfProductPictureDAL), typeof(EfProductPictureDAL));
+builder.Services.AddScoped(typeof(IProductPictureTransactions), typeof(ProductPictureTransactions));
 
 builder.Services.AddDbContext<SqlContext>(options =>
           options.UseSqlServer(builder.Configuration.GetConnectionString("CS1")));
