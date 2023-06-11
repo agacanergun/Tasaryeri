@@ -1,0 +1,52 @@
+﻿@using Tasaryeri.WebUI.Areas.saler.ViewModels;
+@model ProductPictureVM
+
+
+<div class="table-responsive">
+    <br />
+    <div class="row">
+        <div class="col">
+            <h2>Ürün Fotoğrafları</h2>
+        </div>
+        <div class="col">
+            <h2>
+                @if (TempData["AddInfo"] != null)
+                {
+                    @Html.Raw(TempData["AddInfo"])
+                }
+                @if (TempData["UpdateInfo"] != null)
+                {
+                    @Html.Raw(TempData["UpdateInfo"])
+                }
+            </h2>
+        </div>
+
+        <div class="col"><a class="btn btn-success btn-lg" asp-route-productId="@ViewBag.ProductID" style="float:right;color:#fff">Yeni Fotoğraf Ekle</a></div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Adı</th>
+                <th>Görüntülenme Sırası</th>
+                <th>Resmi</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.productPictureDTOs)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.DisplayIndex</td>
+                    <td><img src="@item.Picture" width="150" /></td>
+                    <td><a asp-route-id="@item.Id" asp-area="saler" asp-controller="ProductPicture" asp-action="Add" style="color:black"><i class="fa fa-edit fa-2x"></i></a></td>
+                    <td>
+                        <button style="border:none" onclick="confirmDeleteMainCat(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,20 +1,34 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.WebUI.Areas.saler.ViewModels;
 
 namespace Tasaryeri.WebUI.Areas.saler.Controllers
 {
     [Area("saler"), Authorize(AuthenticationSchemes = "TasaryeriSalerAuth")]
     public class ProductPictureController : Controller
     {
+        IProductPictureTransactions productPictureTransactions;
+        public ProductPictureController(IProductPictureTransactions productPictureTransactions)
+        {
+            this.productPictureTransactions = productPictureTransactions;
+        }
         [Route("satici/ürün-resimleri")]
         public IActionResult Index(int productid)
         {
-            return View();
+            var response = productPictureTransactions.GetAll(productid);
+            ViewBag.ProductID = productid;
+            ProductPictureVM productPictureVM = new ProductPictureVM
+            {
+                productPictureDTOs = response,
+            };
+            return View(productPictureVM);
+
         }
 
         [Route("satici/ürün-resimleri-ekle")]
-        public IActionResult Add()
+        public IActionResult Add(int productId)
         {
             return View();
         }

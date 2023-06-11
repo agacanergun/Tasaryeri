@@ -28,7 +28,23 @@ namespace Tasaryeri.BL.Concreate
 
         public IEnumerable<ProductPictureDTO> GetAll(int id)
         {
-            throw new NotImplementedException();
+            var response = efProductPictureDAL.GetAll(id);
+            List<ProductPictureDTO> productDTOs = new List<ProductPictureDTO>();
+            foreach (var item in response)
+            {
+                ProductPictureDTO productPictureDTO = new ProductPictureDTO
+                {
+                    Id = item.Id,
+                    DisplayIndex = item.DisplayIndex,
+                    Name = item.Name,
+                    Picture = item.Picture,
+                    ProductID = item.ProductID,
+                    Product = item.Product,
+                };
+                productDTOs.Add(productPictureDTO);
+            }
+
+            return productDTOs;
         }
 
         public ProductPictureDTO GetById(int id)
