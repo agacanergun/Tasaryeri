@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.DAL.Entities;
 using Tasaryeri.DAL.EntityFramework.Abstract;
 
 namespace Tasaryeri.BL.Concreate
@@ -64,7 +65,15 @@ namespace Tasaryeri.BL.Concreate
 
         public bool Update(ProductPictureDTO productPictureDTO)
         {
-            throw new NotImplementedException();
+            ProductPicture productPicture = new ProductPicture
+            {
+                ProductID = productPictureDTO.ProductID,
+                Id = productPictureDTO.Id,
+                DisplayIndex = productPictureDTO.DisplayIndex,
+                Name = productPictureDTO.Name,
+                Picture = productPictureDTO.Picture,
+            };
+            return efProductPictureDAL.Update(productPicture);
         }
     }
 }

@@ -53,6 +53,7 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         [Route("satici/urun-resimleri-düzenle"), HttpPost]
         public IActionResult Edit(ProductPictureDTO productPictureDTO)
         {
+            productPictureTransactions.Update(productPictureDTO);
             return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
         }
 
