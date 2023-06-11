@@ -14,7 +14,7 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         {
             this.productPictureTransactions = productPictureTransactions;
         }
-        [Route("satici/ürün-resimleri")]
+        [Route("satici/urun-resimleri")]
         public IActionResult Index(int productid)
         {
             var response = productPictureTransactions.GetAll(productid);
@@ -31,28 +31,29 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
 
         }
 
-        [Route("satici/ürün-resimleri-ekle")]
+        [Route("satici/urun-resimleri-ekle")]
         public IActionResult Add(int productId)
         {
             return View();
         }
 
-        [Route("satici/ürün-resimleri-ekle"), HttpPost]
+        [Route("satici/urun-resimleri-ekle"), HttpPost]
         public IActionResult Add(ProductPictureDTO productPictureDTO)
         {
-            return Redirect("ürün-resimleri");
+            return Redirect("urun-resimleri");
         }
 
-        [Route("satici/ürün-resimleri-düzenle")]
+        [Route("satici/urun-resimleri-düzenle")]
         public IActionResult Edit(int id)
         {
-            return View();
+            var response = productPictureTransactions.GetById(id);
+            return View(response);
         }
 
-        [Route("satici/ürün-resimleri-düzenle"), HttpPost]
+        [Route("satici/urun-resimleri-düzenle"), HttpPost]
         public IActionResult Edit(ProductPictureDTO productPictureDTO)
         {
-            return Redirect("ürün-resimleri");
+            return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
         }
 
         public string Delete(int id)

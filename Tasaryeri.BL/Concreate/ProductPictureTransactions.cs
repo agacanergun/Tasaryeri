@@ -49,7 +49,17 @@ namespace Tasaryeri.BL.Concreate
 
         public ProductPictureDTO GetById(int id)
         {
-            throw new NotImplementedException();
+            var response = efProductPictureDAL.GetById(id);
+            ProductPictureDTO productPictureDTO = new ProductPictureDTO
+            {
+                Id = response.Id,
+                DisplayIndex = response.DisplayIndex,
+                Name = response.Name,
+                Picture = response.Picture,
+                Product = response.Product,
+                ProductID = response.ProductID,
+            };
+            return productPictureDTO;
         }
 
         public bool Update(ProductPictureDTO productPictureDTO)
