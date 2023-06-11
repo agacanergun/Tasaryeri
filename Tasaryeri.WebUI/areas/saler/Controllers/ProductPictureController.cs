@@ -18,10 +18,14 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         public IActionResult Index(int productid)
         {
             var response = productPictureTransactions.GetAll(productid);
-            ViewBag.ProductID = productid;
+            ProductPictureDTO productPictureDTO1 = new ProductPictureDTO
+            {
+                ProductID = productid,
+            };
             ProductPictureVM productPictureVM = new ProductPictureVM
             {
                 productPictureDTOs = response,
+                productPictureDTO = productPictureDTO1,
             };
             return View(productPictureVM);
 
@@ -40,7 +44,7 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         }
 
         [Route("satici/ürün-resimleri-düzenle")]
-        public IActionResult Edit(int pictureId)
+        public IActionResult Edit(int id)
         {
             return View();
         }
