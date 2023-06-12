@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +16,11 @@ namespace Tasaryeri.BL.Concreate
     public class ProductPictureTransactions : IProductPictureTransactions
     {
         IEfProductPictureDAL efProductPictureDAL;
-        public ProductPictureTransactions(IEfProductPictureDAL efProductPictureDAL)
+        IWebHostEnvironment hostingEnvironment;
+        public ProductPictureTransactions(IEfProductPictureDAL efProductPictureDAL, IWebHostEnvironment hostingEnvironment)
         {
             this.efProductPictureDAL = efProductPictureDAL;
+            this.hostingEnvironment = hostingEnvironment;
         }
         public bool Add(ProductPictureDTO productPictureDTO)
         {
@@ -54,7 +58,23 @@ namespace Tasaryeri.BL.Concreate
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+        
+            var response = efProductPictureDAL.GetById(id);
+            string deleteFotoPath = response.Picture;
+            if (efProductPictureDAL.Delete(response))
+            {
+
+                string deleteFilePath = Path.Combine(hostingEnvironment.WebRootPath, response.Picture);
+
+                if (File.Exists(deleteFilePath))
+                {
+                    File.Delete(deleteFilePath);
+                    return true;
+                }
+                else
+                    return false;
+            }
+            return false;
         }
 
         public IEnumerable<ProductPictureDTO> GetAll(int id)

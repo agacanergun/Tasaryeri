@@ -20389,6 +20389,14 @@
       "PackagePath": "staticwebassets\\mainJS\\main.js"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\191x.jpg",
+      "PackagePath": "staticwebassets\\uploads\\imgs\\191x.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\52fotom.jpg",
+      "PackagePath": "staticwebassets\\uploads\\imgs\\52fotom.jpg"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\717fotom.jpg",
       "PackagePath": "staticwebassets\\uploads\\imgs\\717fotom.jpg"
     },

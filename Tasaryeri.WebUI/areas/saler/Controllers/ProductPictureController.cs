@@ -44,7 +44,16 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         [Route("satici/urun-resimleri-ekle"), HttpPost]
         public IActionResult Add(ProductPictureDTO productPictureDTO)
         {
-            productPictureTransactions.Add(productPictureDTO);
+            if (ModelState.IsValid)
+            {
+                if (productPictureTransactions.Add(productPictureDTO))
+                {
+                    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                    return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
+                }
+                TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+
+            }
             return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
         }
 
@@ -58,13 +67,24 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         [Route("satici/urun-resimleri-düzenle"), HttpPost]
         public IActionResult Edit(ProductPictureDTO productPictureDTO)
         {
-            productPictureTransactions.Update(productPictureDTO);
+            if (ModelState.IsValid)
+            {
+                if (productPictureTransactions.Update(productPictureDTO))
+                {
+                    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                    return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
+                }
+
+            }
+            TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
             return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
         }
 
+        [Route("satici/delete-görsel")]
         public string Delete(int id)
         {
-            return "OK";
+            productPictureTransactions.Delete(id);
+            return "Ok";
         }
     }
 }

@@ -548,10 +548,10 @@ function deleteItem(id) {
                     }
                 }).then((value) => {
                     if (value) {
-                        location.href = "/satici/satici-ürünleri";
+                        location.href = "/satici/satici-urunleri";
                     }
                     else {
-                        location.href = "/satici/satici-ürünleri";
+                        location.href = "/satici/satici-urunleri";
                     }
                 });
             } else {
@@ -565,5 +565,71 @@ function deleteItem(id) {
 }
 
 //Product Delet JS
+
+
+
+
+
+
+
+//ProductPicture Delete JS
+
+function confirmDeleteProductPicture(id) {
+    swal({
+        title: "Görseli Silmek İstediğine Emin misin?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            deleteItem(id);
+        }
+    });
+}
+
+function deleteItem(id) {
+    event.preventDefault();
+
+    var data = {
+        id: id
+    };
+
+    $.ajax({
+        url: '/satici/delete-görsel',
+        type: 'POST',
+        data: data,
+        success: function (response) {
+            if (response == "Ok") {
+                swal({
+                    title: "Silme İşlemi Başarılı",
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            text: "Tamam",
+                            value: true,
+                            visible: true,
+                            className: "",
+                            closeModal: true
+                        }
+                    }
+                }).then((value) => {
+                    if (value) {
+                        location.href = "/satici/satici-urunleri";
+                    }
+                    else {
+                        location.href = "/satici/satici-urunleri";
+                    }
+                });
+            } else {
+                alert(response);
+            }
+        },
+        error: function (xhr, status, error) {
+            swal("Error", "An error occurred: " + error, "error");
+        }
+    });
+}
+
+//ProductPicture Delet JS
 
 
