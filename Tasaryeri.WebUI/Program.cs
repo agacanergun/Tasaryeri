@@ -31,6 +31,7 @@ builder.Services.AddScoped(typeof(IProductPictureTransactions), typeof(ProductPi
 
 builder.Services.AddDbContext<SqlContext>(options =>
           options.UseSqlServer(builder.Configuration.GetConnectionString("CS1")));
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
 {
     opt.ExpireTimeSpan = TimeSpan.FromMinutes(60);
@@ -38,7 +39,12 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opt.LogoutPath = "/admin/logout";
 });
 
-builder.Services.AddAuthentication()
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "TasaryeriSalerAuth";
+    options.DefaultSignInScheme = "TasaryeriSalerAuth";
+    options.DefaultChallengeScheme = "TasaryeriSalerAuth";
+})
     .AddCookie("TasaryeriSalerAuth", opt =>
     {
         opt.ExpireTimeSpan = TimeSpan.FromMinutes(60);
