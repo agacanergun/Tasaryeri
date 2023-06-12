@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tasaryeri.DAL.Entities;
+using Microsoft.AspNetCore.Http;
 
 namespace Tasaryeri.BL.Dtos
 {
@@ -19,6 +20,8 @@ namespace Tasaryeri.BL.Dtos
 
         [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Ürün Resmi")]
         public string Picture { get; set; }
+
+        public IFormFile PictureFile { get; set; }
 
         [Display(Name = "Görüntülenme Sırası")]
         public int DisplayIndex { get; set; }

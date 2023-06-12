@@ -34,13 +34,18 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         [Route("satici/urun-resimleri-ekle")]
         public IActionResult Add(int productId)
         {
-            return View();
+            ProductPictureDTO productPictureDTO = new ProductPictureDTO
+            {
+                ProductID = productId
+            };
+            return View(productPictureDTO);
         }
 
         [Route("satici/urun-resimleri-ekle"), HttpPost]
         public IActionResult Add(ProductPictureDTO productPictureDTO)
         {
-            return Redirect("urun-resimleri");
+            productPictureTransactions.Add(productPictureDTO);
+            return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
         }
 
         [Route("satici/urun-resimleri-düzenle")]

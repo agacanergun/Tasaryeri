@@ -1,7 +1,41 @@
-﻿
-@{
-    ViewData["Title"] = "Add";
-}
+﻿@model ProductPictureDTO
 
-<h1>Add</h1>
+
+<div class="x_content">
+    <br />
+    <form method="post" enctype="multipart/form-data" asp-area="saler" asp-controller="ProductPicture" asp-action="Add" class="form-label-left input_mask">
+     
+        <input type="hidden" asp-for="@Model.ProductID" />
+
+        <div class="form-group row">
+            <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.Name"></label>
+            <div class="col-md-9 col-sm-9 ">
+                <input type="text" required  class="form-control" asp-for="@Model.Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.DisplayIndex"></label>
+            <div class="col-md-9 col-sm-9 ">
+                <input type="text" required class="form-control" asp-for="@Model.DisplayIndex">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-md-3 col-sm-3 " asp-for="@Model.Picture"></label>
+            <div class="col-md-9 col-sm-9 ">
+                <input type="file" required  class="form-control" asp-for="@Model.PictureFile">
+            </div>
+        </div>
+
+
+
+        <div class="ln_solid"></div>
+        <div class="form-group row">
+            <div class="col-md-9 col-sm-9  offset-md-3">
+                <button class="btn btn-primary" type="reset">Yenile</button>
+                <button type="submit" class="btn btn-success">Ekle</button>
+            </div>
+        </div>
+
+    </form>
+</div>
 

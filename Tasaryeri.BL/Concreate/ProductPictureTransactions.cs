@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
 using Tasaryeri.DAL.Entities;
+using Tasaryeri.DAL.EntityFramework;
 using Tasaryeri.DAL.EntityFramework.Abstract;
 
 namespace Tasaryeri.BL.Concreate
@@ -19,7 +20,36 @@ namespace Tasaryeri.BL.Concreate
         }
         public bool Add(ProductPictureDTO productPictureDTO)
         {
-            throw new NotImplementedException();
+            if (productPictureDTO.PictureFile != null && productPictureDTO.PictureFile.Length > 0)
+            {
+                string fileName = DateTime.Now.Minute + DateTime.Now.Millisecond + productPictureDTO.PictureFile.FileName;
+                productPictureDTO.Picture = "uploads/imgs/" + fileName;
+
+                ProductPicture productPicture = new ProductPicture
+                {
+                    DisplayIndex = productPictureDTO.DisplayIndex,
+                    ProductID = productPictureDTO.ProductID,
+                    Picture = productPictureDTO.Picture,
+                    Name = productPictureDTO.Name,
+                };
+
+                if (efProductPictureDAL.Add(productPicture))
+                {
+                    using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "imgs", fileName), FileMode.Create))
+                    {
+                        productPictureDTO.PictureFile.CopyTo(stream);
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool Delete(int id)

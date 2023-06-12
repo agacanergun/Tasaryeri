@@ -40,7 +40,7 @@
                 <tr>
                     <td>@item.Name</td>
                     <td>@item.DisplayIndex</td>
-                    <td><img src="@item.Picture" width="150" /></td>
+                    <td><img src="/@item.Picture" width="150" /></td>
                     <td><a asp-route-id="@item.Id" asp-area="saler" asp-controller="ProductPicture" asp-action="Edit" style="color:black"><i class="fa fa-edit fa-2x"></i></a></td>
                     <td>
                         <button style="border:none" onclick="confirmDeleteMainCat(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
