@@ -24,6 +24,8 @@ builder.Services.AddScoped(typeof(IEfFooterDAL), typeof(EfFooterDAL));
 builder.Services.AddScoped(typeof(IFooterTransactions), typeof(FooterTransactions));
 builder.Services.AddScoped(typeof(IEfSalerLoginDAL), typeof(EfSalerLoginDAL));
 builder.Services.AddScoped(typeof(ISalerLoginTransactions), typeof(SalerLoginTransactions));
+builder.Services.AddScoped(typeof(IEfMemberLoginDAL), typeof(EfMemberLoginDAL));
+builder.Services.AddScoped(typeof(IMemberLoginTransactions), typeof(MemberLoginTransactions));
 builder.Services.AddScoped(typeof(IEfProductDAL), typeof(EfProductDAL));
 builder.Services.AddScoped(typeof(IProductTransactions), typeof(ProductTransactions));
 builder.Services.AddScoped(typeof(IEfProductPictureDAL), typeof(EfProductPictureDAL));
@@ -51,6 +53,20 @@ builder.Services.AddAuthentication(options =>
         opt.LoginPath = "/satici";
         opt.LogoutPath = "/satici/logout";
     });
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "TasaryeriMemberAuth";
+    options.DefaultSignInScheme = "TasaryeriMemberAuth";
+    options.DefaultChallengeScheme = "TasaryeriMemberAuth";
+})
+    .AddCookie("TasaryeriMemberAuth", opt =>
+    {
+        opt.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+        opt.LoginPath = "/uye";
+        opt.LogoutPath = "/uye/logout";
+    });
+
 
 
 

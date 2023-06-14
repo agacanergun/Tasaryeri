@@ -11,12 +11,12 @@
 
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form asp-area="saler" asp-controller="Home" asp-action="Register">
+        <form asp-controller="Member" asp-action="Register">
             <h1>Hesap Oluştur</h1>
 
             <br />
 
-            <span>Ürünlerini Satmak İçin Bir Hesap Oluştur</span>
+            <span>Ürün Satın Almak İçin Bir Hesap Oluştur</span>
             <input required asp-for="Username" maxlength="20" type="text" placeholder="Kullanıcı Adı" />
             <input required asp-for="Password" maxlength="32" type="password" placeholder="Şifre" />
             <input required asp-for="Name" maxlength="20" type="text" placeholder="İsim" />
@@ -39,7 +39,7 @@
     </div>
     <div class="form-container sign-in-container">
 
-        <form method="post" asp-area="saler" asp-controller="Home" asp-action="Index">
+        <form method="post" asp-controller="Member" asp-action="Index">
             <h1>Giriş Yap</h1>
             <br />
             <input asp-for="@Model.Username" type="text" placeholder="Kullanıcı Adı" />
