@@ -1,0 +1,77 @@
+﻿@using Tasaryeri.BL.Dtos;
+@model MemberLoginDTO
+
+@{
+    Layout = null;
+}
+
+
+<link rel="stylesheet" href="/assetsUILogin/css/style.css" />
+
+
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form asp-area="saler" asp-controller="Home" asp-action="Register">
+            <h1>Hesap Oluştur</h1>
+
+            <br />
+
+            <span>Ürünlerini Satmak İçin Bir Hesap Oluştur</span>
+            <input required asp-for="Username" maxlength="20" type="text" placeholder="Kullanıcı Adı" />
+            <input required asp-for="Password" maxlength="32" type="password" placeholder="Şifre" />
+            <input required asp-for="Name" maxlength="20" type="text" placeholder="İsim" />
+            <input required asp-for="Surname" maxlength="20" type="text" placeholder="Soyisim" />
+            <input required asp-for="Gender" maxlength="5" type="text" placeholder="Cinsiyet" />
+            <input required asp-for="Age" type="number" placeholder="Yaş" />
+            <input required asp-for="Email" maxlength="25" type="email" placeholder="E-Mail" />
+            <input required asp-for="PhoneNumber" maxlength="12" type="text" placeholder="Telefon Numarası" />
+
+
+            <br />
+            <button>Kayıt Ol</button>
+            <br />
+
+            @if (TempData["RegisterInfo"] != null)
+            {
+                @Html.Raw(TempData["RegisterInfo"])
+            }
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+
+        <form method="post" asp-area="saler" asp-controller="Home" asp-action="Index">
+            <h1>Giriş Yap</h1>
+            <br />
+            <input asp-for="@Model.Username" type="text" placeholder="Kullanıcı Adı" />
+            <input asp-for="@Model.Password" type="password" placeholder="Şifre" />
+            <input type="hidden" asp-for="@Model.ReturnUrl" value="@ViewBag.ReturnUrl" />
+            <a href="#">Şifremi Unuttum</a>
+            <button>Giriş Yap</button>
+            <br />
+            <span style="display:block;color:red ;text-align:center">@ViewBag.Error</span>
+            @if (TempData["RegisterInfo"] != null)
+            {
+                @Html.Raw(TempData["RegisterInfo"])
+            }
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Hesabınla <br /> Giriş Yap</h1>
+                <br />
+                <button class="ghost" id="signIn">Giriş Yap</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Alışveriş <br /> Yapmak İçin <br /> Kayıt Ol</h1>
+                <br />
+                <button class="ghost" id="signUp">Kayıt Ol</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/assetsUILogin/js/javascript.js"></script>
+
+

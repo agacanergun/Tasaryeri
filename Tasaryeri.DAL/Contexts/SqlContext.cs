@@ -25,8 +25,8 @@ namespace Tasaryeri.DAL.Contexts
         public DbSet<Saler> Saler { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductPicture> ProductPicture { get; set; }
-
         public DbSet<ProductCategory> ProductCategory { get; set; }
+        public DbSet<Member> Member { get; set; }
 
 
 
