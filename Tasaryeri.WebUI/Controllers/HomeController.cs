@@ -25,7 +25,7 @@ namespace Tasaryeri.WebUI.Controllers
                 {
                     Name = group.Key,
                     subCategoriesDTO = group.ToList(),
-                    DisplayIndex = group.First().MainCategoryDTO.DisplayIndex 
+                    DisplayIndex = group.First().MainCategoryDTO.DisplayIndex
 
                 })
                 .ToList();
@@ -37,6 +37,16 @@ namespace Tasaryeri.WebUI.Controllers
             };
 
             return View(vm);
+        }
+
+        public IActionResult InstitutionalAndAboutUs(string name, string Description)
+        {
+            InstitutionalAndAboutUsVM institutionalAndAboutUsVM = new InstitutionalAndAboutUsVM
+            {
+                Name = name,
+                Description = Description,
+            };
+            return View(institutionalAndAboutUsVM);
         }
 
     }
