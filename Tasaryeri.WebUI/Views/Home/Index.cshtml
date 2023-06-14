@@ -2,12 +2,15 @@
 
 
 
-@if (User.Identity.IsAuthenticated && User.Identity.AuthenticationType.ToLower() == "tasaryerimemberauth")
+@*@if (User.Identity.IsAuthenticated && User.Identity.AuthenticationType.ToLower() == "tasaryerimemberauth")
 {
-    <h1>üye girişi yapıldı.</h1>
+  
+}else
+{
+        
 }
 
-
+*@
 <!-- Start Content -->
 <div class="container py-5">
     <div class="row">
@@ -26,7 +29,7 @@
                         <ul class="collapse show list-unstyled pl-3">
                             @foreach (var item1 in item.subCategoriesDTO)
                             {
-                                <li><a class="text-decoration-none" asp-action="Category" asp-route-id="@item1.Id">@item1.Name</a></li>
+                                <li><a class="text-decoration-none" asp-controller="ProductCategory" asp-action="Index" asp-route-id="@item1.Id">@item1.Name</a></li>
                             }
                         </ul>
                     </li>

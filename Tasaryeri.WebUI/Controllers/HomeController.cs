@@ -49,6 +49,7 @@ namespace Tasaryeri.WebUI.Controllers
             return View(institutionalAndAboutUsVM);
         }
 
+   
     }
 }
 

@@ -6,7 +6,6 @@
     <div class="container text-light">
         <div class="w-100 d-flex justify-content-between">
             <div>
-
             </div>
             <div>
                 <a class="text-light" href="@Model.FacebookLink" target="_blank" rel="sponsored">
@@ -47,12 +46,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Ana Sayfa</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="saler" asp-controller="Home" asp-action="Index">Satıcı Ol</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Member" asp-action="Index">Üye Ol</a>
-                    </li>
+                    @if (User.Identity.IsAuthenticated && User.Identity.AuthenticationType.ToLower() == "tasaryerimemberauth")
+                    {
+                        <li class="nav-item">
+                            <a style="color:green" class="nav-link" asp-controller="Member" asp-action="LogOut">Çıkış Yap</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="saler" asp-controller="Home" asp-action="Index">Satıcı Ol</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Member" asp-action="Index">Üye Ol</a>
+                        </li>
+                    }
                 </ul>
             </div>
             <div class="navbar align-self-center d-flex">
