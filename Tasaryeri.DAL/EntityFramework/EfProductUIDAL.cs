@@ -13,10 +13,12 @@ namespace Tasaryeri.DAL.EntityFramework
     {
         IRepository<ProductCategory> repoProductCategory;
         IRepository<Product> repoProduct;
-        public EfProductUIDAL(IRepository<ProductCategory> repoProductCategory, IRepository<Product> repoProduct)
+        IRepository<ProductPicture> repoProductPicture;
+        public EfProductUIDAL(IRepository<ProductCategory> repoProductCategory, IRepository<Product> repoProduct, IRepository<ProductPicture> repoProductPicture)
         {
             this.repoProductCategory = repoProductCategory;
             this.repoProduct = repoProduct;
+            this.repoProductPicture = repoProductPicture;
         }
         public IEnumerable<Product> GetAll(int CategoryId)
         {
@@ -24,12 +26,22 @@ namespace Tasaryeri.DAL.EntityFramework
             var response = repoProductCategory.GetAll(x => x.CategoryID == CategoryId);
             foreach (var item in response)
             {
-                var responseProduct = repoProduct.GetAll(x=>item.ProductID);
+                var responseProduct = repoProduct.GetBy(x => x.Id == item.ProductID);
+                var responseProductPictures = repoProductPicture.GetAll(x => x.ProductID == item.ProductID).ToList();
                 Product product = new Product
                 {
-
+                    Id = responseProduct.Id,
+                    Description = responseProduct.Description,
+                    Detail = responseProduct.Detail,
+                    Name = responseProduct.Name,
+                    Price = responseProduct.Price,
+                    Stock = responseProduct.Stock,
+                    SalerId = responseProduct.SalerId,
+                    ProductPictures = responseProductPictures,
                 };
+                products.Add(product);
             }
+            return products;
         }
     }
 }

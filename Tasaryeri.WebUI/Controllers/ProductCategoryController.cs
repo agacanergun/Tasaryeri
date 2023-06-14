@@ -12,7 +12,8 @@ namespace Tasaryeri.WebUI.Controllers
         }
         public IActionResult Index(int id)
         {
-            return View();
+            var response = productTransactionsUI.GetAll(id);
+            return View(response);
         }
     }
 }

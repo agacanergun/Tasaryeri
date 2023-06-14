@@ -18,7 +18,25 @@ namespace Tasaryeri.BL.Concreate
         }
         public IEnumerable<ProductDTO> GetAll(int CategoryId)
         {
-            throw new NotImplementedException();
+            var response = efProductUIDAL.GetAll(CategoryId);
+            List<ProductDTO> result = new List<ProductDTO>();
+
+            foreach (var item in response)
+            {
+                ProductDTO productDTO = new ProductDTO
+                {
+                    Id = item.Id,
+                    Description = item.Description,
+                    Detail = item.Detail,
+                    Name = item.Name,
+                    Price = item.Price,
+                    Stock = item.Stock,
+                    SalerId = item.SalerId,
+                    ProductPictures = item.ProductPictures,
+                };
+                result.Add(productDTO);
+            }
+            return result;
         }
     }
 }
