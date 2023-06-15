@@ -18573,6 +18573,10 @@
       "PackagePath": "staticwebassets\\assetsUI\\webfonts\\slick.woff"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\chatCss\\StyleSheet.css",
+      "PackagePath": "staticwebassets\\chatCss\\StyleSheet.css"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\ckeditor\\CHANGES.md",
       "PackagePath": "staticwebassets\\ckeditor\\CHANGES.md"
     },

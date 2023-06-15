@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Tasaryeri.BL.Dtos;
 
 namespace Tasaryeri.WebUI.Controllers
 {
@@ -8,6 +9,11 @@ namespace Tasaryeri.WebUI.Controllers
     {
         [Route("uye/mesajlar")]
         public IActionResult Index()
+        {
+            return View();
+        }
+        [Route("uye/mesajlar"),HttpPost]
+        public IActionResult Index(MemberLoginDTO asd)
         {
             return View();
         }
