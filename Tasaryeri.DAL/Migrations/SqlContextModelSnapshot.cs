@@ -215,6 +215,40 @@ namespace Tasaryeri.DAL.Migrations
                     b.ToTable("Member");
                 });
 
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RecipientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("RecipientId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Message");
+                });
+
             modelBuilder.Entity("Tasaryeri.DAL.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -447,6 +481,33 @@ namespace Tasaryeri.DAL.Migrations
                     b.ToTable("SubCategory");
                 });
 
+            modelBuilder.Entity("Tasaryeri.DAL.Entities.Message", b =>
+                {
+                    b.HasOne("Tasaryeri.DAL.Entities.Product", "Product")
+                        .WithMany("Messages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Tasaryeri.DAL.Entities.Saler", "Saler")
+                        .WithMany()
+                        .HasForeignKey("RecipientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Tasaryeri.DAL.Entities.Member", "Member")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Member");
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Saler");
+                });
+
             modelBuilder.Entity("Tasaryeri.DAL.Entities.Product", b =>
                 {
                     b.HasOne("Tasaryeri.DAL.Entities.Saler", "saler")
@@ -506,6 +567,8 @@ namespace Tasaryeri.DAL.Migrations
 
             modelBuilder.Entity("Tasaryeri.DAL.Entities.Product", b =>
                 {
+                    b.Navigation("Messages");
+
                     b.Navigation("ProductCategories");
 
                     b.Navigation("ProductPictures");
