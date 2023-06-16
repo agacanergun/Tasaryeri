@@ -43,7 +43,7 @@ namespace Tasaryeri.WebUI.Controllers
 
             return View(vm);
         }
-
+ 
         public IActionResult InstitutionalAndAboutUs(string name, string Description)
         {
             InstitutionalAndAboutUsVM institutionalAndAboutUsVM = new InstitutionalAndAboutUsVM

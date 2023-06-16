@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lBs1pocQ9xFGxRVhhhENuEW+LiufdqmhTBZHRqfB6LM=",
+  "Hash": "AJItBoK9VDHMDSR4KVOTuBh3ZBrNc0plpkY6nWp0y5o=",
   "Source": "Tasaryeri.WebUI",
   "BasePath": "_content/Tasaryeri.WebUI",
   "Mode": "Default",
@@ -78501,6 +78501,23 @@
       "OriginalItemSpec": "wwwroot\\assetsUI\\img\\shop_11.jpg"
     },
     {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\Tasaryeri.png",
+      "SourceId": "Tasaryeri.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\",
+      "BasePath": "_content/Tasaryeri.WebUI",
+      "RelativePath": "assetsUI/img/Tasaryeri.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assetsUI\\img\\Tasaryeri.png"
+    },
+    {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\js\\bootstrap.bundle.min.js",
       "SourceId": "Tasaryeri.WebUI",
       "SourceType": "Discovered",
@@ -86831,6 +86848,23 @@
       "OriginalItemSpec": "wwwroot\\uploads\\imgs\\6473.jpg"
     },
     {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\6814.jpg",
+      "SourceId": "Tasaryeri.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\",
+      "BasePath": "_content/Tasaryeri.WebUI",
+      "RelativePath": "uploads/imgs/6814.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\imgs\\6814.jpg"
+    },
+    {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\682.png",
       "SourceId": "Tasaryeri.WebUI",
       "SourceType": "Discovered",
@@ -86865,12 +86899,12 @@
       "OriginalItemSpec": "wwwroot\\uploads\\imgs\\717fotom.jpg"
     },
     {
-      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\935x.jpg",
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\859canta.jpg",
       "SourceId": "Tasaryeri.WebUI",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\",
       "BasePath": "_content/Tasaryeri.WebUI",
-      "RelativePath": "uploads/imgs/935x.jpg",
+      "RelativePath": "uploads/imgs/859canta.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -86879,7 +86913,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\uploads\\imgs\\935x.jpg"
+      "OriginalItemSpec": "wwwroot\\uploads\\imgs\\859canta.jpg"
     }
   ]
 }

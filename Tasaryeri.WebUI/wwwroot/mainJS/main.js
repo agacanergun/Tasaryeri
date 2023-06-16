@@ -6,8 +6,9 @@ $(document).ready(function () {
 });
 //CKEDITOR//
 
+
 //ADMİN DELETE JS
-function confirmDelete(id) {
+function confirmDeleteAdmin(id) {
     swal({
         title: "Silmek İstediğine Emin misin?",
         icon: "warning",
@@ -15,12 +16,12 @@ function confirmDelete(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            deleteItem(id);
+            deleteItemAdmin(id);
         }
     });
 }
 
-function deleteItem(id) {
+function deleteItemAdmin(id) {
     event.preventDefault();
 
     var data = {
@@ -266,12 +267,12 @@ function confirmDeleteSocialMedia(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            deleteItem(id);
+            deleteItemSocialMedia(id);
         }
     });
 }
 
-function deleteItem(id) {
+function deleteItemSocialMedia(id) {
     event.preventDefault();
 
     var data = {
@@ -328,12 +329,12 @@ function confirmDeleteContact(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            deleteItem(id);
+            deleteItemContact(id);
         }
     });
 }
 
-function deleteItem(id) {
+function deleteItemContact(id) {
     event.preventDefault();
 
     var data = {
@@ -390,12 +391,12 @@ function confirmDeleteAboutUs(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            deleteItem(id);
+            deleteItemAboutUs(id);
         }
     });
 }
 
-function deleteItem(id) {
+function deleteItemAboutUs(id) {
     event.preventDefault();
 
     var data = {
@@ -451,12 +452,12 @@ function confirmDeleteInstitutional(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            deleteItem(id);
+            deleteItemInstitutional(id);
         }
     });
 }
 
-function deleteItem(id) {
+function deleteItemInstitutional(id) {
     event.preventDefault();
 
     var data = {

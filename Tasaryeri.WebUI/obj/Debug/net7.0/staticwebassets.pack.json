@@ -18317,6 +18317,10 @@
       "PackagePath": "staticwebassets\\assetsUI\\css\\templatemo.min.css"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\Tasaryeri.png",
+      "PackagePath": "staticwebassets\\assetsUI\\img\\Tasaryeri.png"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\img\\about-hero.svg",
       "PackagePath": "staticwebassets\\assetsUI\\img\\about-hero.svg"
     },
@@ -20425,6 +20429,10 @@
       "PackagePath": "staticwebassets\\uploads\\imgs\\6473.jpg"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\6814.jpg",
+      "PackagePath": "staticwebassets\\uploads\\imgs\\6814.jpg"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\682.png",
       "PackagePath": "staticwebassets\\uploads\\imgs\\682.png"
     },
@@ -20433,8 +20441,8 @@
       "PackagePath": "staticwebassets\\uploads\\imgs\\717fotom.jpg"
     },
     {
-      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\935x.jpg",
-      "PackagePath": "staticwebassets\\uploads\\imgs\\935x.jpg"
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\859canta.jpg",
+      "PackagePath": "staticwebassets\\uploads\\imgs\\859canta.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Tasaryeri.WebUI.Microsoft.AspNetCore.StaticWebAssets.props",

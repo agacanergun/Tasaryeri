@@ -159,7 +159,7 @@ function showModalAddAboutUs() {
 }
 
 function showModalUpdateAboutUs(event) {
-    var result = event.split(",");
+    var result = event.split(",/,/");
     document.getElementById("id").value = result[0];
     document.getElementById("AboutUsName").value = result[1];
     document.getElementById("AboutUsDescription").value = result[2];
@@ -178,7 +178,7 @@ function showModalAddInstitutional() {
 }
 
 function showModalUpdateInstitutional(event) {
-    var result = event.split(",");
+    var result = event.split(",/,/");
     document.getElementById("id").value = result[0];
     document.getElementById("InstitutionalName").value = result[1];
     document.getElementById("InstitutionalDescription").value = result[2];
