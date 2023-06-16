@@ -6,7 +6,7 @@ using Tasaryeri.WebUI.areas.admin.ViewModels;
 
 namespace Tasaryeri.WebUI.areas.Category.Controllers
 {
-    [Area("admin"), Authorize]
+    [Area("admin"), Authorize(AuthenticationSchemes = "TasaryeriAdminAuth")]
     public class CategoryController : Controller
     {
 

@@ -8,7 +8,7 @@ using Tasaryeri.BL.Dtos;
 
 namespace Tasaryeri.WebUI.areas.admin.Controllers
 {
-    [Area("admin"), Authorize]
+    [Area("admin"), Authorize(AuthenticationSchemes = "TasaryeriAdminAuth")]
     public class HomeController : Controller
     {
         IAdminTransactions adminBusiness;
@@ -39,8 +39,8 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
                     new Claim(ClaimTypes.PrimarySid,adminLoginDTOResponse.Id.ToString()),
                     new Claim(ClaimTypes.Name,adminLoginDTO.UserName)
                 };
-                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriAuth");
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
+                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriAdminAuth");
+                await HttpContext.SignInAsync("TasaryeriAdminAuth", new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
                 if (string.IsNullOrEmpty(adminLoginDTO.ReturnUrl))
                     return Redirect("/admin/adminler");
                 else return Redirect(adminLoginDTO.ReturnUrl);

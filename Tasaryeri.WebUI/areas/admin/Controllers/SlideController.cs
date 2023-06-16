@@ -7,7 +7,7 @@ using Tasaryeri.WebUI.Areas.admin.ViewModels;
 
 namespace Tasaryeri.WebUI.Areas.admin.Controllers
 {
-    [Area("admin"), Authorize]
+    [Area("admin"), Authorize(AuthenticationSchemes = "TasaryeriAdminAuth")]
     public class SlideController : Controller
     {
         ISlideTransactions slideTransactions;

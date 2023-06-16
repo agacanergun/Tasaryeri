@@ -8,7 +8,7 @@ using Tasaryeri.WebUI.areas.admin.ViewModels;
 
 namespace Tasaryeri.WebUI.areas.admin.Controllers
 {
-    [Area("admin"), Authorize]
+    [Area("admin"), Authorize(AuthenticationSchemes = "TasaryeriAdminAuth")]
     public class FooterController : Controller
     {
         IFooterTransactions footerTransactions;
