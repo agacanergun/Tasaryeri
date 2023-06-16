@@ -202,12 +202,12 @@ function confirmDeleteMainCat(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            deleteItem(id);
+            deleteItemMainCat(id);
         }
     });
 }
 
-function deleteItem(id) {
+function deleteItemMainCat(id) {
     event.preventDefault();
 
     var data = {

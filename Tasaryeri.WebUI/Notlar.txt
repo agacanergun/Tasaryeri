@@ -1,11 +1,9 @@
-﻿   @if (User.Identity.IsAuthenticated)
-   kullanıcı authenticate olduysa gösterilecek işlemler
+﻿          proje bitince interfacelerdeki public yazılarını sil
+            proje bitince dtolardaki attributelardaki gereksiz bilgileri kaldır.
 
-   new Claim("photo",admin.photo)
-   yeni bir cookie claimi oluşturma
-   (x=>x.Type=="photo").Value
-   o claimi yakalama
-                       
+            ürüne tıklayınca ürünün detay sayfası yapılcak.
+            kategoriye tıklayınca o kategorideki ürünler getirilcek.
+            üye ve satıcı mesajlaşma sistemi bitirilecek.
 
-          proje bitince interfacelerdeki public yazılarını sil
-          proje bitince dtolardaki attributelardaki gereksiz bilgileri kaldır.
+     
+     
