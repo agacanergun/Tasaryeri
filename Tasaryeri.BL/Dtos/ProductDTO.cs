@@ -9,10 +9,10 @@ namespace Tasaryeri.BL.Dtos
     {
         public int Id { get; set; }
 
-        [StringLength(100), Column(TypeName = "varchar(100)"), Required(ErrorMessage = "Ürün adı boş geçilemez..."), Display(Name = "Ürün Adı")]
+        [StringLength(20), Column(TypeName = "varchar(100)"), Required(ErrorMessage = "Ürün adı boş geçilemez..."), Display(Name = "Ürün Adı")]
         public string Name { get; set; }
 
-        [StringLength(250), Column(TypeName = "varchar(250)"), Display(Name = "Ürün Açıklaması")]
+        [StringLength(110), Column(TypeName = "varchar(250)"), Display(Name = "Ürün Açıklaması")]
         public string Description { get; set; }
 
         [Column(TypeName = "text"), Display(Name = "Ürün Detayı")]

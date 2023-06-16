@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,28 @@ namespace Tasaryeri.DAL.EntityFramework
                     Stock = responseProduct.Stock,
                     SalerId = responseProduct.SalerId,
                     ProductPictures = responseProductPictures,
+                };
+                products.Add(product);
+            }
+            return products;
+        }
+
+        public IEnumerable<Product> GetRandom()
+        {
+            List<Product> products = new List<Product>();
+            var response = repoProduct.GetAll().Include(x => x.ProductPictures).OrderBy(o => Guid.NewGuid()).Take(42);
+            foreach (var item in response)
+            {
+                Product product = new Product
+                {
+                    Id = item.Id,
+                    Description = item.Description,
+                    Detail = item.Detail,
+                    Name = item.Name,
+                    Price = item.Price,
+                    SalerId = item.SalerId,
+                    Stock = item.Stock,
+                    ProductPictures = item.ProductPictures,
                 };
                 products.Add(product);
             }

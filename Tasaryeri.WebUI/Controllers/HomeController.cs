@@ -9,10 +9,12 @@ namespace Tasaryeri.WebUI.Controllers
     {
         ISlideTransactions slideTransactions;
         ICategoryTransactions categoryTransactions;
-        public HomeController(ISlideTransactions slideTransactions, ICategoryTransactions categoryTransactions)
+        IProductTransactionsUI productTransactionsUI;
+        public HomeController(ISlideTransactions slideTransactions, ICategoryTransactions categoryTransactions, IProductTransactionsUI productTransactionsUI)
         {
             this.slideTransactions = slideTransactions;
             this.categoryTransactions = categoryTransactions;
+            this.productTransactionsUI = productTransactionsUI;
         }
         public IActionResult Index()
         {
@@ -29,6 +31,8 @@ namespace Tasaryeri.WebUI.Controllers
 
                 })
                 .ToList();
+
+            var randomProducts = productTransactionsUI.GetRandom();
 
             HomeIndexVM vm = new HomeIndexVM
             {
@@ -49,7 +53,7 @@ namespace Tasaryeri.WebUI.Controllers
             return View(institutionalAndAboutUsVM);
         }
 
-   
+
     }
 }
 

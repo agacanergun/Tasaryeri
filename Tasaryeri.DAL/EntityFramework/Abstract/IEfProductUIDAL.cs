@@ -10,5 +10,6 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
     public interface IEfProductUIDAL
     {
         IEnumerable<Product> GetAll(int CategoryId);
+        IEnumerable<Product> GetRandom();
     }
 }

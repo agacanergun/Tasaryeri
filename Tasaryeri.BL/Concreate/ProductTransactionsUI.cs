@@ -38,5 +38,28 @@ namespace Tasaryeri.BL.Concreate
             }
             return result;
         }
+
+        public IEnumerable<ProductDTO> GetRandom()
+        {
+            var response = efProductUIDAL.GetRandom();
+            List<ProductDTO> result = new List<ProductDTO>();
+
+            foreach (var item in response)
+            {
+                ProductDTO productDTO = new ProductDTO
+                {
+                    Id = item.Id,
+                    Description = item.Description,
+                    Detail = item.Detail,
+                    Name = item.Name,
+                    Price = item.Price,
+                    Stock = item.Stock,
+                    SalerId = item.SalerId,
+                    ProductPictures = item.ProductPictures,
+                };
+                result.Add(productDTO);
+            }
+            return result;
+        }
     }
 }
