@@ -39,7 +39,7 @@ namespace Tasaryeri.BL.Concreate
             return result;
         }
 
-        public IEnumerable<ProductDTO> GetRandom()
+        public List<ProductDTO> GetRandom()
         {
             var response = efProductUIDAL.GetRandom();
             List<ProductDTO> result = new List<ProductDTO>();

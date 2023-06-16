@@ -37,7 +37,8 @@ namespace Tasaryeri.WebUI.Controllers
             HomeIndexVM vm = new HomeIndexVM
             {
                 Slides = responseSlides,
-                Categories = groupedCategories
+                Categories = groupedCategories,
+                RandomProducts = randomProducts,
             };
 
             return View(vm);

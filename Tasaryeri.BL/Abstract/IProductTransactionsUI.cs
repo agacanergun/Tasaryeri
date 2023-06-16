@@ -10,6 +10,6 @@ namespace Tasaryeri.BL.Abstract
     public interface IProductTransactionsUI
     {
         IEnumerable<ProductDTO> GetAll(int CategoryId);
-        IEnumerable<ProductDTO> GetRandom();
+        List<ProductDTO> GetRandom();
     }
 }
