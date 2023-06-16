@@ -23,7 +23,7 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
             return View(response);
         }
 
-        [Route("satici/delete")]
+        [Route("satici/product-delete")]
         public string Delete(int id)
         {
             productTransactions.Delete(id);

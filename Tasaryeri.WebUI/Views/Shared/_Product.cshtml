@@ -6,7 +6,7 @@
         <div class="card rounded-0">
             @if (Model.ProductPictures.Any())
             {
-                <img class="card-img rounded-0 img-fluid" src="/@Model.ProductPictures.FirstOrDefault().Picture" alt="@Model.Name" />
+                <img class="card-img rounded-0 img-fluid" height="330" src="/@Model.ProductPictures.FirstOrDefault().Picture" alt="@Model.Name" />
             }
             else
             {

@@ -516,12 +516,12 @@ function confirmDeleteProduct(id) {
         dangerMode: true,
     }).then((willDelete) => {
         if (willDelete) {
-            deleteItem(id);
+            deleteItemProduct(id);
         }
     });
 }
 
-function deleteItem(id) {
+function deleteItemProduct(id) {
     event.preventDefault();
 
     var data = {
@@ -529,7 +529,7 @@ function deleteItem(id) {
     };
 
     $.ajax({
-        url: '/satici/delete',
+        url: '/satici/product-delete',
         type: 'POST',
         data: data,
         success: function (response) {
