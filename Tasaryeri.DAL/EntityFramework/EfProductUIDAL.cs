@@ -45,6 +45,24 @@ namespace Tasaryeri.DAL.EntityFramework
             return products;
         }
 
+        public Product GetProduct(int id)
+        {
+            var response = repoProduct.GetAll(x => x.Id == id).Include(x => x.ProductPictures);
+            Product product = new Product();
+            foreach (var item in response)
+            {
+                product.Id = item.Id;
+                product.Name = item.Name;
+                product.Description = item.Description;
+                product.Detail = item.Detail;
+                product.Price = item.Price;
+                product.Stock = item.Stock;
+                product.SalerId = item.SalerId;
+                product.ProductPictures = item.ProductPictures;
+            }
+            return product;
+        }
+
         public IEnumerable<Product> GetRandom()
         {
             List<Product> products = new List<Product>();

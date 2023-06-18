@@ -40,10 +40,10 @@ namespace Tasaryeri.WebUI.Controllers
         }
 
         [Route("Urun-Detayi/{name}/{id}")]
-        public IActionResult ProductDetail(string name,int id)
+        public IActionResult ProductDetail(string name, int id)
         {
-
-            return View();
+            name = productTransactionsUI.UrlConverter(name);
+            return View(productTransactionsUI.GetProduct(id));
         }
     }
 }

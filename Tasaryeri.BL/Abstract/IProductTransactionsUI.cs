@@ -11,5 +11,7 @@ namespace Tasaryeri.BL.Abstract
     {
         IEnumerable<ProductDTO> GetAll(int CategoryId);
         List<ProductDTO> GetRandom();
+        ProductDTO GetProduct(int id);
+        string UrlConverter(string Url);
     }
 }
