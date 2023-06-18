@@ -38,5 +38,12 @@ namespace Tasaryeri.WebUI.Controllers
             };
             return View(productCategoryVM);
         }
+
+        [Route("Urun-Detayi/{name}/{id}")]
+        public IActionResult ProductDetail(string name,int id)
+        {
+
+            return View();
+        }
     }
 }
