@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
-using Tasaryeri.DAL.Entities;
 using Tasaryeri.WebUI.ViewModels;
 
 namespace Tasaryeri.WebUI.Controllers
@@ -21,17 +20,14 @@ namespace Tasaryeri.WebUI.Controllers
         {
             return View();
         }
-        [Route("uye/mesajlar"), HttpPost]
-        public IActionResult Index(MemberLoginDTO asd)
-        {
-            return View();
-        }
+     
         [Route("uye/mesaj-gonder")]
-        public IActionResult SendMessage(int salerId, string productName, int productId)
+        public IActionResult SendMessage(int salerId, int productId)
         {
             var saler = messageTransactions.GetSaler(salerId);
             int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
             var messages = messageTransactions.GetMessages(salerId, memberId, productId);
+            var product = messageTransactions.GetProduct(productId);
             MessageDTO MessageDTO = new MessageDTO
             {
                 ProductId = productId,
@@ -43,6 +39,7 @@ namespace Tasaryeri.WebUI.Controllers
                 MessageDTO = MessageDTO,
                 SalerDTO = saler,
                 Messages = messages,
+                productDTO = product,
             };
             return View(sendMessageVM);
         }
@@ -54,12 +51,14 @@ namespace Tasaryeri.WebUI.Controllers
             var response = messageTransactions.SendMessage(messageDTO);
             var saler = messageTransactions.GetSaler(messageDTO.SalerId);
             var messages = messageTransactions.GetMessages(messageDTO.SalerId, messageDTO.MemberId, messageDTO.ProductId);
+            var product = messageTransactions.GetProduct(messageDTO.ProductId);
 
             SendMessageVM sendMessageVM = new SendMessageVM
             {
                 MessageDTO = messageDTO,
                 SalerDTO = saler,
                 Messages = messages,
+                productDTO = product,
             };
             return View(sendMessageVM);
         }

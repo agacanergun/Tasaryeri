@@ -12,5 +12,6 @@ namespace Tasaryeri.BL.Abstract
         SalerDTO GetSaler(int id);
         IEnumerable<MessageDTO> GetMessages(int salerId, int memberId, int productId);
         bool SendMessage(MessageDTO messageDTO);
+        ProductDTO GetProduct(int id);
     }
 }

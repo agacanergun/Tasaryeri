@@ -39,6 +39,20 @@ namespace Tasaryeri.BL.Concreate
             return messages;
         }
 
+        public ProductDTO GetProduct(int id)
+        {
+            var response = efMessageDAL.GetProduct(id);
+            ProductDTO productDTO = new ProductDTO
+            {
+                Id = response.Id,
+                Name = response.Name,
+                Price = response.Price,
+                Stock = response.Stock,
+                SalerId = response.SalerId,
+            };
+            return productDTO;
+        }
+
         public SalerDTO GetSaler(int id)
         {
             var saler = efMessageDAL.GetSaler(id);
