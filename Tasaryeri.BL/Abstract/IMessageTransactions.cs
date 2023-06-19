@@ -10,5 +10,6 @@ namespace Tasaryeri.BL.Abstract
     public interface IMessageTransactions
     {
         SalerDTO GetSaler(int id);
+        IEnumerable<MessageDTO> GetMessages(int salerId, int memberId, int productId);
     }
 }

@@ -16,6 +16,28 @@ namespace Tasaryeri.BL.Concreate
         {
             this.efMessageDAL = efMessageDAL;
         }
+
+        public IEnumerable<MessageDTO> GetMessages(int salerId, int memberId, int productId)
+        {
+            var response = efMessageDAL.GetMessages(salerId, memberId, productId);
+            List<MessageDTO> messages = new List<MessageDTO>();
+            foreach (var item in response)
+            {
+                MessageDTO messageDTO = new MessageDTO
+                {
+                    Content = item.Content,
+                    Id = item.Id,
+                    MemberId = memberId,
+                    ProductId = productId,
+                    SalerId = salerId,
+                    Sender = item.Sender,
+                    Timestamp = item.Timestamp,
+                };
+                messages.Add(messageDTO);
+            }
+            return messages;
+        }
+
         public SalerDTO GetSaler(int id)
         {
             var saler = efMessageDAL.GetSaler(id);
@@ -27,5 +49,6 @@ namespace Tasaryeri.BL.Concreate
             };
             return salerDTO;
         }
+
     }
 }

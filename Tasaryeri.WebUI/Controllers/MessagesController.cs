@@ -30,6 +30,7 @@ namespace Tasaryeri.WebUI.Controllers
         {
             var saler = messageTransactions.GetSaler(salerId);
             int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+            var messages = messageTransactions.GetMessages(salerId, memberId, productId);
             MessageDTO MessageDTO = new MessageDTO
             {
                 ProductId = productId,
@@ -40,6 +41,7 @@ namespace Tasaryeri.WebUI.Controllers
             {
                 MessageDTO = MessageDTO,
                 SalerDTO = saler,
+                Messages = messages,
             };
             return View(sendMessageVM);
         }

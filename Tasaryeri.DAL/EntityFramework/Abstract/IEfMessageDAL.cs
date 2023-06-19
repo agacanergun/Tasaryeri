@@ -10,5 +10,6 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
     public interface IEfMessageDAL
     {
         Saler GetSaler(int id);
+        IEnumerable<Message> GetMessages(int salerId, int memberId, int productId);
     }
 }

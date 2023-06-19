@@ -5,6 +5,7 @@ namespace Tasaryeri.WebUI.ViewModels
     public class SendMessageVM
     {
         public MessageDTO MessageDTO { get; set; }
+        public IEnumerable<MessageDTO> Messages { get; set; }
         public SalerDTO SalerDTO { get; set; }
     }
 }

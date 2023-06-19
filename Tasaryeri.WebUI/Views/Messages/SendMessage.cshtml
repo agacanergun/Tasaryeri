@@ -81,23 +81,35 @@
                     </div>
                     <div class="chat-history">
                         <ul class="m-b-0">
-                            <li class="clearfix">
-                                <div class="message-data text-right">
-                                </div>
-                                <div class="message other-message float-right">
-                                    <span>10:10 AM, Today</span>
-                                    <br />
-                                    <br />
-                                    Hi Aiden, how are you? How is the project coming along?
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <div class="message-data">
-                                    <span class="message-data-time">10:12 AM, Today</span>
-                                </div>
-                                <div class="message my-message">Are we meeting today?</div>
-                            </li>
 
+                            @foreach (var item in Model.Messages)
+                            {
+                                if (item.Sender == "Member")
+                                {
+                                    <li class="clearfix">
+                                        <div class="message-data text-right">
+                                        </div>
+                                        <div class="message other-message float-right" style="max-width:50%">
+                                            <span>@item.Timestamp</span>
+                                            <br />
+                                            @item.Content
+                                        </div>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li style="max-width:50%" class="clearfix">
+                                        <div class="message-data ">
+                                        </div>
+                                        <div class="message other-message">
+                                            <span>@item.Timestamp</span>
+                                            <br />
+                                            @item.Content
+                                        </div>
+                                    </li>
+                                }
+
+                            }
                         </ul>
                     </div>
                     <div class="chat-message clearfix">

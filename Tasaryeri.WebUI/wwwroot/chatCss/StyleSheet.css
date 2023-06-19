@@ -166,7 +166,6 @@
 
     .chat .chat-history .other-message {
         background: #e8f1f3;
-        text-align: right
     }
 
         .chat .chat-history .other-message:after {
