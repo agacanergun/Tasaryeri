@@ -47,11 +47,11 @@ namespace Tasaryeri.DAL.Contexts
 
             modelBuilder.Entity<Admin>().HasData(new Admin { ID = 1, Name = "Ağacan", Surname = "Ergün", Password = "4c49a6720254293c040d06f1207d6796", UserName = "ağacan" });
 
-            modelBuilder.Entity<Message>().HasOne(m => m.Product).WithMany(p => p.Messages).HasForeignKey(m => m.ProductId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Message>().HasOne(m => m.Product).WithMany(p => p.Messages).HasForeignKey(m => m.ProductId).OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Message>().HasOne(m => m.Member).WithMany().HasForeignKey(m => m.SenderId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Message>().HasOne(m => m.Member).WithMany().HasForeignKey(m => m.MemberId).OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<Message>().HasOne(m => m.Saler).WithMany().HasForeignKey(m => m.RecipientId).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Message>().HasOne(m => m.Saler).WithMany().HasForeignKey(m => m.SalerId).OnDelete(DeleteBehavior.NoAction);
 
         }
     }

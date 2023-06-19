@@ -33,8 +33,8 @@ namespace Tasaryeri.WebUI.Controllers
             MessageDTO MessageDTO = new MessageDTO
             {
                 ProductId = productId,
-                SenderId = memberId,
-                RecipientId = salerId,
+                MemberId = memberId,
+                SalerId = salerId,
             };
             SendMessageVM sendMessageVM = new SendMessageVM
             {

@@ -226,25 +226,28 @@ namespace Tasaryeri.DAL.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("varchar(500)");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int?>("MemberId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RecipientId")
+                    b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SenderId")
+                    b.Property<int?>("SalerId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Sender")
+                        .HasColumnType("varchar(20)");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("MemberId");
+
                     b.HasIndex("ProductId");
 
-                    b.HasIndex("RecipientId");
-
-                    b.HasIndex("SenderId");
+                    b.HasIndex("SalerId");
 
                     b.ToTable("Message");
                 });
@@ -258,7 +261,7 @@ namespace Tasaryeri.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .HasMaxLength(250)
+                        .HasMaxLength(110)
                         .HasColumnType("varchar(250)");
 
                     b.Property<string>("Detail")
@@ -266,7 +269,7 @@ namespace Tasaryeri.DAL.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
+                        .HasMaxLength(20)
                         .HasColumnType("varchar(100)");
 
                     b.Property<decimal>("Price")
@@ -483,23 +486,20 @@ namespace Tasaryeri.DAL.Migrations
 
             modelBuilder.Entity("Tasaryeri.DAL.Entities.Message", b =>
                 {
+                    b.HasOne("Tasaryeri.DAL.Entities.Member", "Member")
+                        .WithMany()
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
                     b.HasOne("Tasaryeri.DAL.Entities.Product", "Product")
                         .WithMany("Messages")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("Tasaryeri.DAL.Entities.Saler", "Saler")
                         .WithMany()
-                        .HasForeignKey("RecipientId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Tasaryeri.DAL.Entities.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("SalerId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.Navigation("Member");
 

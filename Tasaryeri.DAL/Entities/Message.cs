@@ -12,17 +12,20 @@ namespace Tasaryeri.DAL.Entities
     public class Message
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
         public Product Product { get; set; }
     
-        public int SenderId { get; set; }
+        public int? MemberId { get; set; }
         public Member Member { get; set; }
 
-        public int RecipientId { get; set; }
+        public int? SalerId { get; set; }
         public Saler Saler { get; set; }
 
         [Column(TypeName = "varchar(500)"), Display(Name = "Mesaj İçeriği")]
         public string Content { get; set; }
         public DateTime Timestamp { get; set; }
+
+        [Column(TypeName = "varchar(20)"), Display(Name = "Mesajı Gönderen")]
+        public string Sender { get; set; }
     }
 }
