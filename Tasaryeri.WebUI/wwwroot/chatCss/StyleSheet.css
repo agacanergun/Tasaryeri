@@ -32,7 +32,9 @@
     -moz-transition: .5s;
     -o-transition: .5s;
     -webkit-transition: .5s;
-    transition: .5s
+    transition: .5s;
+    height: 775px;
+    overflow-x: auto;
 }
 
     .people-list .chat-list li {
@@ -92,7 +94,9 @@
 
 .chat .chat-history {
     padding: 20px;
-    border-bottom: 2px solid #fff
+    border-bottom: 2px solid #fff;
+    height: 650px;
+    overflow-x: auto;
 }
 
     .chat .chat-history ul {
