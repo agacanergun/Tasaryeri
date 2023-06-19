@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
 
 namespace Tasaryeri.WebUI.Controllers
@@ -7,6 +8,11 @@ namespace Tasaryeri.WebUI.Controllers
     [Authorize(AuthenticationSchemes = "TasaryeriMemberAuth")]
     public class MessagesController : Controller
     {
+        IMessageTransactions messageTransactions;
+        public MessagesController(IMessageTransactions messageTransactions)
+        {
+            this.messageTransactions = messageTransactions;
+        }
         [Route("uye/mesajlar")]
         public IActionResult Index()
         {
@@ -18,8 +24,9 @@ namespace Tasaryeri.WebUI.Controllers
             return View();
         }
 
-        public IActionResult SendMessage(int salerId, string productName)
+        public IActionResult SendMessage(int salerId, string productName, int productId)
         {
+            var saler = messageTransactions.GetSaler(salerId);
             return View();
         }
     }
