@@ -1,4 +1,6 @@
-﻿
+﻿@using Tasaryeri.BL.Dtos;
+@model SendMessageVM
+
 <link rel="stylesheet" href="/chatCss/StyleSheet.css" />
 
 <br />
@@ -61,48 +63,6 @@
                                 <div class="name">Dean Henry</div>
                             </div>
                         </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
 
                     </ul>
                 </div>
@@ -114,7 +74,7 @@
                                     <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
                                 </a>
                                 <div class="chat-about">
-                                    <h6 class="m-b-0">Aiden Chavez</h6>
+                                    <h6 class="m-b-0">@Model.SalerDTO.Name @Model.SalerDTO.Surname</h6>
                                 </div>
                             </div>
                         </div>
@@ -137,7 +97,7 @@
                                 </div>
                                 <div class="message my-message">Are we meeting today?</div>
                             </li>
-               
+
                         </ul>
                     </div>
                     <div class="chat-message clearfix">

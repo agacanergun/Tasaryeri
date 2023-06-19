@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.WebUI.ViewModels;
 
 namespace Tasaryeri.WebUI.Controllers
 {
@@ -27,7 +29,19 @@ namespace Tasaryeri.WebUI.Controllers
         public IActionResult SendMessage(int salerId, string productName, int productId)
         {
             var saler = messageTransactions.GetSaler(salerId);
-            return View();
+            int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+            MessageDTO MessageDTO = new MessageDTO
+            {
+                ProductId = productId,
+                SenderId = memberId,
+                RecipientId = salerId,
+            };
+            SendMessageVM sendMessageVM = new SendMessageVM
+            {
+                MessageDTO = MessageDTO,
+                SalerDTO = saler,
+            };
+            return View(sendMessageVM);
         }
     }
 }
