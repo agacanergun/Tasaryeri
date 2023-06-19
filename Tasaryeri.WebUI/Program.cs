@@ -33,16 +33,13 @@ builder.Services.AddScoped(typeof(IEfProductPictureDAL), typeof(EfProductPicture
 builder.Services.AddScoped(typeof(IProductPictureTransactions), typeof(ProductPictureTransactions));
 builder.Services.AddScoped(typeof(IEfProductUIDAL), typeof(EfProductUIDAL));
 builder.Services.AddScoped(typeof(IProductTransactionsUI), typeof(ProductTransactionsUI));
+builder.Services.AddScoped(typeof(IEfMessageDAL), typeof(EfMessageDAL));
+builder.Services.AddScoped(typeof(IMessageTransactions), typeof(MessageTransactions));
 
 builder.Services.AddDbContext<SqlContext>(options =>
           options.UseSqlServer(builder.Configuration.GetConnectionString("CS1")));
 
-//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
-//{
-//    opt.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-//    opt.LoginPath = "/admin";
-//    opt.LogoutPath = "/admin/logout";
-//});
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = "TasaryeriAdminAuth";

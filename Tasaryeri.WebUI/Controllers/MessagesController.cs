@@ -12,8 +12,13 @@ namespace Tasaryeri.WebUI.Controllers
         {
             return View();
         }
-        [Route("uye/mesajlar"),HttpPost]
+        [Route("uye/mesajlar"), HttpPost]
         public IActionResult Index(MemberLoginDTO asd)
+        {
+            return View();
+        }
+
+        public IActionResult SendMessage(int salerId, string productName)
         {
             return View();
         }

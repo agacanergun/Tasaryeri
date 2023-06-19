@@ -77,8 +77,11 @@
 
                         <h6>Detay</h6>
                         <p>@Html.Raw(Model.productDTO.Detail)</p>
-
+                        <hr />
                         <form>
+                            <div class="row pb-3">
+                                <a asp-controller="Messages" asp-action="SendMessage" asp-route-salerId="@Model.productDTO.SalerId" asp-route-productName="@Model.productDTO.Name" class="btn btn-dark btn-lg">Satıcıyla İletişime Geç</a>
+                            </div>
                             <div class="row pb-3">
                                 <div class="col d-grid">
                                     <ul class="list-inline pb-3">
