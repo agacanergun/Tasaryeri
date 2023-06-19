@@ -43,7 +43,14 @@ namespace Tasaryeri.WebUI.Controllers
         public IActionResult ProductDetail(string name, int id)
         {
             name = productTransactionsUI.UrlConverter(name);
-            return View(productTransactionsUI.GetProduct(id));
+            var randomProducts = productTransactionsUI.GetRandom();
+            var responseProduct = productTransactionsUI.GetProduct(id);
+            ProductDetailVM productDetailVM = new ProductDetailVM
+            {
+                productDTO = responseProduct,
+                productDTOs = randomProducts,
+            };
+            return View(productDetailVM);
         }
     }
 }
