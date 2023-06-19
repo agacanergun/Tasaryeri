@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.DAL.Entities;
 using Tasaryeri.WebUI.ViewModels;
 
 namespace Tasaryeri.WebUI.Controllers
@@ -25,7 +26,7 @@ namespace Tasaryeri.WebUI.Controllers
         {
             return View();
         }
-
+        [Route("uye/mesaj-gonder")]
         public IActionResult SendMessage(int salerId, string productName, int productId)
         {
             var saler = messageTransactions.GetSaler(salerId);
@@ -40,6 +41,23 @@ namespace Tasaryeri.WebUI.Controllers
             SendMessageVM sendMessageVM = new SendMessageVM
             {
                 MessageDTO = MessageDTO,
+                SalerDTO = saler,
+                Messages = messages,
+            };
+            return View(sendMessageVM);
+        }
+        [Route("uye/mesaj-gonder"), HttpPost]
+        public IActionResult SendMessage(MessageDTO messageDTO)
+        {
+            messageDTO.Timestamp = DateTime.Now;
+            messageDTO.Sender = "Member";
+            var response = messageTransactions.SendMessage(messageDTO);
+            var saler = messageTransactions.GetSaler(messageDTO.SalerId);
+            var messages = messageTransactions.GetMessages(messageDTO.SalerId, messageDTO.MemberId, messageDTO.ProductId);
+
+            SendMessageVM sendMessageVM = new SendMessageVM
+            {
+                MessageDTO = messageDTO,
                 SalerDTO = saler,
                 Messages = messages,
             };

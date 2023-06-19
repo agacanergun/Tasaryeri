@@ -29,5 +29,13 @@ namespace Tasaryeri.DAL.EntityFramework
         {
             return repoSaler.GetBy(x => x.Id == id);
         }
+
+        public bool SendMessage(Message message)
+        {
+            var response = repoMessage.Add(message);
+            if (response == 1)
+                return true;
+            return false;
+        }
     }
 }

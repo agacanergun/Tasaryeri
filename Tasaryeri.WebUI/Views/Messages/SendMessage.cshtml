@@ -45,25 +45,6 @@
                                 <div class="name">Monica Ward</div>
                             </div>
                         </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
-                        <li class="clearfix">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar">
-                            <div class="about">
-                                <div class="name">Dean Henry</div>
-                            </div>
-                        </li>
-
                     </ul>
                 </div>
                 <div class="chat">
@@ -114,10 +95,13 @@
                     </div>
                     <div class="chat-message clearfix">
                         <div class="mb-0">
-                            <form asp-controller="Messages" asp-action="Index" method="post">
+                            <form asp-controller="Messages" asp-action="SendMessage" method="post">
                                 <div class="row">
                                     <div class="col-1"><button class="input-group-text" style="width:100%;height:100%"><i class="fa fa-send"></i></button></div>
-                                    <div class="col-11"><input type="text" class="form-control" placeholder="Mesajınız ..."></div>
+                                    <div class="col-11"><input type="text" asp-for="@Model.MessageDTO.Content" class="form-control" placeholder="Mesajınız ..."></div>
+                                    <input asp-for="@Model.MessageDTO.ProductId" type="hidden" />
+                                    <input asp-for="@Model.MessageDTO.MemberId" type="hidden" />
+                                    <input asp-for="@Model.MessageDTO.SalerId" type="hidden" />
                                 </div>
                             </form>
                         </div>

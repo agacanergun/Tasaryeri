@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
+using Tasaryeri.DAL.Entities;
 using Tasaryeri.DAL.EntityFramework.Abstract;
 
 namespace Tasaryeri.BL.Concreate
@@ -50,5 +51,18 @@ namespace Tasaryeri.BL.Concreate
             return salerDTO;
         }
 
+        public bool SendMessage(MessageDTO messageDTO)
+        {
+            Message message = new Message
+            {
+                Content = messageDTO.Content,
+                MemberId = messageDTO.MemberId,
+                ProductId = messageDTO.ProductId,
+                SalerId = messageDTO.SalerId,
+                Timestamp = messageDTO.Timestamp,
+                Sender = messageDTO.Sender,
+            };
+            return efMessageDAL.SendMessage(message);
+        }
     }
 }
