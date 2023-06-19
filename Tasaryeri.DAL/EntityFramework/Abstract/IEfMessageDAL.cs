@@ -13,5 +13,6 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
         IEnumerable<Message> GetMessages(int salerId, int memberId, int productId);
         bool SendMessage(Message message);
         Product GetProduct(int id);
+        IEnumerable<Message> GetOldMessages(int memberId);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Tasaryeri.DAL.Entities;
 
 namespace Tasaryeri.BL.Dtos
 {
@@ -8,6 +9,7 @@ namespace Tasaryeri.BL.Dtos
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
+        public Product Product { get; set; }
 
         public int MemberId { get; set; }
 

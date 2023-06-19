@@ -13,5 +13,6 @@ namespace Tasaryeri.BL.Abstract
         IEnumerable<MessageDTO> GetMessages(int salerId, int memberId, int productId);
         bool SendMessage(MessageDTO messageDTO);
         ProductDTO GetProduct(int id);
+        IEnumerable<MessageDTO> GetOldMessages(int memberId);
     }
 }

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Tasaryeri.Core.Interfaces;
@@ -26,9 +28,19 @@ namespace Tasaryeri.DAL.EntityFramework
             return repoMessage.GetAll(x => x.MemberId == memberId && x.ProductId == productId && x.SalerId == salerId).OrderBy(x => x.Timestamp);
         }
 
+        public IEnumerable<Message> GetOldMessages(int memberId)
+        {
+            var response = repoMessage.GetAll(m => m.MemberId == memberId).Include(x => x.Product).Include(x => x.Saler);
+            var firstMessages = response
+           .GroupBy(m => new { m.ProductId, m.SalerId })
+           .Select(g => g.First()).ToList();
+
+            return firstMessages;
+        }
+
         public Product GetProduct(int id)
         {
-           return repoProduct.GetBy(x => x.Id == id);
+            return repoProduct.GetBy(x => x.Id == id);
         }
 
         public Saler GetSaler(int id)

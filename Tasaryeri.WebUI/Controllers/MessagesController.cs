@@ -18,9 +18,11 @@ namespace Tasaryeri.WebUI.Controllers
         [Route("uye/mesajlar")]
         public IActionResult Index()
         {
-            return View();
+            int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+            var oldMessages = messageTransactions.GetOldMessages(memberId);
+            return View(oldMessages);
         }
-     
+
         [Route("uye/mesaj-gonder")]
         public IActionResult SendMessage(int salerId, int productId)
         {

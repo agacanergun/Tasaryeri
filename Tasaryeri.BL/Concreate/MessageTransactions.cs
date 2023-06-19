@@ -39,6 +39,28 @@ namespace Tasaryeri.BL.Concreate
             return messages;
         }
 
+        public IEnumerable<MessageDTO> GetOldMessages(int memberId)
+        {
+            var response = efMessageDAL.GetOldMessages(memberId);
+            List<MessageDTO> messageDTOs = new List<MessageDTO>();
+            foreach (var item in response)
+            {
+                MessageDTO messageDTO = new MessageDTO
+                {
+                    Timestamp = item.Timestamp,
+                    Content = item.Content,
+                    Id = item.Id,
+                    MemberId = memberId,
+                    Product = item.Product,
+                    Sender = item.Sender,
+                    ProductId = (int)item.ProductId,
+                    SalerId = (int)item.SalerId,
+                };
+                messageDTOs.Add(messageDTO);
+            }
+            return messageDTOs;
+        }
+
         public ProductDTO GetProduct(int id)
         {
             var response = efMessageDAL.GetProduct(id);
