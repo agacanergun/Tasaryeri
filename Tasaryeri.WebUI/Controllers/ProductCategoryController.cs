@@ -42,7 +42,6 @@ namespace Tasaryeri.WebUI.Controllers
         [Route("Urun-Detayi/{name}/{id}")]
         public IActionResult ProductDetail(string name, int id)
         {
-            name = productTransactionsUI.UrlConverter(name);
             var randomProducts = productTransactionsUI.GetRandom();
             var responseProduct = productTransactionsUI.GetProduct(id);
             ProductDetailVM productDetailVM = new ProductDetailVM

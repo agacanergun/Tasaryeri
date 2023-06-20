@@ -14,7 +14,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(SqlRepository<>));
 builder.Services.AddScoped(typeof(ICryptoBase), typeof(CryptoBase));
-builder.Services.AddScoped(typeof(IUrlConverter), typeof(UrlConverter));
 builder.Services.AddScoped(typeof(IEfAdminDAL), typeof(EfAdminDAL));
 builder.Services.AddScoped(typeof(IAdminTransactions), typeof(AdminTransactions));
 builder.Services.AddScoped(typeof(IEfSlideDAL), typeof(EfSlideDAL));

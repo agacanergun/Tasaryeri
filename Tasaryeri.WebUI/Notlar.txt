@@ -1,9 +1,5 @@
 ﻿          proje bitince interfacelerdeki public yazılarını sil
             proje bitince dtolardaki attributelardaki gereksiz bilgileri kaldır.
 
-            ürüne tıklayınca ürünün detay sayfası yapılcak.
-            kategoriye tıklayınca o kategorideki ürünler getirilcek.
-            üye ve satıcı mesajlaşma sistemi bitirilecek.
-
-     
+        
      

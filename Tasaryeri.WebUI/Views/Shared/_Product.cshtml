@@ -1,36 +1,37 @@
 ﻿@using Tasaryeri.BL.Dtos;
+@using Tasaryeri.BL.Helpers;
 @model ProductDTO
 
 <div class="col-md-4">
-        <div class="card mb-4 product-wap">
-            <div class="card rounded-0">
-                @if (Model.ProductPictures.Any())
-                {
-                    <img class="card-img rounded-0 img-fluid" height="330" src="/@Model.ProductPictures.FirstOrDefault().Picture" alt="@Model.Name" />
-                }
-                else
-                {
-                    <img class="card-img rounded-0 img-fluid" src="/assetsUI/img/görsel-hazirlaniyor.jpg">
-                }
-                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a class="btn btn-success text-white mt-2" asp-controller="ProductCategory" asp-action="ProductDetail" asp-route-id="@Model.Id" asp-route-name="@Model.Name">
-                                <i class="far fa-eye"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card-body">
-                <p class="h3 text-center">@Model.Name</p>
-                <hr />
-                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+    <div class="card mb-4 product-wap">
+        <div class="card rounded-0">
+            @if (Model.ProductPictures.Any())
+            {
+                <img class="card-img rounded-0 img-fluid" height="330" src="/@Model.ProductPictures.FirstOrDefault().Picture" alt="@Model.Name" />
+            }
+            else
+            {
+                <img class="card-img rounded-0 img-fluid" src="/assetsUI/img/görsel-hazirlaniyor.jpg">
+            }
+            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="btn btn-success text-white mt-2" asp-controller="ProductCategory" asp-action="ProductDetail" asp-route-id="@Model.Id" asp-route-name="@UrlConverter.ConvertUrl(Model.Name)">
+                            <i class="far fa-eye"></i>
+                        </a>
+                    </li>
                 </ul>
-                <p class="text-center" style="height:108px">@Model.Description</p>
-                <hr />
-                <p class="text-center mb-0">@Model.Price TL</p>
             </div>
         </div>
+
+        <div class="card-body">
+            <p class="h3 text-center">@Model.Name</p>
+            <hr />
+            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+            </ul>
+            <p class="text-center" style="height:108px">@Model.Description</p>
+            <hr />
+            <p class="text-center mb-0">@Model.Price TL</p>
+        </div>
+    </div>
 </div>

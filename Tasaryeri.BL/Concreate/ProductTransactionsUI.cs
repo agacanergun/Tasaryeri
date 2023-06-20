@@ -13,11 +13,9 @@ namespace Tasaryeri.BL.Concreate
     public class ProductTransactionsUI : IProductTransactionsUI
     {
         IEfProductUIDAL efProductUIDAL;
-        IUrlConverter urlConverter;
-        public ProductTransactionsUI(IEfProductUIDAL efProductUIDAL, IUrlConverter urlConverter)
+        public ProductTransactionsUI(IEfProductUIDAL efProductUIDAL)
         {
             this.efProductUIDAL = efProductUIDAL;
-            this.urlConverter = urlConverter;
         }
         public IEnumerable<ProductDTO> GetAll(int CategoryId)
         {
@@ -80,11 +78,6 @@ namespace Tasaryeri.BL.Concreate
                 result.Add(productDTO);
             }
             return result;
-        }
-
-        public string UrlConverter(string Url)
-        {
-            return urlConverter.ConvertUrl(Url);
         }
     }
 }
