@@ -3,5 +3,13 @@
 })
 
 function addCart(productid, stock) {
-    alert(productid + " ve " + stock)
+    istenenMiktar = parseInt($(".inputQuantity").val())
+    if (istenenMiktar <= stock) {
+
+    }
+    else {
+        $(".inputQuantity").val(stock);
+        $(".SpanQuantity").text(stock);
+        alert("istenen miktar stoktan fazla");
+    }
 }

@@ -18277,6 +18277,10 @@
       "PackagePath": "staticwebassets\\assetsUILogin\\js\\javascript.js"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\ShoppingCart.css",
+      "PackagePath": "staticwebassets\\assetsUI\\css\\ShoppingCart.css"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\assetsUI\\css\\bootstrap.min.css"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KBYDcVtqW/G2O6fI+cbeQ3to71ZKme2rNCOMqHIpw+4=",
+  "Hash": "TFthZ8MZmcm2Y6tW4W7BbDbqpsuLJZinIu0vLWIkjI8=",
   "Source": "Tasaryeri.WebUI",
   "BasePath": "_content/Tasaryeri.WebUI",
   "Mode": "Default",
@@ -77751,6 +77751,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assetsUI\\css\\main.css"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\ShoppingCart.css",
+      "SourceId": "Tasaryeri.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\",
+      "BasePath": "_content/Tasaryeri.WebUI",
+      "RelativePath": "assetsUI/css/ShoppingCart.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assetsUI\\css\\ShoppingCart.css"
     },
     {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\assetsUI\\css\\slick.min.css",

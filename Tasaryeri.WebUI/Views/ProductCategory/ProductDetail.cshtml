@@ -85,7 +85,7 @@
                         <h6>Detay</h6>
                         <p>@Html.Raw(Model.productDTO.Detail)</p>
                         <hr />
-                        <form>
+              
                             <div class="row pb-3">
                                 <a asp-controller="Messages" asp-action="SendMessage" asp-route-salerId="@Model.productDTO.SalerId" asp-route-productId="@Model.productDTO.Id" class="btn btn-dark btn-lg">Satıcıyla İletişime Geç</a>
                             </div>
@@ -100,21 +100,21 @@
                                         <ul class="list-inline pb-3">
                                             <li class="list-inline-item text-right">
                                                 Quantity
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+                                                <input type="hidden" class="inputQuantity" name="product-quanity" id="product-quanity" value="1">
                                             </li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
+                                        <li class="list-inline-item"><span class="badge bg-secondary SpanQuantity" id="var-value">1</span></li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
                                         </ul>
                                     </div>
                                     <div class="col d-grid">
 
-                                        <button onclick="addCart(@Model.productDTO.Id,@Model.productDTO.Stock)" type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Sepete Ekle</button>
+                                        <button onclick="addCart(@Model.productDTO.Id,@Model.productDTO.Stock)" class="btn btn-success btn-lg" value="addtocard">Sepete Ekle</button>
 
                                     </div>
                                 </div>
                             }
-                        </form>
+                     
 
                     </div>
                 </div>
