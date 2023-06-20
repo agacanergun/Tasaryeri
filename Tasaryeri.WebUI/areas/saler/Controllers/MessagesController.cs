@@ -52,18 +52,18 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         public IActionResult SendMessage(MessageDTO messageDTO)
         {
             messageDTO.Timestamp = DateTime.Now;
-            messageDTO.Sender = "Member";
+            messageDTO.Sender = "Saler";
             var response = messageTransactions.SendMessage(messageDTO);
-            int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
-            var oldMessages = messageTransactions.GetOldMessagesForMember(memberId);
-            var saler = messageTransactions.GetSaler(messageDTO.SalerId);
+            int salerId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+            var oldMessages = messageTransactions.GetOldMessagesForSaler(salerId);
+            var member = messageTransactions.GetMember(messageDTO.MemberId);
             var messages = messageTransactions.GetMessages(messageDTO.SalerId, messageDTO.MemberId, messageDTO.ProductId);
             var product = messageTransactions.GetProduct(messageDTO.ProductId);
 
             SendMessageVM sendMessageVM = new SendMessageVM
             {
                 MessageDTO = messageDTO,
-                SalerDTO = saler,
+                MemberDTO = member,
                 Messages = messages,
                 productDTO = product,
                 OldMessages = oldMessages,
