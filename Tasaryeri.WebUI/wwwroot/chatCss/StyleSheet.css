@@ -35,6 +35,7 @@
     transition: .5s;
     height: 775px;
     overflow-x: auto;
+    text-align: center;
 }
 
     .people-list .chat-list li {
@@ -58,11 +59,11 @@
 
     .people-list .chat-list img {
         width: 45px;
-        border-radius: 50%
+        border-radius: 50%;
+        float: left;
     }
 
     .people-list img {
-        float: left;
         border-radius: 50%
     }
 

@@ -28,6 +28,7 @@ namespace Tasaryeri.WebUI.Controllers
         {
             var saler = messageTransactions.GetSaler(salerId);
             int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+            var oldMessages = messageTransactions.GetOldMessages(memberId);
             var messages = messageTransactions.GetMessages(salerId, memberId, productId);
             var product = messageTransactions.GetProduct(productId);
             MessageDTO MessageDTO = new MessageDTO
@@ -42,6 +43,7 @@ namespace Tasaryeri.WebUI.Controllers
                 SalerDTO = saler,
                 Messages = messages,
                 productDTO = product,
+                OldMessages= oldMessages,
             };
             return View(sendMessageVM);
         }
@@ -51,6 +53,8 @@ namespace Tasaryeri.WebUI.Controllers
             messageDTO.Timestamp = DateTime.Now;
             messageDTO.Sender = "Member";
             var response = messageTransactions.SendMessage(messageDTO);
+            int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+            var oldMessages = messageTransactions.GetOldMessages(memberId);
             var saler = messageTransactions.GetSaler(messageDTO.SalerId);
             var messages = messageTransactions.GetMessages(messageDTO.SalerId, messageDTO.MemberId, messageDTO.ProductId);
             var product = messageTransactions.GetProduct(messageDTO.ProductId);
@@ -61,6 +65,7 @@ namespace Tasaryeri.WebUI.Controllers
                 SalerDTO = saler,
                 Messages = messages,
                 productDTO = product,
+                OldMessages = oldMessages,
             };
             return View(sendMessageVM);
         }

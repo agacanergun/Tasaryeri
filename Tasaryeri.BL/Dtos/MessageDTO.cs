@@ -14,6 +14,7 @@ namespace Tasaryeri.BL.Dtos
         public int MemberId { get; set; }
 
         public int SalerId { get; set; }
+        public SalerDTO SalerDTO { get; set; }
 
         [Column(TypeName = "varchar(500)"), Display(Name = "Mesaj İçeriği")]
         public string Content { get; set; }

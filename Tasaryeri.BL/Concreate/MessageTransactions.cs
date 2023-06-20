@@ -45,6 +45,12 @@ namespace Tasaryeri.BL.Concreate
             List<MessageDTO> messageDTOs = new List<MessageDTO>();
             foreach (var item in response)
             {
+                SalerDTO salerDTO = new SalerDTO
+                {
+                    Id = item.Saler.Id,
+                    Name = item.Saler.Name,
+                    Surname = item.Saler.Surname,
+                };
                 MessageDTO messageDTO = new MessageDTO
                 {
                     Timestamp = item.Timestamp,
@@ -55,6 +61,7 @@ namespace Tasaryeri.BL.Concreate
                     Sender = item.Sender,
                     ProductId = (int)item.ProductId,
                     SalerId = (int)item.SalerId,
+                    SalerDTO = salerDTO,
                 };
                 messageDTOs.Add(messageDTO);
             }
