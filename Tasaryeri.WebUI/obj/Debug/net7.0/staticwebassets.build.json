@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FJdXjOtqC2Gg7Zb3EHEMmji8XEP2ihSYvuD40m1in9A=",
+  "Hash": "KBYDcVtqW/G2O6fI+cbeQ3to71ZKme2rNCOMqHIpw+4=",
   "Source": "Tasaryeri.WebUI",
   "BasePath": "_content/Tasaryeri.WebUI",
   "Mode": "Default",
@@ -86727,6 +86727,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\mainJS\\Modal.js"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\mainJS\\ShoppingCart.js",
+      "SourceId": "Tasaryeri.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\",
+      "BasePath": "_content/Tasaryeri.WebUI",
+      "RelativePath": "mainJS/ShoppingCart.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mainJS\\ShoppingCart.js"
     },
     {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\1001.jpg",
