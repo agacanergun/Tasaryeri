@@ -14,13 +14,20 @@ namespace Tasaryeri.DAL.EntityFramework
     public class EfMessageDAL : IEfMessageDAL
     {
         IRepository<Saler> repoSaler;
+        IRepository<Member> repoMember;
         IRepository<Message> repoMessage;
         IRepository<Product> repoProduct;
-        public EfMessageDAL(IRepository<Saler> repoSaler, IRepository<Message> repoMessage, IRepository<Product> repoProduct)
+        public EfMessageDAL(IRepository<Saler> repoSaler, IRepository<Message> repoMessage, IRepository<Product> repoProduct, IRepository<Member> repoMember)
         {
             this.repoSaler = repoSaler;
             this.repoMessage = repoMessage;
             this.repoProduct = repoProduct;
+            this.repoMember = repoMember;
+        }
+
+        public Member GetMember(int id)
+        {
+            return repoMember.GetBy(x => x.Id == id);
         }
 
         public IEnumerable<Message> GetMessages(int salerId, int memberId, int productId)

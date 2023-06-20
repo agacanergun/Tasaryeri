@@ -19,6 +19,18 @@ namespace Tasaryeri.BL.Concreate
             this.efMessageDAL = efMessageDAL;
         }
 
+        public MemberDTO GetMember(int id)
+        {
+            var saler = efMessageDAL.GetMember(id);
+            MemberDTO memberDTO = new MemberDTO
+            {
+                Id = saler.Id,
+                Name = saler.Name,
+                Surname = saler.Surname,
+            };
+            return memberDTO;
+        }
+
         public IEnumerable<MessageDTO> GetMessages(int salerId, int memberId, int productId)
         {
             var response = efMessageDAL.GetMessages(salerId, memberId, productId);

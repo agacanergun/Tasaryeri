@@ -8,6 +8,7 @@ namespace Tasaryeri.WebUI.ViewModels
         public IEnumerable<MessageDTO> Messages { get; set; }
         public IEnumerable<MessageDTO> OldMessages { get; set; }
         public SalerDTO SalerDTO { get; set; }
+        public MemberDTO MemberDTO { get; set; }
         public ProductDTO productDTO { get; set; }
     }
 }

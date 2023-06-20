@@ -10,6 +10,7 @@ namespace Tasaryeri.BL.Abstract
     public interface IMessageTransactions
     {
         SalerDTO GetSaler(int id);
+        MemberDTO GetMember(int id);
         IEnumerable<MessageDTO> GetMessages(int salerId, int memberId, int productId);
         bool SendMessage(MessageDTO messageDTO);
         ProductDTO GetProduct(int id);
