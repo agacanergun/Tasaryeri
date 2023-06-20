@@ -7,6 +7,7 @@ namespace Tasaryeri.WebUI.Controllers
         [Route("/sepetim")]
         public IActionResult Index()
         {
+            //1.02.47
             return View();
         }
     }
