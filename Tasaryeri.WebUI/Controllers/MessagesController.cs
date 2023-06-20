@@ -19,7 +19,7 @@ namespace Tasaryeri.WebUI.Controllers
         public IActionResult Index()
         {
             int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
-            var oldMessages = messageTransactions.GetOldMessages(memberId);
+            var oldMessages = messageTransactions.GetOldMessagesForMember(memberId);
             return View(oldMessages);
         }
 
@@ -28,7 +28,7 @@ namespace Tasaryeri.WebUI.Controllers
         {
             var saler = messageTransactions.GetSaler(salerId);
             int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
-            var oldMessages = messageTransactions.GetOldMessages(memberId);
+            var oldMessages = messageTransactions.GetOldMessagesForMember(memberId);
             var messages = messageTransactions.GetMessages(salerId, memberId, productId);
             var product = messageTransactions.GetProduct(productId);
             MessageDTO MessageDTO = new MessageDTO
@@ -54,7 +54,7 @@ namespace Tasaryeri.WebUI.Controllers
             messageDTO.Sender = "Member";
             var response = messageTransactions.SendMessage(messageDTO);
             int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
-            var oldMessages = messageTransactions.GetOldMessages(memberId);
+            var oldMessages = messageTransactions.GetOldMessagesForMember(memberId);
             var saler = messageTransactions.GetSaler(messageDTO.SalerId);
             var messages = messageTransactions.GetMessages(messageDTO.SalerId, messageDTO.MemberId, messageDTO.ProductId);
             var product = messageTransactions.GetProduct(messageDTO.ProductId);

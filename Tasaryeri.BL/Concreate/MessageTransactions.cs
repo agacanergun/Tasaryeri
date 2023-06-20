@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper.Execution;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,9 +40,9 @@ namespace Tasaryeri.BL.Concreate
             return messages;
         }
 
-        public IEnumerable<MessageDTO> GetOldMessages(int memberId)
+        public IEnumerable<MessageDTO> GetOldMessagesForMember(int memberId)
         {
-            var response = efMessageDAL.GetOldMessages(memberId);
+            var response = efMessageDAL.GetOldMessagesForMember(memberId);
             List<MessageDTO> messageDTOs = new List<MessageDTO>();
             foreach (var item in response)
             {
@@ -62,6 +63,35 @@ namespace Tasaryeri.BL.Concreate
                     ProductId = (int)item.ProductId,
                     SalerId = (int)item.SalerId,
                     SalerDTO = salerDTO,
+                };
+                messageDTOs.Add(messageDTO);
+            }
+            return messageDTOs;
+        }
+
+        public IEnumerable<MessageDTO> GetOldMessagesForSaler(int salerId)
+        {
+            var response = efMessageDAL.GetOldMessagesForSaler(salerId);
+            List<MessageDTO> messageDTOs = new List<MessageDTO>();
+            foreach (var item in response)
+            {
+                MemberDTO memberDTO = new MemberDTO
+                {
+                    Id = item.Member.Id,
+                    Name = item.Member.Name,
+                    Surname = item.Member.Surname,
+                };
+                MessageDTO messageDTO = new MessageDTO
+                {
+                    Timestamp = item.Timestamp,
+                    Content = item.Content,
+                    Id = item.Id,
+                    MemberId = salerId,
+                    Product = item.Product,
+                    Sender = item.Sender,
+                    ProductId = (int)item.ProductId,
+                    SalerId = (int)item.SalerId,
+                    MemberDTO = memberDTO,
                 };
                 messageDTOs.Add(messageDTO);
             }

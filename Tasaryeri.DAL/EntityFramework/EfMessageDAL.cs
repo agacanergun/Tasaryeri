@@ -28,13 +28,22 @@ namespace Tasaryeri.DAL.EntityFramework
             return repoMessage.GetAll(x => x.MemberId == memberId && x.ProductId == productId && x.SalerId == salerId).OrderBy(x => x.Timestamp);
         }
 
-        public IEnumerable<Message> GetOldMessages(int memberId)
+        public IEnumerable<Message> GetOldMessagesForMember(int memberId)
         {
             var response = repoMessage.GetAll(m => m.MemberId == memberId).Include(x => x.Product).Include(x => x.Saler);
             var firstMessages = response
            .GroupBy(m => new { m.ProductId, m.SalerId })
            .Select(g => g.First()).ToList();
 
+            return firstMessages;
+        }
+
+        public IEnumerable<Message> GetOldMessagesForSaler(int salerId)
+        {
+            var response = repoMessage.GetAll(x => x.SalerId == salerId).Include(x => x.Product).Include(x => x.Member);
+            var firstMessages = response
+             .GroupBy(m => new { m.ProductId, m.MemberId })
+          .Select(g => g.First()).ToList();
             return firstMessages;
         }
 

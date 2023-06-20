@@ -12,6 +12,7 @@ namespace Tasaryeri.BL.Dtos
         public Product Product { get; set; }
 
         public int MemberId { get; set; }
+        public MemberDTO MemberDTO { get; set; }
 
         public int SalerId { get; set; }
         public SalerDTO SalerDTO { get; set; }
