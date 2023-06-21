@@ -36,29 +36,32 @@ namespace Tasaryeri.WebUI.Controllers
 
                 };
                 List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
+                bool hasProduct = false;
                 if (Request.Cookies["MyCart"] != null)
                 {
                     shoppingCarts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+
                     foreach (var item in shoppingCarts)
                     {
                         if (item.ProductId == productid)
                         {
+                            hasProduct = true;
                             item.Quantity += quantity;
+                            if (response.Stock < item.Quantity)
+                                item.Quantity = response.Stock;
                             break;
                         }
                     }
-                    return response.Name;
                 }
-                else
-                {
+                if (hasProduct == false)
                     shoppingCarts.Add(shoppingCart);
-                    CookieOptions cookieOptions = new CookieOptions
-                    {
-                        Expires = DateTime.Now.AddDays(30),
-                    };
-                    Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(shoppingCarts), cookieOptions);
-                    return response.Name;
-                }
+
+                CookieOptions cookieOptions = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(30),
+                };
+                Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(shoppingCarts), cookieOptions);
+                return response.Name;
             }
             return "";
         }
