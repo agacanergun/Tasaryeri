@@ -15,9 +15,22 @@ namespace Tasaryeri.WebUI.Controllers
         [Route("/sepetim")]
         public IActionResult Index()
         {
-            //1.02.47
-            return View();
+            if (Request.Cookies["MyCart"] != null)
+                return View(JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]));
+            else
+                return Redirect("/");
         }
+        [Route("/sepetim/sayiver")]
+        public int GetCartCount()
+        {
+            if (Request.Cookies["MyCart"] != null)
+            {
+                return JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]).Sum(x => x.Quantity);
+            }
+            else
+                return 0;
+        }
+
         [Route("/sepetim/ekle")]
         public string AddCart(int productid, int quantity)
         {
