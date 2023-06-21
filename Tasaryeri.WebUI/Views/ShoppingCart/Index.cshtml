@@ -12,21 +12,24 @@
                     <div class="col text-center"><h4><b>Sepetim</b></h4></div>
                 </div>
             </div>
+            @{
+                decimal totalPrice = 0;
+            }
             @foreach (var item in Model)
             {
                 <div class="row">
                     <div class="row main align-items-center">
-                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                        <div class="col-2"><img class="img-fluid" src="/@item.Picture"></div>
                         <div class="col">
-                            <div class="row text-muted">Shirt</div>
-                            <div class="row">Cotton T-shirt</div>
+                            <div class="row">@item.Name</div>
                         </div>
                         <div class="col">
-                            <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                            <div class="row">@item.Quantity Adet</div>
                         </div>
-                        <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                        <div class="col">@item.Price TL   <span onclick="removeCart(@item.ProductId)" style="cursor:pointer;font-size:x-large;color:red;" class="close"> &nbsp &nbsp &#10005;</span></div>
                     </div>
                 </div>
+                totalPrice += item.Price * item.Quantity;
             }
         </div>
         <div class="col-md-4 summary">
@@ -36,9 +39,9 @@
             <input id="code" placeholder="Kupon Kodu">
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col">Toplam Tutar</div>
-                <div class="col text-right">500 TL</div>
+                <div class="col text-right">@totalPrice TL</div>
             </div>
-            <a style="border-radius:6px;" class="btn">Satın Al</a>
+            <a asp-controller="ShoppingCart" asp-action="Complete" style="border-radius:6px;" class="btn">Alışverişi Tamamla</a>
         </div>
     </div>
 </div>

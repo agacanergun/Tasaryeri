@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.WebUI.Models;
@@ -16,7 +17,12 @@ namespace Tasaryeri.WebUI.Controllers
         public IActionResult Index()
         {
             if (Request.Cookies["MyCart"] != null)
+            {
+                var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+                if (carts.Count() == 0)
+                    return Redirect("/");
                 return View(JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]));
+            }
             else
                 return Redirect("/");
         }
@@ -29,6 +35,24 @@ namespace Tasaryeri.WebUI.Controllers
             }
             else
                 return 0;
+        }
+
+        [Route("/sepetim/sil")]
+        public string RemoveCart(int productid)
+        {
+            if (Request.Cookies["MyCart"] != null)
+            {
+                List<ShoppingCart> shoppingCarts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+                shoppingCarts.Remove(shoppingCarts.FirstOrDefault(x => x.ProductId == productid));
+                CookieOptions cookieOptions = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(30),
+                };
+                Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(shoppingCarts), cookieOptions);
+                return "Ok";
+            }
+            else
+                return "";
         }
 
         [Route("/sepetim/ekle")]
@@ -77,6 +101,19 @@ namespace Tasaryeri.WebUI.Controllers
                 return response.Name;
             }
             return "";
+        }
+        [Route("/sepetim/tamamla"), Authorize(AuthenticationSchemes = "TasaryeriMemberAuth")]
+        public IActionResult Complete()
+        {
+            if (Request.Cookies["MyCart"] != null)
+            {
+                var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+                if (carts.Count() == 0)
+                    return Redirect("/");
+                return View(JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]));
+            }
+            else
+                return Redirect("/");
         }
     }
 }

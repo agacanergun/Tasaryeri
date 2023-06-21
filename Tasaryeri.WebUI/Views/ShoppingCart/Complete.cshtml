@@ -1,0 +1,66 @@
+﻿@using Tasaryeri.WebUI.Models;
+@model List<ShoppingCart>
+<link rel="stylesheet" href="/assetsUI/css/ShoppingCart.css" />
+<br />
+<br />
+<div class="card">
+    <div class="row">
+        <div class="colcart">
+            <div class="title">
+                <div class="row">
+                    <div class="col text-center mt-5"><h4><b>Ürünler</b></h4></div>
+                    <hr />
+                </div>
+            </div>
+            @{
+                decimal totalPrice = 0;
+            }
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="/@item.Picture"></div>
+                        <div class="col">
+                            <div class="row">@item.Name</div>
+                        </div>
+                        <div class="col">
+                            <div class="row">@item.Quantity Adet</div>
+                        </div>
+                        <div class="col">@item.Price TL </div>
+                    </div>
+                </div>
+                totalPrice += item.Price * item.Quantity;
+            }
+        </div>
+        <div style="border-radius:0px 0px 17px 17px;" class="col summary">
+            <div class="text-center"><h5><b>Bilgiler</b></h5></div>
+            <hr>
+            <div class="row">
+                <div class="col-3 mt-2">
+                    <p>Adres</p>
+                </div>
+                <div class="col-9">
+                    <input placeholder="Kargolanacak Adres">
+                </div>
+                @foreach (var item in Model)
+                {
+                    <div class="col-3">
+                        <p>Ürün Notu</p>
+                    </div>
+                    <div class="col-9">
+                        <input placeholder="@item.Name Ürünü İçin Sipariş Notu">
+                    </div>
+                }
+            </div>
+
+
+            <div class="row text-center" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">Toplam Tutar</div>
+                <div class="col text-right">@totalPrice TL</div>
+            </div>
+            <a asp-controller="ShoppingCart" asp-action="Complete" style="border-radius:6px;" class="btn mb-4">Satın Al</a>
+        </div>
+    </div>
+</div>
+<br />
+<br />

@@ -16,7 +16,7 @@ function addCart(productid, stock) {
                         icon: 'success',
                         title: data + ' Sepete Eklendi',
                         showConfirmButton: false,
-                        timer: 1000
+                        timer: 600
                     })
                     getCartCounter();
                 }
@@ -26,7 +26,7 @@ function addCart(productid, stock) {
                         icon: 'error',
                         title: 'Ürün Sepete Eklenemedi',
                         showConfirmButton: false,
-                        timer: 1000
+                        timer: 600
                     })
                 }
             }
@@ -46,6 +46,40 @@ function getCartCounter() {
         type: "GET",
         success: function (data) {
             $(".cartCounter").text(data);
+        }
+    });
+}
+
+function removeCart(productid) {
+    $.ajax({
+        url: "/sepetim/sil",
+        type: "POST",
+        data: { productid: productid },
+        success: function (data) {
+            if (data != "") {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Ürün Sepetten Kaldırıldı',
+                    showConfirmButton: false,
+                    timer: 600
+                });
+
+                setTimeout(function () {
+                    location.href = "/sepetim";
+                    getCartCounter();
+                }, 600);
+            }
+            else {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Ürün Sepetten Kaldırılamadı',
+                    showConfirmButton: false,
+                    timer: 600
+                })
+                getCartCounter();
+            }
         }
     });
 }
