@@ -57,5 +57,8 @@ namespace Tasaryeri.DAL.Entities
 
         [Display(Name = "Miktarı")]
         public int Quantity { get; set; }
+
+        [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Ürün Detayı")]
+        public string Detail { get; set; }
     }
 }

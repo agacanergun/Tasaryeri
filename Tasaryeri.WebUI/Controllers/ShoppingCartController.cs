@@ -112,18 +112,30 @@ namespace Tasaryeri.WebUI.Controllers
                 var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
                 if (carts.Count() == 0)
                     return Redirect("/");
+                List<OrderInfoDTO> orders = new List<OrderInfoDTO>();
+                foreach (var item in carts)
+                {
+                    OrderInfoDTO orderInfoDTO = new OrderInfoDTO
+                    {
+                        ProductName = item.Name,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity,
+                    };
+                    orders.Add(orderInfoDTO);
+                }
 
                 CompleteOrderVM completeOrderVM = new CompleteOrderVM
                 {
                     ShoppingCart = carts,
+                    orderInfoDTOs = orders,
                 };
-                return View();
+                return View(completeOrderVM);
             }
             else
                 return Redirect("/");
         }
         [Route("/sepetim/tamamla"), Authorize(AuthenticationSchemes = "TasaryeriMemberAuth"), HttpPost]
-        public IActionResult Complete(OrderDTO orderDTO)
+        public IActionResult Complete(CompleteOrderVM completeOrderVM)
         {
 
             return Redirect("/");

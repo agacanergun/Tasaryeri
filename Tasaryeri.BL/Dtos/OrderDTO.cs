@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 using Tasaryeri.DAL.Entities;
 using Tasaryeri.DAL.Enums;
 
@@ -58,5 +53,8 @@ namespace Tasaryeri.BL.Dtos
 
         [Display(Name = "Miktarı")]
         public int Quantity { get; set; }
+
+        [StringLength(150), Column(TypeName = "varchar(150)"), Display(Name = "Ürün Detayı")]
+        public string Detail { get; set; }
     }
 }

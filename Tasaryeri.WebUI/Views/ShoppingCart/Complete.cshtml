@@ -1,4 +1,5 @@
-﻿@using Tasaryeri.WebUI.Models;
+﻿@using Tasaryeri.BL.Dtos;
+@using Tasaryeri.WebUI.Models;
 @model CompleteOrderVM
 <link rel="stylesheet" href="/assetsUI/css/ShoppingCart.css" />
 <br />
@@ -35,42 +36,56 @@
         <div style="border-radius:0px 0px 17px 17px;" class="col summary">
             <div class="text-center"><h5><b>Bilgiler</b></h5></div>
             <hr>
-            <div class="row">
-                <div class="col-3 mt-2">
-                    <p>Şehir</p>
-                </div>
-                <div class="col-9">
-                    <input placeholder="Kargolanacak Şehir">
-                </div>
-                <div class="col-3 mt-2">
-                    <p>Adres</p>
-                </div>
-                <div class="col-9">
-                    <input placeholder="Kargolanacak Adres">
-                </div>
-                <div class="col-3 mt-2">
-                    <p>Posta Kodu</p>
-                </div>
-                <div class="col-9">
-                    <input placeholder="Adresin Posta Kodu">
-                </div>
-                @foreach (var item in Model.ShoppingCart)
-                {
-                    <div class="col-3">
-                        <p>Ürün Notu</p>
+            <form asp-controller="ShoppingCart" asp-action="Complete">
+                <div class="row">
+                    <div class="col-3 mt-2">
+                        <p>Şehir</p>
                     </div>
                     <div class="col-9">
-                        <input placeholder="@item.Name Ürünü İçin Sipariş Notu">
+                        <input asp-for="@Model.orderDTO.City" placeholder="Kargolanacak Şehir">
                     </div>
-                }
-            </div>
+                    <div class="col-3 mt-2">
+                        <p>Adres</p>
+                    </div>
+                    <div class="col-9">
+                        <input asp-for="@Model.orderDTO.Address" placeholder=" Kargolanacak Adres">
+                    </div>
+                    <div class="col-3 mt-2">
+                        <p>Posta Kodu</p>
+                    </div>
+                    <div class="col-9">
+                        <input asp-for="@Model.orderDTO.ZipCode" placeholder=" Adresin Posta Kodu">
+                    </div>
 
+                    @for (int i = 0; i < Model.orderInfoDTOs.Count; i++)
+                    {
+                        <div class="col-3">
+                            <p>Ürün Notu</p>
+                        </div>
+                        <div class="col-9">
+                            <input asp-for="@Model.orderInfoDTOs[i].Detail" placeholder=" @Model.orderInfoDTOs[i].ProductName Ürünü İçin Sipariş Notu">
+                            <input type="hidden" value="@Model.ShoppingCart[i].ProductId" asp-for="@Model.orderInfoDTOs[i].ProductId">
+                            <input type="hidden" value="@Model.ShoppingCart[i].Quantity" asp-for="@Model.orderInfoDTOs[i].Quantity">
+                        </div>
+                    }
 
-            <div class="row text-center" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">Toplam Tutar</div>
-                <div class="col text-right">@totalPrice TL</div>
-            </div>
-            <a asp-controller="ShoppingCart" asp-action="Complete" style="border-radius:6px;" class="btn mb-4">Satın Al</a>
+                    @*     @foreach (var item in Model.orderInfoDTOs)
+                    {
+                    <div class="col-3">
+                    <p>Ürün Notu</p>
+                    </div>
+                    <div class="col-9">
+                    <input asp-for="@item.Detail" placeholder="@item.ProductName Ürünü İçin Sipariş Notu">
+                    </div>
+                    }*@
+                </div>
+                <input type="hidden" asp-for="@Model.ShoppingCart" />
+                <div class="row text-center" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">Toplam Tutar</div>
+                    <div class="col text-right">@totalPrice TL</div>
+                </div>
+                <button style="border-radius:6px;" class="btn mb-4">Satın Al</button>
+            </form>
         </div>
     </div>
 </div>
