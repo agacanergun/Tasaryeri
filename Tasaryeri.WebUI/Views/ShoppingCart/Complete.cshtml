@@ -1,5 +1,5 @@
 ﻿@using Tasaryeri.WebUI.Models;
-@model List<ShoppingCart>
+@model CompleteOrderVM
 <link rel="stylesheet" href="/assetsUI/css/ShoppingCart.css" />
 <br />
 <br />
@@ -15,7 +15,7 @@
             @{
                 decimal totalPrice = 0;
             }
-            @foreach (var item in Model)
+            @foreach (var item in Model.ShoppingCart)
             {
                 <div class="row">
                     <div class="row main align-items-center">
@@ -37,12 +37,24 @@
             <hr>
             <div class="row">
                 <div class="col-3 mt-2">
+                    <p>Şehir</p>
+                </div>
+                <div class="col-9">
+                    <input placeholder="Kargolanacak Şehir">
+                </div>
+                <div class="col-3 mt-2">
                     <p>Adres</p>
                 </div>
                 <div class="col-9">
                     <input placeholder="Kargolanacak Adres">
                 </div>
-                @foreach (var item in Model)
+                <div class="col-3 mt-2">
+                    <p>Posta Kodu</p>
+                </div>
+                <div class="col-9">
+                    <input placeholder="Adresin Posta Kodu">
+                </div>
+                @foreach (var item in Model.ShoppingCart)
                 {
                     <div class="col-3">
                         <p>Ürün Notu</p>

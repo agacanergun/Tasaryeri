@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Tasaryeri.BL.Abstract;
+using Tasaryeri.BL.Dtos;
 using Tasaryeri.WebUI.Models;
+using Tasaryeri.WebUI.ViewModels;
 
 namespace Tasaryeri.WebUI.Controllers
 {
@@ -110,10 +112,21 @@ namespace Tasaryeri.WebUI.Controllers
                 var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
                 if (carts.Count() == 0)
                     return Redirect("/");
-                return View(JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]));
+
+                CompleteOrderVM completeOrderVM = new CompleteOrderVM
+                {
+                    ShoppingCart = carts,
+                };
+                return View();
             }
             else
                 return Redirect("/");
+        }
+        [Route("/sepetim/tamamla"), Authorize(AuthenticationSchemes = "TasaryeriMemberAuth"), HttpPost]
+        public IActionResult Complete(OrderDTO orderDTO)
+        {
+
+            return Redirect("/");
         }
     }
 }
