@@ -34,6 +34,8 @@ builder.Services.AddScoped(typeof(IEfProductUIDAL), typeof(EfProductUIDAL));
 builder.Services.AddScoped(typeof(IProductTransactionsUI), typeof(ProductTransactionsUI));
 builder.Services.AddScoped(typeof(IEfMessageDAL), typeof(EfMessageDAL));
 builder.Services.AddScoped(typeof(IMessageTransactions), typeof(MessageTransactions));
+builder.Services.AddScoped(typeof(IEfOrderDAL), typeof(EfOrderDAL));
+builder.Services.AddScoped(typeof(IOrderTransactions), typeof(OrderTransactions));
 
 builder.Services.AddDbContext<SqlContext>(options =>
           options.UseSqlServer(builder.Configuration.GetConnectionString("CS1")));

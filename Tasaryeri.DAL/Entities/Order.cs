@@ -13,8 +13,12 @@ namespace Tasaryeri.DAL.Entities
     public class Order
     {
         public int ID { get; set; }
+        public int MemberID { get; set; }
+        public Member Member { get; set; }
+        public int SalerID { get; set; }
+        public Saler Saler { get; set; }
 
-        [StringLength(10), Column(TypeName = "varchar(10)"), Display(Name = "Sipariş Numarası"), Required(ErrorMessage = "Sipariş Numarası boş geçilemez")]
+        [StringLength(50), Column(TypeName = "varchar(50)"), Display(Name = "Sipariş Numarası"), Required(ErrorMessage = "Sipariş Numarası boş geçilemez")]
         public string OrderNumber { get; set; }
 
         [StringLength(30), Column(TypeName = "varchar(30)"), Display(Name = "Adı"), Required(ErrorMessage = "Ad bilgisi boş geçilemez")]

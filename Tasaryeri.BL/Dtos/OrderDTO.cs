@@ -9,6 +9,10 @@ namespace Tasaryeri.BL.Dtos
     public class OrderDTO
     {
         public int ID { get; set; }
+        public int MemberID { get; set; }
+        public Member Member { get; set; }
+        public int SalerID { get; set; }
+        public Saler Saler { get; set; }
 
         [StringLength(10), Column(TypeName = "varchar(10)"), Display(Name = "Sipariş Numarası"), Required(ErrorMessage = "Sipariş Numarası boş geçilemez")]
         public string OrderNumber { get; set; }

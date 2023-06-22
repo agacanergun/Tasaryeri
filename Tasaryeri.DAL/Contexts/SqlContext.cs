@@ -55,6 +55,10 @@ namespace Tasaryeri.DAL.Contexts
 
             modelBuilder.Entity<Order>().HasIndex(x => x.OrderNumber).IsUnique().HasDatabaseName("OrderNumberUnique");
 
+            modelBuilder.Entity<Order>().HasOne(x => x.Saler).WithMany().HasForeignKey(x => x.SalerID).OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Order>().HasOne(x => x.Member).WithMany().HasForeignKey(x => x.MemberID).OnDelete(DeleteBehavior.NoAction);
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Security.Claims;
 using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
 using Tasaryeri.WebUI.Models;
@@ -11,9 +12,12 @@ namespace Tasaryeri.WebUI.Controllers
     public class ShoppingCartController : Controller
     {
         IProductTransactionsUI ProductTransactionsUI;
-        public ShoppingCartController(IProductTransactionsUI ProductTransactionsUI)
+        IOrderTransactions OrderTransactions;
+        public ShoppingCartController(IProductTransactionsUI ProductTransactionsUI, IOrderTransactions orderTransactions)
         {
             this.ProductTransactionsUI = ProductTransactionsUI;
+            OrderTransactions = orderTransactions;
+
         }
         [Route("/sepetim")]
         public IActionResult Index()
@@ -137,7 +141,17 @@ namespace Tasaryeri.WebUI.Controllers
         [Route("/sepetim/tamamla"), Authorize(AuthenticationSchemes = "TasaryeriMemberAuth"), HttpPost]
         public IActionResult Complete(CompleteOrderVM completeOrderVM)
         {
-
+            completeOrderVM.orderDTO.MemberID = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+            AddOrderDTO addOrderDTO = new AddOrderDTO
+            {
+                orderDTO = completeOrderVM.orderDTO,
+                orderInfoDTOs = completeOrderVM.orderInfoDTOs,
+            };
+            if (OrderTransactions.AddOrder(addOrderDTO))
+            {
+                Response.Cookies.Delete("MyCart");
+                return Redirect("/");
+            }    
             return Redirect("/");
         }
     }
