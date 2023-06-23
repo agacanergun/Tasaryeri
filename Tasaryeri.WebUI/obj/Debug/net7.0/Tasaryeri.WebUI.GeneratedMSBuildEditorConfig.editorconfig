@@ -72,6 +72,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = YXJlYXNcc2FsZXJcVmlld3NcTWVzc2FnZXNcU2VuZE1lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/saler/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = YXJlYXNcc2FsZXJcVmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/MONSTER/Documents/GitHub/Tasaryeri/Tasaryeri.WebUI/areas/saler/Views/ProductPicture/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = YXJlYXNcc2FsZXJcVmlld3NcUHJvZHVjdFBpY3R1cmVcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

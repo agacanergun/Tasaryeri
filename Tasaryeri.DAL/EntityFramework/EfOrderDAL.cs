@@ -51,5 +51,10 @@ namespace Tasaryeri.DAL.EntityFramework
         {
             return repoOrder.GetAll(x => x.MemberID == id);
         }
+
+        public IEnumerable<Order> GetSalerOrders(int id)
+        {
+            return repoOrder.GetAll(x => x.SalerID == id);
+        }
     }
 }

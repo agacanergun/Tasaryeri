@@ -1,0 +1,68 @@
+﻿@model IEnumerable<OrderDTO>
+
+
+<div class="table-responsive">
+    <br />
+    <div class="row">
+        <div class="col">
+            <h2>Siparişlerim</h2>
+        </div>
+        <div class="col">
+            <h2>
+                @if (TempData["UpdateInfo"] != null)
+                {
+                    @Html.Raw(TempData["UpdateInfo"])
+                }
+            </h2>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ürün Adı</th>
+                <th>Üye Adı Soyadı</th>
+                <th>Şehir</th>
+                <th>Adres</th>
+                <th>ZipCode</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="display:none">@item.ID</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Name @item.Surname</td>
+                    <td>@item.City</td>
+                    <td>@item.Address</td>
+                    <td>@item.ZipCode</td>
+                    <td>@item.Stock</td>
+                    <td>
+                        @{
+                            string x = "";
+                            string allCategories = "";
+                        }
+                        @foreach (var item1 in item.ProductCategories)
+                        {
+                            x = $"{item1.CategoryName},";
+                            @x
+
+                            allCategories += x;
+                            x = "";
+
+                        }
+                    </td>
+                    <td><a style="color:black" asp-area="saler" asp-controller="ProductPicture" asp-action="Index" asp-route-productid="@item.Id"><i class="fa fa-edit fa-2x"></i></a></td>
+                    <td><a style="color:black" asp-area="saler" asp-controller="SalerProduct" asp-action="Update" asp-route-id="@item.Id" asp-route-categories="@allCategories"><i class="fa fa-edit fa-2x"></i></a></td>
+                    <td>
+                        <button style="border:none" onclick="confirmDeleteProduct(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
