@@ -39,5 +39,39 @@ namespace Tasaryeri.BL.Concreate
             }
             return efOrderDAL.AddOrder(orders);
         }
+
+        public IEnumerable<OrderDTO> GetMemberOrders(int id)
+        {
+            var response = efOrderDAL.GetMemberOrders(id);
+            List<OrderDTO> orders = new List<OrderDTO>();
+            foreach (var item in response)
+            {
+                OrderDTO orderDTO = new OrderDTO
+                {
+                    Address = item.Address,
+                    City = item.City,
+                    Detail = item.Detail,
+                    ID = item.ID,
+                    Mail = item.Mail,
+                    Member = item.Member,
+                    MemberID = item.MemberID,
+                    Name = item.Name,
+                    OrderNumber = item.OrderNumber,
+                    OrderStatus = item.OrderStatus,
+                    Phone = item.Phone,
+                    Picture = item.Picture,
+                    Price = item.Price,
+                    ProductID = item.ProductID,
+                    Quantity = item.Quantity,
+                    ProductName = item.ProductName,
+                    RecDate = item.RecDate,
+                    SalerID = item.SalerID,
+                    Surname = item.Surname,
+                    ZipCode = item.ZipCode,
+                };
+                orders.Add(orderDTO);
+            }
+            return orders;  
+        }
     }
 }

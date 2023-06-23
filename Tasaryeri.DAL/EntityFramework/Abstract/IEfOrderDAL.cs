@@ -10,5 +10,6 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
     public interface IEfOrderDAL
     {
         public bool AddOrder(List<Order> orders);
+        public IEnumerable<Order> GetMemberOrders(int id);
     }
 }

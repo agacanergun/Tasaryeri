@@ -1,0 +1,54 @@
+﻿@using Tasaryeri.BL.Dtos;
+@model IEnumerable<OrderDTO>
+
+
+<link rel="stylesheet" href="/assetsUI/css/ShoppingCart.css" />
+<br />
+<br />
+<div class="card">
+    <div class="row">
+        <div class="colcart">
+            <div class="title">
+                <div class="row">
+                    <div class="col text-center mt-3"><h4><b>Siparişlerim</b></h4></div>
+                    <hr />
+                </div>
+            </div>
+            @{
+                decimal totalPrice = 0;
+            }
+            <div class="row text-center">
+                <div class="col"><b>Görsel</b></div>
+                <div class="col"><b>Ürün Adı</b></div>
+                <div class="col"><b>Miktar</b></div>
+                <div class="col"><b>Toplam Tutar</b></div>
+                <div class="col"><b>Sipariş Tarihi</b></div>
+                <div class="col"><b>Durum</b></div>
+                <div class="col"><b>Açıklama</b></div>
+            </div>
+            <hr />
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="row main align-items-center">
+                        <div class="col-2"><img class="img-fluid" src="/@item.Picture"></div>
+                        <div class="col">
+                            <div class="row">@item.ProductName</div>
+                        </div>
+                        <div class="col">
+                            <div class="row">@item.Quantity Adet</div>
+                        </div>
+                        <div class="col">@item.Price TL </div>
+                        <div class="col">@item.RecDate</div>
+                        <div class="col">@item.OrderStatus</div>
+                        <div class="col">@item.Detail</div>
+                    </div>
+                </div>
+                totalPrice += item.Price * item.Quantity;
+            }
+        </div>
+
+    </div>
+</div>
+<br />
+<br />

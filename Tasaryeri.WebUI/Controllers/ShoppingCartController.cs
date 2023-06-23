@@ -151,8 +151,16 @@ namespace Tasaryeri.WebUI.Controllers
             {
                 Response.Cookies.Delete("MyCart");
                 return Redirect("/");
-            }    
+            }
             return Redirect("/");
+        }
+
+        [Route("/siparislerim"), Authorize(AuthenticationSchemes = "TasaryeriMemberAuth")]
+        public IActionResult Orders()
+        {
+            int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+            var response = OrderTransactions.GetMemberOrders(memberId);
+            return View(response);
         }
     }
 }
