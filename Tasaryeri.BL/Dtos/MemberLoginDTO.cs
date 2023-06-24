@@ -26,7 +26,7 @@ namespace Tasaryeri.BL.Dtos
         public string Password { get; set; }
         [StringLength(25), Column(TypeName = "varchar(25)"), Required(ErrorMessage = "E-Mail Boş Geçilemez"), Display(Name = "E-Mail")]
         public string Email { get; set; }
-        [StringLength(12), Column(TypeName = "varchar(12)"), Required(ErrorMessage = "Telefon Boş Geçilemez"), Display(Name = "Telefon Numarası")]
+        [StringLength(10), Column(TypeName = "varchar(12)"), Required(ErrorMessage = "Telefon Boş Geçilemez"), Display(Name = "Telefon Numarası")]
         public string PhoneNumber { get; set; }
    
         public string? ReturnUrl { get; set; }
