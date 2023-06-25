@@ -17,50 +17,82 @@ namespace Tasaryeri.WebUI.Areas.admin.Controllers
         [Route("admin/adminler")]
         public IActionResult Index()
         {
-            var respone = adminBusiness.GetAll();
-            AdminVM adminVM = new AdminVM
+            try
             {
-                AdminDTOList = respone,
-            };
-            return View(adminVM);
+                var respone = adminBusiness.GetAll();
+                AdminVM adminVM = new AdminVM
+                {
+                    AdminDTOList = respone,
+                };
+                return View(adminVM);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("admin/delete")]
         public string Delete(int id)
         {
-            adminBusiness.Delete(id);
-            return "Ok";
+            try
+            {
+                adminBusiness.Delete(id);
+                return "Ok";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
         [Route("admin/admin-ekle"), HttpPost]
         public IActionResult Add(AdminDTO adminDTO)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (adminBusiness.Add(adminDTO))
+                if (ModelState.IsValid)
                 {
-                    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                    return Redirect("adminler");
+                    if (adminBusiness.Add(adminDTO))
+                    {
+                        TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                        return Redirect("adminler");
+                    }
                 }
+                TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+                return Redirect("adminler");
             }
-            TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
-            return Redirect("adminler");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("admin/update"), HttpPost]
         public IActionResult Update(AdminDTO adminDTO)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (adminBusiness.Update(adminDTO))
+                if (ModelState.IsValid)
                 {
-                    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return Redirect("adminler");
+                    if (adminBusiness.Update(adminDTO))
+                    {
+                        TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                        return Redirect("adminler");
+                    }
                 }
+                TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+                return Redirect("adminler");
             }
-            TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
-            return Redirect("adminler");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

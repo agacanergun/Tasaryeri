@@ -20,44 +20,68 @@ namespace Tasaryeri.WebUI.areas.admin.Controllers
         [Route("/admin"), AllowAnonymous]
         public IActionResult Index(string ReturnUrl)
         {
-            ViewBag.ReturnUrl = ReturnUrl;
-            return View();
+            try
+            {
+                ViewBag.ReturnUrl = ReturnUrl;
+                return View();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("/admin"), HttpPost, AllowAnonymous]
         public async Task<IActionResult> Index(AdminLoginDTO adminLoginDTO)
         {
-            //admin paneline giriş için cookie oluşturma
-            var response = adminBusiness.Login(adminLoginDTO);
-
-            if (response.Id != 0)
+            try
             {
-                
-                AdminLoginDTO adminLoginDTOResponse = adminBusiness.Login(adminLoginDTO);
-                List<Claim> claims = new List<Claim>
+                //admin paneline giriş için cookie oluşturma
+                var response = adminBusiness.Login(adminLoginDTO);
+
+                if (response.Id != 0)
+                {
+
+                    AdminLoginDTO adminLoginDTOResponse = adminBusiness.Login(adminLoginDTO);
+                    List<Claim> claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.PrimarySid,adminLoginDTOResponse.Id.ToString()),
                     new Claim(ClaimTypes.Name,adminLoginDTO.UserName)
                 };
-                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriAdminAuth");
-                await HttpContext.SignInAsync("TasaryeriAdminAuth", new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
-                if (string.IsNullOrEmpty(adminLoginDTO.ReturnUrl))
-                    return Redirect("/admin/adminler");
-                else return Redirect(adminLoginDTO.ReturnUrl);
+                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriAdminAuth");
+                    await HttpContext.SignInAsync("TasaryeriAdminAuth", new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
+                    if (string.IsNullOrEmpty(adminLoginDTO.ReturnUrl))
+                        return Redirect("/admin/adminler");
+                    else return Redirect(adminLoginDTO.ReturnUrl);
+                }
+                else
+                {
+                    ViewBag.Error = "Geçersiz Kullanıcı Adı veya Şifre";
+                    return View();
+                }
             }
-            else
+            catch (Exception)
             {
-                ViewBag.Error = "Geçersiz Kullanıcı Adı veya Şifre";
-                return View();
+
+                throw;
             }
         }
 
         [Route("/admin/logout")]
         public async Task<IActionResult> LogOut()
         {
+            try
+            {
+                await HttpContext.SignOutAsync();
+                return Redirect("/");
+            }
+            catch (Exception)
+            {
 
-            await HttpContext.SignOutAsync();
-            return Redirect("/");
+                throw;
+            }
         }
     }
 }

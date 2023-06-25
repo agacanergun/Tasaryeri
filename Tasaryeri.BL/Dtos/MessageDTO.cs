@@ -17,7 +17,7 @@ namespace Tasaryeri.BL.Dtos
         public int SalerId { get; set; }
         public SalerDTO SalerDTO { get; set; }
 
-        [Column(TypeName = "varchar(500)"), Display(Name = "Mesaj İçeriği")]
+        [Column(TypeName = "varchar(500)"), StringLength(500), Display(Name = "Mesaj İçeriği")]
         public string Content { get; set; }
         public DateTime Timestamp { get; set; }
 

@@ -18,97 +18,155 @@ namespace Tasaryeri.WebUI.areas.Category.Controllers
         [Route("kategori/kategoriler")]
         public IActionResult Index()
         {
-            var responseMainCategories = categoryTransactions.GetAllMainCategories();
-            var responseSubCategories = categoryTransactions.GetAllSubCategories();
-            CategoryVM categoryVM = new CategoryVM
+            try
             {
-                MainCategoryDTO = responseMainCategories,
-                SubCategoryDTO = responseSubCategories,
-            };
-            return View(categoryVM);
+                var responseMainCategories = categoryTransactions.GetAllMainCategories();
+                var responseSubCategories = categoryTransactions.GetAllSubCategories();
+                CategoryVM categoryVM = new CategoryVM
+                {
+                    MainCategoryDTO = responseMainCategories,
+                    SubCategoryDTO = responseSubCategories,
+                };
+                return View(categoryVM);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("kategori/delete-maincategory")]
         public string DeleteMainCategory(int id)
         {
-            MainCategoryDTO mainCategoryDTO = new MainCategoryDTO
+            try
             {
-                Id = id,
-            };
-            categoryTransactions.Delete(mainCategoryDTO);
-            return "Ok";
+                MainCategoryDTO mainCategoryDTO = new MainCategoryDTO
+                {
+                    Id = id,
+                };
+                categoryTransactions.Delete(mainCategoryDTO);
+                return "Ok";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("kategori/delete-subcategory")]
         public string DeleteSubCategory(int id)
         {
-            SubCategoryDTO subCategoryDTO = new SubCategoryDTO
+            try
             {
-                Id = id,
-            };
-            categoryTransactions.Delete(subCategoryDTO);
-            return "Ok";
+                SubCategoryDTO subCategoryDTO = new SubCategoryDTO
+                {
+                    Id = id,
+                };
+                categoryTransactions.Delete(subCategoryDTO);
+                return "Ok";
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
         [Route("kategori/ana-kategori-ekle"), HttpPost]
         public IActionResult AddMainCategory(MainCategoryDTO MainCategoryDTO1)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (categoryTransactions.Add(MainCategoryDTO1))
+                if (ModelState.IsValid)
                 {
-                    TempData["AddMainCategoryInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                    return Redirect("kategoriler");
+                    if (categoryTransactions.Add(MainCategoryDTO1))
+                    {
+                        TempData["AddMainCategoryInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                        return Redirect("kategoriler");
+                    }
                 }
+                TempData["AddMainCategoryInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+                return Redirect("kategoriler");
             }
-            TempData["AddMainCategoryInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
-            return Redirect("kategoriler");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("kategori/sub-kategori-ekle"), HttpPost]
         public IActionResult AddSubCategory(SubCategoryDTO SubCategoryDTO1)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (categoryTransactions.Add(SubCategoryDTO1))
+                if (ModelState.IsValid)
                 {
-                    TempData["AddSubCatInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                    return Redirect("kategoriler");
+                    if (categoryTransactions.Add(SubCategoryDTO1))
+                    {
+                        TempData["AddSubCatInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                        return Redirect("kategoriler");
+                    }
                 }
+                TempData["AddSubCatInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+                return Redirect("kategoriler");
             }
-            TempData["AddSubCatInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
-            return Redirect("kategoriler");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("kategori/update-ana-kategori"), HttpPost]
         public IActionResult UpdateMainCategory(MainCategoryDTO MainCategoryDTO1)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (categoryTransactions.Update(MainCategoryDTO1))
+                if (ModelState.IsValid)
                 {
-                    TempData["UpdateMainCatInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return Redirect("kategoriler");
+                    if (categoryTransactions.Update(MainCategoryDTO1))
+                    {
+                        TempData["UpdateMainCatInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                        return Redirect("kategoriler");
+                    }
                 }
+                TempData["UpdateMainCatInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+                return Redirect("kategoriler");
             }
-            TempData["UpdateMainCatInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
-            return Redirect("kategoriler");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("kategori/update-sub-kategori"), HttpPost]
         public IActionResult UpdateSubCategory(SubCategoryDTO SubCategoryDTO1)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (categoryTransactions.Update(SubCategoryDTO1))
+                if (ModelState.IsValid)
                 {
-                    TempData["UpdateSubCatInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return Redirect("kategoriler");
+                    if (categoryTransactions.Update(SubCategoryDTO1))
+                    {
+                        TempData["UpdateSubCatInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                        return Redirect("kategoriler");
+                    }
                 }
+                TempData["UpdateSubCatInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+                return Redirect("kategoriler");
             }
-            TempData["UpdateSubCatInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
-            return Redirect("kategoriler");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

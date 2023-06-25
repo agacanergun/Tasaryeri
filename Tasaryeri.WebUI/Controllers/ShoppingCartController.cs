@@ -19,148 +19,208 @@ namespace Tasaryeri.WebUI.Controllers
             OrderTransactions = orderTransactions;
 
         }
+
         [Route("/sepetim")]
         public IActionResult Index()
         {
-            if (Request.Cookies["MyCart"] != null)
+            try
             {
-                var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
-                if (carts.Count() == 0)
+                if (Request.Cookies["MyCart"] != null)
+                {
+                    var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+                    if (carts.Count() == 0)
+                        return Redirect("/");
+                    return View(JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]));
+                }
+                else
                     return Redirect("/");
-                return View(JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]));
             }
-            else
-                return Redirect("/");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+
         [Route("/sepetim/sayiver")]
         public int GetCartCount()
         {
-            if (Request.Cookies["MyCart"] != null)
+            try
             {
-                return JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]).Sum(x => x.Quantity);
+                if (Request.Cookies["MyCart"] != null)
+                {
+                    return JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]).Sum(x => x.Quantity);
+                }
+                else
+                    return 0;
             }
-            else
-                return 0;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("/sepetim/sil")]
         public string RemoveCart(int productid)
         {
-            if (Request.Cookies["MyCart"] != null)
+            try
             {
-                List<ShoppingCart> shoppingCarts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
-                shoppingCarts.Remove(shoppingCarts.FirstOrDefault(x => x.ProductId == productid));
-                CookieOptions cookieOptions = new CookieOptions
+                if (Request.Cookies["MyCart"] != null)
                 {
-                    Expires = DateTime.Now.AddDays(30),
-                };
-                Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(shoppingCarts), cookieOptions);
-                return "Ok";
+                    List<ShoppingCart> shoppingCarts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+                    shoppingCarts.Remove(shoppingCarts.FirstOrDefault(x => x.ProductId == productid));
+                    CookieOptions cookieOptions = new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddDays(30),
+                    };
+                    Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(shoppingCarts), cookieOptions);
+                    return "Ok";
+                }
+                else
+                    return "";
             }
-            else
-                return "";
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("/sepetim/ekle")]
         public string AddCart(int productid, int quantity)
         {
-            var response = ProductTransactionsUI.GetProduct(productid);
-            if (response != null)
+            try
             {
-
-                ShoppingCart shoppingCart = new ShoppingCart
+                var response = ProductTransactionsUI.GetProduct(productid);
+                if (response != null)
                 {
-                    ProductId = response.Id,
-                    Name = response.Name,
-                    Price = response.Price,
-                    Quantity = quantity,
-                    Picture = response.ProductPictures.Any() ?
-                    response.ProductPictures.FirstOrDefault().Picture : "/assetsUI/img/görsel-hazirlaniyor.jpg"
 
-                };
-                List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
-                bool hasProduct = false;
-                if (Request.Cookies["MyCart"] != null)
-                {
-                    shoppingCarts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
-
-                    foreach (var item in shoppingCarts)
+                    ShoppingCart shoppingCart = new ShoppingCart
                     {
-                        if (item.ProductId == productid)
+                        ProductId = response.Id,
+                        Name = response.Name,
+                        Price = response.Price,
+                        Quantity = quantity,
+                        Picture = response.ProductPictures.Any() ?
+                        response.ProductPictures.FirstOrDefault().Picture : "/assetsUI/img/görsel-hazirlaniyor.jpg"
+
+                    };
+                    List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
+                    bool hasProduct = false;
+                    if (Request.Cookies["MyCart"] != null)
+                    {
+                        shoppingCarts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+
+                        foreach (var item in shoppingCarts)
                         {
-                            hasProduct = true;
-                            item.Quantity += quantity;
-                            if (response.Stock < item.Quantity)
-                                item.Quantity = response.Stock;
-                            break;
+                            if (item.ProductId == productid)
+                            {
+                                hasProduct = true;
+                                item.Quantity += quantity;
+                                if (response.Stock < item.Quantity)
+                                    item.Quantity = response.Stock;
+                                break;
+                            }
                         }
                     }
-                }
-                if (hasProduct == false)
-                    shoppingCarts.Add(shoppingCart);
+                    if (hasProduct == false)
+                        shoppingCarts.Add(shoppingCart);
 
-                CookieOptions cookieOptions = new CookieOptions
-                {
-                    Expires = DateTime.Now.AddDays(30),
-                };
-                Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(shoppingCarts), cookieOptions);
-                return response.Name;
+                    CookieOptions cookieOptions = new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddDays(30),
+                    };
+                    Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(shoppingCarts), cookieOptions);
+                    return response.Name;
+                }
+                return "";
             }
-            return "";
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+
         [Route("/sepetim/tamamla"), Authorize(AuthenticationSchemes = "TasaryeriMemberAuth")]
         public IActionResult Complete()
         {
-            if (Request.Cookies["MyCart"] != null)
+            try
             {
-                var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
-                if (carts.Count() == 0)
-                    return Redirect("/");
-                List<OrderInfoDTO> orders = new List<OrderInfoDTO>();
-                foreach (var item in carts)
+                if (Request.Cookies["MyCart"] != null)
                 {
-                    OrderInfoDTO orderInfoDTO = new OrderInfoDTO
+                    var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+                    if (carts.Count() == 0)
+                        return Redirect("/");
+                    List<OrderInfoDTO> orders = new List<OrderInfoDTO>();
+                    foreach (var item in carts)
                     {
-                        ProductName = item.Name,
-                        ProductId = item.ProductId,
-                        Quantity = item.Quantity,
-                    };
-                    orders.Add(orderInfoDTO);
-                }
+                        OrderInfoDTO orderInfoDTO = new OrderInfoDTO
+                        {
+                            ProductName = item.Name,
+                            ProductId = item.ProductId,
+                            Quantity = item.Quantity,
+                        };
+                        orders.Add(orderInfoDTO);
+                    }
 
-                CompleteOrderVM completeOrderVM = new CompleteOrderVM
-                {
-                    ShoppingCart = carts,
-                    orderInfoDTOs = orders,
-                };
-                return View(completeOrderVM);
+                    CompleteOrderVM completeOrderVM = new CompleteOrderVM
+                    {
+                        ShoppingCart = carts,
+                        orderInfoDTOs = orders,
+                    };
+                    return View(completeOrderVM);
+                }
+                else
+                    return Redirect("/");
             }
-            else
-                return Redirect("/");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+
         [Route("/sepetim/tamamla"), Authorize(AuthenticationSchemes = "TasaryeriMemberAuth"), HttpPost]
         public IActionResult Complete(CompleteOrderVM completeOrderVM)
         {
-            completeOrderVM.orderDTO.MemberID = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
-            AddOrderDTO addOrderDTO = new AddOrderDTO
+            try
             {
-                orderDTO = completeOrderVM.orderDTO,
-                orderInfoDTOs = completeOrderVM.orderInfoDTOs,
-            };
-            if (OrderTransactions.AddOrder(addOrderDTO))
-            {
-                Response.Cookies.Delete("MyCart");
+                completeOrderVM.orderDTO.MemberID = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+                AddOrderDTO addOrderDTO = new AddOrderDTO
+                {
+                    orderDTO = completeOrderVM.orderDTO,
+                    orderInfoDTOs = completeOrderVM.orderInfoDTOs,
+                };
+                if (OrderTransactions.AddOrder(addOrderDTO))
+                {
+                    Response.Cookies.Delete("MyCart");
+                    return Redirect("/");
+                }
                 return Redirect("/");
             }
-            return Redirect("/");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("/siparislerim"), Authorize(AuthenticationSchemes = "TasaryeriMemberAuth")]
         public IActionResult Orders()
         {
-            int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
-            var response = OrderTransactions.GetMemberOrders(memberId);
-            return View(response);
+            try
+            {
+                int memberId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+                var response = OrderTransactions.GetMemberOrders(memberId);
+                return View(response);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

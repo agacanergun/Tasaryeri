@@ -20,79 +20,110 @@ namespace Tasaryeri.WebUI.areas.saler.Controllers
         [Route("/satici"), AllowAnonymous]
         public IActionResult Index(string ReturnUrl)
         {
-            ViewBag.ReturnUrl = ReturnUrl;
-            return View();
+            try
+            {
+                ViewBag.ReturnUrl = ReturnUrl;
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("/satici"), HttpPost, AllowAnonymous]
         public async Task<IActionResult> Index(SalerLoginDTO salerLoginDTO)
         {
-            //saler paneline giriş için cookie oluşturma
-            var response = salerLoginTransactions.Login(salerLoginDTO);
-
-            if (response.Id != 0)
+            try
             {
-                SalerLoginDTO salerLoginDTOResponse = new SalerLoginDTO
+                //saler paneline giriş için cookie oluşturma
+                var response = salerLoginTransactions.Login(salerLoginDTO);
+
+                if (response.Id != 0)
                 {
-                    Id = response.Id,
-                    Age = response.Age,
-                    Email = response.Email,
-                    Gender = response.Gender,
-                    Name = response.Name,
-                    Password = response.Password,
-                    PhoneNumber = response.PhoneNumber,
-                    Surname = response.Surname,
-                    Username = response.Username,
-                };
-                List<Claim> claims = new List<Claim>
+                    SalerLoginDTO salerLoginDTOResponse = new SalerLoginDTO
+                    {
+                        Id = response.Id,
+                        Age = response.Age,
+                        Email = response.Email,
+                        Gender = response.Gender,
+                        Name = response.Name,
+                        Password = response.Password,
+                        PhoneNumber = response.PhoneNumber,
+                        Surname = response.Surname,
+                        Username = response.Username,
+                    };
+                    List<Claim> claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.PrimarySid,salerLoginDTOResponse.Id.ToString()),
                     new Claim(ClaimTypes.Name,salerLoginDTOResponse.Name),
                     new Claim(ClaimTypes.Surname,salerLoginDTOResponse.Surname),
                     new Claim(ClaimTypes.Email,salerLoginDTOResponse.Email),
                 };
-                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriSalerAuth");
-                await HttpContext.SignInAsync("TasaryeriSalerAuth", new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
-                if (string.IsNullOrEmpty(salerLoginDTO.ReturnUrl))
+                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriSalerAuth");
+                    await HttpContext.SignInAsync("TasaryeriSalerAuth", new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
+                    if (string.IsNullOrEmpty(salerLoginDTO.ReturnUrl))
 
-                    return Redirect("satici/satici-urunleri");
-                else return Redirect(salerLoginDTO.ReturnUrl);
+                        return Redirect("satici/satici-urunleri");
+                    else return Redirect(salerLoginDTO.ReturnUrl);
+                }
+                else
+                {
+                    ViewBag.Error = "Geçersiz Kullanıcı Adı veya Şifre";
+                    return View();
+                }
             }
-            else
+            catch (Exception)
             {
-                ViewBag.Error = "Geçersiz Kullanıcı Adı veya Şifre";
-                return View();
+
+                throw;
             }
         }
 
         [Route("/satici/kayıt-ol"), HttpPost, AllowAnonymous]
         public IActionResult Register(SalerLoginDTO salerLoginDTO)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var response = salerLoginTransactions.Register(salerLoginDTO);
-                if (response)
+                if (ModelState.IsValid)
                 {
-                    TempData["RegisterInfo"] = "<span style='color:green'>Kayıt İşleminiz Başarılı</span>";
-                    return Redirect("/satici");
+                    var response = salerLoginTransactions.Register(salerLoginDTO);
+                    if (response)
+                    {
+                        TempData["RegisterInfo"] = "<span style='color:green'>Kayıt İşleminiz Başarılı</span>";
+                        return Redirect("/satici");
+                    }
+                    else
+                    {
+                        TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız Kullanıcı Adı Veya E-mail Kayıtlı</span>";
+                        return Redirect("/satici");
+                    }
                 }
-                else
-                {
-                    TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız Kullanıcı Adı Veya E-mail Kayıtlı</span>";
-                    return Redirect("/satici");
-                }
+                TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız</span>";
+                return Redirect("/satici");
             }
-            TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız</span>";
-            return Redirect("/satici");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
         [Route("/satici/logout")]
         public async Task<IActionResult> LogOut()
         {
+            try
+            {
+                await HttpContext.SignOutAsync();
+                return Redirect("/");
+            }
+            catch (Exception)
+            {
 
-            await HttpContext.SignOutAsync();
-            return Redirect("/");
+                throw;
+            }
         }
     }
 }

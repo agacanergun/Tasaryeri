@@ -19,49 +19,82 @@ namespace Tasaryeri.WebUI.Areas.admin.Controllers
         [Route("slide/slidelar")]
         public IActionResult Index()
         {
-            var response = slideTransactions.GetAll();
-            SlideVM slideVM = new SlideVM
+            try
             {
-                SlideDTOList = response,
-            };
-            return View(slideVM);
+                var response = slideTransactions.GetAll();
+                SlideVM slideVM = new SlideVM
+                {
+                    SlideDTOList = response,
+                };
+                return View(slideVM);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("slide/delete")]
         public string Delete(SlideDTO slideDTO)
         {
-            slideTransactions.Delete(slideDTO);
-            return "Ok";
+            try
+            {
+                slideTransactions.Delete(slideDTO);
+                return "Ok";
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("slide/slide-ekle"), HttpPost]
         public IActionResult Add(SlideDTO slideDTO)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (slideTransactions.Add(slideDTO))
+                if (ModelState.IsValid)
                 {
-                    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                    return Redirect("slidelar");
+                    if (slideTransactions.Add(slideDTO))
+                    {
+                        TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                        return Redirect("slidelar");
+                    }
                 }
+                TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+                return Redirect("slidelar");
             }
-            TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
-            return Redirect("slidelar");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("slide/update"), HttpPost]
         public IActionResult Update(SlideDTO slideDTO)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (slideTransactions.Update(slideDTO))
+                if (ModelState.IsValid)
                 {
-                    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return Redirect("slidelar");
+                    if (slideTransactions.Update(slideDTO))
+                    {
+                        TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                        return Redirect("slidelar");
+                    }
                 }
+                TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+                return Redirect("slidelar");
             }
-            TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
-            return Redirect("slidelar");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

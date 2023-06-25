@@ -17,74 +17,122 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         [Route("satici/urun-resimleri")]
         public IActionResult Index(int productid)
         {
-            var response = productPictureTransactions.GetAll(productid);
-            ProductPictureDTO productPictureDTO1 = new ProductPictureDTO
+            try
             {
-                ProductID = productid,
-            };
-            ProductPictureVM productPictureVM = new ProductPictureVM
+                var response = productPictureTransactions.GetAll(productid);
+                ProductPictureDTO productPictureDTO1 = new ProductPictureDTO
+                {
+                    ProductID = productid,
+                };
+                ProductPictureVM productPictureVM = new ProductPictureVM
+                {
+                    productPictureDTOs = response,
+                    productPictureDTO = productPictureDTO1,
+                };
+                return View(productPictureVM);
+            }
+            catch (Exception)
             {
-                productPictureDTOs = response,
-                productPictureDTO = productPictureDTO1,
-            };
-            return View(productPictureVM);
+
+                throw;
+            }
 
         }
 
         [Route("satici/urun-resimleri-ekle")]
         public IActionResult Add(int productId)
         {
-            ProductPictureDTO productPictureDTO = new ProductPictureDTO
+            try
             {
-                ProductID = productId
-            };
-            return View(productPictureDTO);
+                ProductPictureDTO productPictureDTO = new ProductPictureDTO
+                {
+                    ProductID = productId
+                };
+                return View(productPictureDTO);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("satici/urun-resimleri-ekle"), HttpPost]
         public IActionResult Add(ProductPictureDTO productPictureDTO)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (productPictureTransactions.Add(productPictureDTO))
+                if (ModelState.IsValid)
                 {
-                    TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
-                    return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
-                }
-                TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
+                    if (productPictureTransactions.Add(productPictureDTO))
+                    {
+                        TempData["AddInfo"] = "<span style='color:green'>Ekleme İşlemi Başarılı</span>";
+                        return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
+                    }
+                    TempData["AddInfo"] = "<span style='color:red'>Ekleme İşlemi Başarısız</span>";
 
+                }
+                return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
             }
-            return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("satici/urun-resimleri-düzenle")]
         public IActionResult Edit(int id)
         {
-            var response = productPictureTransactions.GetById(id);
-            return View(response);
+            try
+            {
+                var response = productPictureTransactions.GetById(id);
+                return View(response);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("satici/urun-resimleri-düzenle"), HttpPost]
         public IActionResult Edit(ProductPictureDTO productPictureDTO)
         {
-            if (ModelState.IsValid)
+            try
             {
-                if (productPictureTransactions.Update(productPictureDTO))
+                if (ModelState.IsValid)
                 {
-                    TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
-                    return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
-                }
+                    if (productPictureTransactions.Update(productPictureDTO))
+                    {
+                        TempData["UpdateInfo"] = "<span style='color:green'>Güncelleme İşlemi Başarılı</span>";
+                        return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
+                    }
 
+                }
+                TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
+                return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
             }
-            TempData["UpdateInfo"] = "<span style='color:red'>Güncelleme İşlemi Başarısız</span>";
-            return RedirectToAction("Index", "ProductPicture", new { productid = productPictureDTO.ProductID });
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("satici/delete-görsel")]
         public string Delete(int id)
         {
-            productPictureTransactions.Delete(id);
-            return "Ok";
+            try
+            {
+                productPictureTransactions.Delete(id);
+                return "Ok";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

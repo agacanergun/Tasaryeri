@@ -17,15 +17,31 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         [Route("satici/siparislerim")]
         public IActionResult Index()
         {
-            int salerId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
-            var response = orderTransactions.GetSalerOrders(salerId);
-            return View(response);
+            try
+            {
+                int salerId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+                var response = orderTransactions.GetSalerOrders(salerId);
+                return View(response);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         [Route("satici/siparislerim-güncelle"),HttpPost]
         public string UpdateOrderStatus(int id, string selectedValue)
         {
-            orderTransactions.UpdateOrderStatus(id, selectedValue);
-            return "Ok";
+            try
+            {
+                orderTransactions.UpdateOrderStatus(id, selectedValue);
+                return "Ok";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

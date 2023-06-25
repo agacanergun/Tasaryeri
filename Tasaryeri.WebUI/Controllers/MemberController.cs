@@ -18,79 +18,110 @@ namespace Tasaryeri.WebUI.Controllers
         [Route("/uye"), AllowAnonymous]
         public IActionResult Index(string ReturnUrl)
         {
-            ViewBag.ReturnUrl = ReturnUrl;
-            return View();
+            try
+            {
+                ViewBag.ReturnUrl = ReturnUrl;
+                return View();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [Route("/uye"), HttpPost, AllowAnonymous]
         public async Task<IActionResult> Index(MemberLoginDTO MemberLoginDTO)
         {
-            //Member paneline giriş için cookie oluşturma
-            var response = MemberLoginTransactions.Login(MemberLoginDTO);
-
-            if (response.Id != 0)
+            try
             {
-                MemberLoginDTO MemberLoginDTOResponse = new MemberLoginDTO
+                //Member paneline giriş için cookie oluşturma
+                var response = MemberLoginTransactions.Login(MemberLoginDTO);
+
+                if (response.Id != 0)
                 {
-                    Id = response.Id,
-                    Age = response.Age,
-                    Email = response.Email,
-                    Gender = response.Gender,
-                    Name = response.Name,
-                    Password = response.Password,
-                    PhoneNumber = response.PhoneNumber,
-                    Surname = response.Surname,
-                    Username = response.Username,
-                };
-                List<Claim> claims = new List<Claim>
+                    MemberLoginDTO MemberLoginDTOResponse = new MemberLoginDTO
+                    {
+                        Id = response.Id,
+                        Age = response.Age,
+                        Email = response.Email,
+                        Gender = response.Gender,
+                        Name = response.Name,
+                        Password = response.Password,
+                        PhoneNumber = response.PhoneNumber,
+                        Surname = response.Surname,
+                        Username = response.Username,
+                    };
+                    List<Claim> claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.PrimarySid,MemberLoginDTOResponse.Id.ToString()),
                     new Claim(ClaimTypes.Name,MemberLoginDTOResponse.Name),
                     new Claim(ClaimTypes.Surname,MemberLoginDTOResponse.Surname),
                     new Claim(ClaimTypes.Email,MemberLoginDTOResponse.Email),
                 };
-                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriMemberAuth");
-                await HttpContext.SignInAsync("TasaryeriMemberAuth", new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
-                if (string.IsNullOrEmpty(MemberLoginDTO.ReturnUrl))
+                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "TasaryeriMemberAuth");
+                    await HttpContext.SignInAsync("TasaryeriMemberAuth", new ClaimsPrincipal(claimsIdentity), new AuthenticationProperties() { IsPersistent = true });
+                    if (string.IsNullOrEmpty(MemberLoginDTO.ReturnUrl))
 
-                    return Redirect("/");
-                else return Redirect(MemberLoginDTO.ReturnUrl);
+                        return Redirect("/");
+                    else return Redirect(MemberLoginDTO.ReturnUrl);
+                }
+                else
+                {
+                    ViewBag.Error = "Geçersiz Kullanıcı Adı veya Şifre";
+                    return View();
+                }
             }
-            else
+            catch (Exception)
             {
-                ViewBag.Error = "Geçersiz Kullanıcı Adı veya Şifre";
-                return View();
+
+                throw;
             }
         }
 
         [Route("/uye/kayıt-ol"), HttpPost, AllowAnonymous]
         public IActionResult Register(MemberLoginDTO MemberLoginDTO)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var response = MemberLoginTransactions.Register(MemberLoginDTO);
-                if (response)
+                if (ModelState.IsValid)
                 {
-                    TempData["RegisterInfo"] = "<span style='color:green'>Kayıt İşleminiz Başarılı</span>";
-                    return Redirect("/uye");
+                    var response = MemberLoginTransactions.Register(MemberLoginDTO);
+                    if (response)
+                    {
+                        TempData["RegisterInfo"] = "<span style='color:green'>Kayıt İşleminiz Başarılı</span>";
+                        return Redirect("/uye");
+                    }
+                    else
+                    {
+                        TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız Kullanıcı Adı Veya E-mail Kayıtlı</span>";
+                        return Redirect("/uye");
+                    }
                 }
-                else
-                {
-                    TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız Kullanıcı Adı Veya E-mail Kayıtlı</span>";
-                    return Redirect("/uye");
-                }
+                TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız</span>";
+                return Redirect("/uye");
             }
-            TempData["RegisterInfo"] = "<span style='color:red'>Kayıt İşleminiz Başarısız</span>";
-            return Redirect("/uye");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
         [Route("/uye/logout")]
         public async Task<IActionResult> LogOut()
         {
+            try
+            {
+                await HttpContext.SignOutAsync();
+                return Redirect("/");
+            }
+            catch (Exception)
+            {
 
-            await HttpContext.SignOutAsync();
-            return Redirect("/");
+                throw;
+            }
         }
     }
 }

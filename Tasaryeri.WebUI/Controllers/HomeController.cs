@@ -18,40 +18,57 @@ namespace Tasaryeri.WebUI.Controllers
         }
         public IActionResult Index()
         {
-            var responseSlides = slideTransactions.GetAll();
-            var responseCategories = categoryTransactions.GetAllSubCategories();
-
-            var groupedCategories = responseCategories
-                .GroupBy(x => x.MainCategoryDTO.Name)
-                .Select(group => new MainCategoryDTO
-                {
-                    Name = group.Key,
-                    subCategoriesDTO = group.ToList(),
-                    DisplayIndex = group.First().MainCategoryDTO.DisplayIndex
-
-                })
-                .ToList();
-
-            var randomProducts = productTransactionsUI.GetRandom();
-
-            HomeIndexVM vm = new HomeIndexVM
+            try
             {
-                Slides = responseSlides,
-                Categories = groupedCategories,
-                RandomProducts = randomProducts,
-            };
+                var responseSlides = slideTransactions.GetAll();
+                var responseCategories = categoryTransactions.GetAllSubCategories();
 
-            return View(vm);
+                var groupedCategories = responseCategories
+                    .GroupBy(x => x.MainCategoryDTO.Name)
+                    .Select(group => new MainCategoryDTO
+                    {
+                        Name = group.Key,
+                        subCategoriesDTO = group.ToList(),
+                        DisplayIndex = group.First().MainCategoryDTO.DisplayIndex
+
+                    })
+                    .ToList();
+
+                var randomProducts = productTransactionsUI.GetRandom();
+
+                HomeIndexVM vm = new HomeIndexVM
+                {
+                    Slides = responseSlides,
+                    Categories = groupedCategories,
+                    RandomProducts = randomProducts,
+                };
+
+                return View(vm);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
  
         public IActionResult InstitutionalAndAboutUs(string name, string Description)
         {
-            InstitutionalAndAboutUsVM institutionalAndAboutUsVM = new InstitutionalAndAboutUsVM
+            try
             {
-                Name = name,
-                Description = Description,
-            };
-            return View(institutionalAndAboutUsVM);
+                InstitutionalAndAboutUsVM institutionalAndAboutUsVM = new InstitutionalAndAboutUsVM
+                {
+                    Name = name,
+                    Description = Description,
+                };
+                return View(institutionalAndAboutUsVM);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
