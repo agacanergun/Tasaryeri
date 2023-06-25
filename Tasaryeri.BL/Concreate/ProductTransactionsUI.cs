@@ -19,65 +19,90 @@ namespace Tasaryeri.BL.Concreate
         }
         public IEnumerable<ProductDTO> GetAll(int CategoryId)
         {
-            var response = efProductUIDAL.GetAll(CategoryId);
-            List<ProductDTO> result = new List<ProductDTO>();
-
-            foreach (var item in response)
+            try
             {
-                ProductDTO productDTO = new ProductDTO
+                var response = efProductUIDAL.GetAll(CategoryId);
+                List<ProductDTO> result = new List<ProductDTO>();
+
+                foreach (var item in response)
                 {
-                    Id = item.Id,
-                    Description = item.Description,
-                    Detail = item.Detail,
-                    Name = item.Name,
-                    Price = item.Price,
-                    Stock = item.Stock,
-                    SalerId = item.SalerId,
-                    ProductPictures = item.ProductPictures,
-                };
-                result.Add(productDTO);
+                    ProductDTO productDTO = new ProductDTO
+                    {
+                        Id = item.Id,
+                        Description = item.Description,
+                        Detail = item.Detail,
+                        Name = item.Name,
+                        Price = item.Price,
+                        Stock = item.Stock,
+                        SalerId = item.SalerId,
+                        ProductPictures = item.ProductPictures,
+                    };
+                    result.Add(productDTO);
+                }
+                return result;
             }
-            return result;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public ProductDTO GetProduct(int id)
         {
-            var response = efProductUIDAL.GetProduct(id);
-            ProductDTO productDTO = new ProductDTO
+            try
             {
-                Id = response.Id,
-                Description = response.Description,
-                Detail = response.Detail,
-                Name = response.Name,
-                Price = response.Price,
-                Stock = response.Stock,
-                SalerId = response.SalerId,
-                ProductPictures = response.ProductPictures,
-            };
-            return productDTO;
+                var response = efProductUIDAL.GetProduct(id);
+                ProductDTO productDTO = new ProductDTO
+                {
+                    Id = response.Id,
+                    Description = response.Description,
+                    Detail = response.Detail,
+                    Name = response.Name,
+                    Price = response.Price,
+                    Stock = response.Stock,
+                    SalerId = response.SalerId,
+                    ProductPictures = response.ProductPictures,
+                };
+                return productDTO;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<ProductDTO> GetRandom()
         {
-            var response = efProductUIDAL.GetRandom();
-            List<ProductDTO> result = new List<ProductDTO>();
-
-            foreach (var item in response)
+            try
             {
-                ProductDTO productDTO = new ProductDTO
+                var response = efProductUIDAL.GetRandom();
+                List<ProductDTO> result = new List<ProductDTO>();
+
+                foreach (var item in response)
                 {
-                    Id = item.Id,
-                    Description = item.Description,
-                    Detail = item.Detail,
-                    Name = item.Name,
-                    Price = item.Price,
-                    Stock = item.Stock,
-                    SalerId = item.SalerId,
-                    ProductPictures = item.ProductPictures,
-                };
-                result.Add(productDTO);
+                    ProductDTO productDTO = new ProductDTO
+                    {
+                        Id = item.Id,
+                        Description = item.Description,
+                        Detail = item.Detail,
+                        Name = item.Name,
+                        Price = item.Price,
+                        Stock = item.Stock,
+                        SalerId = item.SalerId,
+                        ProductPictures = item.ProductPictures,
+                    };
+                    result.Add(productDTO);
+                }
+                return result;
+
             }
-            return result;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -21,109 +21,173 @@ namespace Tasaryeri.BL.Concreate
 
         public bool Add(MainCategoryDTO dto)
         {
-            MainCategory mainCategory = new MainCategory
+            try
             {
-                Name = dto.Name,
-                DisplayIndex = dto.DisplayIndex,
-            };
+                MainCategory mainCategory = new MainCategory
+                {
+                    Name = dto.Name,
+                    DisplayIndex = dto.DisplayIndex,
+                };
 
-            return efCategoryDAL.Add(mainCategory);
+                return efCategoryDAL.Add(mainCategory);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Add(SubCategoryDTO dto)
         {
-            SubCategory subCategory = new SubCategory
+            try
             {
-                Name = dto.Name,
-                DisplayIndex = dto.DisplayIndex,
-                MainCategoryId = dto.MainCategoryId,
-            };
-            return efCategoryDAL.Add(subCategory);
+                SubCategory subCategory = new SubCategory
+                {
+                    Name = dto.Name,
+                    DisplayIndex = dto.DisplayIndex,
+                    MainCategoryId = dto.MainCategoryId,
+                };
+                return efCategoryDAL.Add(subCategory);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Delete(MainCategoryDTO dto)
         {
-            MainCategory mainCategory = new MainCategory
+            try
             {
-                Id = dto.Id,
-            };
-            return efCategoryDAL.Delete(mainCategory);
+                MainCategory mainCategory = new MainCategory
+                {
+                    Id = dto.Id,
+                };
+                return efCategoryDAL.Delete(mainCategory);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Delete(SubCategoryDTO dto)
         {
-            SubCategory subCategory = new SubCategory
+            try
             {
-                Id = dto.Id,
-            };
-            return efCategoryDAL.Delete(subCategory);
+                SubCategory subCategory = new SubCategory
+                {
+                    Id = dto.Id,
+                };
+                return efCategoryDAL.Delete(subCategory);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<MainCategoryDTO> GetAllMainCategories()
         {
-            IEnumerable<MainCategory> mainCategories = efCategoryDAL.GetAllMainCategories();
-            List<MainCategoryDTO> mainCategoryDTOs = new List<MainCategoryDTO>();
-
-
-
-            foreach (var item in mainCategories)
+            try
             {
-                MainCategoryDTO mainCategoryDTO = new MainCategoryDTO
+                IEnumerable<MainCategory> mainCategories = efCategoryDAL.GetAllMainCategories();
+                List<MainCategoryDTO> mainCategoryDTOs = new List<MainCategoryDTO>();
+
+
+
+                foreach (var item in mainCategories)
                 {
-                    Id = item.Id,
-                    Name = item.Name,
-                    DisplayIndex = item.DisplayIndex,
-                };
-                mainCategoryDTOs.Add(mainCategoryDTO);
+                    MainCategoryDTO mainCategoryDTO = new MainCategoryDTO
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        DisplayIndex = item.DisplayIndex,
+                    };
+                    mainCategoryDTOs.Add(mainCategoryDTO);
+                }
+                return mainCategoryDTOs;
             }
-            return mainCategoryDTOs;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<SubCategoryDTO> GetAllSubCategories()
         {
-            IEnumerable<SubCategory> subCategories = efCategoryDAL.GetAllSubCategories();
-            List<SubCategoryDTO> subCategoryDTOs = new List<SubCategoryDTO>();
-            foreach (var item in subCategories)
+            try
             {
-                SubCategoryDTO subCategoryDTO = new SubCategoryDTO
+                IEnumerable<SubCategory> subCategories = efCategoryDAL.GetAllSubCategories();
+                List<SubCategoryDTO> subCategoryDTOs = new List<SubCategoryDTO>();
+                foreach (var item in subCategories)
                 {
-                    Id = item.Id,
-                    Name = item.Name,
-                    DisplayIndex = item.DisplayIndex,
-                    MainCategoryId = item.MainCategoryId,
-                    MainCategoryDTO = new MainCategoryDTO()
+                    SubCategoryDTO subCategoryDTO = new SubCategoryDTO
                     {
-                        Id = item.MainCategory.Id,
-                        DisplayIndex = item.MainCategory.DisplayIndex,
-                        Name = item.MainCategory.Name,
-                    },
-                };
-                subCategoryDTOs.Add(subCategoryDTO);
+                        Id = item.Id,
+                        Name = item.Name,
+                        DisplayIndex = item.DisplayIndex,
+                        MainCategoryId = item.MainCategoryId,
+                        MainCategoryDTO = new MainCategoryDTO()
+                        {
+                            Id = item.MainCategory.Id,
+                            DisplayIndex = item.MainCategory.DisplayIndex,
+                            Name = item.MainCategory.Name,
+                        },
+                    };
+                    subCategoryDTOs.Add(subCategoryDTO);
+                }
+                return subCategoryDTOs;
             }
-            return subCategoryDTOs;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Update(MainCategoryDTO dto)
         {
-            MainCategory mainCategory = new MainCategory
+            try
             {
-                Id = dto.Id,
-                Name = dto.Name,
-                DisplayIndex = dto.DisplayIndex,
-            };
-            return efCategoryDAL.Update(mainCategory);
+                MainCategory mainCategory = new MainCategory
+                {
+                    Id = dto.Id,
+                    Name = dto.Name,
+                    DisplayIndex = dto.DisplayIndex,
+                };
+                return efCategoryDAL.Update(mainCategory);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Update(SubCategoryDTO dto)
         {
-            SubCategory subCategory = new SubCategory
+            try
             {
-                Id = dto.Id,
-                Name = dto.Name,
-                DisplayIndex = dto.DisplayIndex,
-                MainCategoryId = dto.MainCategoryId,
-            };
-            return efCategoryDAL.Update(subCategory);
+                SubCategory subCategory = new SubCategory
+                {
+                    Id = dto.Id,
+                    Name = dto.Name,
+                    DisplayIndex = dto.DisplayIndex,
+                    MainCategoryId = dto.MainCategoryId,
+                };
+                return efCategoryDAL.Update(subCategory);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -23,55 +23,66 @@ namespace Tasaryeri.BL.Concreate
         }
         public MemberLoginDTO Login(MemberLoginDTO MemberLoginDTO)
         {
+            try
+            {  
+                //satıcı paneline giriş yaparken md5 formatlama ve giriş için veritabanı kontrolü
+                MemberLoginDTO.Password = cryptoBase.getMD5(MemberLoginDTO.Password);
+                Member Member = new Member
+                {
+                    Username = MemberLoginDTO.Username,
+                    Password = MemberLoginDTO.Password,
+                };
+                var response = efMemberLoginDal.MemberLogin(Member);
+                if (response.Id != 0)
+                {
+                    MemberLoginDTO.Id = response.Id;
+                    MemberLoginDTO.Age = response.Age;
+                    MemberLoginDTO.Email = response.Email;
+                    MemberLoginDTO.Gender = response.Gender;
+                    MemberLoginDTO.Name = response.Name;
+                    MemberLoginDTO.Password = response.Password;
+                    MemberLoginDTO.PhoneNumber = response.PhoneNumber;
+                    MemberLoginDTO.Surname = response.Surname;
+                    MemberLoginDTO.Username = response.Username;
+                    return MemberLoginDTO;
+                }
+                else
+                {
+                    MemberLoginDTO.Id = response.Id;
+                    return MemberLoginDTO;
+                }
 
-            //satıcı paneline giriş yaparken md5 formatlama ve giriş için veritabanı kontrolü
-
-            MemberLoginDTO.Password = cryptoBase.getMD5(MemberLoginDTO.Password);
-            Member Member = new Member
-            {
-                Username = MemberLoginDTO.Username,
-                Password = MemberLoginDTO.Password,
-            };
-            var response = efMemberLoginDal.MemberLogin(Member);
-            if (response.Id != 0)
-            {
-                MemberLoginDTO.Id = response.Id;
-                MemberLoginDTO.Age = response.Age;
-                MemberLoginDTO.Email = response.Email;
-                MemberLoginDTO.Gender = response.Gender;
-                MemberLoginDTO.Name = response.Name;
-                MemberLoginDTO.Password = response.Password;
-                MemberLoginDTO.PhoneNumber = response.PhoneNumber;
-                MemberLoginDTO.Surname = response.Surname;
-                MemberLoginDTO.Username = response.Username;
-                return MemberLoginDTO;
             }
-            else
+            catch (Exception)
             {
-                MemberLoginDTO.Id = response.Id;
-                return MemberLoginDTO;
+
+                throw;
             }
-
-
         }
 
         public bool Register(MemberLoginDTO MemberLoginDTO)
         {
-            MemberLoginDTO.Password = cryptoBase.getMD5(MemberLoginDTO.Password);
-            Member Member = new Member
+            try
             {
-                Name = MemberLoginDTO.Name,
-                Age = MemberLoginDTO.Age,
-                Email = MemberLoginDTO.Email,
-                Gender = MemberLoginDTO.Gender,
-                Password = MemberLoginDTO.Password,
-                PhoneNumber = MemberLoginDTO.PhoneNumber,
-                Surname = MemberLoginDTO.Surname,
-                Username = MemberLoginDTO.Username,
-            };
+                MemberLoginDTO.Password = cryptoBase.getMD5(MemberLoginDTO.Password);
+                Member Member = new Member
+                {
+                    Name = MemberLoginDTO.Name,
+                    Age = MemberLoginDTO.Age,
+                    Email = MemberLoginDTO.Email,
+                    Gender = MemberLoginDTO.Gender,
+                    Password = MemberLoginDTO.Password,
+                    PhoneNumber = MemberLoginDTO.PhoneNumber,
+                    Surname = MemberLoginDTO.Surname,
+                    Username = MemberLoginDTO.Username,
+                };
+                return efMemberLoginDal.MemberRegister(Member);
+            }
+            catch (Exception)
+            {
 
-
-            return efMemberLoginDal.MemberRegister(Member);
+                throw;
+            }
         }
     }
 }

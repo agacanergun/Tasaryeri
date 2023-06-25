@@ -20,207 +20,335 @@ namespace Tasaryeri.BL.Concreate
 
         public SocialMediaDTO GetSocialMedia()
         {
-            var response = efFooterDAL.GetSocialMedia();
-
-            if (response == null)
-                return null;
-
-            SocialMediaDTO socialMedia = new SocialMediaDTO
+            try
             {
-                Id = response.Id,
-                FacebookLink = response.FacebookLink,
-                InstagramLink = response.InstagramLink,
-                TwitterLink = response.TwitterLink,
-                YoutubeLink = response.YoutubeLink,
-            };
-            return socialMedia;
+                var response = efFooterDAL.GetSocialMedia();
+
+                if (response == null)
+                    return null;
+
+                SocialMediaDTO socialMedia = new SocialMediaDTO
+                {
+                    Id = response.Id,
+                    FacebookLink = response.FacebookLink,
+                    InstagramLink = response.InstagramLink,
+                    TwitterLink = response.TwitterLink,
+                    YoutubeLink = response.YoutubeLink,
+                };
+                return socialMedia;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool AddSocialMedia(SocialMediaDTO socialMediaDTO)
         {
-            SocialMedia socialMedia = new SocialMedia
+            try
             {
-                FacebookLink = socialMediaDTO.FacebookLink,
-                InstagramLink = socialMediaDTO.InstagramLink,
-                TwitterLink = socialMediaDTO.TwitterLink,
-                YoutubeLink = socialMediaDTO.YoutubeLink,
-            };
-            return efFooterDAL.AddSocialMedia(socialMedia);
+                SocialMedia socialMedia = new SocialMedia
+                {
+                    FacebookLink = socialMediaDTO.FacebookLink,
+                    InstagramLink = socialMediaDTO.InstagramLink,
+                    TwitterLink = socialMediaDTO.TwitterLink,
+                    YoutubeLink = socialMediaDTO.YoutubeLink,
+                };
+                return efFooterDAL.AddSocialMedia(socialMedia);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool DeleteSocialMedia(SocialMediaDTO socialMediaDTO)
         {
-            SocialMedia socialMedia = new SocialMedia
+            try
             {
-                Id = socialMediaDTO.Id,
-            };
-            return efFooterDAL.DeleteSocialMedia(socialMedia);
+                SocialMedia socialMedia = new SocialMedia
+                {
+                    Id = socialMediaDTO.Id,
+                };
+                return efFooterDAL.DeleteSocialMedia(socialMedia);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool UpdateSocialMedia(SocialMediaDTO socialMediaDTO)
         {
-            SocialMedia socialMedia = new SocialMedia
+            try
             {
-                Id = socialMediaDTO.Id,
-                FacebookLink = socialMediaDTO.FacebookLink,
-                InstagramLink = socialMediaDTO.InstagramLink,
-                TwitterLink = socialMediaDTO.TwitterLink,
-                YoutubeLink = socialMediaDTO.YoutubeLink,
-            };
-            return efFooterDAL.UpdateSocialMedia(socialMedia);
+                SocialMedia socialMedia = new SocialMedia
+                {
+                    Id = socialMediaDTO.Id,
+                    FacebookLink = socialMediaDTO.FacebookLink,
+                    InstagramLink = socialMediaDTO.InstagramLink,
+                    TwitterLink = socialMediaDTO.TwitterLink,
+                    YoutubeLink = socialMediaDTO.YoutubeLink,
+                };
+                return efFooterDAL.UpdateSocialMedia(socialMedia);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<ContactDTO> GetContacts()
         {
-            var response = efFooterDAL.GetContacts();
-            List<ContactDTO> ContactDTOs = new List<ContactDTO>();
-
-            foreach (var item in response)
+            try
             {
-                ContactDTO contactDTO = new ContactDTO
+                var response = efFooterDAL.GetContacts();
+                List<ContactDTO> ContactDTOs = new List<ContactDTO>();
+
+                foreach (var item in response)
                 {
-                    Id = item.Id,
-                    ContactInfo = item.ContactInfo,
-                    ContactType = item.ContactType,
-                    DisplayIndex = item.DisplayIndex
-                };
-                ContactDTOs.Add(contactDTO);
+                    ContactDTO contactDTO = new ContactDTO
+                    {
+                        Id = item.Id,
+                        ContactInfo = item.ContactInfo,
+                        ContactType = item.ContactType,
+                        DisplayIndex = item.DisplayIndex
+                    };
+                    ContactDTOs.Add(contactDTO);
+                }
+                return ContactDTOs;
             }
-            return ContactDTOs;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool AddContact(ContactDTO ContactDTO)
         {
-            Contact contact = new Contact
+            try
             {
-                ContactInfo = ContactDTO.ContactInfo,
-                ContactType = ContactDTO.ContactType,
-                DisplayIndex = ContactDTO.DisplayIndex,
-            };
-            return efFooterDAL.AddContact(contact);
+                Contact contact = new Contact
+                {
+                    ContactInfo = ContactDTO.ContactInfo,
+                    ContactType = ContactDTO.ContactType,
+                    DisplayIndex = ContactDTO.DisplayIndex,
+                };
+                return efFooterDAL.AddContact(contact);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool DeleteContact(ContactDTO ContactDTO)
         {
-            Contact contact = new Contact
+            try
             {
-                Id = ContactDTO.Id,
-            };
-            return efFooterDAL.DeleteContact(contact);
+                Contact contact = new Contact
+                {
+                    Id = ContactDTO.Id,
+                };
+                return efFooterDAL.DeleteContact(contact);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool UpdateContact(ContactDTO ContactDTO)
         {
-            Contact contact = new Contact
+            try
             {
-                Id = ContactDTO.Id,
-                ContactInfo = ContactDTO.ContactInfo,
-                ContactType = ContactDTO.ContactType,
-                DisplayIndex = ContactDTO.DisplayIndex,
-            };
-            return efFooterDAL.UpdateContact(contact);
+                Contact contact = new Contact
+                {
+                    Id = ContactDTO.Id,
+                    ContactInfo = ContactDTO.ContactInfo,
+                    ContactType = ContactDTO.ContactType,
+                    DisplayIndex = ContactDTO.DisplayIndex,
+                };
+                return efFooterDAL.UpdateContact(contact);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<AboutUsDTO> GetAboutUs()
         {
-            var response = efFooterDAL.GetAboutUs();
-            List<AboutUsDTO> aboutUsDTOs = new List<AboutUsDTO>();
-
-            foreach (var item in response)
+            try
             {
-                AboutUsDTO aboutUsDTO = new AboutUsDTO
+                var response = efFooterDAL.GetAboutUs();
+                List<AboutUsDTO> aboutUsDTOs = new List<AboutUsDTO>();
+
+                foreach (var item in response)
                 {
-                    Id = item.Id,
-                    Description = item.Description,
-                    DisplayIndex = item.DisplayIndex,
-                    Name = item.Name,
-                };
-                aboutUsDTOs.Add(aboutUsDTO);
+                    AboutUsDTO aboutUsDTO = new AboutUsDTO
+                    {
+                        Id = item.Id,
+                        Description = item.Description,
+                        DisplayIndex = item.DisplayIndex,
+                        Name = item.Name,
+                    };
+                    aboutUsDTOs.Add(aboutUsDTO);
+                }
+                return aboutUsDTOs;
             }
-            return aboutUsDTOs;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool AddAboutUs(AboutUsDTO aboutUsDTO)
         {
-            AboutUs aboutUs = new AboutUs
+            try
             {
-                Name = aboutUsDTO.Name,
-                DisplayIndex = aboutUsDTO.DisplayIndex,
-                Description = aboutUsDTO.Description,
-            };
-            return efFooterDAL.AddAboutUs(aboutUs);
+                AboutUs aboutUs = new AboutUs
+                {
+                    Name = aboutUsDTO.Name,
+                    DisplayIndex = aboutUsDTO.DisplayIndex,
+                    Description = aboutUsDTO.Description,
+                };
+                return efFooterDAL.AddAboutUs(aboutUs);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool DeleteAboutUs(AboutUsDTO aboutUsDTO)
         {
-            AboutUs aboutUs = new AboutUs
+            try
             {
-                Id = aboutUsDTO.Id,
-            };
-            return efFooterDAL.DeleteAboutUs(aboutUs);
+                AboutUs aboutUs = new AboutUs
+                {
+                    Id = aboutUsDTO.Id,
+                };
+                return efFooterDAL.DeleteAboutUs(aboutUs);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool UpdateAboutUs(AboutUsDTO aboutUsDTO)
         {
-            AboutUs aboutUs = new AboutUs
+            try
             {
-                Id = aboutUsDTO.Id,
-                Name = aboutUsDTO.Name,
-                Description = aboutUsDTO.Description,
-                DisplayIndex = aboutUsDTO.DisplayIndex,
-            };
-            return efFooterDAL.UpdateAboutUs(aboutUs);
+                AboutUs aboutUs = new AboutUs
+                {
+                    Id = aboutUsDTO.Id,
+                    Name = aboutUsDTO.Name,
+                    Description = aboutUsDTO.Description,
+                    DisplayIndex = aboutUsDTO.DisplayIndex,
+                };
+                return efFooterDAL.UpdateAboutUs(aboutUs);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<InstitutionalDTO> GetInstitutionals()
         {
-            var response = efFooterDAL.GetInstitutionals();
-            List<InstitutionalDTO> InstitutionalDTOs = new List<InstitutionalDTO>();
-
-            foreach (var item in response)
+            try
             {
-                InstitutionalDTO InstitutionalDTO = new InstitutionalDTO
+                var response = efFooterDAL.GetInstitutionals();
+                List<InstitutionalDTO> InstitutionalDTOs = new List<InstitutionalDTO>();
+
+                foreach (var item in response)
                 {
-                    Id = item.Id,
-                    Description = item.Description,
-                    DisplayIndex = item.DisplayIndex,
-                    Name = item.Name,
-                };
-                InstitutionalDTOs.Add(InstitutionalDTO);
+                    InstitutionalDTO InstitutionalDTO = new InstitutionalDTO
+                    {
+                        Id = item.Id,
+                        Description = item.Description,
+                        DisplayIndex = item.DisplayIndex,
+                        Name = item.Name,
+                    };
+                    InstitutionalDTOs.Add(InstitutionalDTO);
+                }
+                return InstitutionalDTOs;
             }
-            return InstitutionalDTOs;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool AddInstitutional(InstitutionalDTO institutionalDTO)
         {
-            Institutional institutional = new Institutional
+            try
             {
-                Name = institutionalDTO.Name,
-                DisplayIndex = institutionalDTO.DisplayIndex,
-                Description = institutionalDTO.Description,
-            };
-            return efFooterDAL.AddInstitutional(institutional);
+                Institutional institutional = new Institutional
+                {
+                    Name = institutionalDTO.Name,
+                    DisplayIndex = institutionalDTO.DisplayIndex,
+                    Description = institutionalDTO.Description,
+                };
+                return efFooterDAL.AddInstitutional(institutional);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool DeleteInstitutional(InstitutionalDTO institutionalDTO)
         {
-            Institutional institutional = new Institutional
+            try
             {
-                Id = institutionalDTO.Id,
-            };
-            return efFooterDAL.DeleteInstitutional(institutional);
+                Institutional institutional = new Institutional
+                {
+                    Id = institutionalDTO.Id,
+                };
+                return efFooterDAL.DeleteInstitutional(institutional);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool UpdateInstitutional(InstitutionalDTO institutionalDTO)
         {
-            Institutional institutional = new Institutional
+            try
             {
-                Id = institutionalDTO.Id,
-                Name = institutionalDTO.Name,
-                Description = institutionalDTO.Description,
-                DisplayIndex = institutionalDTO.DisplayIndex,
-            };
-            return efFooterDAL.UpdateInstitutional(institutional);
+                Institutional institutional = new Institutional
+                {
+                    Id = institutionalDTO.Id,
+                    Name = institutionalDTO.Name,
+                    Description = institutionalDTO.Description,
+                    DisplayIndex = institutionalDTO.DisplayIndex,
+                };
+                return efFooterDAL.UpdateInstitutional(institutional);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

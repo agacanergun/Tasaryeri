@@ -20,141 +20,175 @@ namespace Tasaryeri.BL.Concreate
         //veritabanına veriyi ekler ve sonra fotoğrafı projeye ekler
         public bool Add(SlideDTO slideDTO)
         {
-            if (slideDTO.PictureFile != null && slideDTO.PictureFile.Length > 0)
+            try
             {
-                string fileName = DateTime.Now.Minute + DateTime.Now.Millisecond + slideDTO.PictureFile.FileName;
-                slideDTO.Picture = "uploads/imgs/" + fileName;
-
-                Slide slide = new Slide
+                if (slideDTO.PictureFile != null && slideDTO.PictureFile.Length > 0)
                 {
-                    Name = slideDTO.Name,
-                    Title = slideDTO.Title,
-                    ShortDescription = slideDTO.ShortDescription,
-                    LongDescription = slideDTO.LongDescription,
-                    Picture = slideDTO.Picture,
-                    Link = slideDTO.Link,
-                    DisplayIndex = slideDTO.DisplayIndex,
-                };
+                    string fileName = DateTime.Now.Minute + DateTime.Now.Millisecond + slideDTO.PictureFile.FileName;
+                    slideDTO.Picture = "uploads/imgs/" + fileName;
 
-                if (efSlideDAL.Add(slide))
-                {
-                    using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "imgs", fileName), FileMode.Create))
+                    Slide slide = new Slide
                     {
-                        slideDTO.PictureFile.CopyTo(stream);
+                        Name = slideDTO.Name,
+                        Title = slideDTO.Title,
+                        ShortDescription = slideDTO.ShortDescription,
+                        LongDescription = slideDTO.LongDescription,
+                        Picture = slideDTO.Picture,
+                        Link = slideDTO.Link,
+                        DisplayIndex = slideDTO.DisplayIndex,
+                    };
+
+                    if (efSlideDAL.Add(slide))
+                    {
+                        using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "imgs", fileName), FileMode.Create))
+                        {
+                            slideDTO.PictureFile.CopyTo(stream);
+                        }
+                        return true;
                     }
-                    return true;
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
                     return false;
                 }
             }
-            else
+            catch (Exception)
             {
-                return false;
+
+                throw;
             }
+          
         }
 
         //veritabanından veriyi siler daha sonra fotoğrafı siler
         public bool Delete(SlideDTO slideDTO)
         {
-            Slide slide = new Slide
+            try
             {
-                Id = slideDTO.Id,
-            };
-            if (efSlideDAL.Delete(slide))
-            {
-                string deleteFilePath = Path.Combine(hostingEnvironment.WebRootPath, slideDTO.Picture);
-
-                if (File.Exists(deleteFilePath))
+                Slide slide = new Slide
                 {
-                    File.Delete(deleteFilePath);
-                    return true;
+                    Id = slideDTO.Id,
+                };
+                if (efSlideDAL.Delete(slide))
+                {
+                    string deleteFilePath = Path.Combine(hostingEnvironment.WebRootPath, slideDTO.Picture);
+
+                    if (File.Exists(deleteFilePath))
+                    {
+                        File.Delete(deleteFilePath);
+                        return true;
+                    }
+                    else
+                        return false;
                 }
-                else
-                    return false;
+                return false;
             }
-            return false;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         //tüm verileri çeker
         public IEnumerable<SlideDTO> GetAll()
         {
-            IEnumerable<Slide> Slides = efSlideDAL.GetAll();
-            List<SlideDTO> slideDTOs = new List<SlideDTO>();
-
-            foreach (var item in Slides)
+            try
             {
-                SlideDTO slideDTO = new SlideDTO
+                IEnumerable<Slide> Slides = efSlideDAL.GetAll();
+                List<SlideDTO> slideDTOs = new List<SlideDTO>();
+
+                foreach (var item in Slides)
                 {
-                    Id = item.Id,
-                    Name = item.Name,
-                    Title = item.Title,
-                    ShortDescription = item.ShortDescription,
-                    LongDescription = item.LongDescription,
-                    DisplayIndex = item.DisplayIndex,
-                    Picture = item.Picture,
-                    Link = item.Link
-                };
-                slideDTOs.Add(slideDTO);
+                    SlideDTO slideDTO = new SlideDTO
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Title = item.Title,
+                        ShortDescription = item.ShortDescription,
+                        LongDescription = item.LongDescription,
+                        DisplayIndex = item.DisplayIndex,
+                        Picture = item.Picture,
+                        Link = item.Link
+                    };
+                    slideDTOs.Add(slideDTO);
+                }
+                return slideDTOs;
             }
-            return slideDTOs;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         //veritabanından verileri günceller ve daha sonra fotoğrafı projeden siler yeni fotoğrafı ekler.
         public bool Update(SlideDTO slideDTO)
         {
-            if (slideDTO.PictureFile != null)
+            try
             {
-                string deleteFilePath1 = slideDTO.Picture;
-                string fileName = DateTime.Now.Minute + DateTime.Now.Millisecond + slideDTO.PictureFile.FileName;
-                Slide slide = new Slide
+
+                if (slideDTO.PictureFile != null)
                 {
-                    Id = slideDTO.Id,
-                    DisplayIndex = slideDTO.DisplayIndex,
-                    Link = slideDTO.Link,
-                    LongDescription = slideDTO.LongDescription,
-                    Name = slideDTO.Name,
-                    Picture = "uploads/imgs/" + fileName,
-                    ShortDescription = slideDTO.ShortDescription,
-                    Title = slideDTO.Title,
-                };
-                if (efSlideDAL.Update(slide))
-                {
-                    string deleteFilePath = Path.Combine(hostingEnvironment.WebRootPath, deleteFilePath1);
-
-                    //eski görseli sil
-                    if (File.Exists(deleteFilePath))
+                    string deleteFilePath1 = slideDTO.Picture;
+                    string fileName = DateTime.Now.Minute + DateTime.Now.Millisecond + slideDTO.PictureFile.FileName;
+                    Slide slide = new Slide
                     {
-                        File.Delete(deleteFilePath);
-                    }
-
-                    //yeni görseli ekle
-
-                    using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "imgs", fileName), FileMode.Create))
+                        Id = slideDTO.Id,
+                        DisplayIndex = slideDTO.DisplayIndex,
+                        Link = slideDTO.Link,
+                        LongDescription = slideDTO.LongDescription,
+                        Name = slideDTO.Name,
+                        Picture = "uploads/imgs/" + fileName,
+                        ShortDescription = slideDTO.ShortDescription,
+                        Title = slideDTO.Title,
+                    };
+                    if (efSlideDAL.Update(slide))
                     {
-                        slideDTO.PictureFile.CopyTo(stream);
+                        string deleteFilePath = Path.Combine(hostingEnvironment.WebRootPath, deleteFilePath1);
+
+                        //eski görseli sil
+                        if (File.Exists(deleteFilePath))
+                        {
+                            File.Delete(deleteFilePath);
+                        }
+
+                        //yeni görseli ekle
+
+                        using (FileStream stream = new FileStream(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "imgs", fileName), FileMode.Create))
+                        {
+                            slideDTO.PictureFile.CopyTo(stream);
+                        }
+                        return true;
                     }
-                    return true;
+                    return false;
                 }
-                return false;
-            }
-            else
-            {
-                Slide slide = new Slide
+                else
                 {
-                    Id = slideDTO.Id,
-                    DisplayIndex = slideDTO.DisplayIndex,
-                    Link = slideDTO.Link,
-                    LongDescription = slideDTO.LongDescription,
-                    Name = slideDTO.Name,
-                    ShortDescription = slideDTO.ShortDescription,
-                    Title = slideDTO.Title,
-                    Picture=slideDTO.Picture,
-                };
-                if (efSlideDAL.Update(slide))
-                    return true;
-                return false;
+                    Slide slide = new Slide
+                    {
+                        Id = slideDTO.Id,
+                        DisplayIndex = slideDTO.DisplayIndex,
+                        Link = slideDTO.Link,
+                        LongDescription = slideDTO.LongDescription,
+                        Name = slideDTO.Name,
+                        ShortDescription = slideDTO.ShortDescription,
+                        Title = slideDTO.Title,
+                        Picture = slideDTO.Picture,
+                    };
+                    if (efSlideDAL.Update(slide))
+                        return true;
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
