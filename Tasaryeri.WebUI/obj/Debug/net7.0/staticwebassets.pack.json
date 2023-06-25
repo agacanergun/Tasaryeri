@@ -20409,6 +20409,10 @@
       "PackagePath": "staticwebassets\\mainJS\\main.js"
     },
     {
+      "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\mainJS\\ordestatus.js",
+      "PackagePath": "staticwebassets\\mainJS\\ordestatus.js"
+    },
+    {
       "Id": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\1001.jpg",
       "PackagePath": "staticwebassets\\uploads\\imgs\\1001.jpg"
     },

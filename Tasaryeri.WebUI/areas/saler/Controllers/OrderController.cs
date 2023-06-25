@@ -21,10 +21,10 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
             var response = orderTransactions.GetSalerOrders(salerId);
             return View(response);
         }
-        [Route("satici/siparislerim/güncelle")]
-        public IActionResult UpdateOrderStatus(int id, EOrderStatus status)
+        [Route("satici/siparislerim-güncelle"),HttpPost]
+        public string UpdateOrderStatus(int id, string selectedValue)
         {
-            return Redirect("satici/siparislerim");
+            return "Ok";
         }
     }
 }

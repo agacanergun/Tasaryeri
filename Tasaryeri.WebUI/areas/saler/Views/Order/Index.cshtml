@@ -40,7 +40,7 @@
                 <tr>
                     <td style="display:none">@item.ID</td>
                     <td>
-                        <select class="form-control">
+                        <select class="form-control" id="orderStatus_@item.ID">
                             <option>@item.OrderStatus</option>
                             @if (item.OrderStatus != @EOrderStatus.Hazırlanıyor)
                             {
@@ -79,3 +79,6 @@
         </tbody>
     </table>
 </div>
+
+<script src="/mainJS/ordestatus.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
