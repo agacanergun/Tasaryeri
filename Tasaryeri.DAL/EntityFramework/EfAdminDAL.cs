@@ -21,43 +21,84 @@ namespace Tasaryeri.DAL.EntityFramework
         //kayıtlı admin varsa gelir yoksa null
         public Admin AdminLogin(Admin admin)
         {
-            var response = repoAdmin.GetBy(x => x.UserName == admin.UserName && x.Password == admin.Password);
-            if (response == null)
+            try
             {
-                Admin badResponse = new Admin();
-                badResponse.ID = 0;
-                return badResponse;
+                var response = repoAdmin.GetBy(x => x.UserName == admin.UserName && x.Password == admin.Password);
+                if (response == null)
+                {
+                    Admin badResponse = new Admin();
+                    badResponse.ID = 0;
+                    return badResponse;
+                }
+                return response;
             }
-            return response;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Update(Admin admin)
         {
-            var response = repoAdmin.Update(admin);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoAdmin.Update(admin);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Delete(Admin entity)
         {
-            var response = repoAdmin.Delete(entity);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoAdmin.Delete(entity);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Admin> GetAll()
         {
-            return repoAdmin.GetAll();
+            try
+            {
+                return repoAdmin.GetAll();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Add(Admin entity)
         {
-            var response = repoAdmin.Add(entity);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoAdmin.Add(entity);
+                if (response == 1)
+                    return true;
+                return false;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

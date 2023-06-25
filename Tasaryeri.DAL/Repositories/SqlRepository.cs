@@ -21,56 +21,118 @@ namespace Tasaryeri.DAL.Repositories
 
         public int Add(T entity)
         {
+            try
+            {
+                db.Add(entity);
+                var response = db.SaveChanges();
+                return response;
+            }
+            catch (Exception)
+            {
 
-            db.Add(entity);
-            var response = db.SaveChanges();
-            return response;
-        }
+                throw;
+            }        }
 
         public int Delete(T entity)
         {
-            db.Remove(entity);
-            var response = db.SaveChanges();
-            return response;
+            try
+            {
+                db.Remove(entity);
+                var response = db.SaveChanges();
+                return response;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IQueryable<T> GetAll()
         {
-            return db.Set<T>();
+            try
+            {
+                return db.Set<T>();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> exp)
         {
-            return db.Set<T>().Where(exp);
+            try
+            {
+                return db.Set<T>().Where(exp);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public T GetBy(Expression<Func<T, bool>> exp)
         {
 
-            return db.Set<T>().FirstOrDefault(exp);
+            try
+            {
+                return db.Set<T>().FirstOrDefault(exp);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
 
         public int Update(T entity)
         {
-            var updatedEntity = db.Entry(entity);
-            updatedEntity.State = EntityState.Modified;
-            var response = db.SaveChanges();
-            return response;
+            try
+            {
+                var updatedEntity = db.Entry(entity);
+                updatedEntity.State = EntityState.Modified;
+                var response = db.SaveChanges();
+                return response;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public int AddRange(IEnumerable<T> entities)
         {
-            db.AddRange(entities);
-            var response = db.SaveChanges();
-            return response;
+            try
+            {
+                db.AddRange(entities);
+                var response = db.SaveChanges();
+                return response;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public int DeleteRange(IEnumerable<T> entities)
         {
-           db.RemoveRange(entities);
-            var response = db.SaveChanges();
-            return response;
+            try
+            {
+                db.RemoveRange(entities);
+                var response = db.SaveChanges();
+                return response;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

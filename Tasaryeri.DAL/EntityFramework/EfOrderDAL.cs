@@ -23,48 +23,80 @@ namespace Tasaryeri.DAL.EntityFramework
         }
         public bool AddOrder(List<Order> orders)
         {
-            var member = repoMember.GetBy(x => x.Id == orders.FirstOrDefault().MemberID);
-            foreach (var item in orders)
+            try
             {
-                item.Name = member.Name;
-                item.Surname = member.Surname;
-                item.Phone = member.PhoneNumber;
-                item.Mail = member.Email;
-                item.OrderStatus = Enums.EOrderStatus.Hazırlanıyor;
-            }
+                var member = repoMember.GetBy(x => x.Id == orders.FirstOrDefault().MemberID);
+                foreach (var item in orders)
+                {
+                    item.Name = member.Name;
+                    item.Surname = member.Surname;
+                    item.Phone = member.PhoneNumber;
+                    item.Mail = member.Email;
+                    item.OrderStatus = Enums.EOrderStatus.Hazırlanıyor;
+                }
 
-            foreach (var item in orders)
-            {
-                var response = repoProduct.GetAll(x => x.Id == item.ProductID).Include(x => x.ProductPictures).ToList();
-                item.ProductName = response.FirstOrDefault().Name;
-                item.Picture = response.FirstOrDefault().ProductPictures?.FirstOrDefault()?.Picture;
-                item.Price = response.FirstOrDefault().Price * item.Quantity;
-                item.SalerID = response.FirstOrDefault().SalerId;
+                foreach (var item in orders)
+                {
+                    var response = repoProduct.GetAll(x => x.Id == item.ProductID).Include(x => x.ProductPictures).ToList();
+                    item.ProductName = response.FirstOrDefault().Name;
+                    item.Picture = response.FirstOrDefault().ProductPictures?.FirstOrDefault()?.Picture;
+                    item.Price = response.FirstOrDefault().Price * item.Quantity;
+                    item.SalerID = response.FirstOrDefault().SalerId;
+                }
+                var responseAdd = repoOrder.AddRange(orders);
+                if (responseAdd > 0)
+                    return true;
+                return false;
             }
-            var responseAdd = repoOrder.AddRange(orders);
-            if (responseAdd > 0)
-                return true;
-            return false;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Order> GetMemberOrders(int id)
         {
-            return repoOrder.GetAll(x => x.MemberID == id);
+            try
+            {
+                return repoOrder.GetAll(x => x.MemberID == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Order> GetSalerOrders(int id)
         {
-            return repoOrder.GetAll(x => x.SalerID == id);
+            try
+            {
+                return repoOrder.GetAll(x => x.SalerID == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool UpdateOrderStatus(Order order)
         {
-            var response = repoOrder.GetBy(x => x.ID == order.ID);
-            response.OrderStatus = order.OrderStatus;
-            var updateResponse = repoOrder.Update(response);
-            if (updateResponse == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoOrder.GetBy(x => x.ID == order.ID);
+                response.OrderStatus = order.OrderStatus;
+                var updateResponse = repoOrder.Update(response);
+                if (updateResponse == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

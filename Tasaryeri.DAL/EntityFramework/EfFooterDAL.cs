@@ -27,119 +27,248 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public SocialMedia GetSocialMedia()
         {
-            return repoSocialMedia.GetAll().FirstOrDefault();
+            try
+            {
+                return repoSocialMedia.GetAll().FirstOrDefault();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool AddSocialMedia(SocialMedia socialMedia)
         {
-            var respone = repoSocialMedia.Add(socialMedia);
-            if (respone == 1)
-                return true;
-            return false;
+            try
+            {
+                var respone = repoSocialMedia.Add(socialMedia);
+                if (respone == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool DeleteSocialMedia(SocialMedia socialMedia)
         {
-            var response = repoSocialMedia.Delete(socialMedia);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoSocialMedia.Delete(socialMedia);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool UpdateSocialMedia(SocialMedia socialMedia)
         {
-            var response = repoSocialMedia.Update(socialMedia);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoSocialMedia.Update(socialMedia);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Contact> GetContacts()
         {
-            return repoContact.GetAll().OrderBy(x => x.DisplayIndex);
+            try
+            {
+                return repoContact.GetAll().OrderBy(x => x.DisplayIndex);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
 
         public bool AddContact(Contact contact)
         {
-            var response = repoContact.Add(contact);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoContact.Add(contact);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool DeleteContact(Contact contact)
         {
-            var response = repoContact.Delete(contact);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoContact.Delete(contact);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool UpdateContact(Contact contact)
         {
-            var response = repoContact.Update(contact);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoContact.Update(contact);
+                if (response == 1)
+                    return true;
+                return false;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<AboutUs> GetAboutUs()
         {
-            return repoAboutUs.GetAll().OrderBy(x => x.DisplayIndex);
+            try
+            {
+                return repoAboutUs.GetAll().OrderBy(x => x.DisplayIndex);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool AddAboutUs(AboutUs aboutUs)
         {
-            var response = repoAboutUs.Add(aboutUs);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoAboutUs.Add(aboutUs);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool DeleteAboutUs(AboutUs aboutUs)
         {
-            var response = repoAboutUs.Delete(aboutUs);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoAboutUs.Delete(aboutUs);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool UpdateAboutUs(AboutUs aboutUs)
         {
-            var response = repoAboutUs.Update(aboutUs);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoAboutUs.Update(aboutUs);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Institutional> GetInstitutionals()
         {
-            return repoInstitutional.GetAll().OrderBy(x => x.DisplayIndex);
+            try
+            {
+                return repoInstitutional.GetAll().OrderBy(x => x.DisplayIndex);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool AddInstitutional(Institutional institutional)
         {
-            var response = repoInstitutional.Add(institutional);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoInstitutional.Add(institutional);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool DeleteInstitutional(Institutional institutional)
         {
-            var response = repoInstitutional.Delete(institutional);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoInstitutional.Delete(institutional);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool UpdateInstitutional(Institutional institutional)
         {
-            var response = repoInstitutional.Update(institutional);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoInstitutional.Update(institutional);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

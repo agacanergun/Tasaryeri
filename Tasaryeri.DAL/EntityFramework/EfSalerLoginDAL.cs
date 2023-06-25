@@ -18,28 +18,44 @@ namespace Tasaryeri.DAL.EntityFramework
         }
         public Saler SalerLogin(Saler saler)
         {
-            var response = repoSaler.GetBy(x => x.Username == saler.Username && x.Password == saler.Password);
-            if (response == null)
+            try
             {
-                Saler badResponse = new Saler();
-                badResponse.Id = 0;
-                return badResponse;
+                var response = repoSaler.GetBy(x => x.Username == saler.Username && x.Password == saler.Password);
+                if (response == null)
+                {
+                    Saler badResponse = new Saler();
+                    badResponse.Id = 0;
+                    return badResponse;
+                }
+                return response;
             }
-            return response;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
         public bool SalerRegister(Saler saler)
         {
-            var CheckSaler = repoSaler.GetBy(x => x.Username == saler.Username || x.Email == saler.Email);
-            if (CheckSaler != null)
+            try
             {
+                var CheckSaler = repoSaler.GetBy(x => x.Username == saler.Username || x.Email == saler.Email);
+                if (CheckSaler != null)
+                {
+                    return false;
+                }
+                var response = repoSaler.Add(saler);
+                if (response == 1)
+                    return true;
                 return false;
             }
-            var response = repoSaler.Add(saler);
-            if (response == 1)
-                return true;
-            return false;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

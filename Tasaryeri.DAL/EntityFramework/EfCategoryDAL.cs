@@ -21,60 +21,124 @@ namespace Tasaryeri.DAL.EntityFramework
         }
         public bool Add(MainCategory entity)
         {
-            var response = repoMainCategory.Add(entity);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoMainCategory.Add(entity);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Add(SubCategory entity)
         {
-            var response = repoSubCategory.Add(entity);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoSubCategory.Add(entity);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Delete(MainCategory entity)
         {
-            var response = repoMainCategory.Delete(entity);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoMainCategory.Delete(entity);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Delete(SubCategory entity)
         {
-            var response = repoSubCategory.Delete(entity);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoSubCategory.Delete(entity);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<MainCategory> GetAllMainCategories()
         {
-            return repoMainCategory.GetAll().OrderBy(x => x.DisplayIndex).Include(x => x.subCategories).OrderBy(x => x.DisplayIndex);
+            try
+            {
+                return repoMainCategory.GetAll().OrderBy(x => x.DisplayIndex).Include(x => x.subCategories).OrderBy(x => x.DisplayIndex);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<SubCategory> GetAllSubCategories()
         {
-            return repoSubCategory.GetAll().OrderBy(x => x.DisplayIndex).Include(x => x.MainCategory).OrderBy(x => x.MainCategory.Name);
+            try
+            {
+                return repoSubCategory.GetAll().OrderBy(x => x.DisplayIndex).Include(x => x.MainCategory).OrderBy(x => x.MainCategory.Name);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Update(MainCategory entity)
         {
-            var respone = repoMainCategory.Update(entity);
-            if (respone == 1)
-                return true;
-            return false;
+            try
+            {
+                var respone = repoMainCategory.Update(entity);
+                if (respone == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Update(SubCategory entity)
         {
-            var respone = repoSubCategory.Update(entity);
-            if (respone == 1)
-                return true;
-            return false;
+            try
+            {
+                var respone = repoSubCategory.Update(entity);
+                if (respone == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

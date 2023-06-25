@@ -19,36 +19,63 @@ namespace Tasaryeri.DAL.EntityFramework
         }
         public bool Add(Slide entity)
         {
-            var response = repoSlide.Add(entity);
-            if (response == 1)
-                return true;
-            return false;
-        }
+            try
+            {
+                var response = repoSlide.Add(entity);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
 
-        public Admin AdminLogin(Slide admin)
-        {
-            throw new NotImplementedException();
+                throw;
+            }
         }
 
         public bool Delete(Slide entity)
         {
-            var response = repoSlide.Delete(entity);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoSlide.Delete(entity);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Slide> GetAll()
         {
-            return repoSlide.GetAll().OrderBy(x => x.DisplayIndex);
+            try
+            {
+                return repoSlide.GetAll().OrderBy(x => x.DisplayIndex);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Update(Slide admin)
         {
-            var response = repoSlide.Update(admin);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoSlide.Update(admin);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -18,28 +18,44 @@ namespace Tasaryeri.DAL.EntityFramework
         }
         public Member MemberLogin(Member Member)
         {
-            var response = repoMember.GetBy(x => x.Username == Member.Username && x.Password == Member.Password);
-            if (response == null)
+            try
             {
-                Member badResponse = new Member();
-                badResponse.Id = 0;
-                return badResponse;
+                var response = repoMember.GetBy(x => x.Username == Member.Username && x.Password == Member.Password);
+                if (response == null)
+                {
+                    Member badResponse = new Member();
+                    badResponse.Id = 0;
+                    return badResponse;
+                }
+                return response;
             }
-            return response;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
         public bool MemberRegister(Member Member)
         {
-            var CheckMember = repoMember.GetBy(x => x.Username == Member.Username || x.Email == Member.Email);
-            if (CheckMember != null)
+            try
             {
+                var CheckMember = repoMember.GetBy(x => x.Username == Member.Username || x.Email == Member.Email);
+                if (CheckMember != null)
+                {
+                    return false;
+                }
+                var response = repoMember.Add(Member);
+                if (response == 1)
+                    return true;
                 return false;
             }
-            var response = repoMember.Add(Member);
-            if (response == 1)
-                return true;
-            return false;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

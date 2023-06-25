@@ -18,36 +18,76 @@ namespace Tasaryeri.DAL.EntityFramework
         }
         public bool Add(ProductPicture productPicture)
         {
-            var response = repoProductPicture.Add(productPicture);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoProductPicture.Add(productPicture);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Delete(ProductPicture productPicture)
         {
-            var response = repoProductPicture.Delete(productPicture);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoProductPicture.Delete(productPicture);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<ProductPicture> GetAll(int id)
         {
-            return repoProductPicture.GetAll(x => x.ProductID == id);
+            try
+            {
+                return repoProductPicture.GetAll(x => x.ProductID == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public ProductPicture GetById(int id)
         {
-            return repoProductPicture.GetBy(x => x.Id == id);
+            try
+            {
+                return repoProductPicture.GetBy(x => x.Id == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Update(ProductPicture productPicture)
         {
-            var response = repoProductPicture.Update(productPicture);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoProductPicture.Update(productPicture);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

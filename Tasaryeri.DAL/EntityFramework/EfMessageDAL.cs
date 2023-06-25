@@ -27,49 +27,105 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public Member GetMember(int id)
         {
-            return repoMember.GetBy(x => x.Id == id);
+            try
+            {
+                return repoMember.GetBy(x => x.Id == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Message> GetMessages(int salerId, int memberId, int productId)
         {
-            return repoMessage.GetAll(x => x.MemberId == memberId && x.ProductId == productId && x.SalerId == salerId).OrderBy(x => x.Timestamp);
+            try
+            {
+                return repoMessage.GetAll(x => x.MemberId == memberId && x.ProductId == productId && x.SalerId == salerId).OrderBy(x => x.Timestamp);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Message> GetOldMessagesForMember(int memberId)
         {
-            var response = repoMessage.GetAll(m => m.MemberId == memberId).Include(x => x.Product).Include(x => x.Saler);
-            var firstMessages = response
-           .GroupBy(m => new { m.ProductId, m.SalerId })
-           .Select(g => g.First()).ToList();
+            try
+            {
+                var response = repoMessage.GetAll(m => m.MemberId == memberId).Include(x => x.Product).Include(x => x.Saler);
+                var firstMessages = response
+               .GroupBy(m => new { m.ProductId, m.SalerId })
+               .Select(g => g.First()).ToList();
 
-            return firstMessages;
+                return firstMessages;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Message> GetOldMessagesForSaler(int salerId)
         {
-            var response = repoMessage.GetAll(x => x.SalerId == salerId).Include(x => x.Product).Include(x => x.Member);
-            var firstMessages = response
-             .GroupBy(m => new { m.ProductId, m.MemberId })
-          .Select(g => g.First()).ToList();
-            return firstMessages;
+            try
+            {
+                var response = repoMessage.GetAll(x => x.SalerId == salerId).Include(x => x.Product).Include(x => x.Member);
+                var firstMessages = response
+                 .GroupBy(m => new { m.ProductId, m.MemberId })
+              .Select(g => g.First()).ToList();
+                return firstMessages;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Product GetProduct(int id)
         {
-            return repoProduct.GetBy(x => x.Id == id);
+            try
+            {
+                return repoProduct.GetBy(x => x.Id == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Saler GetSaler(int id)
         {
-            return repoSaler.GetBy(x => x.Id == id);
+            try
+            {
+                return repoSaler.GetBy(x => x.Id == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool SendMessage(Message message)
         {
-            var response = repoMessage.Add(message);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoMessage.Add(message);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

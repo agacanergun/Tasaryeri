@@ -26,83 +26,131 @@ namespace Tasaryeri.DAL.EntityFramework
 
         public bool Add(Product entity, int[] CategoriyIDs)
         {
-            var response = repoProduct.Add(entity);
-            if (response == 1)
+            try
             {
-                var addedProductId = entity.Id;
-                List<ProductCategory> productCategories = new List<ProductCategory>();
-                foreach (var id in CategoriyIDs)
+                var response = repoProduct.Add(entity);
+                if (response == 1)
                 {
-                    ProductCategory productCategory = new ProductCategory
+                    var addedProductId = entity.Id;
+                    List<ProductCategory> productCategories = new List<ProductCategory>();
+                    foreach (var id in CategoriyIDs)
                     {
-                        ProductID = addedProductId,
-                        CategoryID = id,
-                    };
-                    productCategories.Add(productCategory);
-                }
-                var responseProductCategory = repoProductCategory.AddRange(productCategories);
-                if (responseProductCategory != 0)
-                    return true;
-                return false;
+                        ProductCategory productCategory = new ProductCategory
+                        {
+                            ProductID = addedProductId,
+                            CategoryID = id,
+                        };
+                        productCategories.Add(productCategory);
+                    }
+                    var responseProductCategory = repoProductCategory.AddRange(productCategories);
+                    if (responseProductCategory != 0)
+                        return true;
+                    return false;
 
+                }
+                return false;
             }
-            return false;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Delete(Product entity)
         {
-            var response = repoProduct.Delete(entity);
-            if (response == 1)
-                return true;
-            return false;
+            try
+            {
+                var response = repoProduct.Delete(entity);
+                if (response == 1)
+                    return true;
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<Product> GetAll(int id)
         {
-            var saler = repoSaler.GetBy(x => x.Id == id);
-            var response = repoProduct.GetAll(x => x.SalerId == id);
-
-
-            foreach (var item in response)
+            try
             {
-                item.ProductCategories = repoProductCategory.GetAll(x => x.ProductID == item.Id).ToList();
-                item.saler = saler;
-            }
+                var saler = repoSaler.GetBy(x => x.Id == id);
+                var response = repoProduct.GetAll(x => x.SalerId == id);
 
-            foreach (var item in response)
-            {
-                foreach (var item1 in item.ProductCategories)
+
+                foreach (var item in response)
                 {
-                    var responseSubCategories = repoSubCategories.GetBy(x => x.Id == item1.CategoryID);
-                    item1.CategoryName = responseSubCategories.Name;
+                    item.ProductCategories = repoProductCategory.GetAll(x => x.ProductID == item.Id).ToList();
+                    item.saler = saler;
                 }
 
-            }
+                foreach (var item in response)
+                {
+                    foreach (var item1 in item.ProductCategories)
+                    {
+                        var responseSubCategories = repoSubCategories.GetBy(x => x.Id == item1.CategoryID);
+                        item1.CategoryName = responseSubCategories.Name;
+                    }
 
-            return response;
+                }
+
+                return response;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Product GetById(int id)
         {
-            return repoProduct.GetBy(x => x.Id == id);
+            try
+            {
+                return repoProduct.GetBy(x => x.Id == id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IEnumerable<SubCategory> GetSubCategories()
         {
-            return repoSubCategories.GetAll().OrderBy(x => x.Name);
+            try
+            {
+                return repoSubCategories.GetAll().OrderBy(x => x.Name);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool Update(Product entity, List<ProductCategory> productCategories)
         {
-            var response = repoProduct.Update(entity);
-            if (response == 1)
+            try
             {
-                var responseProductCategories = repoProductCategory.GetAll(x => x.ProductID == entity.Id);
-                repoProductCategory.DeleteRange(responseProductCategories);
-                repoProductCategory.AddRange(productCategories);
-                return true;
+                var response = repoProduct.Update(entity);
+                if (response == 1)
+                {
+                    var responseProductCategories = repoProductCategory.GetAll(x => x.ProductID == entity.Id);
+                    repoProductCategory.DeleteRange(responseProductCategories);
+                    repoProductCategory.AddRange(productCategories);
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
