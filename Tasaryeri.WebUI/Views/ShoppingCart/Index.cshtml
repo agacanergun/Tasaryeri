@@ -23,8 +23,10 @@
                         <div class="col">
                             <div class="row">@item.Name</div>
                         </div>
-                        <div class="col">
-                            <div class="row">@item.Quantity Adet</div>
+                        <div class="col" style="display:flex;">
+                            <div class="row"><i onclick="minusquantity(@item.ProductId)" class="fa fa-minus" style="color:black;margin-top:3px;cursor:pointer;" aria-hidden="true"></i></div>
+                            <div class="row" id="ProductQuantity">@item.Quantity Adet</div>
+                            <div class="row"><i onclick="plusquantity(@item.ProductId)" class="fa fa-plus" style="color:black;margin-top:2px;cursor:pointer;" aria-hidden="true"></i></div>
                         </div>
                         <div class="col">@item.Price TL   <span onclick="removeCart(@item.ProductId)" style="cursor:pointer;font-size:x-large;color:red;" class="close"> &nbsp &nbsp &#10005;</span></div>
                     </div>

@@ -42,6 +42,77 @@ namespace Tasaryeri.WebUI.Controllers
             }
         }
 
+        [Route("sepetim/arttir")]
+        public int PlusQuantity(int productid)
+        {
+            try
+            {
+                var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+                foreach (var item in carts)
+                {
+                    if (item.ProductId == productid)
+                    {
+                        var response = ProductTransactionsUI.GetProduct(item.ProductId);
+                        item.Quantity++;
+                        if (response.Stock < item.Quantity)
+                            return response.Stock;
+                        CookieOptions cookieOptions = new CookieOptions
+                        {
+                            Expires = DateTime.Now.AddDays(30),
+                        };
+                        Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(carts), cookieOptions);
+                        return item.Quantity;
+                    }
+                }
+                return -1;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [Route("sepetim/azalt")]
+        public int MinusQuantity(int productid)
+        {
+            try
+            {
+                var carts = JsonConvert.DeserializeObject<List<ShoppingCart>>(Request.Cookies["MyCart"]);
+                foreach (var item in carts)
+                {
+                    if (item.ProductId == productid)
+                    {
+                        item.Quantity--;
+                        if (item.Quantity == 0)
+                        {
+                            carts.Remove(item);
+                            CookieOptions cookieOptions1 = new CookieOptions
+                            {
+                                Expires = DateTime.Now.AddDays(30),
+                            };
+                            Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(carts), cookieOptions1);
+
+                        }
+                        CookieOptions cookieOptions = new CookieOptions
+                        {
+                            Expires = DateTime.Now.AddDays(30),
+                        };
+                        Response.Cookies.Append("MyCart", JsonConvert.SerializeObject(carts), cookieOptions);
+                        return item.Quantity;
+                    }
+                }
+                return -1;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         [Route("/sepetim/sayiver")]
         public int GetCartCount()
         {

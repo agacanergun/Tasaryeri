@@ -35,7 +35,13 @@ function addCart(productid, stock) {
     else {
         $(".inputQuantity").val(stock);
         $(".SpanQuantity").text(stock);
-        alert("istenen miktar stoktan fazla");
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'istenen miktar stoktan fazla',
+            showConfirmButton: false,
+            timer: 600
+        })
     }
 }
 
@@ -78,6 +84,42 @@ function removeCart(productid) {
                     showConfirmButton: false,
                     timer: 600
                 })
+                getCartCounter();
+            }
+        }
+    });
+}
+
+function minusquantity(productid) {
+    $.ajax({
+        url: "/sepetim/azalt",
+        type: "POST",
+        data: { productid: productid },
+        success: function (data) {
+            if (data != -1) {
+                getCartCounter();
+                location.href = "/sepetim";
+            }
+            else {
+                getCartCounter();
+                location.href = "/sepetim";
+            }
+        }
+    });
+}
+
+function plusquantity(productid) {
+    $.ajax({
+        url: "/sepetim/arttir",
+        type: "POST",
+        data: { productid: productid },
+        success: function (data) {
+            if (data != -1) {
+                getCartCounter();
+                location.href = "/sepetim";
+            }
+            else {
+                location.href = "/sepetim";
                 getCartCounter();
             }
         }
