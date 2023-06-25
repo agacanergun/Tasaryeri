@@ -7,6 +7,7 @@ using Tasaryeri.BL.Abstract;
 using Tasaryeri.BL.Dtos;
 using Tasaryeri.DAL.Entities;
 using Tasaryeri.DAL.EntityFramework.Abstract;
+using Tasaryeri.DAL.Enums;
 
 namespace Tasaryeri.BL.Concreate
 {
@@ -71,7 +72,7 @@ namespace Tasaryeri.BL.Concreate
                 };
                 orders.Add(orderDTO);
             }
-            return orders;  
+            return orders;
         }
 
         public IEnumerable<OrderDTO> GetSalerOrders(int id)
@@ -106,6 +107,33 @@ namespace Tasaryeri.BL.Concreate
                 orders.Add(orderDTO);
             }
             return orders;
+        }
+
+        public bool UpdateOrderStatus(int id, string status)
+        {
+            Order order = new Order
+            {
+                ID = id,
+            };
+            switch (status)
+            {
+                case nameof(EOrderStatus.Hazırlanıyor):
+                    order.OrderStatus = EOrderStatus.Hazırlanıyor;
+                    break;
+                case nameof(EOrderStatus.Paketlendi):
+                    order.OrderStatus = EOrderStatus.Paketlendi;
+                    break;
+                case nameof(EOrderStatus.KargoyaVerildi):
+                    order.OrderStatus = EOrderStatus.KargoyaVerildi;
+                    break;
+                case nameof(EOrderStatus.TeslimEdildi):
+                    order.OrderStatus = EOrderStatus.TeslimEdildi;
+                    break;
+                case nameof(EOrderStatus.İptalEdildi):
+                    order.OrderStatus = EOrderStatus.İptalEdildi;
+                    break;
+            }
+            return efOrderDAL.UpdateOrderStatus(order);
         }
     }
 }

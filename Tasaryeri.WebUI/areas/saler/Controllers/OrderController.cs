@@ -24,6 +24,7 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         [Route("satici/siparislerim-güncelle"),HttpPost]
         public string UpdateOrderStatus(int id, string selectedValue)
         {
+            orderTransactions.UpdateOrderStatus(id, selectedValue);
             return "Ok";
         }
     }

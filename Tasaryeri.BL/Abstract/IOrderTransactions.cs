@@ -12,5 +12,6 @@ namespace Tasaryeri.BL.Abstract
         public bool AddOrder(AddOrderDTO addOrderDTO);
         public IEnumerable<OrderDTO> GetMemberOrders(int id);
         public IEnumerable<OrderDTO> GetSalerOrders(int id);
+        public bool UpdateOrderStatus(int id, string status);
     }
 }

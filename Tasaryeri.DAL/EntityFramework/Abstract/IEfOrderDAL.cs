@@ -12,5 +12,6 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
         public bool AddOrder(List<Order> orders);
         public IEnumerable<Order> GetMemberOrders(int id);
         public IEnumerable<Order> GetSalerOrders(int id);
+        public bool UpdateOrderStatus(Order order);
     }
 }

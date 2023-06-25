@@ -56,5 +56,15 @@ namespace Tasaryeri.DAL.EntityFramework
         {
             return repoOrder.GetAll(x => x.SalerID == id);
         }
+
+        public bool UpdateOrderStatus(Order order)
+        {
+            var response = repoOrder.GetBy(x => x.ID == order.ID);
+            response.OrderStatus = order.OrderStatus;
+            var updateResponse = repoOrder.Update(response);
+            if (updateResponse == 1)
+                return true;
+            return false;
+        }
     }
 }

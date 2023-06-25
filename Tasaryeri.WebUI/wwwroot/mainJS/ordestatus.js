@@ -21,10 +21,6 @@ selectElements.forEach(function (selectElement) {
                         timer: 600
                     });
                 }
-
-                setTimeout(function () {
-                    location.href = "/satici/siparislerim";
-                }, 600);
             },
             error: function (error) {
                 Swal.fire({
@@ -34,10 +30,6 @@ selectElements.forEach(function (selectElement) {
                     showConfirmButton: false,
                     timer: 600
                 });
-
-                setTimeout(function () {
-                    location.href = "/satici/siparislerim";
-                }, 600);
             }
         });
     });
