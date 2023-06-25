@@ -1,4 +1,5 @@
-﻿@*@model IEnumerable<OrderDTO>
+﻿@using Tasaryeri.DAL.Enums;
+@model IEnumerable<OrderDTO>
 
 
 <div class="table-responsive">
@@ -20,14 +21,17 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                <th width="180px">Sipariş Durumu</th>
+                <th>Ürün Görseli</th>
                 <th>Ürün Adı</th>
-                <th>Üye Adı Soyadı</th>
+                <th>Alıcı Adı Soyadı</th>
                 <th>Şehir</th>
                 <th>Adres</th>
                 <th>ZipCode</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Sipariş Tarihi</th>
+                <th>Sipariş Notu</th>
+                <th>Sipariş Miktarı</th>
+                <th>Tutar</th>
             </tr>
         </thead>
         <tbody>
@@ -35,34 +39,43 @@
             {
                 <tr>
                     <td style="display:none">@item.ID</td>
+                    <td>
+                        <select class="form-control">
+                            <option>@item.OrderStatus</option>
+                            @if (item.OrderStatus != @EOrderStatus.Hazırlanıyor)
+                            {
+                                <option>@EOrderStatus.Hazırlanıyor</option>
+                            }
+                            @if (item.OrderStatus != @EOrderStatus.Paketlendi)
+                            {
+                                <option>@EOrderStatus.Paketlendi</option>
+                            }
+                            @if (item.OrderStatus != @EOrderStatus.KargoyaVerildi)
+                            {
+                                <option>@EOrderStatus.KargoyaVerildi</option>
+                            }
+                            @if (item.OrderStatus != @EOrderStatus.TeslimEdildi)
+                            {
+                                <option>@EOrderStatus.TeslimEdildi</option>
+                            }
+                            @if (item.OrderStatus != @EOrderStatus.İptalEdildi)
+                            {
+                                <option>@EOrderStatus.İptalEdildi</option>
+                            }
+                        </select>
+                    </td>
+                    <td><img width="120" height="120" src="/@item.Picture" /></td>
                     <td>@item.ProductName</td>
                     <td>@item.Name @item.Surname</td>
                     <td>@item.City</td>
                     <td>@item.Address</td>
                     <td>@item.ZipCode</td>
-                    <td>@item.Stock</td>
-                    <td>
-                        @{
-                            string x = "";
-                            string allCategories = "";
-                        }
-                        @foreach (var item1 in item.ProductCategories)
-                        {
-                            x = $"{item1.CategoryName},";
-                            @x
-
-                            allCategories += x;
-                            x = "";
-
-                        }
-                    </td>
-                    <td><a style="color:black" asp-area="saler" asp-controller="ProductPicture" asp-action="Index" asp-route-productid="@item.Id"><i class="fa fa-edit fa-2x"></i></a></td>
-                    <td><a style="color:black" asp-area="saler" asp-controller="SalerProduct" asp-action="Update" asp-route-id="@item.Id" asp-route-categories="@allCategories"><i class="fa fa-edit fa-2x"></i></a></td>
-                    <td>
-                        <button style="border:none" onclick="confirmDeleteProduct(@item.Id)"><i class="fa fa-trash fa-2x"></i></button>
-                    </td>
+                    <td>@item.RecDate</td>
+                    <td>@item.Detail</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price</td>
                 </tr>
             }
         </tbody>
     </table>
-</div>*@
+</div>

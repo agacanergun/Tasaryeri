@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TFthZ8MZmcm2Y6tW4W7BbDbqpsuLJZinIu0vLWIkjI8=",
+  "Hash": "z8eBX8qwbItJ6GA9yWiL6b5CMFA9wlBy9O9iTK+8wWo=",
   "Source": "Tasaryeri.WebUI",
   "BasePath": "_content/Tasaryeri.WebUI",
   "Mode": "Default",
@@ -86897,6 +86897,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\imgs\\2142.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\284asd.jpg",
+      "SourceId": "Tasaryeri.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\",
+      "BasePath": "_content/Tasaryeri.WebUI",
+      "RelativePath": "uploads/imgs/284asd.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\imgs\\284asd.jpg"
     },
     {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\uploads\\imgs\\2932.jpg",

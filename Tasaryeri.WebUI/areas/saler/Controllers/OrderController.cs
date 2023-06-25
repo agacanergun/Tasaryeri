@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Tasaryeri.BL.Abstract;
+using Tasaryeri.DAL.Enums;
 
 namespace Tasaryeri.WebUI.Areas.saler.Controllers
 {
@@ -13,11 +14,17 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         {
             this.orderTransactions = orderTransactions;
         }
+        [Route("satici/siparislerim")]
         public IActionResult Index()
         {
             int salerId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
             var response = orderTransactions.GetSalerOrders(salerId);
             return View(response);
+        }
+        [Route("satici/siparislerim/güncelle")]
+        public IActionResult UpdateOrderStatus(int id, EOrderStatus status)
+        {
+            return Redirect("satici/siparislerim");
         }
     }
 }
