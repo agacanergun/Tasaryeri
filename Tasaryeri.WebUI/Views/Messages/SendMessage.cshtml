@@ -82,7 +82,7 @@
                             <form asp-controller="Messages" asp-action="SendMessage" method="post">
                                 <div class="row">
                                     <div class="col-1"><button class="input-group-text" style="width:100%;height:100%"><i class="fa fa-send"></i></button></div>
-                                    <div class="col-11"><input type="text" asp-for="@Model.MessageDTO.Content" class="form-control" placeholder="Mesajınız ..."></div>
+                                    <div class="col-11"><input type="text" asp-for="@Model.MessageDTO.Content" required class="form-control" id="messages" placeholder="Mesajınız ..."></div>
                                     <input asp-for="@Model.MessageDTO.ProductId" type="hidden" />
                                     <input asp-for="@Model.MessageDTO.MemberId" type="hidden" />
                                     <input asp-for="@Model.MessageDTO.SalerId" type="hidden" />
@@ -97,3 +97,5 @@
 </div>
 <br />
 <br />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/mainjs/message.js"></script>

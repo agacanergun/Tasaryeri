@@ -70,24 +70,28 @@ namespace Tasaryeri.WebUI.Areas.saler.Controllers
         {
             try
             {
-                messageDTO.Timestamp = DateTime.Now;
-                messageDTO.Sender = "Saler";
-                var response = messageTransactions.SendMessage(messageDTO);
-                int salerId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
-                var oldMessages = messageTransactions.GetOldMessagesForSaler(salerId);
-                var member = messageTransactions.GetMember(messageDTO.MemberId);
-                var messages = messageTransactions.GetMessages(messageDTO.SalerId, messageDTO.MemberId, messageDTO.ProductId);
-                var product = messageTransactions.GetProduct(messageDTO.ProductId);
-
-                SendMessageVM sendMessageVM = new SendMessageVM
+                if (ModelState.IsValid)
                 {
-                    MessageDTO = messageDTO,
-                    MemberDTO = member,
-                    Messages = messages,
-                    productDTO = product,
-                    OldMessages = oldMessages,
-                };
-                return View(sendMessageVM);
+                    messageDTO.Timestamp = DateTime.Now;
+                    messageDTO.Sender = "Saler";
+                    var response = messageTransactions.SendMessage(messageDTO);
+                    int salerId = int.Parse(HttpContext.User.FindFirst(ClaimTypes.PrimarySid)?.Value);
+                    var oldMessages = messageTransactions.GetOldMessagesForSaler(salerId);
+                    var member = messageTransactions.GetMember(messageDTO.MemberId);
+                    var messages = messageTransactions.GetMessages(messageDTO.SalerId, messageDTO.MemberId, messageDTO.ProductId);
+                    var product = messageTransactions.GetProduct(messageDTO.ProductId);
+
+                    SendMessageVM sendMessageVM = new SendMessageVM
+                    {
+                        MessageDTO = messageDTO,
+                        MemberDTO = member,
+                        Messages = messages,
+                        productDTO = product,
+                        OldMessages = oldMessages,
+                    };
+                    return View(sendMessageVM);
+                }
+                return Redirect("/satici/mesajlar");
             }
             catch (Exception)
             {

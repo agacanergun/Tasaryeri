@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fukGywQ/4nRdaIoXP6yGfqRnWunZtMzLhOgATC3s75M=",
+  "Hash": "hJgvBtseRYTf2idXiOPNPjB1Bm6yuxM1Jan64BEiIsY=",
   "Source": "Tasaryeri.WebUI",
   "BasePath": "_content/Tasaryeri.WebUI",
   "Mode": "Default",
@@ -86727,6 +86727,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\mainJS\\main.js"
+    },
+    {
+      "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\mainJS\\message.js",
+      "SourceId": "Tasaryeri.WebUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\",
+      "BasePath": "_content/Tasaryeri.WebUI",
+      "RelativePath": "mainJS/message.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mainJS\\message.js"
     },
     {
       "Identity": "C:\\Users\\MONSTER\\Documents\\GitHub\\Tasaryeri\\Tasaryeri.WebUI\\wwwroot\\mainJS\\Modal.js",
