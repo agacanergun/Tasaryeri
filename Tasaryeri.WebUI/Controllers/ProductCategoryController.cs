@@ -16,12 +16,14 @@ namespace Tasaryeri.WebUI.Controllers
             this.categoryTransactions = categoryTransactions;
 
         }
-        public IActionResult Index(int id)
+        [Route("Kategoriler/{name}-{id}")]
+        public IActionResult Index(string name, int id)
         {
             try
             {
                 var response = productTransactionsUI.GetAll(id);
                 var responseCategories = categoryTransactions.GetAllSubCategories();
+        
 
                 var groupedCategories = responseCategories
                     .GroupBy(x => x.MainCategoryDTO.Name)

@@ -14,7 +14,7 @@
                 <ul class="collapse show list-unstyled pl-3">
                     @foreach (var item1 in item.subCategoriesDTO)
                     {
-                        <li><a class="text-decoration-none" asp-controller="ProductCategory" asp-action="Index" asp-route-id="@item1.Id">@item1.Name</a></li>
+                        <li><a class="text-decoration-none" asp-controller="ProductCategory" asp-action="Index" asp-route-name="@item1.Name" asp-route-id="@item1.Id">@item1.Name</a></li>
                     }
                 </ul>
             </li>
