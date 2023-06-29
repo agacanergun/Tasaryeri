@@ -9,13 +9,13 @@ namespace Tasaryeri.Core.Interfaces
 {
     public interface IRepository<T>
     {
-        public IQueryable<T> GetAll();
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> exp);
-        public T GetBy(Expression<Func<T, bool>> exp);
-        public int Add(T entity);
-        public int Update(T entity);
-        public int Delete(T entity);
-        public int AddRange(IEnumerable<T> entities);
-        public int DeleteRange(IEnumerable<T> entities);
+        IQueryable<T> GetAll();
+        IQueryable<T> GetAll(Expression<Func<T, bool>> exp);
+        T GetBy(Expression<Func<T, bool>> exp);
+        int Add(T entity);
+        int Update(T entity);
+        int Delete(T entity);
+        int AddRange(IEnumerable<T> entities);
+        int DeleteRange(IEnumerable<T> entities);
     }
 }
