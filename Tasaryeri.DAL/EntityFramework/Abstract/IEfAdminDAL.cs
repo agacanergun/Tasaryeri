@@ -9,10 +9,10 @@ namespace Tasaryeri.DAL.EntityFramework.Abstract
 {
     public interface IEfAdminDAL
     {
-        public Admin AdminLogin(Admin admin);
-        public IEnumerable<Admin> GetAll();
-        public bool Delete(Admin entity);
-        public bool Add(Admin entity);
-        public bool Update(Admin admin);
+        Admin AdminLogin(Admin admin);
+        IEnumerable<Admin> GetAll();
+        bool Delete(Admin entity);
+        bool Add(Admin entity);
+        bool Update(Admin admin);
     }
 }
