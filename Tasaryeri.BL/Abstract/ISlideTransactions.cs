@@ -9,9 +9,9 @@ namespace Tasaryeri.BL.Abstract
 {
     public interface ISlideTransactions
     {
-        public IEnumerable<SlideDTO> GetAll();
-        public bool Delete(SlideDTO slideDTO);
-        public bool Add(SlideDTO slideDTO);
-        public bool Update(SlideDTO slideDTO);
+        IEnumerable<SlideDTO> GetAll();
+        bool Delete(SlideDTO slideDTO);
+        bool Add(SlideDTO slideDTO);
+        bool Update(SlideDTO slideDTO);
     }
 }

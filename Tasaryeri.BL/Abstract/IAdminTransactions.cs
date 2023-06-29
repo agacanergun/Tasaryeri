@@ -9,11 +9,10 @@ namespace Tasaryeri.BL.Abstract
 {
     public interface IAdminTransactions
     {
-        public AdminLoginDTO Login(AdminLoginDTO adminLoginDTO);
-        public IEnumerable<AdminDTO> GetAll();
-        public bool Delete(int id);
-        public bool Add(AdminDTO adminDTO);
-        public bool Update(AdminDTO adminDTO);
+        AdminLoginDTO Login(AdminLoginDTO adminLoginDTO);
+        IEnumerable<AdminDTO> GetAll();
+        bool Delete(int id);
+        bool Add(AdminDTO adminDTO);
+        bool Update(AdminDTO adminDTO);
     }
 }
- 

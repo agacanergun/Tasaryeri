@@ -9,9 +9,9 @@ namespace Tasaryeri.BL.Abstract
 {
     public interface IOrderTransactions
     {
-        public bool AddOrder(AddOrderDTO addOrderDTO);
-        public IEnumerable<OrderDTO> GetMemberOrders(int id);
-        public IEnumerable<OrderDTO> GetSalerOrders(int id);
-        public bool UpdateOrderStatus(int id, string status);
+       bool AddOrder(AddOrderDTO addOrderDTO);
+       IEnumerable<OrderDTO> GetMemberOrders(int id);
+       IEnumerable<OrderDTO> GetSalerOrders(int id);
+       bool UpdateOrderStatus(int id, string status);
     }
 }
